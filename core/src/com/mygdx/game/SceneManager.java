@@ -13,8 +13,10 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 
 
-public class SceneManager extends AmpEngine{
+public class SceneManager{
 	private EntityManager entityManager;
+	private Texture developerLogo;
+	
 	
 	public void clearScreen() {
 		ScreenUtils.clear(100, 100, 100, 1);
@@ -27,28 +29,35 @@ public class SceneManager extends AmpEngine{
 	    return size;
 	}
 	
-	public void displaySplashScreen(int seconds, long startTime) {
+	public void setDeveloperLogo(String assetName) {
+		developerLogo = entityManager.loadTexture(assetName);
+	}
+	
+	public void displaySplashScreen(boolean timerMode, int seconds, long startTime) {
 		clearScreen();
-		
-		entityManager = new EntityManager();
-		
-		Texture texture = entityManager.loadTexture("badlogic.jpg");
 		
 		SpriteBatch spriteBatch = new SpriteBatch();
 		spriteBatch.begin();
 		
 		float[] windowSize = getWindowSize();
-		float x = (windowSize[0] - texture.getWidth()) / 2f;
-	    float y = (windowSize[1] - texture.getHeight()) / 2f;
+		float x = (windowSize[0] - developerLogo.getWidth()) / 2f;
+	    float y = (windowSize[1] - developerLogo.getHeight()) / 2f;
 	    
-		spriteBatch.draw(texture, x, y);
+		spriteBatch.draw(developerLogo, x, y);
 		spriteBatch.end();
 		
-		float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
-		if(elapsedTime > seconds) {
-			clearScreen();
+		if(timerMode == true) {
+			float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
+			if(elapsedTime > seconds) {
+				clearScreen();
+			}
 		}
 		
+		
+	}
+	
+	public SceneManager() {
+		entityManager = new EntityManager();
 	}
 	
 }

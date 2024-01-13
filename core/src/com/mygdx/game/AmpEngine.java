@@ -23,6 +23,11 @@ public class AmpEngine extends ApplicationAdapter{
 	@Override
 	public void render() {
 		sceneManager = new SceneManager();
-		sceneManager.displaySplashScreen(2, startTime);
+		sceneManager.setDeveloperLogo("badlogic.jpg");
+		sceneManager.displaySplashScreen(true, 2, startTime);
+	}
+	
+	public AmpEngine() {
+		
 	}
 }
