@@ -14,10 +14,11 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 
 public class SceneManager{
+	// INSTANCES AND VARIABLES
 	private EntityManager entityManager;
 	private Texture developerLogo;
 	
-	
+	// METHODS
 	public void clearScreen() {
 		ScreenUtils.clear(100, 100, 100, 1);
 	}
