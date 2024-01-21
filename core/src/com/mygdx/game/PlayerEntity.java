@@ -47,5 +47,6 @@ public abstract class PlayerEntity extends EntityManager implements InputProcess
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             setPosY(this.getPosY() - PLAYER_SPEED * Gdx.graphics.getDeltaTime());
         }
-	}
+	} //included PLAYER_SPEED which needs to be added to Entity Class 
+
 }
