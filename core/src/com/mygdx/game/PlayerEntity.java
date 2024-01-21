@@ -48,6 +48,5 @@ public abstract class PlayerEntity extends EntityManager implements InputProcess
             setPosY(this.getPosY() - PLAYER_SPEED * Gdx.graphics.getDeltaTime());
         }
     
-	
-
+	}
 }
