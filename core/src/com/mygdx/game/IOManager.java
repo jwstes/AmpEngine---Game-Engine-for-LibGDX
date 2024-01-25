@@ -1,20 +1,11 @@
 package com.mygdx.game;
-import com.mygdx.game.AmpEngine;
-import com.mygdx.game.EntityManager;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.Timer;
-import com.badlogic.gdx.utils.TimeUtils;
-import org.w3c.dom.Text;
-import com.badlogic.gdx.math.Rectangle;
-import org.w3c.dom.css.Rect;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 public abstract class IOManager extends EntityManager implements InputProcessor{
+	private static int GET_WEAPON_KEY = Input.Keys.G;
+	private static int DROP_WEAPON_KEY = Input.Keys.D;
+	private static int SEE_Inventory = Input.Keys.I;
 	public IOManager(int initialHealth) {
 		super(initialHealth); //mean to call the constructor of the parent class
 	}
@@ -30,17 +21,24 @@ public abstract class IOManager extends EntityManager implements InputProcessor{
 		return false;
 	}
 	private void handleInput(int keyPressed) {
+		float deltaTime = Gdx.graphics.getDeltaTime();
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            setPosX(this.getPosX() - PLAYER_SPEED * Gdx.graphics.getDeltaTime());
+            setPosX(getPosX() - PLAYER_SPEED * deltaTime);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            setPosX(this.getPosX() + PLAYER_SPEED * Gdx.graphics.getDeltaTime());
+            setPosX(getPosX() + PLAYER_SPEED * deltaTime);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            setPosY(this.getPosY() + PLAYER_SPEED * Gdx.graphics.getDeltaTime());
+            setPosY(getPosY() + PLAYER_SPEED * deltaTime);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            setPosY(this.getPosY() - PLAYER_SPEED * Gdx.graphics.getDeltaTime());
+            setPosY(getPosY() - PLAYER_SPEED * deltaTime);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
+            setPosY(getPosX() + PLAYER_SPEED * SPRINT_ENHANCER * deltaTime);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            setPosY(getPosY() + JUMP_POWER * deltaTime);
         }
 	}
 }
