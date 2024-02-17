@@ -1,2 +1,5 @@
-package com.mygdx.game;public class AIManager {
+package com.mygdx.game;
+
+public class AIManager {
+
 }

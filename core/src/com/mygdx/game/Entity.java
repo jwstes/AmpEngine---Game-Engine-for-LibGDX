@@ -1,23 +1,46 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import org.w3c.dom.Text;
 
-public class EntityManager{
+public class Entity {
 
+	private String name;
 	private int health;
-	private float posX;
-	private float posY;
+	private float x;
+	private float y;
+	private float speed;
+	private Texture tex; // this is the overlaying texture (sprite image)
+	private boolean isKillable; // Some "enemies" are meant to just attack like a floating canon
+								// Not necessary for all games, see how you want to implement the logic.
+	private boolean isAlive; // For logic that require a boolean way to check if the entity is alive.
+							// You can also check if health = 0 but that's scuffed innit.
 
-	public Rectangle rectangle; // Stores a gdx.math.Rectangle instance. // this is the hitbox
 
-	public Texture texture; // this is the overlaying texture (sprite image)
-	private int textureHeight;
-	private int textureWidth;
+	// Constructor
+	public Entity(){};
+																// name is identifier for scene so mandatory to set one
+	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
+		this.x = x;
+		this.y = y;
+		this.tex = t;
+	}
 
 
-	// GETTER SETTERS --------------------------------
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return this.name;
+	}
+
+
+	// Setter & Getter
 	public void setHealth(int health) {
 		this.health = health;
 	}
@@ -27,76 +50,32 @@ public class EntityManager{
 	}
 
 	public void setPosX(float newPosX){
-		this.posX = newPosX;
+		this.x = newPosX;
 	}
-	public float getPosX(float newPosX){
-		return this.posX;
+	public float getPosX(){
+		return this.x;
 	}
 
 	public void setPosY(float newPosY){
-		this.posY = newPosY;
+		this.y = newPosY;
 	}
-	public float getPosY(float newPosY){
-		return this.posY;
-	}
-
-
-
-
-
-	// GENERIC METHODS --------------------------------
-	// Check if player is still alive
-	public boolean isAlive(){
-		int hp = this.health;
-		return hp > 0;
+	public float getPosY(){
+		return this.y;
 	}
 
-	// Load image of player entity
-	public Texture setTexture(String filename){
-		Texture instanceImage;
-		instanceImage = new Texture(Gdx.files.internal(filename));
-		this.texture = instanceImage;
-		return instanceImage;
+	public void setSpeed(float speed){
+		this.speed = speed;
+	}
+	public float getSpeed(){
+		return this.speed;
+	}
+
+	public void setTexture(Texture t){
+		this.tex = t;
 	}
 
 
-	// CONSTRUCTORS --------------------------------
-	// generic instance of player entity // player is centered by default
-	public EntityManager() {
-		this.health = 10;
-		this.posX = (float) Gdx.graphics.getWidth() / 4 ;
-		this.posY = (float) Gdx.graphics.getHeight() / 3;   // Locate entity near bottom left
-		this.rectangle = new Rectangle();
-	}
 
-	// specific parameters for player entity
-	public EntityManager(int initialHealth){
-		this.health = initialHealth;
-		this.posX = (float) Gdx.graphics.getWidth() / 4;
-		this.posY = (float) Gdx.graphics.getHeight() / 3;
-		this.rectangle = new Rectangle();
-	}
 
-	public EntityManager(int initialHealth, Rectangle rectangleInstance) {
-		this.health = initialHealth;
-		this.posX = (float) Gdx.graphics.getWidth() / 4;
-		this.posY = (float) Gdx.graphics.getHeight() / 3;
-		this.rectangle = rectangleInstance;
-	}
-
-	public EntityManager(int initialHealth, float initial_posX, float initial_posY) {
-		this.health = initialHealth;
-		this.posX = initial_posX;
-		this.posY = initial_posY;
-		this.rectangle = new Rectangle();
-	}
-
-	public EntityManager(int initialHealth, float initial_posX, float initial_posY, Rectangle rectangleInstance) {
-		this.health = initialHealth;
-		this.posX = initial_posX;
-		this.posY = initial_posY;
-		this.rectangle = rectangleInstance;
-	}
-	
 }
 

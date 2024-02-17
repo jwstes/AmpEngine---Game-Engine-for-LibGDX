@@ -1,20 +1,15 @@
 package com.mygdx.game;
-import com.mygdx.game.AmpEngine;
-import com.mygdx.game.EntityManager;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.Input;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
@@ -22,7 +17,7 @@ import com.badlogic.gdx.graphics.Color;
 
 public class SceneManager{
 	// INSTANCES AND VARIABLES
-	private EntityManager entityManager;
+	private Entity entity;
 	private Texture developerLogo;
 	
 	// METHODS
@@ -38,7 +33,7 @@ public class SceneManager{
 	}
 	
 	public void setDeveloperLogo(String assetName) {
-		developerLogo = entityManager.setTexture(assetName);
+		developerLogo = entity.setTexture(assetName);
 	}
 	
 	public boolean displaySplashScreen(boolean timerMode, int seconds, long startTime) {
@@ -132,7 +127,7 @@ public class SceneManager{
 	}
 	
 	public SceneManager() {
-		entityManager = new EntityManager();
+
 	}
-	
+
 }
