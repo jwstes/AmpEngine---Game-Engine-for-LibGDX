@@ -81,6 +81,9 @@ public class EntityManager {
     	Array<PlayerEntity> pEntities = new Array<PlayerEntity>();
     	Array<StaticEntity> sEntities = new Array<StaticEntity>();
     	
+    	String staticString = "static";
+    	String playerString = "player";
+    	String adversarialString = "adversarial";
     	
     	for (int i = 0; i < entitiesSize; i++) {
     		int x = entityCoords.get(i)[0];
@@ -88,20 +91,21 @@ public class EntityManager {
     		Texture t = entityTextures.get(i);
     		String type = entityTypes.get(i);
     		
+    		
     		boolean isAlive = entityProperties.get(i)[0];
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
     		boolean isBreakable = entityProperties.get(i)[3];
     		
-    		if(type == "player") {
+    		
+    		if(type.equals(playerString)) {
     			PlayerEntity pe = new PlayerEntity("n", x, y, t);
     			pe.setIsAlive(isAlive);
     			pe.setIsKillable(isKillable);
     			pe.setIsMovable(isMovable);
     			pEntities.add(pe);
-    			
     		}
-    		else if (type == "static") {
+    		else if (type.equals(staticString)) {
     			StaticEntity se = new StaticEntity("n", x, y, t);
     			se.setIsAlive(isAlive);
     			se.setIsKillable(isKillable);
@@ -109,13 +113,12 @@ public class EntityManager {
     			se.setIsBreakable(isBreakable);
     			sEntities.add(se);
     		}
-    		else if (type == "adversarial") {
+    		else if (type.equals(adversarialString)) {
     			AdversarialEntity ade = new AdversarialEntity("n", x, y, t);
     			ade.setIsAlive(isAlive);
     			ade.setIsKillable(isKillable);
     			adEntities.add(ade);
     		}
-    		
     		allAdversarialEntity = adEntities;
     		allStaticEntity = sEntities;
     		allPlayerEntity = pEntities;

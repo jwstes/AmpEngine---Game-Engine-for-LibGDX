@@ -75,7 +75,6 @@ public class SceneManager{
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
 		
-//		System.out.println(allStaticEntity.size());
 		
 		batch.begin();
 		
@@ -96,6 +95,21 @@ public class SceneManager{
 		currentSceneID = sceneID;
 		batch.end();
 	}
+	
+	
+	//Experimental Collider. Can Delete Later
+	public void checkCollision() {
+		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
+		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
+		
+		PlayerEntity player = allPlayerEntity.get(0);
+		for(StaticEntity se: allStaticEntity) {
+			if(player.getRec().overlaps(se.getRec())) {
+				System.out.println("Overlapping");
+			}
+		}
+	}
+	
 	
 	
 	public Array<Scene> getAllScenes(){

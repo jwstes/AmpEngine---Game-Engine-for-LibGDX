@@ -23,7 +23,6 @@ public class Entity {
 							// You can also check if health = 0 but that's scuffed innit.
 	
 	
-	
 	private Rectangle rec;
 															// name is identifier for scene so mandatory to set one
 	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
@@ -93,6 +92,7 @@ public class Entity {
 	}
 	
 	public void compile() {
+//		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
 		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
 	}
 	public Rectangle getRec() {

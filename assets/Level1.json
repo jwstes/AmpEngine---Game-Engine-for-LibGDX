@@ -3,7 +3,7 @@
         {
             "coords": [
                 0,
-                26
+                32
             ],
             "texture": "player.png",
             "isAlive": true,
@@ -12,6 +12,7 @@
             "isBreakable": false,
             "entityType": "player"
         },
+        
         {
             "coords": [
                 0,

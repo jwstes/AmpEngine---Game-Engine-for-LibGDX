@@ -18,7 +18,10 @@ import com.mygdx.game.SceneManager;
 
 public class AmpEngine extends ApplicationAdapter{
 	private SceneManager sceneManager;
-//	private long startTime;
+	
+	//Experimental Collider. Can Delete Later
+	private long startTime;
+	private long lastCheckTime;
 	
 //	private int selectedMenuIndex;
 	
@@ -32,22 +35,15 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager = new SceneManager(sceneJSONArr);
 		
 		
+		//Experimental Collider. Can Delete Later
+		startTime = System.currentTimeMillis();
+		lastCheckTime = System.currentTimeMillis();
+
 		
-//		startTime = TimeUtils.nanoTime();
-//		selectedMenuIndex = 2;
 		
 		
+		//		selectedMenuIndex = 2;
 		
-//		scene = new Scene();
-		
-		//========================================================Test getting JSON==========================================
-//	    scene.ParseFromJSON("Level1.json");
-//	    scene.createEntities();
-	    //Order : isAlive , isKillable , isMovable , isBreakable
-//	    for (boolean[] properties : scene.GetEntityProperty()) {
-//	        System.out.println(Arrays.toString(properties));
-//	    }
-	    //===================================================================================================================
 	}
 	
 
@@ -56,6 +52,22 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 		sceneManager.clearScreen();
         sceneManager.loadScene(0);
+        
+        
+        //Experimental Collider. Can Delete Later
+        if(System.currentTimeMillis() >= (lastCheckTime + 1000)) {
+        	System.out.println("Checking For Collision");
+        	sceneManager.checkCollision();
+        	lastCheckTime = System.currentTimeMillis();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         
 //        batch.begin();
         
