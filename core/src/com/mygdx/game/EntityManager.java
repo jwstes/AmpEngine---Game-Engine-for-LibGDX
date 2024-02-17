@@ -2,18 +2,35 @@ package com.mygdx.game;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.graphics.Texture;
 
 public class EntityManager {
 
     // Attributes
     private List<Entity> entityList;
+    private Array<AdversarialEntity> allAdversarialEntity;
+    private Array<StaticEntity> allStaticEntity;
+    private Array<PlayerEntity> allPlayerEntity;
 
 
     //Constructor
     public EntityManager(){
         entityList = new ArrayList<>();
+        allAdversarialEntity = new Array<AdversarialEntity>();
+        allStaticEntity = new Array<StaticEntity>();
+        allPlayerEntity = new Array<PlayerEntity>();
     }
-
+    
+    public Array<AdversarialEntity> getAllAdEntity(){
+    	return allAdversarialEntity;
+    }
+    public Array<StaticEntity> getAllSEntity(){
+    	return allStaticEntity;
+    }
+    public Array<PlayerEntity> getAllPEntity(){
+    	return allPlayerEntity;
+    }
 
 
 
@@ -48,7 +65,64 @@ public class EntityManager {
             System.out.println(name+ " failed to be removed from list. Check if Name is correct or exists" );
         }
     }
+    
+    public void createEntities(Scene s) {
+    	List<int[]> entityCoords = s.GetEntityCoords();
+    	List<Texture> entityTextures = s.GetEntityTextures();
+    	
+    	//alive, killable, movable, breakable
+    	List<boolean[]> entityProperties = s.GetEntityProperty();
+    	int entitiesSize = s.GetEntityArrSize();
+    	
+    	List<String> entityTypes = s.GetEntityTypes();
+    	
+    	
+    	Array<AdversarialEntity> adEntities = new Array<AdversarialEntity>();
+    	Array<PlayerEntity> pEntities = new Array<PlayerEntity>();
+    	Array<StaticEntity> sEntities = new Array<StaticEntity>();
+    	
+    	
+    	for (int i = 0; i < entitiesSize; i++) {
+    		int x = entityCoords.get(i)[0];
+    		int y = entityCoords.get(i)[1];
+    		Texture t = entityTextures.get(i);
+    		String type = entityTypes.get(i);
+    		
+    		boolean isAlive = entityProperties.get(i)[0];
+    		boolean isKillable = entityProperties.get(i)[1];
+    		boolean isMovable = entityProperties.get(i)[2];
+    		boolean isBreakable = entityProperties.get(i)[3];
+    		
+    		if(type == "player") {
+    			PlayerEntity pe = new PlayerEntity("n", x, y, t);
+    			pe.setIsAlive(isAlive);
+    			pe.setIsKillable(isKillable);
+    			pe.setIsMovable(isMovable);
+    			pEntities.add(pe);
+    			
+    		}
+    		else if (type == "static") {
+    			StaticEntity se = new StaticEntity("n", x, y, t);
+    			se.setIsAlive(isAlive);
+    			se.setIsKillable(isKillable);
+    			se.setIsMovable(isMovable);
+    			se.setIsBreakable(isBreakable);
+    			sEntities.add(se);
+    		}
+    		else if (type == "adversarial") {
+    			AdversarialEntity ade = new AdversarialEntity("n", x, y, t);
+    			ade.setIsAlive(isAlive);
+    			ade.setIsKillable(isKillable);
+    			adEntities.add(ade);
+    		}
+    		
+    		allAdversarialEntity = adEntities;
+    		allStaticEntity = sEntities;
+    		allPlayerEntity = pEntities;
+    	}
+    }
 
+    
     // Remove EVERY Entity in the list (Clear all in entity)
     public void clearAllEntities(String name){
         entityList.clear();

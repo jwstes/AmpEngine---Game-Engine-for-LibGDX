@@ -7,7 +7,6 @@ public class AdversarialEntity extends Entity {
                                             //  shooting another AdversarialEntity Object out, just that this one not
                                             // killable.
 
-    public AdversarialEntity(){};
     public AdversarialEntity(String n,float x, float y, Texture t){
         super(n,x,y,t); //need name, x, y, Texture
     }

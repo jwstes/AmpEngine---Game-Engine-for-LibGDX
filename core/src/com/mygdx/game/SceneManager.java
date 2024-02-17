@@ -14,15 +14,25 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
 
+import com.badlogic.gdx.utils.Array;
+
 
 public class SceneManager{
 	// INSTANCES AND VARIABLES
-	private Entity entity;
+	private EntityManager entityManager;
 	private Texture developerLogo;
+	private Array<Scene> allScenes;
+	
+	private Scene currentScene;
+	private int currentSceneID;
+	
+	private SpriteBatch batch;
 	
 	// METHODS
 	public void clearScreen() {
-		ScreenUtils.clear(100, 100, 100, 1);
+//		ScreenUtils.clear(100, 100, 100, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 	}
 	
 	public float[] getWindowSize() {
@@ -32,30 +42,66 @@ public class SceneManager{
 	    return size;
 	}
 	
-	public void setDeveloperLogo(Texture assetName) {
-		developerLogo = entity.setTexture(assetName);
-	}
+//	public void setDeveloperLogo(Texture assetName) {
+//		developerLogo = entity.setTexture(assetName);
+//	}
+//	
+//	public boolean displaySplashScreen(boolean timerMode, int seconds, long startTime) {
+//		clearScreen();
+//		
+//		SpriteBatch spriteBatch = new SpriteBatch();
+//		spriteBatch.begin();
+//		
+//		float[] windowSize = getWindowSize();
+//		float x = (windowSize[0] - developerLogo.getWidth()) / 2f;
+//	    float y = (windowSize[1] - developerLogo.getHeight()) / 2f;
+//	    
+//		spriteBatch.draw(developerLogo, x, y);
+//		spriteBatch.end();
+//		
+//		if(timerMode == true) {
+//			float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
+//			return elapsedTime > seconds;
+//		}
+//		return false;
+//	}
 	
-	public boolean displaySplashScreen(boolean timerMode, int seconds, long startTime) {
-		clearScreen();
+	public void loadScene(int sceneID) {
+		Scene selectedScene = allScenes.get(sceneID);
+			
+		entityManager.createEntities(selectedScene);
 		
-		SpriteBatch spriteBatch = new SpriteBatch();
-		spriteBatch.begin();
+		Array<AdversarialEntity> allAdversarialEntity = entityManager.getAllAdEntity();
+		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
+		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
 		
-		float[] windowSize = getWindowSize();
-		float x = (windowSize[0] - developerLogo.getWidth()) / 2f;
-	    float y = (windowSize[1] - developerLogo.getHeight()) / 2f;
-	    
-		spriteBatch.draw(developerLogo, x, y);
-		spriteBatch.end();
+//		System.out.println(allStaticEntity.size());
 		
-		if(timerMode == true) {
-			float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
-			return elapsedTime > seconds;
+		batch.begin();
+		
+		
+		for(AdversarialEntity e : allAdversarialEntity) {
+			e.draw(batch);
 		}
-		return false;
+		for(StaticEntity e : allStaticEntity) {
+			
+			e.draw(batch);
+		}
+		for(PlayerEntity e : allPlayerEntity) {
+			e.draw(batch);
+		}
+		
+		
+		currentScene = selectedScene;
+		currentSceneID = sceneID;
+		batch.end();
 	}
 	
+	
+	public Array<Scene> getAllScenes(){
+		return allScenes;
+	}
+
 	public int displayMenu(String[] menuItemText, Runnable[] actions, int selectedMenuItemIndex) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 	    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -126,8 +172,18 @@ public class SceneManager{
 	    return selectedMenuItemIndex;
 	}
 	
-	public SceneManager() {
-
+	public SceneManager(Array<String> sceneJSONArr) {
+		entityManager = new EntityManager();
+		allScenes = new Array<Scene>();
+		
+		batch = new SpriteBatch();
+		
+		for(String sceneJSON : sceneJSONArr) {
+            Scene s = new Scene();
+            s.ParseFromJSON(sceneJSON);
+            allScenes.add(s);
+        }
+		
 	}
 
 }

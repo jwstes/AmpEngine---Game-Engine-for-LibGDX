@@ -12,21 +12,15 @@ public class Scene {
 	private List<int[]> entityCoords;
 	private List<Texture> entityTextures;
     private List<boolean[]> entityProperties;
+    private List<String> entityTypes;
+    private int entitiesSize;
     
-    
-    
-    //delete later for testing only
-    private List<GameEntity> entities;
-
+   
     public Scene() {
         entityCoords = new ArrayList<int[]>();
         entityTextures = new ArrayList<Texture>();
         entityProperties = new ArrayList<boolean[]>();
-        
-        
-        
-        //delete later for testing only
-        entities = new ArrayList<>();
+        entityTypes = new ArrayList<String>();
     }
     // each tile is 32width 26 height
     public void ParseFromJSON(String jsonString) {
@@ -45,6 +39,10 @@ public class Scene {
                     
                     //add texture to tex list
                     String texturePath = entity.getString("texture");
+                    
+                    String type = entity.getString("entityType");
+                    entityTypes.add(type);
+                    
                     Texture texture = new Texture(Gdx.files.internal(texturePath));
                     entityTextures.add(texture);
                     
@@ -63,25 +61,10 @@ public class Scene {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        entitiesSize = entityCoords.size();
     }
     
-    
-    
-    //=============================================delete later for testing only===========================================
-    public void createEntities() {
-        for (int i = 0; i < entityCoords.size(); i++) {
-            int[] coords = entityCoords.get(i);
-            Texture texture = entityTextures.get(i);
-
-            GameEntity entity = new GameEntity(coords[0], coords[1], texture);
-            entities.add(entity);
-        }
-    }
-    //delete later for testing only
-    public List<GameEntity> getEntities() {
-        return entities;
-    }
-    //======================================================================================================================
     
     
     
@@ -95,8 +78,13 @@ public class Scene {
     	
     }
     public List<boolean[]> GetEntityProperty() {
-		return entityProperties;
-		
+		return entityProperties;	
+    }
+    public int GetEntityArrSize() {
+    	return entitiesSize;
+    }
+    public List<String> GetEntityTypes() {
+    	return entityTypes;
     }
 
 }

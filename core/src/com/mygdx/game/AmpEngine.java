@@ -12,36 +12,41 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 
 import com.mygdx.game.SceneManager;
 
 public class AmpEngine extends ApplicationAdapter{
 	private SceneManager sceneManager;
-	private long startTime;
+//	private long startTime;
 	
-	private int selectedMenuIndex;
+//	private int selectedMenuIndex;
 	
 	private Scene scene;
-	private SpriteBatch batch;
 	
 	@Override
 	public void create() {
-		batch = new SpriteBatch();
-		sceneManager = new SceneManager();
-		//sceneManager.setDeveloperLogo("badlogic.jpg");
+		Array<String> sceneJSONArr = new Array<String>();
+		sceneJSONArr.add("Level1.json");
+		//... add more if needed
+		sceneManager = new SceneManager(sceneJSONArr);
 		
-		startTime = TimeUtils.nanoTime();
-		selectedMenuIndex = 2;
 		
-		scene = new Scene();
-
+		
+//		startTime = TimeUtils.nanoTime();
+//		selectedMenuIndex = 2;
+		
+		
+		
+//		scene = new Scene();
+		
 		//========================================================Test getting JSON==========================================
-	    scene.ParseFromJSON("Level1.json");
-	    scene.createEntities();
+//	    scene.ParseFromJSON("Level1.json");
+//	    scene.createEntities();
 	    //Order : isAlive , isKillable , isMovable , isBreakable
-	    for (boolean[] properties : scene.GetEntityProperty()) {
-	        System.out.println(Arrays.toString(properties));
-	    }
+//	    for (boolean[] properties : scene.GetEntityProperty()) {
+//	        System.out.println(Arrays.toString(properties));
+//	    }
 	    //===================================================================================================================
 	}
 	
@@ -49,15 +54,18 @@ public class AmpEngine extends ApplicationAdapter{
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.begin();
+		sceneManager.clearScreen();
+        sceneManager.loadScene(0);
+        
+//        batch.begin();
+        
         // Draw all entities
-        for (GameEntity entity : scene.getEntities()) {
-            entity.draw(batch);
-        }
-        batch.end();
+        
+//        for (GameEntity entity : scene.getEntities()) {
+//            entity.draw(batch);
+//        }
+//        batch.end();
+        
 		/*
 		boolean splashScreen = sceneManager.displaySplashScreen(true, 2, startTime);
 		if(splashScreen) {
