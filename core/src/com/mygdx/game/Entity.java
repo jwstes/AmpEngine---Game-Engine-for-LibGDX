@@ -9,7 +9,7 @@ import org.w3c.dom.Text;
 
 public class Entity {
 
-	private String name;
+	protected String name;
 	private int health;
 	private float x;
 	private float y;
@@ -30,7 +30,10 @@ public class Entity {
 		this.tex = t;
 	}
 
-
+	// auto generated to fix StaticEntity Error
+	public Entity(float x2, float y2, Texture t) {
+		// TODO Auto-generated constructor stub
+	}
 	public void setName(String name){
 		this.name = name;
 	}
@@ -70,8 +73,8 @@ public class Entity {
 		return this.speed;
 	}
 
-	public void setTexture(Texture t){
-		this.tex = t;
+	public void setTexture(Texture assetName){
+		this.tex = assetName;
 	}
 
 

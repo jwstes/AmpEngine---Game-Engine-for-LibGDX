@@ -32,7 +32,7 @@ public class SceneManager{
 	    return size;
 	}
 	
-	public void setDeveloperLogo(String assetName) {
+	public void setDeveloperLogo(Texture assetName) {
 		developerLogo = entity.setTexture(assetName);
 	}
 	

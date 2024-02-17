@@ -1,0 +1,324 @@
+{
+  "Entities": [
+    {
+      "coords": [0, 0],
+      "texture": "10.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [32, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [64, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [96, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [128, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [160, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [192, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [224, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [256, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [288, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [320, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [352, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [384, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [416, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [448, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [480, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [512, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [544, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [576, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [608, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [640, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [672, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [704, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [736, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [768, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [800, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [832, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [864, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [896, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [928, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [960, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [992, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1024, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1056, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1088, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1120, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1152, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1184, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1216, 0],
+      "texture": "11.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    },
+    {
+      "coords": [1248, 0],
+      "texture": "12.png",
+      "isAlive": false,
+      "isKillable": false,
+      "isMovable": false,
+      "isBreakable": false
+    }
+  ]
+}
