@@ -14,6 +14,7 @@ public class Scene {
     private List<boolean[]> entityProperties;
     private List<String> entityTypes;
     private int entitiesSize;
+    private Texture backgroundTexture;
     
    
     public Scene() {
@@ -28,6 +29,9 @@ public class Scene {
             JsonReader jsonReader = new JsonReader();
             
             JsonValue base = jsonReader.parse(Gdx.files.internal(jsonString).readString("UTF-8"));
+            backgroundTexture = new Texture(Gdx.files.internal(base.getString("background")));
+            
+            
             JsonValue entities = base.get("entities");
             // Check that the "entities" array is present
             if (entities != null) { 
@@ -85,6 +89,9 @@ public class Scene {
     }
     public List<String> GetEntityTypes() {
     	return entityTypes;
+    }
+    public Texture GetBackgroundTexture() {
+    	return backgroundTexture;
     }
 
 }

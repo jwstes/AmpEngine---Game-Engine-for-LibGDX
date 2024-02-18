@@ -66,9 +66,17 @@ public class SceneManager{
 //		return false;
 //	}
 	
+	public void loadBackground(Texture backgroundTexture) {
+		batch.begin();
+		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		batch.end();
+	}
 	public void loadScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
-			
+		
+		Texture backgroundTexture = selectedScene.GetBackgroundTexture();
+		loadBackground(backgroundTexture);
+		
 		entityManager.createEntities(selectedScene);
 		
 		Array<AdversarialEntity> allAdversarialEntity = entityManager.getAllAdEntity();
