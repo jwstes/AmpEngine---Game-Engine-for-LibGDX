@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import org.w3c.dom.Text;
 
 public abstract class Entity {
@@ -22,15 +23,17 @@ public abstract class Entity {
 	private boolean isAlive; // For logic that require a boolean way to check if the entity is alive.
 							// You can also check if health = 0 but that's scuffed innit.
 	
+	private String entityType;
 	
 	private Rectangle rec;
+	private boolean isCollidable;
 															// name is identifier for scene so mandatory to set one
 	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
 		this.x = x;
 		this.y = y;
 		this.tex = t;
 		
-		compile();
+		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
 	}
 	
 	
@@ -50,6 +53,23 @@ public abstract class Entity {
 	        this.tex = tex;
 	    }
 	    
+	    
+	    public void drawBounds(ShapeRenderer shapeRenderer) {
+	        Rectangle bounds = getRec();
+	        shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+	    }
+	    public void setIsCollidable(boolean b) {
+	        isCollidable = b;
+	    }
+	    public boolean getIsCollidable() {
+	        return isCollidable;
+	    }
+	public String getEntityType() {
+		return entityType;
+	}
+	public String setEntityType(String s) {
+		return entityType = s;
+	}
 
 	public void setName(String name){
 		this.name = name;

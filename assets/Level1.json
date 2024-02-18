@@ -14,7 +14,8 @@
             "isMovable": true,
             "isBreakable": false,
             "entityType": "player",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -31,7 +32,8 @@
             "isMovable": true,
             "isBreakable": false,
             "entityType": "player",
-            "isAnimated": true
+            "isAnimated": true,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -48,7 +50,8 @@
             "isMovable": true,
             "isBreakable": false,
             "entityType": "player",
-            "isAnimated": true
+            "isAnimated": true,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -63,7 +66,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -78,7 +82,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -93,7 +98,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -108,7 +114,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -123,7 +130,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -138,7 +146,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -153,7 +162,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -168,7 +178,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -183,7 +194,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -198,7 +210,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -213,7 +226,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -228,7 +242,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -243,7 +258,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -258,7 +274,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -273,7 +290,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -288,7 +306,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -303,7 +322,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -318,7 +338,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -333,7 +354,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -348,7 +370,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -363,7 +386,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -378,7 +402,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -393,7 +418,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -408,7 +434,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -423,7 +450,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -438,7 +466,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -453,7 +482,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -468,7 +498,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -483,7 +514,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -498,7 +530,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -513,7 +546,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -528,7 +562,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -543,7 +578,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -558,7 +594,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -573,7 +610,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -588,7 +626,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -603,7 +642,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -618,7 +658,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -633,7 +674,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
@@ -648,7 +690,8 @@
             "isMovable": false,
             "isBreakable": false,
             "entityType": "static",
-            "isAnimated": false
+            "isAnimated": false,
+            "isCollidable": false
         }
     ]
 }

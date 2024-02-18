@@ -120,6 +120,7 @@ public class EntityManager {
         			pe.setIsAlive(isAlive);
         			pe.setIsKillable(isKillable);
         			pe.setIsMovable(isMovable);
+        			pe.setEntityType(playerString);
         			pEntities.add(pe);
         		}
         		else if (type.equals(staticString)) {
@@ -128,12 +129,14 @@ public class EntityManager {
         			se.setIsKillable(isKillable);
         			se.setIsMovable(isMovable);
         			se.setIsBreakable(isBreakable);
+        			se.setEntityType(staticString);
         			sEntities.add(se);
         		}
         		else if (type.equals(adversarialString)) {
         			AdversarialEntity ade = new AdversarialEntity("n", x, y, t[0]);
         			ade.setIsAlive(isAlive);
         			ade.setIsKillable(isKillable);
+        			ade.setEntityType(adversarialString);
         			adEntities.add(ade);
         		}
     		}

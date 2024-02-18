@@ -57,11 +57,12 @@ public class Scene {
                     entityTypes.add(type);
                     
                     //store the properties into 1 list in this order
-                    boolean[] properties = new boolean[4];
+                    boolean[] properties = new boolean[5];
                     properties[0] = entity.getBoolean("isAlive");
                     properties[1] = entity.getBoolean("isKillable");
                     properties[2] = entity.getBoolean("isMovable");
                     properties[3] = entity.getBoolean("isBreakable");
+                    properties[4] = entity.getBoolean("isCollidable");
                     entityProperties.add(properties); 
                     
                     Boolean isAnimated = entity.getBoolean("isAnimated");

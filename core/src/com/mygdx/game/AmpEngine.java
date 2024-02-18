@@ -30,8 +30,6 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneJSONArr.add("Level1.json");
 		//... add more if needed
 		sceneManager = new SceneManager(sceneJSONArr);
-
-		
 	}
 	
 
@@ -40,12 +38,11 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 		sceneManager.clearScreen();
         sceneManager.loadScene(0);
+        sceneManager.drawCollider();
+        
         sceneManager.updateScene();
         
-
-
-
-		
+        
 	}
 	
 	public AmpEngine() {
