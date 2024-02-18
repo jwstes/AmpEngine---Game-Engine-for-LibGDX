@@ -103,7 +103,7 @@ public class AIManager extends Entity {
 
             batch.draw(spikeTexture, spikeX, spikeY);
         }
-        System.out.println("AIManager draw method is called");
+        //System.out.println("AIManager draw method is called");
     }
 
     // Inner static class for MovementPosition

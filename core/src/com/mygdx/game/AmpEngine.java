@@ -1,31 +1,27 @@
 package com.mygdx.game;
-import java.util.Arrays;
-import java.util.List;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
-import com.mygdx.game.SceneManager;
-
 public class AmpEngine extends ApplicationAdapter{
 	private SceneManager sceneManager;
+	private EntityManager entityManager;
+	//private CollisionManager collisionManager;
+	private ShapeRenderer shapeRenderer;
 	
 	//Experimental Collider. Can Delete Later
 	private long startTime;
 	private long lastCheckTime;
 	
-//	private int selectedMenuIndex;
 	
+	
+//	private int selectedMenuIndex;
 	private Scene scene;
 	
 	
@@ -39,26 +35,25 @@ public class AmpEngine extends ApplicationAdapter{
 
 	private AdversarialEntity spikeTrap;
 	
-	private EntityManager entityManager; 
-	
 	private AIManager aiManager;
 	
 	
-	
+	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
 	@Override
 	public void create() {
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
 		//... add more if needed
 		sceneManager = new SceneManager(sceneJSONArr);
+		entityManager = new EntityManager();
+		
+		
 		
 		
 		//Experimental Collider. Can Delete Later
 		startTime = System.currentTimeMillis();
 		lastCheckTime = System.currentTimeMillis();
 
-		
-		
 		
 		//		selectedMenuIndex = 2;
 		
@@ -117,7 +112,7 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 		sceneManager.clearScreen();
         sceneManager.loadScene(0);
-        
+       
         
         //start of spike AI, can be change later if not ok
         
@@ -142,26 +137,14 @@ public class AmpEngine extends ApplicationAdapter{
 
         batch.end();
         
-        
+       
         //Experimental Collider. Can Delete Later
-        if(System.currentTimeMillis() >= (lastCheckTime + 1000)) {
-        	System.out.println("Checking For Collision");
+        if(System.currentTimeMillis() >= (lastCheckTime + 100)) {
+        	//System.out.println("Checking For Collision");
         	sceneManager.checkCollision();
         	lastCheckTime = System.currentTimeMillis();
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        sceneManager.drawCollider();
 //        batch.begin();
         
         // Draw all entities

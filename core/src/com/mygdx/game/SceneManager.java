@@ -10,6 +10,7 @@ import com.badlogic.gdx.Input;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.utils.Array;
 public class SceneManager{
 	// INSTANCES AND VARIABLES
 	private EntityManager entityManager;
+	private CollisionManager collisionManager;
 	private Texture developerLogo;
 	private Array<Scene> allScenes;
 	
@@ -27,6 +29,10 @@ public class SceneManager{
 	private int currentSceneID;
 	
 	private SpriteBatch batch;
+	
+	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
+	private ShapeRenderer shapeRenderer = new ShapeRenderer();
+	private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
 	
 	// METHODS
 	public void clearScreen() {
@@ -107,17 +113,30 @@ public class SceneManager{
 	
 	//Experimental Collider. Can Delete Later
 	public void checkCollision() {
-		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
-		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
-		
-		PlayerEntity player = allPlayerEntity.get(0);
-		for(StaticEntity se: allStaticEntity) {
-			if(player.getRec().overlaps(se.getRec())) {
-				System.out.println("Overlapping");
-			}
-		}
+		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity());
+		collisionManager.checkPlayerCollisions();
+
 	}
-	
+	public void drawCollider() {
+		shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+	    shapeRenderer.setColor(Color.RED);
+
+	    for (PlayerEntity player : entityManager.getAllPEntity()) {
+	        shapeRenderer.rect(player.getRec().x, player.getRec().y, player.getRec().width, player.getRec().height);
+	    }
+	    for (StaticEntity staticEntity : entityManager.getAllSEntity()) {
+	        shapeRenderer.rect(staticEntity.getRec().x, staticEntity.getRec().y, staticEntity.getRec().width, staticEntity.getRec().height);
+	    }
+	    for (AdversarialEntity adversary : entityManager.getAllAdEntity()) {
+	        shapeRenderer.rect(adversary.getRec().x, adversary.getRec().y, adversary.getRec().width, adversary.getRec().height);
+	    }
+	    
+	    
+	    quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+
+
+	    shapeRenderer.end(); // End shape drawing
+	}
 	
 	
 	public Array<Scene> getAllScenes(){

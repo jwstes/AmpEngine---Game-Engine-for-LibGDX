@@ -1,14 +1,12 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import org.w3c.dom.Text;
 
 public abstract class Entity {
+
 
 	protected String name;
 	private int health;
@@ -21,6 +19,8 @@ public abstract class Entity {
 	
 	private boolean isAlive; // For logic that require a boolean way to check if the entity is alive.
 							// You can also check if health = 0 but that's scuffed innit.
+	private boolean isCollidable;
+	private String entityType;
 	
 	
 	private Rectangle rec;
@@ -29,8 +29,8 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.tex = t;
-		
-		compile();
+		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
+		//compile();
 	}
 	
 	
@@ -73,7 +73,12 @@ public abstract class Entity {
 		return isKillable;
 	}
 	
-
+	public void setIsCollidable(boolean b) {
+		isCollidable = b;
+	}
+	public boolean getIsCollidable() {
+		return isCollidable;
+	}
 
 	// Setter & Getter
 	public void setHealth(int health) {
@@ -105,9 +110,9 @@ public abstract class Entity {
 		return this.speed;
 	}
 
-	public void setTexture(Texture assetName){
-		this.tex = assetName;
-	}
+	//public void setTexture(Texture assetName){
+		//this.tex = assetName;
+	//}
 	
 	public Texture getTexture() { // Add this method
         return tex;
@@ -127,16 +132,26 @@ public abstract class Entity {
         }
 	}
 	
-	//
-	
 	public abstract void update();
 	
 	public void render(SpriteBatch b) {}
 	
 	
-
-
+	
+	public String getEntityType() {
+		return entityType;
+	}
+	public String setEntityType(String s) {
+		return entityType = s;
+	}
+	
+	//debugging
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+        Rectangle bounds = getRec();
+        shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+    }
 
 
 }
+
 

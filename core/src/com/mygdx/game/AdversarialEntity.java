@@ -85,7 +85,12 @@ public class AdversarialEntity extends Entity {
         }
     }
 
-    @Override
+    private void setTexture(Texture texture) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
     public void draw(SpriteBatch batch) {
         batch.draw(getTexture(), getPosX(), getPosY());
     }
