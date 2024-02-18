@@ -27,8 +27,8 @@ public class StaticEntity extends Entity{
     }
 
 	@Override
-	public void update() {
+	public long update(long lastEntityUpdate) {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 }

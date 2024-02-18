@@ -129,7 +129,7 @@ public abstract class Entity {
 	
 	//
 	
-	public abstract void update();
+	public abstract long update(long lastEntityUpdate);
 	
 	public void render(SpriteBatch b) {}
 	

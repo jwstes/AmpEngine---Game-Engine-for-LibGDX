@@ -13,13 +13,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 
 import com.badlogic.gdx.utils.Array;
 
 
 public class SceneManager{
 	// INSTANCES AND VARIABLES
-	private EntityManager entityManager;
+	public EntityManager entityManager;
 	private Texture developerLogo;
 	private Array<Scene> allScenes;
 	
@@ -27,6 +28,9 @@ public class SceneManager{
 	private int currentSceneID;
 	
 	private SpriteBatch batch;
+	
+	private long lastEntityUpdate;
+	private int animatedTextureID;
 	
 	// METHODS
 	public void clearScreen() {
@@ -66,6 +70,19 @@ public class SceneManager{
 //		return false;
 //	}
 	
+	public void updateScene() {
+		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
+			System.out.println("Updating");
+			if(animatedTextureID < 3) {
+				animatedTextureID++;
+			}
+			else {
+				animatedTextureID = 0;
+			}
+			lastEntityUpdate = System.currentTimeMillis();
+		}
+	}
+	
 	public void loadBackground(Texture backgroundTexture) {
 		batch.begin();
 		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -82,6 +99,7 @@ public class SceneManager{
 		Array<AdversarialEntity> allAdversarialEntity = entityManager.getAllAdEntity();
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
+		Array<AIManager> allAIMEntity = entityManager.getAllAIMEntity();
 		
 		
 		batch.begin();
@@ -91,10 +109,13 @@ public class SceneManager{
 			e.draw(batch);
 		}
 		for(StaticEntity e : allStaticEntity) {
-			
 			e.draw(batch);
 		}
 		for(PlayerEntity e : allPlayerEntity) {
+			e.draw(batch);
+		}
+		for(AIManager e : allAIMEntity) {
+			e.setTexture(e.getTextures()[animatedTextureID]);
 			e.draw(batch);
 		}
 		
@@ -206,6 +227,8 @@ public class SceneManager{
             allScenes.add(s);
         }
 		
+		lastEntityUpdate = System.currentTimeMillis();
+		animatedTextureID = 0;
 	}
 
 }

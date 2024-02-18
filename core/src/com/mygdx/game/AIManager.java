@@ -13,29 +13,23 @@ public class AIManager extends Entity {
 
     private List<MovementPosition> movementPositions;
     private int movementIndex;
-    private long lastMoveTime;
-    private int movementWaitInterval; // in milliseconds
+
     private boolean loopBehaviour;
     private boolean fullyErected; // Flag to track if the spike is fully erected
 
     private Texture[] spikeTextures; // Array to store spike textures
-    private int currentSpikeImageIndex; // Index of the current spike image
-
-    public AIManager(float initialPosX, float initialPosY) {
+    private static int textureID;
+    
+    public Texture[] getTextures() {
+    	return spikeTextures;
+    }
+    
+    public AIManager(float initialPosX, float initialPosY, Texture[] textures) {
         super(initialPosX, initialPosY, 0); // Call the parameterized constructor of the Entity class with appropriate values
         movementPositions = new ArrayList<>();
         movementIndex = 0;
-        lastMoveTime = TimeUtils.millis();
-        movementWaitInterval = 300; // default interval is 1 second
-        loopBehaviour = false; // default behavior is no loop
-
-        // Initialize spikeTextures array with 3 spike images, adjust accordingly if need longer spike
-        spikeTextures = new Texture[3];
-        for (int i = 0; i < 3; i++) {
-            spikeTextures[i] = new Texture("spike" + (i + 1) + ".png");
-        }
-
-        currentSpikeImageIndex = 0; // Start with the first spike image
+        loopBehaviour = false;
+        spikeTextures = textures;
     }
 
     public void makeLoop(boolean loop) {
@@ -50,61 +44,49 @@ public class AIManager extends Entity {
         movementPositions.add(new MovementPosition(x, y));
     }
 
-    public void setWaitInterval(int interval) {
-        movementWaitInterval = interval;
-    }
-
     public List<MovementPosition> getPositions() {
         return movementPositions;
     }
 
     @Override
-    public void update() {
-        // Check if there are any movement positions
-        if (!movementPositions.isEmpty()) {
-            // Check if enough time has passed to move to the next position
-            if (TimeUtils.timeSinceMillis(lastMoveTime) > movementWaitInterval) {
-                fullyErected = (currentSpikeImageIndex == 2);
-                if (fullyErected) {
-                    MovementPosition currentPosition = movementPositions.get(movementIndex);
-                    setPosX(currentPosition.x);
-                    setPosY(currentPosition.y);
-                    movementIndex++;
-
-                    // Reset movementIndex to 0 if it reaches the end of the list
-                    if (movementIndex >= movementPositions.size()) {
-                        movementIndex = 0;
-                    }
-                } else if (loopBehaviour) {
-                    movementIndex = 0; // reset to the first position if looping
-                }
-
-                // Increment currentSpikeImageIndex to switch to the next spike image
-                currentSpikeImageIndex = (currentSpikeImageIndex + 1) % 3;
-
-                // Check if the spike is fully erected (reached the last frame)
-                fullyErected = (currentSpikeImageIndex == 2);
-
-                lastMoveTime = TimeUtils.millis();
-            }
-        }
+    public long update(long lastEntityUpdate) {
+//        if (!movementPositions.isEmpty()) {
+//        	
+//        	System.out.println("---");
+//        	System.out.println(System.currentTimeMillis());
+//        	System.out.println((lastEntityUpdate + 300));
+//        	
+//            if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
+//            	if(textureID < 4) {
+//            		textureID++;
+//            	}
+//            	else {
+//            		textureID = 0;
+//            	}
+//            	
+//            	
+//            	this.setTexture(spikeTextures[textureID]);
+//                return System.currentTimeMillis();
+//            }
+//
+//        }
+        return lastEntityUpdate;
     }
 
-    @Override
-    public void draw(SpriteBatch batch) {
-        // Render the enemy AI with spikes based on the current movement position
-        if (!movementPositions.isEmpty()) {
-            MovementPosition currentPosition = movementPositions.get(movementIndex);
-            Texture spikeTexture = spikeTextures[currentSpikeImageIndex];
-
-            // Adjust the position as needed
-            float spikeX = currentPosition.x - spikeTexture.getWidth() / 2; // Center the spike on X-axis
-            float spikeY = currentPosition.y - spikeTexture.getHeight() / 2; // Center the spike on Y-axis
-
-            batch.draw(spikeTexture, spikeX, spikeY);
-        }
-        System.out.println("AIManager draw method is called");
-    }
+//    @Override
+//    public void draw(SpriteBatch batch) {
+//        // Render the enemy AI with spikes based on the current movement position
+//        if (!movementPositions.isEmpty()) {
+//            MovementPosition currentPosition = movementPositions.get(movementIndex);
+//            Texture spikeTexture = spikeTextures[currentSpikeImageIndex];
+//
+//            // Adjust the position as needed
+//            float spikeX = currentPosition.x - spikeTexture.getWidth() / 2; // Center the spike on X-axis
+//            float spikeY = currentPosition.y - spikeTexture.getHeight() / 2; // Center the spike on Y-axis
+//
+//            batch.draw(spikeTexture, spikeX, spikeY);
+//        }
+//    }
 
     // Inner static class for MovementPosition
     public class MovementPosition {

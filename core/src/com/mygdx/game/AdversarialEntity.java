@@ -51,7 +51,7 @@ public class AdversarialEntity extends Entity {
     
 	
     @Override
-    public void update() {
+    public long update(long lastEntityUpdate) {
         float deltaTime = Gdx.graphics.getDeltaTime();
         float spikeMovement = movementSpeed * deltaTime;
 
@@ -83,6 +83,7 @@ public class AdversarialEntity extends Entity {
             setTexture(spikeTextures[currentSpikeImageIndex]); // Set the current texture
             lastTextureChangeTime = currentTime; // Update the last texture change time
         }
+        return System.currentTimeMillis();
     }
 
     @Override

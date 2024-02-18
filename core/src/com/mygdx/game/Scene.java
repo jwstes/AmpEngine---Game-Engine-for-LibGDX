@@ -10,20 +10,24 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class Scene {
 	private List<int[]> entityCoords;
-	private List<Texture> entityTextures;
+	private List<Texture[]> entityTextures;
     private List<boolean[]> entityProperties;
     private List<String> entityTypes;
+    private List<Boolean> entityAnimated;
     private int entitiesSize;
     private Texture backgroundTexture;
+    
     
    
     public Scene() {
         entityCoords = new ArrayList<int[]>();
-        entityTextures = new ArrayList<Texture>();
+        entityTextures = new ArrayList<Texture[]>();
         entityProperties = new ArrayList<boolean[]>();
         entityTypes = new ArrayList<String>();
+        entityAnimated = new ArrayList<Boolean>();
     }
-    // each tile is 32width 26 height
+    
+    // each tile is 32x32
     public void ParseFromJSON(String jsonString) {
         try {
             JsonReader jsonReader = new JsonReader();
@@ -42,13 +46,15 @@ public class Scene {
                     entityCoords.add(coords); 
                     
                     //add texture to tex list
-                    String texturePath = entity.getString("texture");
+                    String[] textures = entity.get("texture").asStringArray();
+                    Texture[] t = new Texture[4];
+                    for(int i = 0; i < textures.length; i++) {
+                    	t[i] = new Texture(Gdx.files.internal(textures[i]));
+                    }
+                    entityTextures.add(t);
                     
                     String type = entity.getString("entityType");
                     entityTypes.add(type);
-                    
-                    Texture texture = new Texture(Gdx.files.internal(texturePath));
-                    entityTextures.add(texture);
                     
                     //store the properties into 1 list in this order
                     boolean[] properties = new boolean[4];
@@ -57,7 +63,9 @@ public class Scene {
                     properties[2] = entity.getBoolean("isMovable");
                     properties[3] = entity.getBoolean("isBreakable");
                     entityProperties.add(properties); 
-                  
+                    
+                    Boolean isAnimated = entity.getBoolean("isAnimated");
+                    entityAnimated.add(isAnimated);
                 }
             } else {
                 System.out.println("NO GO UR JSON IS EMPTY");
@@ -75,11 +83,9 @@ public class Scene {
     // Getters for the different lists
     public List<int[]> GetEntityCoords() {
 		return entityCoords;
-    	
     }
-    public List<Texture> GetEntityTextures() {
-		return entityTextures; 
-    	
+    public List<Texture[]> GetEntityTextures() {
+		return entityTextures;
     }
     public List<boolean[]> GetEntityProperty() {
 		return entityProperties;	
@@ -92,6 +98,9 @@ public class Scene {
     }
     public Texture GetBackgroundTexture() {
     	return backgroundTexture;
+    }
+    public List<Boolean> GetIsAnimated() {
+    	return entityAnimated;
     }
 
 }
