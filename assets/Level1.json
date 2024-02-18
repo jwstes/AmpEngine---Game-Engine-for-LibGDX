@@ -1,542 +1,734 @@
 {
-	"background" : "background.png",
+    "background": "background.png",
     "Entities": [
         {
             "coords": [
                 0,
-                31
+                60
             ],
-            "texture": "player.png",
+            "texture": [
+                "player.png"
+            ],
             "isAlive": true,
             "isKillable": true,
             "isMovable": true,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "player"
-            
+            "entityType": "player",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                128,
+                32
+            ],
+            "texture": [
+                "spike1.png",
+                "spike2.png",
+                "spike3.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": false,
+            "entityType": "adversarial",
+            "isAnimated": true,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                246,
+                32
+            ],
+            "texture": [
+                "spike1.png",
+                "spike2.png",
+                "spike3.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": false,
+            "entityType": "adversarial",
+            "isAnimated": true,
+            "isCollidable": false
         },
         
+        {
+            "coords": [
+                700,
+                32
+            ],
+            "texture": [
+                "spike1.png",
+                "spike2.png",
+                "spike3.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": false,
+            "entityType": "adversarial",
+            "isAnimated": true,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                500,
+                32
+            ],
+            "texture": [
+                "spike1.png",
+                "spike2.png",
+                "spike3.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": false,
+            "entityType": "adversarial",
+            "isAnimated": true,
+            "isCollidable": false
+        },
         {
             "coords": [
                 0,
                 0
             ],
-            "texture": "10.png",
-            "isAlive": true,
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 32,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 64,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 96,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 128,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 160,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 192,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 224,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 256,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 288,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 320,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 352,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 384,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 416,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 448,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 480,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 512,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 544,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 576,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 608,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 640,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 672,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 704,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 736,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 768,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 800,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 832,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 864,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 896,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 928,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 960,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 992,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1024,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1056,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1088,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1120,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1152,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1184,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1216,
                 0
             ],
-            "texture": "11.png",
+            "texture": [
+                "11.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         },
         {
             "coords": [
                 1248,
                 0
             ],
-            "texture": "12.png",
+            "texture": [
+                "12.png"
+            ],
             "isAlive": false,
             "isKillable": false,
             "isMovable": false,
             "isBreakable": false,
-            "isCollidable": true,
-            "entityType": "static"
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
         }
-
-
     ]
 }

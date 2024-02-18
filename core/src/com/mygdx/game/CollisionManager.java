@@ -13,13 +13,15 @@ public class CollisionManager {
     private Array<PlayerEntity> pList;
     private Array<StaticEntity> sList;
     private Array<AdversarialEntity> aList;
+    private Array<AIManager> aiList; 
     
-    public CollisionManager(Rectangle worldBounds, int maxObjectsPerNode,Array<PlayerEntity> pList,Array<StaticEntity> sList,Array<AdversarialEntity> aList) {
+    public CollisionManager(Rectangle worldBounds, int maxObjectsPerNode,Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
         // Initialize the quad tree with the size of your game world and max objects per node
         this.quadTree = new QuadTreeNode(worldBounds, maxObjectsPerNode);
         this.pList = pList; 
         this.sList = sList;
         this.aList = aList;
+        this.aiList = aiList;
     }
 
     public void rebuildQuadTree() {
@@ -35,11 +37,15 @@ public class CollisionManager {
         for (AdversarialEntity ad : aList) {
             quadTree.insert(ad);
         }
+        for (AIManager ai : aiList) {
+        	quadTree.insert(ai);
+        }
     }
 
     public void checkPlayerCollisions() {
         rebuildQuadTree(); // Consider optimizing this for performance
-        //System.out.print(pList);
+        //System.out.print("ANIMATED SPIKE "+aiList.get(0));
+       
         for (PlayerEntity player : pList) {
         	//System.out.print(pList);
             List<Entity> potentialCollisions = quadTree.query(player.getRec(), new ArrayList<>());
@@ -53,6 +59,7 @@ public class CollisionManager {
                 		
                 	}else if(other.getEntityType() == "adversarial") {
                 		System.out.println("Collision with entity type: adversarial");
+                		player.setPosX(0);
                 	}
                 	
                 }

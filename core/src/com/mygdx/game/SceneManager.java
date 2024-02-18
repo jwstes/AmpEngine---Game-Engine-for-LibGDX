@@ -10,18 +10,20 @@ import com.badlogic.gdx.Input;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
+
 
 import com.badlogic.gdx.utils.Array;
 
 
 public class SceneManager{
 	// INSTANCES AND VARIABLES
-	private EntityManager entityManager;
-	private CollisionManager collisionManager;
+	public EntityManager entityManager;
 	private Texture developerLogo;
 	private Array<Scene> allScenes;
 	
@@ -30,9 +32,13 @@ public class SceneManager{
 	
 	private SpriteBatch batch;
 	
+	private long lastEntityUpdate;
+	private int animatedTextureID;
+	
 	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
-	private ShapeRenderer shapeRenderer = new ShapeRenderer();
-	private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
+    private ShapeRenderer shapeRenderer = new ShapeRenderer();
+    private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
+    private CollisionManager collisionManager;
 	
 	// METHODS
 	public void clearScreen() {
@@ -72,35 +78,62 @@ public class SceneManager{
 //		return false;
 //	}
 	
-	public void loadBackground(Texture backgroundTexture) {
-		batch.begin();
-		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		batch.end();
+	public void updateScene() {
+		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
+			//System.out.println("Updating");
+			if(animatedTextureID < 3) {
+				animatedTextureID++;
+				//aiManager.updateColl(animatedTextureID);
+			}
+			else {
+				animatedTextureID = 0;
+			}
+			checkCollision();
+	        
+			lastEntityUpdate = System.currentTimeMillis();
+		}
+		// TEST MOVING COLLIADER AND MOVING????
+        float newX = Math.max(0, entityManager.getAllPEntity().get(0).getPosX() + 200 * Gdx.graphics.getDeltaTime());
+        entityManager.getAllPEntity().get(0).setPosX(newX);
+        entityManager.getAllPEntity().get(0).updateCollider(entityManager.getAllPEntity().get(0).getPosX(), entityManager.getAllPEntity().get(0).getPosY() , 32, 32);
+        batch.begin();
+        entityManager.getAllPEntity().get(0).draw(batch);
+        batch.end();
+        //========================================================================
+	}
+	public void populateScene(int sceneID) {
+		Scene selectedScene = allScenes.get(sceneID);
+		entityManager.createEntities(selectedScene);
 	}
 	public void loadScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
+		//entityManager.createEntities(selectedScene);
 		
 		Texture backgroundTexture = selectedScene.GetBackgroundTexture();
 		loadBackground(backgroundTexture);
 		
-		entityManager.createEntities(selectedScene);
+		
 		
 		Array<AdversarialEntity> allAdversarialEntity = entityManager.getAllAdEntity();
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
-		
+		Array<AIManager> allAIMEntity = entityManager.getAllAIMEntity();
 		
 		batch.begin();
-		
-		
+		//System.out.print("BEGIN");
 		for(AdversarialEntity e : allAdversarialEntity) {
 			e.draw(batch);
+			
 		}
 		for(StaticEntity e : allStaticEntity) {
-			
 			e.draw(batch);
+			//System.out.print(e.getTexture());
 		}
 		for(PlayerEntity e : allPlayerEntity) {
+			e.draw(batch);
+		}
+		for(AIManager e : allAIMEntity) {
+			e.setTexture(e.getTextures()[animatedTextureID]);
 			e.draw(batch);
 		}
 		
@@ -109,34 +142,38 @@ public class SceneManager{
 		currentSceneID = sceneID;
 		batch.end();
 	}
-	
-	
-	//Experimental Collider. Can Delete Later
-	public void checkCollision() {
-		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity());
-		collisionManager.checkPlayerCollisions();
-
+	public void loadBackground(Texture backgroundTexture) {
+		batch.begin();
+		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		batch.end();
 	}
-	public void drawCollider() {
-		shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-	    shapeRenderer.setColor(Color.RED);
+    public void checkCollision() {
+        collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
+        collisionManager.checkPlayerCollisions();
+    }
+    public void drawCollider() {
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        shapeRenderer.setColor(Color.RED);
 
-	    for (PlayerEntity player : entityManager.getAllPEntity()) {
-	        shapeRenderer.rect(player.getRec().x, player.getRec().y, player.getRec().width, player.getRec().height);
-	    }
-	    for (StaticEntity staticEntity : entityManager.getAllSEntity()) {
-	        shapeRenderer.rect(staticEntity.getRec().x, staticEntity.getRec().y, staticEntity.getRec().width, staticEntity.getRec().height);
-	    }
-	    for (AdversarialEntity adversary : entityManager.getAllAdEntity()) {
-	        shapeRenderer.rect(adversary.getRec().x, adversary.getRec().y, adversary.getRec().width, adversary.getRec().height);
-	    }
-	    
-	    
-	    quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+        for (PlayerEntity player : entityManager.getAllPEntity()) {
+            shapeRenderer.rect(player.getRec().x, player.getRec().y, player.getRec().width, player.getRec().height);
+        }
+        for (StaticEntity staticEntity : entityManager.getAllSEntity()) {
+            shapeRenderer.rect(staticEntity.getRec().x, staticEntity.getRec().y, staticEntity.getRec().width, staticEntity.getRec().height);
+        }
+        for (AdversarialEntity adversary : entityManager.getAllAdEntity()) {
+            shapeRenderer.rect(adversary.getRec().x, adversary.getRec().y, adversary.getRec().width, adversary.getRec().height);
+        }
+        for (AIManager ai : entityManager.getAllAIMEntity()) {
+        	 shapeRenderer.rect(ai.getRec().x, ai.getRec().y, ai.getRec().width, ai.getRec().height);
+        }
 
 
-	    shapeRenderer.end(); // End shape drawing
-	}
+        quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+
+
+        shapeRenderer.end(); // End shape drawing
+    }
 	
 	
 	public Array<Scene> getAllScenes(){
@@ -225,6 +262,8 @@ public class SceneManager{
             allScenes.add(s);
         }
 		
+		lastEntityUpdate = System.currentTimeMillis();
+		animatedTextureID = 0;
 	}
 
 }

@@ -13,6 +13,7 @@ public class EntityManager {
     private Array<AdversarialEntity> allAdversarialEntity;
     private Array<StaticEntity> allStaticEntity;
     private Array<PlayerEntity> allPlayerEntity;
+    private Array<AIManager> allAIMEntity;
 
 
     //Constructor
@@ -21,6 +22,7 @@ public class EntityManager {
         allAdversarialEntity = new Array<AdversarialEntity>();
         allStaticEntity = new Array<StaticEntity>();
         allPlayerEntity = new Array<PlayerEntity>();
+        allAIMEntity = new Array<AIManager>();
     }
     
     public Array<AdversarialEntity> getAllAdEntity(){
@@ -31,6 +33,9 @@ public class EntityManager {
     }
     public Array<PlayerEntity> getAllPEntity(){
     	return allPlayerEntity;
+    }
+    public Array<AIManager> getAllAIMEntity(){
+    	return allAIMEntity;
     }
 
 
@@ -69,7 +74,9 @@ public class EntityManager {
     
     public void createEntities(Scene s) {
     	List<int[]> entityCoords = s.GetEntityCoords();
-    	List<Texture> entityTextures = s.GetEntityTextures();
+    	List<Texture[]> entityTextures = s.GetEntityTextures();
+    	List<Boolean> entityAnimated = s.GetIsAnimated();
+    	
     	
     	//alive, killable, movable, breakable
     	List<boolean[]> entityProperties = s.GetEntityProperty();
@@ -81,51 +88,65 @@ public class EntityManager {
     	Array<AdversarialEntity> adEntities = new Array<AdversarialEntity>();
     	Array<PlayerEntity> pEntities = new Array<PlayerEntity>();
     	Array<StaticEntity> sEntities = new Array<StaticEntity>();
+    	Array<AIManager> aimEntities = new Array<AIManager>();
     	
     	String staticString = "static";
     	String playerString = "player";
     	String adversarialString = "adversarial";
     	
     	for (int i = 0; i < entitiesSize; i++) {
+    		
     		int x = entityCoords.get(i)[0];
     		int y = entityCoords.get(i)[1];
-    		Texture t = entityTextures.get(i);
-    		String type = entityTypes.get(i);
     		
+    		Texture[] t;
+    		t = entityTextures.get(i);
+    		String type = entityTypes.get(i);
     		
     		boolean isAlive = entityProperties.get(i)[0];
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
     		boolean isBreakable = entityProperties.get(i)[3];
     		
+    		if(entityAnimated.get(i) == true) {
+    			AIManager aime = new AIManager(x, y, t);
+    			//System.out.print(t);
+    			aime.setIsAlive(isAlive);
+    			aime.setIsKillable(isKillable);
+    			aime.setEntityType(adversarialString);
+    			aimEntities.add(aime);
+    		}
+    		else {
+    			if(type.equals(playerString)) {
+        			PlayerEntity pe = new PlayerEntity("n", x, y, t[0]);
+        			pe.setIsAlive(isAlive);
+        			pe.setIsKillable(isKillable);
+        			pe.setIsMovable(isMovable);
+        			pe.setEntityType(playerString);
+        			pEntities.add(pe);
+        		}
+        		else if (type.equals(staticString)) {
+        			StaticEntity se = new StaticEntity("n", x, y, t[0]);
+        			se.setIsAlive(isAlive);
+        			se.setIsKillable(isKillable);
+        			se.setIsMovable(isMovable);
+        			se.setIsBreakable(isBreakable);
+        			se.setEntityType(staticString);
+        			sEntities.add(se);
+        		}
+        		else if (type.equals(adversarialString)) {
+        			AdversarialEntity ade = new AdversarialEntity("n", x, y, t[0]);
+        			ade.setIsAlive(isAlive);
+        			ade.setIsKillable(isKillable);
+        			ade.setEntityType(adversarialString);
+        			adEntities.add(ade);
+        		}
+    		}
     		
-    		if(type.equals(playerString)) {
-    			PlayerEntity pe = new PlayerEntity("n", x, y, t);
-    			pe.setIsAlive(isAlive);
-    			pe.setIsKillable(isKillable);
-    			pe.setIsMovable(isMovable);
-    			pe.setEntityType(playerString);
-    			pEntities.add(pe);
-    		}
-    		else if (type.equals(staticString)) {
-    			StaticEntity se = new StaticEntity("n", x, y, t);
-    			se.setIsAlive(isAlive);
-    			se.setIsKillable(isKillable);
-    			se.setIsMovable(isMovable);
-    			se.setIsBreakable(isBreakable);
-    			se.setEntityType(staticString);
-    			sEntities.add(se);
-    		}
-    		else if (type.equals(adversarialString)) {
-    			AdversarialEntity ade = new AdversarialEntity("n", x, y, t);
-    			ade.setIsAlive(isAlive);
-    			ade.setIsKillable(isKillable);
-    			ade.setEntityType(adversarialString);
-    			adEntities.add(ade);
-    		}
     		allAdversarialEntity = adEntities;
     		allStaticEntity = sEntities;
     		allPlayerEntity = pEntities;
+    		allAIMEntity = aimEntities;
     	}
     }
 
@@ -136,9 +157,6 @@ public class EntityManager {
     }
     
     
-    
-    //suject to be removed, for integration of spikes
-    
     // Add an entity to the list
     public void addEntity(Entity entity) {
         entityList.add(entity);
@@ -147,26 +165,21 @@ public class EntityManager {
 	
 	public void updateEntities() {
 	    for (Entity entity : entityList) {
-	        entity.update();
+	        entity.update(0);
 	    }
 	}
 
 	public void drawEntities(SpriteBatch batch) {
 	    for (Entity entity : entityList) {
 	        entity.draw(batch);
-	        
-            //System.out.println("Drawing entity: " + entity.getClass().getSimpleName());
-
+            System.out.println("Drawing entity: " + entity.getClass().getSimpleName());
 	    }
-	    
 	}
 
-	   
 	   public List<Entity> getAllEntities() {
 	        return entityList;
 	    }
 
-	   
 	   public void removeEntity(Entity entity) {
 	        entityList.remove(entity);
 	    }
