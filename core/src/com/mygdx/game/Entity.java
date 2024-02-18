@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import org.w3c.dom.Text;
 
-public class Entity {
+public abstract class Entity {
 
 	protected String name;
 	private int health;
@@ -32,6 +32,24 @@ public class Entity {
 		
 		compile();
 	}
+	
+	
+	//for spike entity constructor, will be subjected to change to merge with adversarilEntity
+	
+	   public Entity(float x, float y, float speed) {
+	    	this.x = x;
+	    	this.y = y;
+	    	this.speed = speed;
+	    	
+	    }
+
+	    public Entity(float x, float y, float speed, Texture tex) {
+	        this.x = x;
+	        this.y = y;
+	        this.speed = speed;
+	        this.tex = tex;
+	    }
+	    
 
 	public void setName(String name){
 		this.name = name;
@@ -91,6 +109,10 @@ public class Entity {
 		this.tex = assetName;
 	}
 	
+	public Texture getTexture() { // Add this method
+        return tex;
+    }
+	
 	public void compile() {
 //		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
 		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
@@ -104,6 +126,14 @@ public class Entity {
             b.draw(tex, x, y);
         }
 	}
+	
+	//
+	
+	public abstract void update();
+	
+	public void render(SpriteBatch b) {}
+	
+	
 
 
 

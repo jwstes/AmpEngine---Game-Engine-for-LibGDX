@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
@@ -26,6 +27,23 @@ public class AmpEngine extends ApplicationAdapter{
 //	private int selectedMenuIndex;
 	
 	private Scene scene;
+	
+	
+	//below is spike integration only, subject for removal
+	
+	//
+	private boolean gameStarted;
+	
+	private SpriteBatch batch;
+	 
+
+	private AdversarialEntity spikeTrap;
+	
+	private EntityManager entityManager; 
+	
+	private AIManager aiManager;
+	
+	
 	
 	@Override
 	public void create() {
@@ -44,6 +62,53 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		//		selectedMenuIndex = 2;
 		
+		//AI spike stuff below, can change later if not acceptable
+		
+		 // Initialize SpriteBatch
+	    batch = new SpriteBatch();
+
+	  
+	    // Initialize EntityManager before adding entities
+	    entityManager = new EntityManager();
+
+	    // This instantiates the sliding spikes, can modify the texture images on how long u want the spike to erect to be
+	    spikeTrap = new AdversarialEntity(
+	    	    200,
+	    	    -2,
+	    	    3.0f, //lower value means lower attack speed
+	    	    new Texture[] {
+	    	        new Texture("spike1.png"),
+	    	        new Texture("spike2.png"),
+	    	        new Texture("spike3.png")
+	    	    },
+	    	    100.0f // movement speed of spike moving from right to left
+	    	);
+	    
+	    
+	    // Create an instance of AIManager and add it to the EntityManager
+	    aiManager = new AIManager(1,0);
+	    
+	 
+
+	    entityManager.addEntity(aiManager);
+	    
+	    entityManager.addEntity(spikeTrap);
+	    
+	    //this ensures the trap only spawns within the screen size
+	    float windowWidth = Gdx.graphics.getWidth();
+	    
+	    
+	    //this creates random  spikes
+	    int numberOfSpikes = 3; // Adjust the number of spikes as needed
+	   
+	    
+	    for (int i = 0; i < numberOfSpikes; i++) {
+	        AIManager aiManager = new AIManager(1, 0);
+	        float randomX = MathUtils.random(windowWidth);
+	        aiManager.addPositions(randomX, 90);
+	        entityManager.addEntity(aiManager);
+	    }
+		
 	}
 	
 
@@ -54,12 +119,40 @@ public class AmpEngine extends ApplicationAdapter{
         sceneManager.loadScene(0);
         
         
+        //start of spike AI, can be change later if not ok
+        
+        batch.begin(); // Begin batch before rendering anything
+
+        // Inside the render() method of AmpEngine
+        entityManager.updateEntities();
+        
+        // Continuously randomize positions during the game for each AIManager
+        for (Entity entity : entityManager.getAllEntities()) {
+            if (entity instanceof AIManager) {
+                AIManager aiManager = (AIManager) entity;
+                float windowWidth = Gdx.graphics.getWidth();
+                float randomX = MathUtils.random(windowWidth);
+                aiManager.addPositions(randomX, 90);
+            }
+        }
+        
+        
+        entityManager.drawEntities(batch);
+  
+
+        batch.end();
+        
+        
         //Experimental Collider. Can Delete Later
         if(System.currentTimeMillis() >= (lastCheckTime + 1000)) {
         	System.out.println("Checking For Collision");
         	sceneManager.checkCollision();
         	lastCheckTime = System.currentTimeMillis();
         }
+        
+        
+        
+        
         
         
         

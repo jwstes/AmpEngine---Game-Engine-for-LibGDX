@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EntityManager {
 
@@ -130,5 +131,45 @@ public class EntityManager {
     public void clearAllEntities(String name){
         entityList.clear();
     }
+    
+    
+    
+    //suject to be removed, for integration of spikes
+    
+    // Add an entity to the list
+    public void addEntity(Entity entity) {
+        entityList.add(entity);
+    }
+
+	
+	public void updateEntities() {
+	    for (Entity entity : entityList) {
+	        entity.update();
+	    }
+	}
+
+	public void drawEntities(SpriteBatch batch) {
+	    for (Entity entity : entityList) {
+	        entity.draw(batch);
+	        
+            System.out.println("Drawing entity: " + entity.getClass().getSimpleName());
+
+	    }
+	    
+	}
+
+	   
+	   public List<Entity> getAllEntities() {
+	        return entityList;
+	    }
+
+	   
+	   public void removeEntity(Entity entity) {
+	        entityList.remove(entity);
+	    }
+	   
+	   public void clearAllEntities() {
+	        entityList.clear();
+	    }
 
 }

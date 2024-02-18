@@ -25,4 +25,10 @@ public class StaticEntity extends Entity{
     public boolean getIsBreakable() {
     	return isBreakable;
     }
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }

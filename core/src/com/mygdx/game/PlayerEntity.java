@@ -24,5 +24,11 @@ public class PlayerEntity extends Entity {
     	return isMovable;
     }
 
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
