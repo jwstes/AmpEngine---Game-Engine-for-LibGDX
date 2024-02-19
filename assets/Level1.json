@@ -3,7 +3,7 @@
     "Entities": [
         {
             "coords": [
-                0,
+                1000,
                 60
             ],
             "texture": [
@@ -930,7 +930,7 @@
         	
             "coords": [
                 550,
-                200
+                130
             ],
             "texture": [
                 "10.png"
@@ -946,7 +946,7 @@
         {
             "coords": [
                 582,
-                200
+                130
             ],
             "texture": [
                 "11.png"
@@ -962,7 +962,56 @@
         {
             "coords": [
                 614,
-                200
+                130
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+        	
+            "coords": [
+                350,
+                70
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                382,
+                70
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                414,
+                70
             ],
             "texture": [
                 "12.png"
