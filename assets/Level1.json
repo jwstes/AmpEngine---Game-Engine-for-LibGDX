@@ -729,6 +729,251 @@
             "entityType": "static",
             "isAnimated": false,
             "isCollidable": false
-        }
+        },
+        {
+        	
+            "coords": [
+                1152,
+                200
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                1184,
+                200
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                1216,
+                200
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+        	
+            "coords": [
+                0,
+                200
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                32,
+                200
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                64,
+                200
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+        	
+            "coords": [
+                150,
+                200
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                182,
+                200
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                214,
+                200
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+        	
+            "coords": [
+                250,
+                200
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                282,
+                200
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                314,
+                200
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+        	
+            "coords": [
+                550,
+                200
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                582,
+                200
+            ],
+            "texture": [
+                "11.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                614,
+                200
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
     ]
 }

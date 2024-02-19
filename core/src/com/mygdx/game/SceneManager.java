@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.Input;
-
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -92,14 +92,86 @@ public class SceneManager{
 	        
 			lastEntityUpdate = System.currentTimeMillis();
 		}
-		// TEST MOVING COLLIADER AND MOVING????
-        float newX = Math.max(0, entityManager.getAllPEntity().get(0).getPosX() + 200 * Gdx.graphics.getDeltaTime());
-        entityManager.getAllPEntity().get(0).setPosX(newX);
-        entityManager.getAllPEntity().get(0).updateCollider(entityManager.getAllPEntity().get(0).getPosX(), entityManager.getAllPEntity().get(0).getPosY() , 32, 32);
+		// TEST MOVING COLLIADER AND MOVING???? ==================================================================================================================================
+        if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+            // Store the player's original position
+            float originalPosX = entityManager.getAllPEntity().get(0).getPosX();
+
+            // Calculate the new position
+            float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());
+
+            // Update the player's position temporarily to check for collisions
+            entityManager.getAllPEntity().get(0).setPosX(newX);
+            entityManager.getAllPEntity().get(0).updateCollider(newX, entityManager.getAllPEntity().get(0).getPosY(), 32, 32);
+
+            // Check for collisions
+            Entity collisionEntity = collisionManager.checkPlayerCollisions();
+            if (collisionEntity != null) {
+                // Collision detected, revert to the original position
+                entityManager.getAllPEntity().get(0).setPosX(originalPosX);
+            }
+        }
+        if(Gdx.input.isKeyPressed(Keys.RIGHT)){
+            // Store the player's original position
+            float originalPosX = entityManager.getAllPEntity().get(0).getPosX();
+
+            // Calculate the new position
+            float newX = Math.min(Gdx.graphics.getWidth(), originalPosX + 200 * Gdx.graphics.getDeltaTime());
+
+            // Update the player's position temporarily to check for collisions
+            entityManager.getAllPEntity().get(0).setPosX(newX);
+            entityManager.getAllPEntity().get(0).updateCollider(newX, entityManager.getAllPEntity().get(0).getPosY(), 32, 32);
+
+            // Check for collisions
+            Entity collisionEntity = collisionManager.checkPlayerCollisions();
+            if (collisionEntity != null) {
+                // Collision detected, revert to the original position
+                entityManager.getAllPEntity().get(0).setPosX(originalPosX);
+            }
+        }
+        if(Gdx.input.isKeyPressed(Keys.DOWN)){
+            // Store the player's original position
+            float originalPosY = entityManager.getAllPEntity().get(0).getPosY();
+
+            // Calculate the new position
+            float newY = Math.max(0, originalPosY - 200 * Gdx.graphics.getDeltaTime());
+
+            // Update the player's position temporarily to check for collisions
+            entityManager.getAllPEntity().get(0).setPosY(newY);
+            entityManager.getAllPEntity().get(0).updateCollider(entityManager.getAllPEntity().get(0).getPosX(), newY, 32, 32);
+
+            // Check for collisions
+            Entity collisionEntity = collisionManager.checkPlayerCollisions();
+            if (collisionEntity != null) {
+                // Collision detected, revert to the original position
+                entityManager.getAllPEntity().get(0).setPosY(originalPosY);
+                System.out.println("Collision detected with entity: " + collisionEntity);
+            }
+        }
+        if(Gdx.input.isKeyPressed(Keys.UP)){
+            // Store the player's original position
+            float originalPosY = entityManager.getAllPEntity().get(0).getPosY();
+
+            // Calculate the new position
+            float newY = Math.min(Gdx.graphics.getHeight(), originalPosY + 200 * Gdx.graphics.getDeltaTime()); 
+
+            // Update the player's position temporarily to check for collisions
+            entityManager.getAllPEntity().get(0).setPosY(newY);
+            entityManager.getAllPEntity().get(0).updateCollider(entityManager.getAllPEntity().get(0).getPosX(), newY, 32, 32);
+
+            // Check for collisions
+            Entity collisionEntity = collisionManager.checkPlayerCollisions();
+            if (collisionEntity != null) {
+                // Collision detected, revert to the original position
+                entityManager.getAllPEntity().get(0).setPosY(originalPosY);
+            }
+        }
+        //entityManager.getAllPEntity().get(0).setPosX(newX);
+        //entityManager.getAllPEntity().get(0).updateCollider(entityManager.getAllPEntity().get(0).getPosX(), entityManager.getAllPEntity().get(0).getPosY() , 32, 32);
         batch.begin();
         entityManager.getAllPEntity().get(0).draw(batch);
         batch.end();
-        //========================================================================
+        //====================================================================================================================================================================================
 	}
 	public void populateScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);

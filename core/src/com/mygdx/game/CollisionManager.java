@@ -42,7 +42,7 @@ public class CollisionManager {
         }
     }
 
-    public void checkPlayerCollisions() {
+    public Entity checkPlayerCollisions() {
         rebuildQuadTree(); // Consider optimizing this for performance
         //System.out.print("ANIMATED SPIKE "+aiList.get(0));
        
@@ -55,15 +55,22 @@ public class CollisionManager {
                 	if(other.getEntityType() == "static") {
                 		System.out.println("Collision with entity type: static");
                 		
+                		return other;
+                		
                 		//add other logic such as Player.setHealth(-10) or smth
                 		
                 	}else if(other.getEntityType() == "adversarial") {
                 		System.out.println("Collision with entity type: adversarial");
-                		player.setPosX(0);
+                		//player.setPosX(0);
+                		
+                		return other;
                 	}
                 	
                 }
             }
         }
+		return null;
+		
+		
     }
 }
