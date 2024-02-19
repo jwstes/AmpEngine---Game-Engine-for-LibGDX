@@ -16,15 +16,15 @@ public class AIManager extends Entity {
     private int movementIndex;
 
     private boolean loopBehaviour;
-    private boolean fullyErected; // Flag to track if the spike is fully erected
+ 
 
-    private Texture[] spikeTextures; // Array to store spike textures
+    private Texture[] adversarialTexture; // Array to store adversarial textures
     private static int textureID;
     
     private Rectangle rec = new Rectangle();
     
     public Texture[] getTextures() {
-    	return spikeTextures;
+    	return adversarialTexture;
     }
 
     public AIManager(float initialPosX, float initialPosY, Texture[] textures) {
@@ -32,7 +32,7 @@ public class AIManager extends Entity {
         movementPositions = new ArrayList<>();
         movementIndex = 0;
         loopBehaviour = false;
-        spikeTextures = textures;
+        adversarialTexture = textures;
         //rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
     }
 
@@ -69,7 +69,7 @@ public class AIManager extends Entity {
 //            	}
 //            	
 //            	
-//            	this.setTexture(spikeTextures[textureID]);
+//            	this.setTexture(adversarialTexture[textureID]);
 //                return System.currentTimeMillis();
 //            }
 //
@@ -79,16 +79,17 @@ public class AIManager extends Entity {
 
 //    @Override
 //    public void draw(SpriteBatch batch) {
-//        // Render the enemy AI with spikes based on the current movement position
+//        // Render the enemy AI with adversarial based on the current movement position
 //        if (!movementPositions.isEmpty()) {
 //            MovementPosition currentPosition = movementPositions.get(movementIndex);
-//            Texture spikeTexture = spikeTextures[currentSpikeImageIndex];
+//            Texture adversarialTexture = adversarialTexture[currentAdversarialImageIndex];
 //
 //            // Adjust the position as needed
-//            float spikeX = currentPosition.x - spikeTexture.getWidth() / 2; // Center the spike on X-axis
-//            float spikeY = currentPosition.y - spikeTexture.getHeight() / 2; // Center the spike on Y-axis
+//            float x = currentPosition.x - adversarialTexture.getWidth() / 2; // Center the adversarial on X-axis
+//            float y = currentPosition.y - adversarialTexture.getHeight() / 2; // Center the adversarial on Y-axis
 //
-//            batch.draw(spikeTexture, spikeX, spikeY);
+    
+//            batch.draw(adversarialTexture, x, y);
 //        }
 //    }
 

@@ -54,7 +54,7 @@ public abstract class Entity {
 	}
 	
 	
-	//for spike entity constructor, will be subjected to change to merge with adversarilEntity
+	//for adversarial entity constructor, will be subjected to change to merge with adversarilEntity
 	
 	public Entity(float x, float y, float speed) {
 		this.x = x;

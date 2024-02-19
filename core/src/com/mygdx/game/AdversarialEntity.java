@@ -10,7 +10,7 @@ public class AdversarialEntity extends Entity {
                                             //  shooting another AdversarialEntity Object out, just that this one not
                                             // killable.
     
-    //AI spike stuff, not sure if this is ok. (Subject for removal)
+  
 	private long lastTextureChangeTime;
 
 
@@ -18,8 +18,8 @@ public class AdversarialEntity extends Entity {
     private float movementSpeed;
     private float attackSpeed;
 
-    private Texture[] spikeTextures; // Array to store spike textures
-    private int currentSpikeImageIndex; // Index of the current spike image
+    private Texture[] adversarialTexture; // Array to store adversarial textures
+    private int currentAdversarialImageIndex; // Index of the adversarial image
 
     
 
@@ -42,45 +42,45 @@ public class AdversarialEntity extends Entity {
         super(initialPosX, initialPosY, movementSpeed, textures[0]);
         this.moveRight = true; // Set the initial direction to move right
         this.attackSpeed = attackSpeed;
-        this.movementSpeed = movementSpeed; // Set the speed of the spike
+        this.movementSpeed = movementSpeed; // Set the speed of the adversarial
 
-        // Initialize spikeTextures array with the provided textures
-        spikeTextures = textures;
-        currentSpikeImageIndex = 0; // Start with the first spike image
+        // Initialize adversarialTexture array with the provided textures
+        adversarialTexture = textures;
+        currentAdversarialImageIndex = 0; // Start with the first adversarial image
     }
     
 	
     @Override
     public long update(long lastEntityUpdate) {
         float deltaTime = Gdx.graphics.getDeltaTime();
-        float spikeMovement = movementSpeed * deltaTime;
+        float adversarialMovement = movementSpeed * deltaTime;
 
         if (moveRight) {
-            setPosX(getPosX() + spikeMovement);
+            setPosX(getPosX() + adversarialMovement);
         } else {
-            setPosX(getPosX() - spikeMovement);
+            setPosX(getPosX() - adversarialMovement);
         }
 
-        // Check if spike has reached screen boundaries
+        // Check if adversarial has reached screen boundaries
         if (getPosX() < 0) {
             moveRight = true;
         } else if (getPosX() > Gdx.graphics.getWidth() - getTexture().getWidth()) {
             moveRight = false;
         }
 
-        // Control the speed of transition between spike textures based on attackSpeed
+        // Control the speed of transition between adversarial textures  based on attackSpeed
         float transitionSpeed = 1.0f / attackSpeed; // Adjust this value for the desired transition speed
         long currentTime = TimeUtils.millis();
         float timeElapsed = (currentTime - lastTextureChangeTime) / 1000.0f; // Convert to seconds
 
         if (timeElapsed > transitionSpeed) {
-            // Increment currentSpikeImageIndex to smoothly transition between spike textures
-            currentSpikeImageIndex++;
-            if (currentSpikeImageIndex >= spikeTextures.length) {
-                currentSpikeImageIndex = 0; // Reset to the first texture
+            // Increment currentAdversarialImageIndex to smoothly transition between adversarial textures
+            currentAdversarialImageIndex++;
+            if (currentAdversarialImageIndex >= adversarialTexture.length) {
+                currentAdversarialImageIndex = 0; // Reset to the first texture
             }
 
-            setTexture(spikeTextures[currentSpikeImageIndex]); // Set the current texture
+            setTexture(adversarialTexture[currentAdversarialImageIndex]); // Set the current texture
             lastTextureChangeTime = currentTime; // Update the last texture change time
         }
         return System.currentTimeMillis();
