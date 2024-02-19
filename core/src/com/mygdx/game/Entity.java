@@ -54,15 +54,6 @@ public abstract class Entity {
 	}
 	
 	
-	//for adversarial entity constructor, will be subjected to change to merge with adversarilEntity
-	
-	public Entity(float x, float y, float speed) {
-		this.x = x;
-	    this.y = y;
-	    this.speed = speed;
-	    	
-	}
-
 	public Entity(float x, float y, float speed, Texture tex) {
 	    this.x = x;
 	    this.y = y;

@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -32,6 +33,10 @@ public class SceneManager{
 	
 	private SpriteBatch batch;
 	
+	//
+    private long lastAIUpdate;
+
+    
 	private long lastEntityUpdate;
 	private int animatedTextureID;
 	
@@ -87,6 +92,8 @@ public class SceneManager{
 //	}
 	
 	public void updateScene() {
+	    long currentTime = System.currentTimeMillis();
+
 		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
 			//System.out.println("Updating");
 			if(animatedTextureID < 3) {
@@ -100,6 +107,29 @@ public class SceneManager{
 	        
 			lastEntityUpdate = System.currentTimeMillis();
 		}
+		
+//===========================================================================Michael stuff
+		
+		// time taken before movable entity moves 
+        if (currentTime >= (lastAIUpdate + 800)) 
+        {
+              for (AIManager ai : entityManager.getAllAIMEntity()) {
+                  if (ai.getIsMovable()) {
+                  	
+                  	// movable entity moves to the right
+                      moveEntityRight(ai);
+                      
+                      if (animatedTextureID == 2) 
+                      {   	
+                      ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 48);
+                      }
+                      else {
+	                        ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 12);
+                      }
+                   
+                  }
+              }
+          }
 		
 //=====================================================================IDK HOW TO IMPLEMENT TO OTHER CLASS PLEASE HELP!!!!!!===============================================	
 		
@@ -128,6 +158,30 @@ public class SceneManager{
         
 	}
 	
+//	==============================Michael stuff=========================
+	private void moveEntityRight(AIManager ai) {
+	    float increment = 1f; // adjusting distance of movable entity travel
+	    float maxX = Gdx.graphics.getWidth(); // Get screen size
+
+	    float initialX = ai.getInitialPosX(); // get initial position x from AImanager (which is from super entity)
+	    float targetX = ai.getPosX() + increment; // entity next position to the right with increment
+
+	    // use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
+	    float alpha = MathUtils.clamp((targetX - ai.getPosX()) / increment, 0f, 1f);
+
+	    // Experiment with different interpolation functions for smoother sliding
+	    float newX = Interpolation.smooth.apply(ai.getPosX(), targetX, alpha);
+
+	    // Check if the entity has reached the right edge
+	    if (newX > maxX) {
+	        // Reset the entity to the left with a different starting position
+	        ai.setPosX(initialX - ai.getWidth()); // Subtract entity width to avoid overlapping
+	    } else {
+	        ai.setPosX(newX);
+	    }
+	    
+	}
+//	====================================================================
 	private void checkCollisionsAndUpdateGroundStatus() {
 	    // Assume the player is not on the ground at the start of each check
 	    isOnGround = false;

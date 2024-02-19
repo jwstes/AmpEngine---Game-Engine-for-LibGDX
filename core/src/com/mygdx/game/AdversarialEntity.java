@@ -10,18 +10,7 @@ public class AdversarialEntity extends Entity {
                                             //  shooting another AdversarialEntity Object out, just that this one not
                                             // killable.
     
-  
-	private long lastTextureChangeTime;
-
-
-    private boolean moveRight;
-    private float movementSpeed;
-    private float attackSpeed;
-
-    private Texture[] adversarialTexture; // Array to store adversarial textures
-    private int currentAdversarialImageIndex; // Index of the adversarial image
-
-    
+   
 
     public AdversarialEntity(String n,float x, float y, Texture t){
         super(n,x,y,t); //need name, x, y, Texture
@@ -36,61 +25,14 @@ public class AdversarialEntity extends Entity {
     }
     
     
-    //idk if im suppose to do this here  subject for removal, just integrating of AI trap first
-    
-    public AdversarialEntity(float initialPosX, float initialPosY, float attackSpeed, Texture[] textures, float movementSpeed) {
-        super(initialPosX, initialPosY, movementSpeed, textures[0]);
-        this.moveRight = true; // Set the initial direction to move right
-        this.attackSpeed = attackSpeed;
-        this.movementSpeed = movementSpeed; // Set the speed of the adversarial
-
-        // Initialize adversarialTexture array with the provided textures
-        adversarialTexture = textures;
-        currentAdversarialImageIndex = 0; // Start with the first adversarial image
-    }
+ 
     
 	
     @Override
     public long update(long lastEntityUpdate) {
-        float deltaTime = Gdx.graphics.getDeltaTime();
-        float adversarialMovement = movementSpeed * deltaTime;
-
-        if (moveRight) {
-            setPosX(getPosX() + adversarialMovement);
-        } else {
-            setPosX(getPosX() - adversarialMovement);
-        }
-
-        // Check if adversarial has reached screen boundaries
-        if (getPosX() < 0) {
-            moveRight = true;
-        } else if (getPosX() > Gdx.graphics.getWidth() - getTexture().getWidth()) {
-            moveRight = false;
-        }
-
-        // Control the speed of transition between adversarial textures  based on attackSpeed
-        float transitionSpeed = 1.0f / attackSpeed; // Adjust this value for the desired transition speed
-        long currentTime = TimeUtils.millis();
-        float timeElapsed = (currentTime - lastTextureChangeTime) / 1000.0f; // Convert to seconds
-
-        if (timeElapsed > transitionSpeed) {
-            // Increment currentAdversarialImageIndex to smoothly transition between adversarial textures
-            currentAdversarialImageIndex++;
-            if (currentAdversarialImageIndex >= adversarialTexture.length) {
-                currentAdversarialImageIndex = 0; // Reset to the first texture
-            }
-
-            setTexture(adversarialTexture[currentAdversarialImageIndex]); // Set the current texture
-            lastTextureChangeTime = currentTime; // Update the last texture change time
-        }
+       
         return System.currentTimeMillis();
     }
-
-    @Override
-    public void draw(SpriteBatch batch) {
-        batch.draw(getTexture(), getPosX(), getPosY());
-    }
-
 
 
 }
