@@ -1,6 +1,15 @@
 package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
 
+
+
+// Static Entity Class stores the properties of an entity meant to be passive elements of a world such as floors
+// isBreakable, AIManager ai, isMovable
+// It inherits more properties from it SuperClass Entity.
+// name, health, x, y, speed, Texture tex, Texture[] animatedTexture, entityType, rec
+// isKillable, isMovable, isAlive, isCollidable
+
+
 public class StaticEntity extends Entity{
     private boolean isBreakable; //walls you can destroy i.e.
 
@@ -27,8 +36,7 @@ public class StaticEntity extends Entity{
     }
 
 	@Override
-	public long update(long lastEntityUpdate) {
+	public void update(long lastEntityUpdate) {
 		// TODO Auto-generated method stub
-		return 0;
-	}
+    }
 }

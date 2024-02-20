@@ -1,8 +1,11 @@
 package com.mygdx.game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.TimeUtils;
+
+
+// Adversarial Entity Class stores the properties of an entity meant to be "Enemies"
+// It inherits more properties from it SuperClass Entity.
+// name, health, x, y, speed, Texture tex, Texture[] animatedTexture, entityType, rec
+// isKillable, isMovable, isAlive, isCollidable
 
 public class AdversarialEntity extends Entity {
     private AIManager ai; // Tells the entity to walk back and forth,  stand still or it go up down. Or shoot at intervals
@@ -29,9 +32,9 @@ public class AdversarialEntity extends Entity {
     
 	
     @Override
-    public long update(long lastEntityUpdate) {
-       
-        return System.currentTimeMillis();
+    public void update(long lastEntityUpdate) {
+
+        System.currentTimeMillis();
     }
 
 

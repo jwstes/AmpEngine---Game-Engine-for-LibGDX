@@ -24,8 +24,14 @@ public class EntityManager {
         allPlayerEntity = new Array<PlayerEntity>();
         allAIMEntity = new Array<AIManager>();
     }
-    
-    public Array<AdversarialEntity> getAllAdEntity(){
+
+
+	// Getter Setter
+
+	public List<Entity> getList() {
+		return entityList;
+	}
+	public Array<AdversarialEntity> getAllAdEntity(){
     	return allAdversarialEntity;
     }
     public Array<StaticEntity> getAllSEntity(){
@@ -39,12 +45,6 @@ public class EntityManager {
     }
 
 
-
-    // Getter Setter
-    public List<Entity> getList()
-    {
-        return entityList;
-    }
 
     // Functions
     public void add(Entity EntityObj){
@@ -71,7 +71,34 @@ public class EntityManager {
             System.out.println(name+ " failed to be removed from list. Check if Name is correct or exists" );
         }
     }
-    
+
+	public void removeEntity(Entity entity) {
+		entityList.remove(entity);
+	}
+
+
+	// Remove EVERY Entity in the list (Clear all in entity)
+	public void clearAllEntities(){
+		entityList.clear();
+	}
+
+
+	public void updateEntities() {
+		for (Entity entity : entityList) {
+			entity.update(0);
+		}
+	}
+
+	public void drawEntities(SpriteBatch batch) {
+		for (Entity entity : entityList) {
+			entity.draw(batch);
+			System.out.println("Drawing entity: " + entity.getClass().getSimpleName());
+		}
+	}
+
+
+	// Initializes every single entity (dictated by JSON file) into ArrayList Properties in Scene object.
+	// The entities are initialized and appended to matching ArrayList base on their type - player, adversarial, static
     public void createEntities(Scene s) {
     	List<int[]> entityCoords = s.GetEntityCoords();
     	List<Texture[]> entityTextures = s.GetEntityTextures();
@@ -153,41 +180,8 @@ public class EntityManager {
     }
 
     
-    // Remove EVERY Entity in the list (Clear all in entity)
-    public void clearAllEntities(String name){
-        entityList.clear();
-    }
-    
-    
-    // Add an entity to the list
-    public void addEntity(Entity entity) {
-        entityList.add(entity);
-    }
 
-	
-	public void updateEntities() {
-	    for (Entity entity : entityList) {
-	        entity.update(0);
-	    }
-	}
-
-	public void drawEntities(SpriteBatch batch) {
-	    for (Entity entity : entityList) {
-	        entity.draw(batch);
-            System.out.println("Drawing entity: " + entity.getClass().getSimpleName());
-	    }
-	}
-
-	   public List<Entity> getAllEntities() {
-	        return entityList;
-	    }
-
-	   public void removeEntity(Entity entity) {
-	        entityList.remove(entity);
-	    }
 	   
-	   public void clearAllEntities() {
-	        entityList.clear();
-	    }
+
 
 }

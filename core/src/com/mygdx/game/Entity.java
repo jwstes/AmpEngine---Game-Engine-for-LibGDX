@@ -1,21 +1,13 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-
-import java.util.List;
-
-import org.w3c.dom.Text;
 
 public abstract class Entity {
 	
-	protected String name;
+	protected String name; // name is identifier used in scene so mandatory to set one
 	private int health;
 	private float x;
 	private float y;
@@ -24,17 +16,14 @@ public abstract class Entity {
 	private Texture[] animatedTexture;
 	private boolean isKillable; // Some "enemies" are meant to just attack like a floating canon
 								// Not necessary for all games, see how you want to implement the logic.
-	
 	private boolean isMovable;
-	
 	private boolean isAlive; // For logic that require a boolean way to check if the entity is alive.
 							// You can also check if health = 0 but that's scuffed innit.
-	
 	private String entityType;
-	
 	private Rectangle rec;
 	private boolean isCollidable;
-															// name is identifier for scene so mandatory to set one
+
+	// Constructors
 	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
 		this.name = name;
 	    this.x = x;
@@ -55,20 +44,18 @@ public abstract class Entity {
 		this.rec = new Rectangle(x, y, 32, 32);
 	}
 	
-	
 	public Entity(float x, float y, float speed, Texture tex) {
 	    this.x = x;
 	    this.y = y;
 	    this.speed = speed;
 	    this.tex = tex;
 	}
-	    
-	public Entity() {}    
-	
-	public void drawBounds(ShapeRenderer shapeRenderer) {
-	    Rectangle bounds = getRec();
-	    shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
-	}
+
+	public Entity(){}
+
+	// Setter & Getter
+
+
     public Rectangle getCollider() {
         return rec;
     }
@@ -91,8 +78,8 @@ public abstract class Entity {
             setCollider(this.rec);
         }
     }
-    
-    
+
+
 	public void setIsCollidable(boolean b) {
 	    isCollidable = b;
 	}
@@ -142,8 +129,6 @@ public abstract class Entity {
 		return animatedTexture;
 	}
 
-	
-	// Setter & Getter
 	public void setHealth(int health) {
 		this.health = health;
 	}
@@ -182,23 +167,25 @@ public abstract class Entity {
         return tex;
     }
 	
-//	public void compile() {
-//		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
-//		rec = new Rectangle(x, y, tex.getWidth(), tex.getHeight());
-//	}
+
 	public Rectangle getRec() {
 		return rec;
 	}
-	
+
+	// Functions
+
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+	}
+
 	public void draw(SpriteBatch b) {
 		if (tex != null) {
             b.draw(tex, x, y);
         }
 	}
-	
-	//
-	
-	public abstract long update(long lastEntityUpdate);
+
+	public abstract void update(long lastEntityUpdate);
 	
 	public void render(SpriteBatch b) {}
 	

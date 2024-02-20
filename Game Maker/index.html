@@ -189,7 +189,7 @@ var assets = [
         var x = parent.getAttribute('x');
         var y = parent.getAttribute('y');
         var alive = parent.getAttribute('isAlive') == "true" ? true : false;
-        var killable = parent.getAttribute('isKillable') == "true" ? true : false;
+        var killable = parent.getAttribute('isKillable') === "true" ? true : false;
         var movable = parent.getAttribute('isMovable') == "true" ? true : false;
         var breakable = parent.getAttribute('isBreakable') == "true" ? true : false;
         var animated = parent.getAttribute('isAnimated') == "true" ? true : false;

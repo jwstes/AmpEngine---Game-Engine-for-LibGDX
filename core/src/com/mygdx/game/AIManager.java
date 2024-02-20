@@ -2,16 +2,9 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AIManager extends Entity {
 	
@@ -61,9 +54,8 @@ public class AIManager extends Entity {
     }
 
     @Override
-    public long update(long lastEntityUpdate) {
-    	
-        return lastEntityUpdate;
+    public void update(long lastEntityUpdate) {
+
     }
     
     public void moveEntityRight() {
