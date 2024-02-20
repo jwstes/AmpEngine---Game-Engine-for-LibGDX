@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Window with Chunks</title>
+<style>
+  .gameWindow {
+    width: 1280px;
+    height: 768px;
+    display: grid;
+    grid-template-columns: repeat(40, 32px);
+    grid-template-rows: repeat(24, 32px);
+    gap: 0px;
+  }
+  .chunk {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #000;
+  }
+  .chunk:hover{
+    background-color: rgba(0,0,0,.25);
+  }
+  .assetSelector{
+    margin-top: 2em;
+  }
+  .asset{
+    margin-right: 1em;
+    margin-left: 1em;
+    border:4px solid black;
+  }
+  #assetSelectedText{
+    margin-top: 2em;
+  }
+  .selectedAsset{
+    border: 4px solid red !important;
+  }
+</style>
+</head>
+<body>
+
+<div class="gameWindow">
+
+</div>
+
+<h4 id="assetSelectedText"> Kevin Says: Select An Asset </h4>
+<div class="assetSelector">
+    
+</div>
+
+<h4 id="assetSelectedText"> Kevin Wants Behaviour </h4>
+<div class="assetProperties">
+    <input type="checkbox" id="cb1">
+    <label for="cb1">isAlive</label><br>
+
+    <input type="checkbox" id="cb2">
+    <label for="cb2">isKillable</label><br>
+
+    <input type="checkbox" id="cb3">
+    <label for="cb3">isMovable</label><br>
+
+    <input type="checkbox" id="cb4">
+    <label for="cb4">isBreakable</label><br>
+
+    <input type="checkbox" id="cb5">
+    <label for="cb5">isAnimated</label><br>
+
+    <input type="checkbox" id="cb6">
+    <label for="cb6">isCollidable</label><br>
+
+    <input type="text" id="tb7" value="static" placeholder="assetType">
+
+    <button id="export" onclick="exportAll()">EXPORT</button>
+</div>
+
+<script>
+
+var assets = [
+    "10.png", "11.png", "12.png", "player.png"
+  ]
+  
+  var selectedAsset;
+
+  var isAlive = false;
+  var isKillable = false;
+  var isMovable = false;
+  var isBreakable = false;
+  var isAnimated = false;
+  var isCollidable = false;
+
+  assets.forEach(a => {
+    var assetSelector = document.querySelector('.assetSelector');
+    var asset = document.createElement('img');
+    asset.setAttribute('src', a);
+    asset.classList.add('asset');
+    assetSelector.appendChild(asset);
+  })
+
+  var allAssets = document.querySelectorAll('.asset');
+  for (let i = 0; i < allAssets.length; i++) {
+    allAssets[i].addEventListener('click', function(e){
+        var AA = document.querySelectorAll('.asset');
+        for (let j = 0; j < AA.length; j++) {
+            AA[j].classList.remove('selectedAsset');
+        }
+
+        e.target.classList.add('selectedAsset');
+        selectedAsset = e.target;
+        
+    })
+  }
+
+
+  const gameWindow = document.querySelector('.gameWindow');
+  const rows = 24;
+  const columns = 40;
+  
+  function chunkHandler(e){
+    var tg = e.target;
+    try{
+        tg.innerHTML = `<img src="${selectedAsset.getAttribute('src')}" />`;
+        tg.setAttribute('isAlive', isAlive);
+        tg.setAttribute('isKillable', isKillable);
+        tg.setAttribute('isMovable', isMovable);
+        tg.setAttribute('isBreakable', isBreakable);
+        tg.setAttribute('isAnimated', isAnimated);
+        tg.setAttribute('isCollidable', isCollidable);
+        tg.setAttribute('entityType', document.getElementById('tb7').value);
+    }
+    catch(Exception){
+        document.getElementById('assetSelectedText').setAttribute('style', "color: red; font-size: 4em;");
+        setTimeout(function(){
+            document.getElementById('assetSelectedText').setAttribute('style', "");
+        }, 1000);
+    }
+  }
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < columns; col++) {
+      const chunk = document.createElement('div');
+      chunk.classList.add('chunk');
+
+      const yValue = (rows - row - 1) * 32;
+      chunk.setAttribute('y', yValue);
+
+      const xValue = col * 32;
+      chunk.setAttribute('x', xValue);
+
+      gameWindow.appendChild(chunk);
+      chunk.addEventListener('click', chunkHandler);
+    }
+  }
+
+  
+  document.getElementById('cb1').addEventListener('change', function(e){
+    isAlive = e.target.checked;
+  })
+  document.getElementById('cb2').addEventListener('change', function(e){
+        isKillable = e.target.checked;
+    })
+    document.getElementById('cb3').addEventListener('change', function(e){
+        isMovable = e.target.checked;
+    })
+    document.getElementById('cb4').addEventListener('change', function(e){
+        isBreakable = e.target.checked;
+    })
+    document.getElementById('cb5').addEventListener('change', function(e){
+        isAnimated = e.target.checked;
+    })
+    document.getElementById('cb6').addEventListener('change', function(e){
+        isCollidable = e.target.checked;
+    })
+    
+  
+  function exportAll(){
+    var allChunks = document.querySelectorAll('.chunk>img');
+
+    var outputJSON = {
+        "background" : "background.png"
+    };
+    var entities = [];
+
+    allChunks.forEach(chunk => {
+        var parent = chunk.parentElement;
+
+        var textureFilePathSplit = chunk.src.split('/');
+        
+        var texutreName = textureFilePathSplit[textureFilePathSplit.length - 1];
+        var x = parent.getAttribute('x');
+        var y = parent.getAttribute('y');
+        var alive = parent.getAttribute('isAlive') == "true" ? true : false;
+        var killable = parent.getAttribute('isKillable') == "true" ? true : false;
+        var movable = parent.getAttribute('isMovable') == "true" ? true : false;
+        var breakable = parent.getAttribute('isBreakable') == "true" ? true : false;
+        var animated = parent.getAttribute('isAnimated') == "true" ? true : false;
+        var collidable = parent.getAttribute('isCollidable') == "true" ? true : false;
+        var etype = parent.getAttribute('entityType');
+        entities.push({
+            "coords" : [
+                x, y
+            ],
+            "texture" : [
+                texutreName
+            ],
+            "isAlive": alive,
+            "isKillable": killable,
+            "isMovable": movable,
+            "isBreakable": breakable,
+            "entityType": etype,
+            "isAnimated": animated,
+            "isCollidable": collidable
+        })
+    })
+
+    outputJSON['Entities'] = entities;
+    console.log(JSON.stringify(outputJSON));
+  }
+
+
+</script>
+
+</body>
+</html>
