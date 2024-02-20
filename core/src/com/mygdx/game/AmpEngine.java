@@ -14,8 +14,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.audio.*;
 
 import com.mygdx.game.SceneManager;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AmpEngine extends ApplicationAdapter{
 	private SceneManager sceneManager;
@@ -26,14 +29,17 @@ public class AmpEngine extends ApplicationAdapter{
 	private PlayerControl playerControl;
 	private PlayerEntity player;
 	private CollisionManager collisionManager;
+	private InputManager inputManager;
 	
 	
-	private void moveLeft() {        
+	private void moveLeft() {
+		
         float originalPosX = player.getPosX();
         float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());
         player.setPosX(newX);
         player.updateCollider(newX, player.getPosY(), 32, 32);
 
+        sceneManager.outputManager.playSound("walking");
         
         Entity collisionEntity = collisionManager.checkPlayerCollisions();
         if (collisionEntity != null) {
@@ -47,6 +53,7 @@ public class AmpEngine extends ApplicationAdapter{
 	    player.setPosX(newX);
 	    player.updateCollider(newX, player.getPosY(), 32, 32);
 
+	    sceneManager.outputManager.playSound("walking");
 	    
 	    Entity collisionEntity = collisionManager.checkPlayerCollisions();
 	    if (collisionEntity != null) {
@@ -124,6 +131,14 @@ public class AmpEngine extends ApplicationAdapter{
 		playerControl.bindKey(Keys.LEFT, () -> moveLeft());
 		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
 		playerControl.bindKey(Keys.SPACE, () -> jump());
+		sceneManager.setPlayerControl(playerControl);
+		
+		inputManager = new InputManager(sceneManager);
+		
+		Map<String, Sound> soundList = new HashMap<>();
+		soundList.put("walking", inputManager.loadSound("walking.mp3"));
+
+		sceneManager.outputManager.setSoundList(soundList);
 	}
 	
 
@@ -132,11 +147,16 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 		sceneManager.clearScreen();
 		sceneManager.loadScene(0);
-        sceneManager.drawCollider();
+//        sceneManager.drawCollider();
         sceneManager.updateScene();
         
-        playerControl.handleInput(); //Listener
-        playerControl.handleCCAction("onGround");
+        inputManager.runnable();
+        inputManager.CCRunnable("onGround");
+        Boolean anyKeyDown = inputManager.isAnyKeyDown();
+        if(anyKeyDown != true) {
+        	sceneManager.outputManager.stopAllSound();
+        }
+        
         
 	}
 	
@@ -144,3 +164,12 @@ public class AmpEngine extends ApplicationAdapter{
 		
 	}
 }
+
+
+
+
+
+
+
+
+

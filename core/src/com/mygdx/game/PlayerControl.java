@@ -49,41 +49,9 @@ public class PlayerControl {
 	public void bindKey(int key, Runnable action) {
         keyBindings.put(key, action);
     }
-	
-	
-	
-	
-	
-	//Specific Functions to Input
-	private Runnable continuousConditionalAction;
-	
-	//Works in render() loop.
-    public void handleInput() { //Listener Function
-        keyBindings.forEach((key, action) -> {
-            if (Gdx.input.isKeyPressed(key)) { // Key Down & return when key up
-            	
-            	if(key == 62) { // Space Pressed
-            		continuousConditionalAction = action;
-            	}
-            	
-                action.run();
-            }
-        });
-    }
-    
-    public void handleCCAction(String condition) {
-    	if(continuousConditionalAction != null) {
-    		continuousConditionalAction.run();
-    		
-    		switch(condition) {
-	    		case "onGround":
-	    			if(this.isOnGround == true) {
-	            		continuousConditionalAction = null;
-	            	}
-	    			break;
-    		}
-    	}
-    }
+	public Map<Integer, Runnable> getKeyBindings(){
+		return keyBindings;
+	}
 
 }
 

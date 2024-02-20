@@ -45,6 +45,8 @@ public class SceneManager{
     private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
     private CollisionManager collisionManager;
     
+    public PlayerControl playerControl;
+    public OutputManager outputManager;
 
     
 	// METHODS
@@ -309,6 +311,10 @@ public class SceneManager{
 	    return selectedMenuItemIndex;
 	}
 	
+	public void setPlayerControl(PlayerControl p) {
+		playerControl = p;
+	}
+	
 	public void initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
 	}
@@ -326,6 +332,9 @@ public class SceneManager{
 		
 		lastEntityUpdate = System.currentTimeMillis();
 		animatedTextureID = 0;
+		
+		
+		outputManager = new OutputManager();
 	}
 
 }
