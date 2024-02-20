@@ -25,6 +25,7 @@ import com.badlogic.gdx.utils.Array;
 public class SceneManager{
 	// INSTANCES AND VARIABLES
 	public EntityManager entityManager;
+	private Dashboard dashboard;
 	private Texture developerLogo;
 	private Array<Scene> allScenes;
 	
@@ -44,6 +45,8 @@ public class SceneManager{
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
     private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
     private CollisionManager collisionManager;
+    private GameOverScene gameOverScene; // New addition
+    private boolean gameOver;
     
 
     
@@ -159,6 +162,10 @@ public class SceneManager{
 		entityManager.createEntities(selectedScene);
 	}
 	public void loadScene(int sceneID) {
+		if (gameOver) {
+	        loadGameOverScene();
+	        return; // Exit the method to ensure only the GameOver scene is rendered
+	    }
 		Scene selectedScene = allScenes.get(sceneID);
 		//entityManager.createEntities(selectedScene);
 		
@@ -194,6 +201,9 @@ public class SceneManager{
 			e.draw(batch);
 		}
 		
+		// Dashboard Render
+		dashboard.render(batch);
+		
 		
 		currentScene = selectedScene;
 		currentSceneID = sceneID;
@@ -206,29 +216,36 @@ public class SceneManager{
 	}
     public void checkCollision() {
         collisionManager.checkPlayerCollisions();
+        Entity collidedEntity = collisionManager.checkPlayerCollisions();
+        if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial")) {
+            // If collision occurs with an adversarial entity, reduce player's health
+            dashboard.reduceHealth(1);
+        }
     }
     public void drawCollider() {
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(Color.RED);
+    	if (!gameOver) {
+    		shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        	shapeRenderer.setColor(Color.RED);
 
-        for (PlayerEntity player : entityManager.getAllPEntity()) {
-            shapeRenderer.rect(player.getRec().x, player.getRec().y, player.getRec().width, player.getRec().height);
-        }
-        for (StaticEntity staticEntity : entityManager.getAllSEntity()) {
-            shapeRenderer.rect(staticEntity.getRec().x, staticEntity.getRec().y, staticEntity.getRec().width, staticEntity.getRec().height);
-        }
-        for (AdversarialEntity adversary : entityManager.getAllAdEntity()) {
-            shapeRenderer.rect(adversary.getRec().x, adversary.getRec().y, adversary.getRec().width, adversary.getRec().height);
-        }
-        for (AIManager ai : entityManager.getAllAIMEntity()) {
-        	 shapeRenderer.rect(ai.getRec().x, ai.getRec().y, ai.getRec().width, ai.getRec().height);
-        }
-
-
-        quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+        	for (PlayerEntity player : entityManager.getAllPEntity()) {
+            	shapeRenderer.rect(player.getRec().x, player.getRec().y, player.getRec().width, player.getRec().height);
+        	}
+        	for (StaticEntity staticEntity : entityManager.getAllSEntity()) {
+            	shapeRenderer.rect(staticEntity.getRec().x, staticEntity.getRec().y, staticEntity.getRec().width, staticEntity.getRec().height);
+        	}
+        	for (AdversarialEntity adversary : entityManager.getAllAdEntity()) {
+            	shapeRenderer.rect(adversary.getRec().x, adversary.getRec().y, adversary.getRec().width, adversary.getRec().height);
+        	}
+        	for (AIManager ai : entityManager.getAllAIMEntity()) {
+        	 	shapeRenderer.rect(ai.getRec().x, ai.getRec().y, ai.getRec().width, ai.getRec().height);
+        	}
 
 
-        shapeRenderer.end(); // End shape drawing
+        	quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+
+
+        	shapeRenderer.end(); // End shape drawing
+    	}
     }
 	
 	
@@ -311,10 +328,43 @@ public class SceneManager{
 	
 	public void initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
+    }
+	
+	public Dashboard getDashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
+        if (dashboard == null) {
+            dashboard = new Dashboard(maxHealth, font, healthSprite);
+            dashboard.setSceneManager(this);
+        }
+        return dashboard;       
 	}
+	
+	public void loadGameOverScene() {
+        if (!gameOver) {
+            gameOver = true;
+        }
+
+        // Load the game over scene
+        if (gameOverScene == null) {
+            Texture gameOverTexture = new Texture("gameover.png");
+            gameOverScene = new GameOverScene(gameOverTexture);
+        }
+
+        clearScreen();
+        gameOverScene.render(batch);
+    }
+	
 	public SceneManager(Array<String> sceneJSONArr) {
+		gameOver = false;
 		entityManager = new EntityManager();
 		allScenes = new Array<Scene>();
+		
+		// Load dashboard assets
+        Texture healthSprite = new Texture("player.png");
+        BitmapFont font = new BitmapFont();
+        int maxHealth = 3;
+
+        // Create or get the dashboard
+        dashboard = getDashboard(maxHealth, font, healthSprite);
 		
 		batch = new SpriteBatch();
 		
