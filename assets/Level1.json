@@ -17,6 +17,26 @@
             "isAnimated": false,
             "isCollidable": false
         },
+        
+        {
+            "coords": [
+                128,
+                32
+            ],
+            "texture": [
+                "enemyLeft.png",
+                "enemyRight.png",
+                "enemyLeft.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": true,
+            "entityType": "adversarial",
+            "isAnimated": true,
+            "isCollidable": true
+        },
+        
         {
             "coords": [
                 128,
@@ -27,13 +47,13 @@
                 "spike2.png",
                 "spike3.png"
             ],
-            "isAlive": true,
-            "isKillable": true,
+            "isAlive": false,
+            "isKillable": false,
             "isMovable": true,
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
-            "isCollidable": false
+            "isCollidable": true
         },
         {
             "coords": [
@@ -45,13 +65,13 @@
                 "spike2.png",
                 "spike3.png"
             ],
-            "isAlive": true,
-            "isKillable": true,
+            "isAlive": false,
+            "isKillable": false,
             "isMovable": true,
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
-            "isCollidable": false
+            "isCollidable": true
         },
         
         {
@@ -64,13 +84,13 @@
                 "spike2.png",
                 "spike3.png"
             ],
-            "isAlive": true,
-            "isKillable": true,
+            "isAlive": false,
+            "isKillable": false,
             "isMovable": true,
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
-            "isCollidable": false
+            "isCollidable": true
         },
         {
             "coords": [
@@ -82,13 +102,13 @@
                 "spike2.png",
                 "spike3.png"
             ],
-            "isAlive": true,
-            "isKillable": true,
+            "isAlive": false,
+            "isKillable": false,
             "isMovable": true,
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
-            "isCollidable": false
+            "isCollidable": true
         },
         {
             "coords": [
@@ -1023,6 +1043,6 @@
             "entityType": "static",
             "isAnimated": false,
             "isCollidable": false
-        },
+        }
     ]
 }

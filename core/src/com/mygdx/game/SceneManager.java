@@ -92,7 +92,7 @@ public class SceneManager{
 
 		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
 			//System.out.println("Updating");
-			if(animatedTextureID < 3) {
+			if(animatedTextureID < 2) {
 				animatedTextureID++;
 				//aiManager.updateColl(animatedTextureID);
 			}
@@ -108,12 +108,15 @@ public class SceneManager{
 		
 		// time taken before movable entity moves 
         if (currentTime >= (lastAIUpdate + 800)) 
+        	
         {
+            Array<PlayerEntity> playerEntities = entityManager.getAllPEntity();
+
               for (AIManager ai : entityManager.getAllAIMEntity()) {
-                  if (ai.getIsMovable()) {
+                  if (ai.getIsMovable() && !ai.getIsKillable()) {
                   	
                   	// movable entity moves to the right
-                      moveEntityRight(ai);
+                      ai.moveEntityRight();
                       
                       if (animatedTextureID == 2) 
                       {   	
@@ -124,34 +127,62 @@ public class SceneManager{
                       }
                    
                   }
+                  else if (ai.getIsMovable() && ai.getIsKillable()) {
+                     ai.chasePEntity(playerEntities);;
+                  }
               }
+              
         }
 		
 	}
 	
 //	==============================Michael stuff=========================
-	private void moveEntityRight(AIManager ai) {
-	    float increment = 1f; // adjusting distance of movable entity travel
-	    float maxX = Gdx.graphics.getWidth(); // Get screen size
-
-	    float initialX = ai.getInitialPosX(); // get initial position x from AImanager (which is from super entity)
-	    float targetX = ai.getPosX() + increment; // entity next position to the right with increment
-
-	    // use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
-	    float alpha = MathUtils.clamp((targetX - ai.getPosX()) / increment, 0f, 1f);
-
-	    // Experiment with different interpolation functions for smoother sliding
-	    float newX = Interpolation.smooth.apply(ai.getPosX(), targetX, alpha);
-
-	    // Check if the entity has reached the right edge
-	    if (newX > maxX) {
-	        // Reset the entity to the left with a different starting position
-	        ai.setPosX(initialX - ai.getWidth()); // Subtract entity width to avoid overlapping
-	    } else {
-	        ai.setPosX(newX);
-	    }
-	    
-	}
+//	private void moveEntityRight(AIManager ai) {
+//	    float increment = 1f; // adjusting distance of movable entity travel
+//	    float maxX = Gdx.graphics.getWidth(); // Get screen size
+//
+//	    float initialX = ai.getInitialPosX(); // get initial position x from AImanager (which is from super entity)
+//	    float targetX = ai.getPosX() + increment; // entity next position to the right with increment
+//
+//	    // use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
+//	    float alpha = MathUtils.clamp((targetX - ai.getPosX()) / increment, 0f, 1f);
+//
+//	    // Experiment with different interpolation functions for smoother sliding
+//	    float newX = Interpolation.smooth.apply(ai.getPosX(), targetX, alpha);
+//
+//	    // Check if the entity has reached the right edge
+//	    if (newX > maxX) {
+//	        // Reset the entity to the left with a different starting position
+//	        ai.setPosX(initialX - ai.getWidth()); // Subtract entity width to avoid overlapping
+//	    } else {
+//	        ai.setPosX(newX);
+//	    }
+//	    
+//	}
+//	
+//	private void chasePEntity(AIManager ai, Array<PlayerEntity> playerEntities) {
+//		 // Adjust the increment value based on the speed you want the AI to chase the player
+//	    float increment = 1f;
+//
+//	    // Initialize some default values for the player entity's position
+//	    float playerPosX = 0;
+//
+//	    // Get the first player entity from the array, if it exists
+//	    if (playerEntities.size > 0) {
+//	        playerPosX = playerEntities.first().getPosX();
+//	    }
+//
+//	    //AI move towards the player (positive if AI is to the left, negative if AI is to the right)
+//	    float direction = Math.signum(playerPosX - ai.getPosX());
+//
+//	    // get the new position of the entity based on the increment and direction
+//	    float newPosX = ai.getPosX() + increment * direction;
+//	    // Set the new position of the AI entity
+//	    ai.setPosX(newPosX);
+//        ai.updateCollider(newPosX, ai.getPosY(), 32, 24);
+//
+//	    
+//	}
 //	====================================================================
 	
 	

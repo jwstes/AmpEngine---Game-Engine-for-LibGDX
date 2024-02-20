@@ -107,12 +107,13 @@ public class EntityManager {
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
     		boolean isBreakable = entityProperties.get(i)[3];
-    		
+    		    		
     		if(entityAnimated.get(i) == true) {
     			AIManager aime = new AIManager(x, y, t);
     			//System.out.print(t);
     			aime.setIsAlive(isAlive);
     			aime.setIsKillable(isKillable);
+    			aime.setIsMovable(isMovable);
     			aime.setEntityType(adversarialString);
     			aimEntities.add(aime);
     		}
@@ -138,6 +139,7 @@ public class EntityManager {
         			AdversarialEntity ade = new AdversarialEntity("n", x, y, t[0]);
         			ade.setIsAlive(isAlive);
         			ade.setIsKillable(isKillable);
+        			ade.setIsMovable(isMovable);
         			ade.setEntityType(adversarialString);
         			adEntities.add(ade);
         		}

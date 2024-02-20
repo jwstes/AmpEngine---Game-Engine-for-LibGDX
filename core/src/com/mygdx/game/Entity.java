@@ -21,9 +21,11 @@ public abstract class Entity {
 	private float y;
 	private float speed;
 	private Texture tex; // this is the overlaying texture (sprite image)
-	private Texture[] tList;
+	private Texture[] animatedTexture;
 	private boolean isKillable; // Some "enemies" are meant to just attack like a floating canon
 								// Not necessary for all games, see how you want to implement the logic.
+	
+	private boolean isMovable;
 	
 	private boolean isAlive; // For logic that require a boolean way to check if the entity is alive.
 							// You can also check if health = 0 but that's scuffed innit.
@@ -126,8 +128,21 @@ public abstract class Entity {
 		return isKillable;
 	}
 	
+	public void setIsMovable(boolean b) {
+		isMovable = b;
+	}
+	public boolean getIsMovable() {
+		return isMovable;
+	}
 
+	public void setAnimatedTexture(Texture[] t) {
+		animatedTexture = t;
+	}
+	public Texture[] getAnimatedTexture() {
+		return animatedTexture;
+	}
 
+	
 	// Setter & Getter
 	public void setHealth(int health) {
 		this.health = health;
