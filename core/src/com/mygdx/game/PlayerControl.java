@@ -5,75 +5,101 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PlayerControl {
-	private PlayerEntity player;
-	private CollisionManager colm;
-	private Array<PlayerEntity> pList;
-	Array<StaticEntity> sList;
-	Array<AIManager> aiList;
-	Array<AdversarialEntity> aList;
-	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
+	private Map<Integer, Runnable> keyBindings = new HashMap<>();
 	
 	float verticalVelocity = 0;
-    final float GRAVITY = -200; // Gravity pulling the player down each frame
-    final float JUMP_VELOCITY = 300; // The initial velocity impulse when jumping
-    boolean isOnGround = true; // Initially, assume the player is on the ground
+    final float GRAVITY = -500;
+    boolean isOnGround = true;
+    
+    
+    //Specific Functions to player
+    public void setVerticalVelocity(float x) {
+    	this.verticalVelocity = x;
+    }
+    public void updateVerticalVelocity(float x) {
+    	this.verticalVelocity += this.GRAVITY * x;
+    }
+    public float getVerticalVelocity() {
+    	return this.verticalVelocity;
+    }
+    
+    public boolean getIsOnGround() {
+    	return this.isOnGround;
+    }
+    public void setIsOnGround(boolean b) {
+    	this.isOnGround = b;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	public PlayerControl() {}
+	
+	public void bindKey(int key, Runnable action) {
+        keyBindings.put(key, action);
+    }
 	
 	
-	public PlayerControl(Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
-		this.pList = pList;
-		this.sList = sList;
-		this.aiList = aiList;
-		this.aList = aList;
-		colm = new CollisionManager(worldBounds,0, pList, sList, aList, aiList);
-		
-	}
 	
-	public void Movement() {
-		Entity player = pList.get(0);
-		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-            // Store the player's original position
-            float originalPosX = player.getPosX();
-
-            // Calculate the new position
-            float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());
-
-            // Update the player's position temporarily to check for collisions
-            player.setPosX(newX);
-            player.updateCollider(newX, player.getPosY(), 32, 32);
-            
-            // Check for collisions
-            Entity collisionEntity = colm.checkPlayerCollisions();
-            if (collisionEntity != null) {
-                // Collision detected, revert to the original position
-               player.setPosX(originalPosX);
+	
+	
+	//Specific Functions to Input
+	private Runnable continuousConditionalAction;
+	
+	//Works in render() loop.
+    public void handleInput() { //Listener Function
+        keyBindings.forEach((key, action) -> {
+            if (Gdx.input.isKeyPressed(key)) { // Key Down & return when key up
+            	
+            	if(key == 62) { // Space Pressed
+            		continuousConditionalAction = action;
+            	}
+            	
+                action.run();
             }
-        }
-		
-		
-		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-		    // Store the player's original position
-		    float originalPosX = player.getPosX();
+        });
+    }
+    
+    public void handleCCAction(String condition) {
+    	if(continuousConditionalAction != null) {
+    		continuousConditionalAction.run();
+    		
+    		switch(condition) {
+	    		case "onGround":
+	    			if(this.isOnGround == true) {
+	            		continuousConditionalAction = null;
+	            	}
+	    			break;
+    		}
+    	}
+    }
 
-		    // Calculate the new position
-		    float newX = Math.min(Gdx.graphics.getWidth(), originalPosX + 200 * Gdx.graphics.getDeltaTime()); // Assuming the screen width as the limit
-
-		    // Update the player's position temporarily to check for collisions
-		    player.setPosX(newX);
-		    player.updateCollider(newX, player.getPosY(), 32, 32);
-
-		    // Check for collisions
-		    
-		    Entity collisionEntity = colm.checkPlayerCollisions();
-		    if (collisionEntity != null) {
-		        // Collision detected, revert to the original position
-		        player.setPosX(originalPosX);
-		    }
-		}
-				
-	}
-	
-
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,17 +45,10 @@ public class SceneManager{
     private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
     private CollisionManager collisionManager;
     
-    //=======================================================================TESTING MOVEMENT ============================================================================
-    float verticalVelocity = 0;
-    final float GRAVITY = -500; // Gravity pulling the player down each frame
-    final float JUMP_VELOCITY = 300; // The initial velocity impulse when jumping
-    boolean isOnGround = true; // Initially, assume the player is on the ground
-    PlayerControl player;
-    //====================================================================================================================================================================
-	
+
+    
 	// METHODS
 	public void clearScreen() {
-//		ScreenUtils.clear(100, 100, 100, 1);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 	}
@@ -129,33 +122,8 @@ public class SceneManager{
                    
                   }
               }
-          }
-		
-//=====================================================================IDK HOW TO IMPLEMENT TO OTHER CLASS PLEASE HELP!!!!!!===============================================	
-		
-		Entity player = entityManager.getAllPEntity().get(0);
-		// Apply gravity every frame, reducing the vertical velocity
-        verticalVelocity += GRAVITY * Gdx.graphics.getDeltaTime();
-        // Check for the jump key press and initiate the jump if the player is on the ground
-        if (Gdx.input.isKeyJustPressed(Keys.SPACE) && isOnGround) {
-            System.out.print("SPACE - Jump Initiated\n");
-            verticalVelocity = JUMP_VELOCITY; // Apply the jump velocity
-            isOnGround = false; // The player is no longer on the ground
         }
-        
-        //float originalPosY = player.getPosY();
-        // Update the player's position based on the vertical velocity
-        float newY = player.getPosY() + verticalVelocity * Gdx.graphics.getDeltaTime();
-        player.setPosY(newY);
-        
-        
-        // Update the collider for the new position
-        player.updateCollider(player.getPosX(), newY, 32, 32);
-        //colm.checkCollisionsAndUpdateGroundStatus(isOnGround, verticalVelocity);
-        
-        checkCollisionsAndUpdateGroundStatus();
 		
-        
 	}
 	
 //	==============================Michael stuff=========================
@@ -182,42 +150,6 @@ public class SceneManager{
 	    
 	}
 //	====================================================================
-	private void checkCollisionsAndUpdateGroundStatus() {
-	    // Assume the player is not on the ground at the start of each check
-	    isOnGround = false;
-	    Entity player = entityManager.getAllPEntity().get(0);
-	    Rectangle playerRect = player.getRec();
-	    for (Entity groundEntity : entityManager.getAllSEntity()) { // Loop through ground entities
-	        Rectangle groundRect = groundEntity.getRec();
-
-	        // Check if the player's bottom edge is within the top edge of a ground entity
-	        if (playerRect.y <= groundRect.y + groundRect.height && playerRect.y > groundRect.y) {
-	            // Check for horizontal overlap
-	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-	                isOnGround = true; // Player is on the ground
-	                player.setPosY(groundRect.y + groundRect.height); // Adjust position to stand on the ground
-	                verticalVelocity = 0; // Reset vertical velocity
-	                break; // Exit the loop after finding ground collision
-	            }
-	        }
-	     // Check if the player's top edge is colliding with the bottom edge of an entity (hitting head)
-	        if (playerRect.y + playerRect.height >= groundRect.y && playerRect.y + playerRect.height < groundRect.y + groundRect.height) {
-	            // Check for horizontal overlap
-	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-	                // Player has hit the bottom side of an entity
-	                // You might want to handle this differently, e.g., stopping upward movement
-	                verticalVelocity = Math.min(verticalVelocity, 0); // Ensure vertical velocity is not positive (not moving upwards)
-	                player.setPosY(groundRect.y - playerRect.height); // Adjust player's position to be just below the entity
-	                // Note: No need to set isOnGround = true here, as the player is not landing on top of the entity
-	            }
-	        }
-	    }
-	}
-//================================================================================================================================================================================
-	
-	
-	
-	
 	
 	
 	
@@ -234,20 +166,18 @@ public class SceneManager{
 		loadBackground(backgroundTexture);
 		
 		
-		
 		Array<AdversarialEntity> allAdversarialEntity = entityManager.getAllAdEntity();
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
 		Array<AIManager> allAIMEntity = entityManager.getAllAIMEntity();
 		
 		//DELETE LATER
-		player = new PlayerControl(allPlayerEntity, allStaticEntity,allAdversarialEntity,allAIMEntity );
-		player.Movement();
+//		player = new PlayerControl(allPlayerEntity, allStaticEntity,allAdversarialEntity,allAIMEntity );
+//		player.Movement();
 		//DELETE LATER
 		
 		
 		batch.begin();
-		//System.out.print("BEGIN");
 		for(AdversarialEntity e : allAdversarialEntity) {
 			e.draw(batch);
 			
@@ -275,7 +205,6 @@ public class SceneManager{
 		batch.end();
 	}
     public void checkCollision() {
-        collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
         collisionManager.checkPlayerCollisions();
     }
     public void drawCollider() {
@@ -305,6 +234,9 @@ public class SceneManager{
 	
 	public Array<Scene> getAllScenes(){
 		return allScenes;
+	}
+	public CollisionManager getCollisionManager() {
+		return collisionManager;
 	}
 
 	public int displayMenu(String[] menuItemText, Runnable[] actions, int selectedMenuItemIndex) {
@@ -377,6 +309,9 @@ public class SceneManager{
 	    return selectedMenuItemIndex;
 	}
 	
+	public void initializeCollisionManager() {
+		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
+	}
 	public SceneManager(Array<String> sceneJSONArr) {
 		entityManager = new EntityManager();
 		allScenes = new Array<Scene>();
