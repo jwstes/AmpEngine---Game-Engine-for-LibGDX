@@ -120,23 +120,46 @@ public class AmpEngine extends ApplicationAdapter{
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
 		//... add more if needed
-		sceneManager = new SceneManager(sceneJSONArr);
-		sceneManager.populateScene(0);
-		sceneManager.initializeCollisionManager();
-		collisionManager = sceneManager.getCollisionManager();
-		
-		player = sceneManager.entityManager.getAllPEntity().get(0);
-		
+
+		/* **************************
+		 	Initialize Managers
+		************************* */
+		sceneManager = new SceneManager(sceneJSONArr); // new SceneManager
+		// Things carried out in SceneManager Constructor
+		// 1. create dashboard for healthbar & timetracking
+		// 2. sets a spriteBatch to render
+		// 3. initialize Scene and make it load all entity into respective arrays
+		// 4. Initialize lastEntityUpdate to know when was the last update made
+		// 5. Initialize an output manager to manage sounds
+
+		// Initialize CollisionManager using function in sceneManager -> create local reference
+		collisionManager = sceneManager.initializeCollisionManager();
+
+		//get Local Reference of entityManager made in sceneManager
+		entityManager = sceneManager.entityManager;
+
+		// get a Local Reference of player entity from EntityManager class
+		player = entityManager.getAllPEntity().get(0);
+
+
+
+		/* **************************
+		 	Set KeyBindings in playerControl
+		   ************************* */
+
 		playerControl = new PlayerControl();
 		playerControl.bindKey(Keys.LEFT, () -> moveLeft());
 		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
 		playerControl.bindKey(Keys.SPACE, () -> jump());
 		sceneManager.setPlayerControl(playerControl);
-		
+
+
+
 		inputManager = new InputManager(sceneManager);
 		
 		Map<String, Sound> soundList = new HashMap<>();
 		soundList.put("walking", inputManager.loadSound("walking.mp3"));
+		sceneManager.populateScene(0); // create scene relevant entities with the properties defined in JSON file.
 
 		sceneManager.outputManager.setSoundList(soundList);
 	}

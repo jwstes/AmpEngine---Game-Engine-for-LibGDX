@@ -51,7 +51,43 @@ public class SceneManager{
     public PlayerControl playerControl;
     public OutputManager outputManager;
 
-    
+	// Things carried out in SceneManager Constructor
+	// New Entity Manager is made
+	// Dashboard Healthbar is made from function getDashboard>dashboard class>dashboardManagerClass
+	//health sprite is the player sprite, font from Libgdx, maxHealth define in variable in constructor
+	// initialize a spriteBatch
+	// Initialize a new Scene Object. Use ParseFromJSON function to store all entities into the arrayLists in Scene Class.
+	// set LastEntityUpdate property to current time.
+	// initialize an output manager (controls sound)
+	// Constructor
+	public SceneManager(Array<String> sceneJSONArr) {
+		gameOver = false;
+		entityManager = new EntityManager();
+		allScenes = new Array<Scene>();
+
+		// Load dashboard assets
+		Texture healthSprite = new Texture("player.png");
+		BitmapFont font = new BitmapFont();
+		int maxHealth = 3;
+
+		// Create or get the dashboard
+		dashboard = getDashboard(maxHealth, font, healthSprite);
+
+		batch = new SpriteBatch();
+
+		for(String sceneJSON : sceneJSONArr) {
+			Scene s = new Scene();
+			s.ParseFromJSON(sceneJSON);
+			allScenes.add(s);
+		}
+
+		lastEntityUpdate = System.currentTimeMillis();
+		animatedTextureID = 0;
+
+
+		outputManager = new OutputManager();
+	}
+
 	// METHODS
 	public void clearScreen() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -65,29 +101,7 @@ public class SceneManager{
 	    return size;
 	}
 	
-//	public void setDeveloperLogo(Texture assetName) {
-//		developerLogo = entity.setTexture(assetName);
-//	}
-//	
-//	public boolean displaySplashScreen(boolean timerMode, int seconds, long startTime) {
-//		clearScreen();
-//		
-//		SpriteBatch spriteBatch = new SpriteBatch();
-//		spriteBatch.begin();
-//		
-//		float[] windowSize = getWindowSize();
-//		float x = (windowSize[0] - developerLogo.getWidth()) / 2f;
-//	    float y = (windowSize[1] - developerLogo.getHeight()) / 2f;
-//	    
-//		spriteBatch.draw(developerLogo, x, y);
-//		spriteBatch.end();
-//		
-//		if(timerMode == true) {
-//			float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
-//			return elapsedTime > seconds;
-//		}
-//		return false;
-//	}
+
 	
 	public void updateScene() {
 	    long currentTime = System.currentTimeMillis();
@@ -137,58 +151,6 @@ public class SceneManager{
         }
 		
 	}
-	
-//	==============================Michael stuff=========================
-//	private void moveEntityRight(AIManager ai) {
-//	    float increment = 1f; // adjusting distance of movable entity travel
-//	    float maxX = Gdx.graphics.getWidth(); // Get screen size
-//
-//	    float initialX = ai.getInitialPosX(); // get initial position x from AImanager (which is from super entity)
-//	    float targetX = ai.getPosX() + increment; // entity next position to the right with increment
-//
-//	    // use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
-//	    float alpha = MathUtils.clamp((targetX - ai.getPosX()) / increment, 0f, 1f);
-//
-//	    // Experiment with different interpolation functions for smoother sliding
-//	    float newX = Interpolation.smooth.apply(ai.getPosX(), targetX, alpha);
-//
-//	    // Check if the entity has reached the right edge
-//	    if (newX > maxX) {
-//	        // Reset the entity to the left with a different starting position
-//	        ai.setPosX(initialX - ai.getWidth()); // Subtract entity width to avoid overlapping
-//	    } else {
-//	        ai.setPosX(newX);
-//	    }
-//	    
-//	}
-//	
-//	private void chasePEntity(AIManager ai, Array<PlayerEntity> playerEntities) {
-//		 // Adjust the increment value based on the speed you want the AI to chase the player
-//	    float increment = 1f;
-//
-//	    // Initialize some default values for the player entity's position
-//	    float playerPosX = 0;
-//
-//	    // Get the first player entity from the array, if it exists
-//	    if (playerEntities.size > 0) {
-//	        playerPosX = playerEntities.first().getPosX();
-//	    }
-//
-//	    //AI move towards the player (positive if AI is to the left, negative if AI is to the right)
-//	    float direction = Math.signum(playerPosX - ai.getPosX());
-//
-//	    // get the new position of the entity based on the increment and direction
-//	    float newPosX = ai.getPosX() + increment * direction;
-//	    // Set the new position of the AI entity
-//	    ai.setPosX(newPosX);
-//        ai.updateCollider(newPosX, ai.getPosY(), 32, 24);
-//
-//	    
-//	}
-//	====================================================================
-	
-	
-	
 	
 	public void populateScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
@@ -363,8 +325,9 @@ public class SceneManager{
 		playerControl = p;
 	}
 	
-	public void initializeCollisionManager() {
+	public CollisionManager initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
+		return collisionManager;
     }
 	
 	public Dashboard getDashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
@@ -389,33 +352,80 @@ public class SceneManager{
         clearScreen();
         gameOverScene.render(batch);
     }
-	
-	public SceneManager(Array<String> sceneJSONArr) {
-		gameOver = false;
-		entityManager = new EntityManager();
-		allScenes = new Array<Scene>();
-		
-		// Load dashboard assets
-        Texture healthSprite = new Texture("player.png");
-        BitmapFont font = new BitmapFont();
-        int maxHealth = 3;
-
-        // Create or get the dashboard
-        dashboard = getDashboard(maxHealth, font, healthSprite);
-		
-		batch = new SpriteBatch();
-		
-		for(String sceneJSON : sceneJSONArr) {
-            Scene s = new Scene();
-            s.ParseFromJSON(sceneJSON);
-            allScenes.add(s);
-        }
-		
-		lastEntityUpdate = System.currentTimeMillis();
-		animatedTextureID = 0;
-		
-		
-		outputManager = new OutputManager();
-	}
 
 }
+
+
+//	==============================Michael stuff=========================
+//	private void moveEntityRight(AIManager ai) {
+//	    float increment = 1f; // adjusting distance of movable entity travel
+//	    float maxX = Gdx.graphics.getWidth(); // Get screen size
+//
+//	    float initialX = ai.getInitialPosX(); // get initial position x from AImanager (which is from super entity)
+//	    float targetX = ai.getPosX() + increment; // entity next position to the right with increment
+//
+//	    // use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
+//	    float alpha = MathUtils.clamp((targetX - ai.getPosX()) / increment, 0f, 1f);
+//
+//	    // Experiment with different interpolation functions for smoother sliding
+//	    float newX = Interpolation.smooth.apply(ai.getPosX(), targetX, alpha);
+//
+//	    // Check if the entity has reached the right edge
+//	    if (newX > maxX) {
+//	        // Reset the entity to the left with a different starting position
+//	        ai.setPosX(initialX - ai.getWidth()); // Subtract entity width to avoid overlapping
+//	    } else {
+//	        ai.setPosX(newX);
+//	    }
+//
+//	}
+//
+//	private void chasePEntity(AIManager ai, Array<PlayerEntity> playerEntities) {
+//		 // Adjust the increment value based on the speed you want the AI to chase the player
+//	    float increment = 1f;
+//
+//	    // Initialize some default values for the player entity's position
+//	    float playerPosX = 0;
+//
+//	    // Get the first player entity from the array, if it exists
+//	    if (playerEntities.size > 0) {
+//	        playerPosX = playerEntities.first().getPosX();
+//	    }
+//
+//	    //AI move towards the player (positive if AI is to the left, negative if AI is to the right)
+//	    float direction = Math.signum(playerPosX - ai.getPosX());
+//
+//	    // get the new position of the entity based on the increment and direction
+//	    float newPosX = ai.getPosX() + increment * direction;
+//	    // Set the new position of the AI entity
+//	    ai.setPosX(newPosX);
+//        ai.updateCollider(newPosX, ai.getPosY(), 32, 24);
+//
+//
+//	}
+//	====================================================================
+
+//	public void setDeveloperLogo(Texture assetName) {
+//		developerLogo = entity.setTexture(assetName);
+//	}
+//
+//	public boolean displaySplashScreen(boolean timerMode, int seconds, long startTime) {
+//		clearScreen();
+//
+//		SpriteBatch spriteBatch = new SpriteBatch();
+//		spriteBatch.begin();
+//
+//		float[] windowSize = getWindowSize();
+//		float x = (windowSize[0] - developerLogo.getWidth()) / 2f;
+//	    float y = (windowSize[1] - developerLogo.getHeight()) / 2f;
+//
+//		spriteBatch.draw(developerLogo, x, y);
+//		spriteBatch.end();
+//
+//		if(timerMode == true) {
+//			float elapsedTime = (TimeUtils.nanoTime() - startTime) / 1000000000.0f;
+//			return elapsedTime > seconds;
+//		}
+//		return false;
+//	}
+
