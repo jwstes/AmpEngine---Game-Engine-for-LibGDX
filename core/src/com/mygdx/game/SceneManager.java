@@ -40,19 +40,6 @@ public class SceneManager{
     
 	private long lastEntityUpdate;
 	private int animatedTextureID;
-
-
-	public Array<Scene> getAllScenes(){
-		return allScenes;
-	}
-	public CollisionManager getCollisionManager() {
-		return collisionManager;
-	}
-	public void setPlayerControl(PlayerControl p) {
-		playerControl = p;
-	}
-
-	public long getLastEntityUpdate(){return lastEntityUpdate;}
 	
 	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
@@ -60,14 +47,15 @@ public class SceneManager{
     private CollisionManager collisionManager;
     private GameOverScene gameOverScene; // New addition
     private boolean gameOver;
-    
+
+	private PlayerEntity player;
     public PlayerControl playerControl;
     public OutputManager outputManager;
 
 	// Things carried out in SceneManager Constructor
 	// New Entity Manager is made
 	// Dashboard Healthbar is made from function getDashboard>dashboard class>dashboardManagerClass
-	//health sprite is the player sprite, font from Libgdx, maxHealth define in variable in constructor
+	// health sprite is the player sprite, font from Libgdx, maxHealth define in variable in constructor
 	// initialize a spriteBatch
 	// Initialize a new Scene Object. Use ParseFromJSON function to store all entities into the arrayLists in Scene Class.
 	// set LastEntityUpdate property to current time.
@@ -98,6 +86,33 @@ public class SceneManager{
 		outputManager = new OutputManager();
 	}
 
+	// Property Getter Setters
+
+	public void setPlayerEntity(){
+		player = entityManager.getAllPEntity().get(0);
+	}
+
+	public Array<Scene> getAllScenes(){
+		return allScenes;
+	}
+	public CollisionManager getCollisionManager() {
+		return collisionManager;
+	}
+	public void setPlayerControl(PlayerControl p) {
+		playerControl = p;
+	}
+	public boolean getGameOverStatus(){
+		return this.gameOver;
+	}
+
+	public void setGameOverStatus(boolean status){
+		this.gameOver = status;
+	}
+
+	public long getLastEntityUpdate(){return lastEntityUpdate;}
+
+
+
 	// METHODS
 	public void clearScreen() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -119,7 +134,20 @@ public class SceneManager{
 		}
 		return dashboard;
 	}
-	
+
+	public Dashboard getDashboard(){
+		return dashboard;
+	}
+
+	public void resetDashboard(){
+		dashboard.resetDashboard(); // resets the currentHealth, sprite display and Time in dashboard class using Dashboard Manager
+		System.out.println("In SceneManager a function to reset Dashboard Health has been called");
+	}
+
+
+
+
+
 
 
 	// updateScene handles animation texture changes, checks for collision, move AI,

@@ -53,7 +53,7 @@ public class DashboardManager  {
         displayTimer(batch);
     }
 
-    private void resetStartTime() {
+    public void resetStartTime() {
         startTime = TimeUtils.nanoTime();
     }
 

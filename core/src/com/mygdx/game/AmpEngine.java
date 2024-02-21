@@ -30,7 +30,7 @@ public class AmpEngine extends ApplicationAdapter{
 	private PlayerEntity player;
 	private CollisionManager collisionManager;
 	private InputManager inputManager;
-	
+	private float playerStartPosition;
 	
 	private void moveLeft() {
 		
@@ -109,9 +109,17 @@ public class AmpEngine extends ApplicationAdapter{
 	            }
 	        }
 	    }
-    	
-    	
     }
+
+	private void restart() {
+		if (sceneManager.getGameOverStatus()){
+			sceneManager.setGameOverStatus(false);
+			sceneManager.clearScreen();
+			sceneManager.resetDashboard();
+			player.setPosX(playerStartPosition);
+
+		}
+	}
     
     
     
@@ -127,6 +135,10 @@ public class AmpEngine extends ApplicationAdapter{
 		collisionManager = sceneManager.getCollisionManager();
 
 		player = sceneManager.entityManager.getAllPEntity().get(0);
+		playerStartPosition = player.getPosX();
+
+
+
 
 
 		/* **************************
@@ -137,6 +149,7 @@ public class AmpEngine extends ApplicationAdapter{
 		playerControl.bindKey(Keys.LEFT, () -> moveLeft());
 		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
 		playerControl.bindKey(Keys.SPACE, () -> jump());
+		playerControl.bindKey(Keys.ENTER, () -> restart());
 		sceneManager.setPlayerControl(playerControl);
 
 
@@ -160,10 +173,12 @@ public class AmpEngine extends ApplicationAdapter{
         
         inputManager.runnable();
         inputManager.CCRunnable("onGround");
-        Boolean anyKeyDown = inputManager.isAnyKeyDown();
-        if(anyKeyDown != true) {
+        boolean anyKeyDown = inputManager.isAnyKeyDown();
+        if(!anyKeyDown) {
         	sceneManager.outputManager.stopAllSound();
         }
+
+
         
         
 	}

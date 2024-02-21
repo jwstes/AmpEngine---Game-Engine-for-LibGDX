@@ -42,6 +42,27 @@ public class Dashboard implements DashboardInterface {
             dashboardManager.setHealthSprites(healthSprites);
         }
     }
+
+    public void resetDashboard() {
+        int maxHealth = dashboardManager.getMaxHealth();;
+        dashboardManager.setCurrentHealth(maxHealth);
+
+        Texture[] healthSprites = new Texture[maxHealth];
+        for (int i = 0; i < dashboardManager.getCurrentHealth(); i++) {
+            healthSprites[i] = dashboardManager.getHealthSprites()[0];
+        }
+
+        dashboardManager.setHealthSprites(healthSprites);
+        dashboardManager.resetStartTime();
+        System.out.println("Current Health set to max Health again : " + maxHealth);
+    }
+
+
+
+
+    public DashboardManager getDashboardManager(){
+        return dashboardManager;
+    }
     
     public void displayHealthSprites(SpriteBatch batch) {
         float spriteX = 100; // Initial x-coordinate for health sprites
@@ -60,4 +81,7 @@ public class Dashboard implements DashboardInterface {
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
     }
+
+
 }
+
