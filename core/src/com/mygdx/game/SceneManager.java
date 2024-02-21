@@ -325,7 +325,8 @@ public class SceneManager{
 		playerControl = p;
 	}
 	
-	public CollisionManager initializeCollisionManager() {
+	public CollisionManager
+	initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
 		return collisionManager;
     }

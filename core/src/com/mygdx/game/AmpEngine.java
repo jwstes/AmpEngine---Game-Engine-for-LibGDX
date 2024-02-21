@@ -137,6 +137,7 @@ public class AmpEngine extends ApplicationAdapter{
 
 		//get Local Reference of entityManager made in sceneManager
 		entityManager = sceneManager.entityManager;
+		sceneManager.populateScene(0); // create scene relevant entities with the properties defined in JSON file.
 
 		// get a Local Reference of player entity from EntityManager class
 		player = entityManager.getAllPEntity().get(0);
@@ -159,7 +160,6 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		Map<String, Sound> soundList = new HashMap<>();
 		soundList.put("walking", inputManager.loadSound("walking.mp3"));
-		sceneManager.populateScene(0); // create scene relevant entities with the properties defined in JSON file.
 
 		sceneManager.outputManager.setSoundList(soundList);
 	}
