@@ -52,14 +52,14 @@ public class PlayerControl {
 
     // Base Constructor. Require you to pass PlayerEntity, SceneManager and CollisionManager
     public PlayerControl(PlayerEntity entity, SceneManager sceneManager, CollisionManager collisionManager){
-        this.player= entity;
+        this.player = entity;
         this.sceneManager = sceneManager;
         this.collisionManager = collisionManager;
     }
     public void moveLeft() {
 
         float originalPosX = player.getPosX();
-        float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());
+        float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());//Calculate new position of x when moving left
         player.setPosX(newX);
         player.updateCollider(newX, player.getPosY(), 32, 32);
 
@@ -67,7 +67,8 @@ public class PlayerControl {
 
         Entity collisionEntity = collisionManager.checkPlayerCollisions();
         if (collisionEntity != null) {
-            player.setPosX(originalPosX);
+            player.setPosX(originalPosX);   //If collision is detected, it reverts back to the original position
+
         }
     }
 
@@ -80,6 +81,7 @@ public class PlayerControl {
         sceneManager.outputManager.playSound("walking");
 
         Entity collisionEntity = collisionManager.checkPlayerCollisions();
+
         if (collisionEntity != null) {
             // Collision detected, revert to the original position
             player.setPosX(originalPosX);
