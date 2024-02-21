@@ -14,10 +14,6 @@ public class PlayerEntity extends Entity {
 	private boolean isMovable;
 	
 
-	public PlayerEntity(PlayerEntity player) {
-		player = new PlayerEntity();
-		player.setPosX(200);
-	}
     // Constructor
     public PlayerEntity(String n, float x, float y, Texture t){   // focus on making it appear, then add speed & health later
         super(n,x,y,t);
@@ -34,10 +30,6 @@ public class PlayerEntity extends Entity {
     	return isMovable;
     }
 
-	public void update(float deltaTime) {
-		setPosX(getPosX() + 2 * deltaTime);
-		//System.out.print("ITS MOVING????");
-	}
 
 	@Override
 	public void update(long lastEntityUpdate) {

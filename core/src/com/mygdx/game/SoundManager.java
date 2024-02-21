@@ -14,7 +14,7 @@ public class SoundManager{
 		sounds = s;
 	}
 	public void playSound(String soundKey) {
-		if(soundPlaying == false) {
+		if(!soundPlaying) {
 			Sound s = sounds.get(soundKey);
 			long id = s.play(1.0f);
 			
@@ -26,7 +26,7 @@ public class SoundManager{
 		}
 	}
 	public void stopAllSound() {
-		if(soundPlaying == true) {
+		if(soundPlaying) {
 			this.currentSound.stop(this.currentSoundID);
 			this.soundPlaying = false;
 		}

@@ -40,6 +40,17 @@ public class SceneManager{
     
 	private long lastEntityUpdate;
 	private int animatedTextureID;
+
+
+	public Array<Scene> getAllScenes(){
+		return allScenes;
+	}
+	public CollisionManager getCollisionManager() {
+		return collisionManager;
+	}
+	public void setPlayerControl(PlayerControl p) {
+		playerControl = p;
+	}
 	
 	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
@@ -100,17 +111,25 @@ public class SceneManager{
 		};
 	    return size;
 	}
+
+
+	public Dashboard getDashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
+		if (dashboard == null) {
+			dashboard = new Dashboard(maxHealth, font, healthSprite);
+			dashboard.setSceneManager(this);
+		}
+		return dashboard;
+	}
 	
 
-	
+
+	// updateScene handles animation texture changes, checks for collision, move AI,
 	public void updateScene() {
 	    long currentTime = System.currentTimeMillis();
 
 		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
-			//System.out.println("Updating");
 			if(animatedTextureID < 2) {
 				animatedTextureID++;
-				//aiManager.updateColl(animatedTextureID);
 			}
 			else {
 				animatedTextureID = 0;
@@ -119,9 +138,7 @@ public class SceneManager{
 	        
 			lastEntityUpdate = System.currentTimeMillis();
 		}
-		
-//===========================================================================Michael stuff
-		
+
 		// time taken before movable entity moves 
         if (currentTime >= (lastAIUpdate + 800)) 
         	
@@ -151,7 +168,8 @@ public class SceneManager{
         }
 		
 	}
-	
+
+
 	public void populateScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
 		entityManager.createEntities(selectedScene);
@@ -172,11 +190,6 @@ public class SceneManager{
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
 		Array<AIManager> allAIMEntity = entityManager.getAllAIMEntity();
-		
-		//DELETE LATER
-//		player = new PlayerControl(allPlayerEntity, allStaticEntity,allAdversarialEntity,allAIMEntity );
-//		player.Movement();
-		//DELETE LATER
 		
 		
 		batch.begin();
@@ -243,13 +256,7 @@ public class SceneManager{
     	}
     }
 	
-	
-	public Array<Scene> getAllScenes(){
-		return allScenes;
-	}
-	public CollisionManager getCollisionManager() {
-		return collisionManager;
-	}
+
 
 	public int displayMenu(String[] menuItemText, Runnable[] actions, int selectedMenuItemIndex) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -320,24 +327,16 @@ public class SceneManager{
 	    }
 	    return selectedMenuItemIndex;
 	}
+
+
+
 	
-	public void setPlayerControl(PlayerControl p) {
-		playerControl = p;
-	}
-	
-	public CollisionManager
-	initializeCollisionManager() {
+	public CollisionManager initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
 		return collisionManager;
     }
 	
-	public Dashboard getDashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
-        if (dashboard == null) {
-            dashboard = new Dashboard(maxHealth, font, healthSprite);
-            dashboard.setSceneManager(this);
-        }
-        return dashboard;       
-	}
+
 	
 	public void loadGameOverScene() {
         if (!gameOver) {

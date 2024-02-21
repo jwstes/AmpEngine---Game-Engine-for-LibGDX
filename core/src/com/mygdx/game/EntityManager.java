@@ -72,10 +72,6 @@ public class EntityManager {
         }
     }
 
-	public void removeEntity(Entity entity) {
-		entityList.remove(entity);
-	}
-
 
 	// Remove EVERY Entity in the list (Clear all in entity)
 	public void clearAllEntities(){
@@ -178,10 +174,5 @@ public class EntityManager {
     		allAIMEntity = aimEntities;
     	}
     }
-
-    
-
-	   
-
 
 }
