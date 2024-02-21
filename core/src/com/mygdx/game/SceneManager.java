@@ -51,6 +51,8 @@ public class SceneManager{
 	public void setPlayerControl(PlayerControl p) {
 		playerControl = p;
 	}
+
+	public long getLastEntityUpdate(){return lastEntityUpdate;}
 	
 	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
@@ -91,11 +93,8 @@ public class SceneManager{
 			s.ParseFromJSON(sceneJSON);
 			allScenes.add(s);
 		}
-
 		lastEntityUpdate = System.currentTimeMillis();
 		animatedTextureID = 0;
-
-
 		outputManager = new OutputManager();
 	}
 
@@ -134,7 +133,7 @@ public class SceneManager{
 			else {
 				animatedTextureID = 0;
 			}
-			checkCollision();
+			checkCollision(); //instead of calling here, shift to AmpEngine so other details can be modified
 	        
 			lastEntityUpdate = System.currentTimeMillis();
 		}
@@ -164,9 +163,7 @@ public class SceneManager{
                      ai.chasePEntity(playerEntities);;
                   }
               }
-              
         }
-		
 	}
 
 
@@ -226,9 +223,9 @@ public class SceneManager{
         collisionManager.checkPlayerCollisions();
         Entity collidedEntity = collisionManager.checkPlayerCollisions();
         if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial")) {
-            // If collision occurs with an adversarial entity, reduce player's health
-            dashboard.reduceHealth(1);
-        }
+			// If collision occurs with an adversarial entity, reduce player's health
+			dashboard.reduceHealth(1);
+		}
     }
     public void drawCollider() {
     	if (!gameOver) {

@@ -25,96 +25,15 @@ public class AmpEngine extends ApplicationAdapter{
 	public EntityManager entityManager;
 	private Scene scene;
 	private SpriteBatch batch;
+
+	private boolean damageTaken;
 	
 	private PlayerControl playerControl;
 	private PlayerEntity player;
 	private CollisionManager collisionManager;
 	private InputManager inputManager;
 	
-	
-	private void moveLeft() {
-		
-        float originalPosX = player.getPosX();
-        float newX = Math.max(0, originalPosX - 200 * Gdx.graphics.getDeltaTime());
-        player.setPosX(newX);
-        player.updateCollider(newX, player.getPosY(), 32, 32);
 
-        sceneManager.outputManager.playSound("walking");
-        
-        Entity collisionEntity = collisionManager.checkPlayerCollisions();
-        if (collisionEntity != null) {
-           player.setPosX(originalPosX);
-        }
-    }
-
-    private void moveRight() {        
-	    float originalPosX = player.getPosX();
-	    float newX = Math.min(Gdx.graphics.getWidth(), originalPosX + 200 * Gdx.graphics.getDeltaTime()); // Assuming the screen width as the limit
-	    player.setPosX(newX);
-	    player.updateCollider(newX, player.getPosY(), 32, 32);
-
-	    sceneManager.outputManager.playSound("walking");
-	    
-	    Entity collisionEntity = collisionManager.checkPlayerCollisions();
-	    if (collisionEntity != null) {
-	        // Collision detected, revert to the original position
-	        player.setPosX(originalPosX);
-	    }
-    }
-    
-    private void jump() {
-    	float JUMP_VELOCITY = 300;
-    	
-
-    	playerControl.updateVerticalVelocity(Gdx.graphics.getDeltaTime());
-    			
-    	if (playerControl.getIsOnGround() == true) {
-    		playerControl.setVerticalVelocity(JUMP_VELOCITY);
-    		playerControl.setIsOnGround(false);
-        }
-    	
-    	float newY = player.getPosY() + playerControl.getVerticalVelocity() * Gdx.graphics.getDeltaTime();
-    	player.setPosY(newY);
-        player.updateCollider(player.getPosX(), newY, 32, 32);
-    	
-
-	    playerControl.setIsOnGround(false);
-	    Rectangle playerRect = player.getRec();
-	    for (Entity groundEntity : sceneManager.entityManager.getAllSEntity()) { // Loop through ground entities
-	        Rectangle groundRect = groundEntity.getRec();
-
-	        // Check if the player's bottom edge is within the top edge of a ground entity
-	        if (playerRect.y <= groundRect.y + groundRect.height && playerRect.y > groundRect.y) {
-	            // Check for horizontal overlap
-	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-	            	playerControl.setIsOnGround(true); // Player is on the ground
-	                player.setPosY(groundRect.y + groundRect.height); // Adjust position to stand on the ground
-	                playerControl.setVerticalVelocity(0); // Reset vertical velocity
-	                break; // Exit the loop after finding ground collision
-	            }
-	        }
-	     // Check if the player's top edge is colliding with the bottom edge of an entity (hitting head)
-	        if (playerRect.y + playerRect.height >= groundRect.y && playerRect.y + playerRect.height < groundRect.y + groundRect.height) {
-	            // Check for horizontal overlap
-	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-	                // Player has hit the bottom side of an entity
-	                // You might want to handle this differently, e.g., stopping upward movement
-	            		
-	            	// Ensure vertical velocity is not positive (not moving upwards)
-	            	float minVelocity = Math.min(playerControl.getVerticalVelocity(), 0);
-	            	playerControl.setVerticalVelocity(minVelocity);
-	            	
-	                player.setPosY(groundRect.y - playerRect.height); // Adjust player's position to be just below the entity
-	                // Note: No need to set isOnGround = true here, as the player is not landing on top of the entity
-	            }
-	        }
-	    }
-    	
-    	
-    }
-    
-    
-    
 	@Override
 	public void create() {
 		Array<String> sceneJSONArr = new Array<String>();
@@ -133,10 +52,10 @@ public class AmpEngine extends ApplicationAdapter{
 		 	Set KeyBindings in playerControl
 		   ************************* */
 
-		playerControl = new PlayerControl();
-		playerControl.bindKey(Keys.LEFT, () -> moveLeft());
-		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
-		playerControl.bindKey(Keys.SPACE, () -> jump());
+		playerControl = new PlayerControl(player, sceneManager, collisionManager);
+		playerControl.bindKey(Keys.LEFT, () -> playerControl.moveLeft());
+		playerControl.bindKey(Keys.RIGHT, () -> playerControl.moveRight());
+		playerControl.bindKey(Keys.SPACE, () -> playerControl.jump());
 		sceneManager.setPlayerControl(playerControl);
 
 
@@ -157,7 +76,8 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager.loadScene(0);
 //        sceneManager.drawCollider();
         sceneManager.updateScene();
-        
+
+
         inputManager.runnable();
         inputManager.CCRunnable("onGround");
         Boolean anyKeyDown = inputManager.isAnyKeyDown();

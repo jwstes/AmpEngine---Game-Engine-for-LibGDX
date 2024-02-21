@@ -8,6 +8,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 
+
+// Purpose of the Scene class is to utilize the values in a certain JSON Scene file and
+// initialize the entities' Texture and Properties.
+// Then store them into their respective Lists.
+// Therefore, creating usable objects that SceneManager and AmpEngine (& other managers) can use.
 public class Scene {
 	private List<int[]> entityCoords;
 	private List<Texture[]> entityTextures;
