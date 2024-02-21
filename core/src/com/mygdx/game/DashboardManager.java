@@ -9,7 +9,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
 
-public class DashboardManager {
+// Game Engine
+public class DashboardManager  {
     private int maxHealth; // Maximum health level
     private int currentHealth; // Current health level
     private long startTime; // Calculate time passed

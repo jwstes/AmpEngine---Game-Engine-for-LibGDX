@@ -5,7 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Dashboard {
+// Game Logic
+public class Dashboard implements DashboardInterface {
     private DashboardManager dashboardManager;
     private SceneManager sceneManager; // New addition
 
