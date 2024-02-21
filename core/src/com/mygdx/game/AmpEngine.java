@@ -121,27 +121,12 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneJSONArr.add("Level1.json");
 		//... add more if needed
 
-		/* **************************
-		 	Initialize Managers
-		************************* */
-		sceneManager = new SceneManager(sceneJSONArr); // new SceneManager
-		// Things carried out in SceneManager Constructor
-		// 1. create dashboard for healthbar & timetracking
-		// 2. sets a spriteBatch to render
-		// 3. initialize Scene and make it load all entity into respective arrays
-		// 4. Initialize lastEntityUpdate to know when was the last update made
-		// 5. Initialize an output manager to manage sounds
+		sceneManager = new SceneManager(sceneJSONArr);
+		sceneManager.populateScene(0);
+		sceneManager.initializeCollisionManager();
+		collisionManager = sceneManager.getCollisionManager();
 
-		// Initialize CollisionManager using function in sceneManager -> create local reference
-		collisionManager = sceneManager.initializeCollisionManager();
-
-		//get Local Reference of entityManager made in sceneManager
-		entityManager = sceneManager.entityManager;
-		sceneManager.populateScene(0); // create scene relevant entities with the properties defined in JSON file.
-
-		// get a Local Reference of player entity from EntityManager class
-		player = entityManager.getAllPEntity().get(0);
-
+		player = sceneManager.entityManager.getAllPEntity().get(0);
 
 
 		/* **************************

@@ -331,11 +331,9 @@ public class SceneManager{
 
 
 	
-	public CollisionManager initializeCollisionManager() {
+	public void initializeCollisionManager() {
 		collisionManager = new CollisionManager(worldBounds, 1, entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
-		return collisionManager;
     }
-	
 
 	
 	public void loadGameOverScene() {
