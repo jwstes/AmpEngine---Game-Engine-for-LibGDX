@@ -117,8 +117,8 @@ public class AmpEngine extends ApplicationAdapter{
 			sceneManager.clearScreen();
 			sceneManager.resetDashboard();
 			player.setPosX(playerStartPosition);
-
 		}
+		// Doesn't work well if you die near spawn point because Goomba position is not resset, so it'll dmg you immediately.
 	}
     
     
