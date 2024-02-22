@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GameOverScene {
     private Texture gameOverTexture;
 
+    //CONSTRUCTOR
     public GameOverScene(Texture texture) {
         this.gameOverTexture = texture;
     }

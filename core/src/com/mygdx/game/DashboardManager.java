@@ -16,7 +16,8 @@ public class DashboardManager  {
     private long startTime; // Calculate time passed
     private BitmapFont font; // Font for displaying timer
     private Texture[] healthSprites; // Array of health sprites
-
+    
+    //CONSTRUCTOR
     public DashboardManager(int maxHealth, BitmapFont font, Texture healthSprite) {
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth; // Start with full health
@@ -25,11 +26,41 @@ public class DashboardManager  {
         this.healthSprites = new Texture[maxHealth]; // Create array to hold player textures
         Arrays.fill(healthSprites, healthSprite); // Initialize all elements with the same health sprite
     }
-
+    
+    
+    //GETTER & SETTER
     public long getTimePassedSeconds() {
         return (TimeUtils.nanoTime() - startTime) / 1000000000;
     }
-
+    
+    
+    public Texture[] getHealthSprites() {
+        return healthSprites;
+    }
+    public void setHealthSprites(Texture[] healthSprites) {
+        this.healthSprites = healthSprites;
+    }
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+    public void setMaxHealth(int x) {
+    	maxHealth = x;
+    }
+    public BitmapFont getFont() {
+        return font;
+    }
+    public void setFont(BitmapFont b) {
+    	font = b;
+    }
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+    
+    
+    //CLASS METHODS
     public void displayHealthText(SpriteBatch batch) {
         // Draw "Health:" text
         font.setColor(Color.WHITE);
@@ -57,27 +88,6 @@ public class DashboardManager  {
         startTime = TimeUtils.nanoTime();
     }
 
-    public int getCurrentHealth() {
-        return currentHealth;
-    }
-
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
-    }
     
-    public int getMaxHealth() {
-        return maxHealth;
-    }
 
-    public BitmapFont getFont() {
-        return font;
-    }
-
-    public Texture[] getHealthSprites() {
-        return healthSprites;
-    }
-
-    public void setHealthSprites(Texture[] healthSprites) {
-        this.healthSprites = healthSprites;
-    }
 }

@@ -27,7 +27,6 @@ public class EntityManager {
 
 
 	// Getter Setter
-
 	public List<Entity> getList() {
 		return entityList;
 	}
@@ -46,7 +45,7 @@ public class EntityManager {
 
 
 
-    // Functions
+    // CLASS METHOD
     public void add(Entity EntityObj){
         entityList.add(EntityObj);
     }

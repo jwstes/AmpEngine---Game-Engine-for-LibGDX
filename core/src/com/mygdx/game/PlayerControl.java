@@ -34,7 +34,6 @@ public class PlayerControl {
     public float getVerticalVelocity() {
     	return this.verticalVelocity;
     }
-    
     public boolean getIsOnGround() {
     	return this.isOnGround;
     }

@@ -55,7 +55,6 @@ public abstract class Entity {
 	public Entity(){}
 
 	// Setter & Getter
-	
 	public int getTextureID() {
 		return textureID;
 	}
@@ -66,11 +65,91 @@ public abstract class Entity {
     public Rectangle getCollider() {
         return rec;
     }
-
     public void setCollider(Rectangle collider) {
         this.rec = collider;
     }
-    
+    public void setIsCollidable(boolean b) {
+	    isCollidable = b;
+	}
+    public boolean getIsCollidable() {
+	    return isCollidable;
+	}
+    public String getEntityType() {
+		return entityType;
+	}
+	public String setEntityType(String s) {
+		return entityType = s;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		return this.name;
+	}
+	public void setIsAlive(boolean b) {
+		isAlive = b;
+	}
+	public boolean getIsAlive() {
+		return isAlive;
+	}
+	public void setIsKillable(boolean b) {
+		isKillable = b;
+	}
+	public boolean getIsKillable() {
+		return isKillable;
+	}
+	public void setIsMovable(boolean b) {
+		isMovable = b;
+	}
+	public boolean getIsMovable() {
+		return isMovable;
+	}
+	public void setAnimatedTexture(Texture[] t) {
+		animatedTexture = t;
+	}
+	public Texture[] getAnimatedTexture() {
+		return animatedTexture;
+	}
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	public int getHealth(){
+		return this.health;
+	}
+	public void setPosX(float newPosX){
+		this.x = newPosX;
+	}
+	public float getPosX(){
+		return this.x;
+	}
+	public void setPosY(float newPosY){
+		this.y = newPosY;
+	}
+	public float getPosY(){
+		return this.y;
+	}
+	public void setSpeed(float speed){
+		this.speed = speed;
+	}
+	public float getSpeed(){
+		return this.speed;
+	}
+	public void setTexture(Texture assetName){
+		this.tex = assetName;
+	}
+	public Texture getTexture() {
+        return tex;
+    }
+	public Rectangle getRec() {
+		return rec;
+	}
+	public void setRec(Rectangle r) {
+		rec = r;
+	}
+	
+	
+	
+    //CLASS METHODS
     public void updateCollider(float x, float y, int width, int height) {
         // Check if rec is null and instantiate if necessary
     	//System.out.print("IS IT CALLING?");
@@ -86,119 +165,17 @@ public abstract class Entity {
         }
     }
 
-
-	public void setIsCollidable(boolean b) {
-	    isCollidable = b;
-	}
-	public boolean getIsCollidable() {
-	    return isCollidable;
-	}
-	public String getEntityType() {
-		return entityType;
-	}
-	public String setEntityType(String s) {
-		return entityType = s;
-	}
-
-	public void setName(String name){
-		this.name = name;
-	}
-
-	public String getName(){
-		return this.name;
-	}
-	
-	
-	public void setIsAlive(boolean b) {
-		isAlive = b;
-	}
-	public boolean getIsAlive() {
-		return isAlive;
-	}
-	public void setIsKillable(boolean b) {
-		isKillable = b;
-	}
-	public boolean getIsKillable() {
-		return isKillable;
-	}
-	
-	public void setIsMovable(boolean b) {
-		isMovable = b;
-	}
-	public boolean getIsMovable() {
-		return isMovable;
-	}
-
-	public void setAnimatedTexture(Texture[] t) {
-		animatedTexture = t;
-	}
-	public Texture[] getAnimatedTexture() {
-		return animatedTexture;
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
-	}
-
-	public int getHealth(){
-		return this.health;
-	}
-
-	public void setPosX(float newPosX){
-		this.x = newPosX;
-		//System.out.print(newPosX);
-	}
-	public float getPosX(){
-		return this.x;
-	}
-
-	public void setPosY(float newPosY){
-		this.y = newPosY;
-	}
-	public float getPosY(){
-		return this.y;
-	}
-
-	public void setSpeed(float speed){
-		this.speed = speed;
-	}
-	public float getSpeed(){
-		return this.speed;
-	}
-
-	public void setTexture(Texture assetName){
-		this.tex = assetName;
-	}
-	
-	public Texture getTexture() { // Add this method
-        return tex;
-    }
-	
-
-	public Rectangle getRec() {
-		return rec;
-	}
-
-	// Functions
-
 	public void drawBounds(ShapeRenderer shapeRenderer) {
 		Rectangle bounds = getRec();
 		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
 	}
-
 	public void draw(SpriteBatch b) {
 		if (tex != null) {
             b.draw(tex, x, y);
         }
 	}
-
 	public abstract void update(long lastEntityUpdate);
-	
 	public void render(SpriteBatch b) {}
 	
 	
-
-
-
-
 }

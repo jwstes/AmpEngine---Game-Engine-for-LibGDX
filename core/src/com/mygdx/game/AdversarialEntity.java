@@ -1,30 +1,32 @@
 package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
-/***********************************************************************************************************************
- * Adversarial Entity Class stores the properties of an entity meant to be "Enemies"                                   *
- * It inherits more properties from it SuperClass Entity. name, health, x, y, Texture tex, Texture[] animatedTexture,  *
- * entityType, rec, isKillable, isMovable, isAlive, isCollidable.                                                      *
- **********************************************************************************************************************/
+
+
+
+// Adversarial Entity Class stores the properties of an entity meant to be "Enemies"
+// It inherits more properties from it SuperClass Entity.
+// name, health, x, y, speed, Texture tex, Texture[] animatedTexture, entityType, rec
+// isKillable, isMovable, isAlive, isCollidable
+
+// Tells the entity to walk back and forth, stand still or it go up down. Or shoot at intervals
+
 public class AdversarialEntity extends Entity {
-    private AIManager ai; 									// Tells the entity to walk back and forth,  stand still or it go up down. Or shoot at intervals
-    private AdversarialEntity projectile; 					// Optional to use (e.g. when you EnemyA shoot a bullet, it is technically
-    														// shooting another AdversarialEntity Object out, just that this one not killable.
-   
+    private AIManager ai;
+    
+    //CONSTRUCTOR
     public AdversarialEntity(String n,float x, float y, Texture t){
-        super(n,x,y,t);
+        super(n,x,y,t); 
     }
-    
-    
-    //Setter and Getter for AIManager
+
+    //GETTER & SETTER METHODS
     public void setAIManager(AIManager ai){
         this.ai = ai;
     }
-    public AIManager getAIManager(){
+    public AIManager getAIManager(){ 
+
         return this.ai;
     }
     
-    
-   //Abstract method Found inside Entity Class
     @Override
     public void update(long lastEntityUpdate) {
 

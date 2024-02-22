@@ -12,21 +12,24 @@ import com.badlogic.gdx.utils.Array;
  **********************************************************************************************/
 
 public class CollisionManager {
-    private CollisionHelper quadTree;
+    private CollisionEntityManager quadTree;
     private Array<PlayerEntity> pList;
     private Array<StaticEntity> sList;
     private Array<AdversarialEntity> aList;
     private Array<AIManager> aiList; 
     
+
     public CollisionManager(Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
-        this.quadTree = new CollisionHelper();                 										//Initialise Quad Tree with the size of your world and number of Entities per node
+        this.quadTree = new CollisionEntityManager();                 										//Initialise Quad Tree with the size of your world and number of Entities per node
         this.pList = pList; 
         this.sList = sList;
         this.aList = aList;
         this.aiList = aiList;
     }
 
-    public void rebuildQuadTree() {                                                       			//Insert all EntityType with possible Collision into Quad Tree.
+    //CLASS METHODS
+    public void rebuildQuadTree() {
+
         quadTree.clear();
         for (PlayerEntity player : pList) {
             quadTree.insert(player);

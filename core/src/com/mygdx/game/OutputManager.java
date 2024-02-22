@@ -7,6 +7,13 @@ import java.util.Map;
 public class OutputManager{
 	private SoundManager soundManager;
 	
+	//CONSTRUCTOR
+	public OutputManager() {
+		soundManager = new SoundManager();
+	}
+	
+	
+	//CLASS METHOD
 	public void setSoundList(Map<String, Sound> soundList) {
 		soundManager.setSoundsList(soundList);
 	}
@@ -19,8 +26,6 @@ public class OutputManager{
 		soundManager.stopAllSound();
 	}
 	
-	public OutputManager() {
-		soundManager = new SoundManager();
-	}
+	
 	
 }

@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
@@ -14,8 +15,20 @@ public class DesktopLauncher {
 		config.setTitle("AmpEngine - Demo Game");
 		
 		config.setForegroundFPS(120);
-		config.setTitle("GDXGame");
-		new Lwjgl3Application(new AmpEngine(), config);
+		config.setTitle("AmpEngine - Demo Game");
 		config.setResizable(false);
+		config.useVsync(true);
+		
+		
+		Lwjgl3Application app = new Lwjgl3Application(new AmpEngine(), config);
+		//get pid of app
+		//psutil OS_SYSKILL_T check if pid is running
+		//if pid not in, spawn new
+		//if pid in, wait
+		
+		ApplicationListener ampEngine = app.getApplicationListener(); // Return AppEngine class object
+		
+//		app = new Lwjgl3Application(new AmpEngine(), config);
+
 	}
 }
