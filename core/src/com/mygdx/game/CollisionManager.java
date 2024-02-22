@@ -74,7 +74,69 @@ public class CollisionManager {
 		
     }
     
+    public float LeftRightCollision(PlayerEntity player) 
+    {
+    	Rectangle playerRect = player.getRec();
+    	float newXPosition = playerRect.x;
+        for (Entity entity : sList) {
+            Rectangle entityRect = entity.getRec();
+
+            // Detect collision
+            boolean collisionLeft = playerRect.x <= entityRect.x + entityRect.width && playerRect.x > entityRect.x &&
+                                    playerRect.y < entityRect.y + entityRect.height && playerRect.y + playerRect.height > entityRect.y;
+            boolean collisionRight = playerRect.x + playerRect.width >= entityRect.x && playerRect.x + playerRect.width < entityRect.x + entityRect.width &&
+                                     playerRect.y < entityRect.y + entityRect.height && playerRect.y + playerRect.height > entityRect.y;
+
+
+            // Resolve collision
+            if (collisionLeft) {
+            	 newXPosition = entityRect.x + entityRect.width; // Adjust to the right edge of the entity
+                 break;
+                
+               
+                // Control movement or velocity as needed
+            } else if (collisionRight) {
+            	
+            	 newXPosition = entityRect.x - playerRect.width; // Adjust to the left edge of the entity
+                 break;
+                
+            }
+        
+        }
+        return newXPosition;
+		
+    }
+    public float UpDownCollision(PlayerEntity player) 
+    {
+    	
+    	Rectangle playerRect = player.getRec();
+    	float newXPosition = playerRect.x;
+    	for (Entity entity : sList) {
+    	    Rectangle entityRect = entity.getRec();
+    	    // Detect top collision (player's top hitting entity's bottom)
+    	    boolean collisionTop = playerRect.y + playerRect.height >= entityRect.y && playerRect.y + playerRect.height < entityRect.y + entityRect.height &&
+    	                           playerRect.x < entityRect.x + entityRect.width && playerRect.x + playerRect.width > entityRect.x;
+
+    	    // Detect bottom collision (player's bottom hitting entity's top)
+    	    boolean collisionBottom = playerRect.y <= entityRect.y + entityRect.height && playerRect.y > entityRect.y &&
+    	                              playerRect.x < entityRect.x + entityRect.width && playerRect.x + playerRect.width > entityRect.x;
+
+    	    
+    	    if (collisionTop) {
+    	        newXPosition = entityRect.y - playerRect.height; // Adjust to the right edge of the entity
+                break;
+    	       
+    	    }
+
+    	    
+    	    if (collisionBottom) {
+    	        newXPosition = entityRect.y + entityRect.height; // Adjust to the right edge of the entity
+                break;
+    	        
+    	    }
+    	}
+    	return newXPosition;
     
-    
+    }
 
 }

@@ -61,13 +61,13 @@ public class SceneManager{
 	// set LastEntityUpdate property to current time.
 	// initialize an output manager (controls sound)
 	// Constructor
-	public SceneManager(Array<String> sceneJSONArr) {
+	public SceneManager(Array<String> sceneJSONArr, String healthbarTex) {
 		gameOver = false;
 		entityManager = new EntityManager();
 		allScenes = new Array<Scene>();
 
 		// Load dashboard assets
-		Texture healthSprite = new Texture("player.png");
+		Texture healthSprite = new Texture(healthbarTex);
 		BitmapFont font = new BitmapFont();
 		int maxHealth = 3;
 

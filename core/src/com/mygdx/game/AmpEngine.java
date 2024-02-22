@@ -44,17 +44,16 @@ public class AmpEngine extends ApplicationAdapter{
         
         if (playerControl.getIsOnGround() == true) {
     		sceneManager.outputManager.playSound("walking");
-    		updateIsOnGround();
+    		//updateIsOnGround();
         }
+	    if (collisionManager.checkPlayerCollisions() == null) {
+	    	playerControl.setIsOnGround(false);
+	    }
+	    float newXs = collisionManager.LeftRightCollision(player);
+	    player.setPosX(newXs);
+	    
         
-        if (!isOnGround) {
-        	updateIsOnGround();
-   
 
-        }
-
-        
-      
     }
 
     private void moveRight() {        
@@ -65,72 +64,15 @@ public class AmpEngine extends ApplicationAdapter{
 
 	    if (playerControl.getIsOnGround() == true) {
     		sceneManager.outputManager.playSound("walking");
-    		updateIsOnGround();
+    		//updateIsOnGround();
         }
-	    
-	 // Check if the player is on the ground
-	    
-	    if (!isOnGround) {
-	    	updateIsOnGround();
-        
-
-        }
-	    
-	  
+	    if (collisionManager.checkPlayerCollisions() == null) {
+	    	playerControl.setIsOnGround(false);
+	    }
+	    float newXs = collisionManager.LeftRightCollision(player);
+	    player.setPosX(newXs);
     }
     
-    private void updateIsOnGround() {
-        Rectangle playerRect = player.getRec();
-        float playerBottom = playerRect.y - playerRect.height;
-
-        boolean foundGround = false;
-        float newY = player.getPosY();
-
-        for (Entity groundEntity : sceneManager.entityManager.getAllSEntity()) {
-            Rectangle groundRect = groundEntity.getRec();
-
-            if (playerBottom <= groundRect.y + groundRect.height && playerRect.y > groundRect.y) {
-                if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-                    if (groundEntity.getEntityType().equals("static")) {
-                        foundGround = true;
-
-                        // Gradually decrease player's height until it touches the ground
-                        float groundTop = groundRect.y + groundRect.height;
-                        float deltaHeight = player.getPosY() - groundTop;
-
-                        if (deltaHeight > 0.1f) { // Adjust the threshold as needed
-                            newY -= Math.min(deltaHeight, 200 * Gdx.graphics.getDeltaTime());
-                        } else {
-                            newY = groundTop;
-                        }
-
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (!foundGround) {
-            // Player is not on the ground, set properties accordingly
-            isOnGround = false;
-            playerControl.setIsOnGround(isOnGround);
-            playerControl.setVerticalVelocity(0);
-        } else {
-            // Player is on the ground
-            isOnGround = true;
-            playerControl.setIsOnGround(isOnGround);
-            playerControl.setVerticalVelocity(0);
-        }
-
-        player.setPosY(newY);
-        player.updateCollider(player.getPosX(), newY, 32, 32);
-        
-        // Print relevant information for debugging
-        System.out.println("Player Y: " + playerRect.y);
-        System.out.println("Player Bottom: " + playerBottom);
-        System.out.println("Is On Ground: " + isOnGround);
-    }
-
 
 
     
@@ -140,7 +82,7 @@ public class AmpEngine extends ApplicationAdapter{
 
     	if (playerControl.getIsOnGround() == true) {
     		playerControl.setIsOnGround(false);
-    		updateIsOnGround();
+    		//updateIsOnGround();
 
     		playerControl.setVerticalVelocity(JUMP_VELOCITY);
     		
@@ -165,7 +107,7 @@ public class AmpEngine extends ApplicationAdapter{
 	            // Check for horizontal overlap
 	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
 	            	playerControl.setIsOnGround(true); // Player is on the ground
-	        		updateIsOnGround();
+	        		//updateIsOnGround();
 	                player.setPosY(groundRect.y + groundRect.height); // Adjust position to stand on the ground
 	                playerControl.setVerticalVelocity(0); // Reset vertical velocity
 	                break; // Exit the loop after finding ground collision
@@ -177,7 +119,6 @@ public class AmpEngine extends ApplicationAdapter{
 	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
 	                // Player has hit the bottom side of an entity
 	                // You might want to handle this differently, e.g., stopping upward movement
-	            		
 	            	// Ensure vertical velocity is not positive (not moving upwards)
 	            	float minVelocity = Math.min(playerControl.getVerticalVelocity(), 0);
 	            	playerControl.setVerticalVelocity(minVelocity);
@@ -186,7 +127,47 @@ public class AmpEngine extends ApplicationAdapter{
 	                // Note: No need to set isOnGround = true here, as the player is not landing on top of the entity
 	            }
 	        }
+
 	    }
+    }
+    
+    private void applyGravity() {
+        if (!playerControl.getIsOnGround()) {
+            // Apply gravity to vertical velocity
+            playerControl.setVerticalVelocity(playerControl.getVerticalVelocity() + -700.8f * Gdx.graphics.getDeltaTime());
+
+            // Update player's Y position based on the new vertical velocity
+            float newY = player.getPosY() + playerControl.getVerticalVelocity() * Gdx.graphics.getDeltaTime();
+            player.setPosY(newY);
+            player.updateCollider(player.getPosX(), newY, 32, 32);
+
+            playerControl.setIsOnGround(false);
+    	    Rectangle playerRect = player.getRec();
+    	    for (Entity groundEntity : sceneManager.entityManager.getAllSEntity()) { // Loop through ground entities
+    	        Rectangle groundRect = groundEntity.getRec();
+
+    	        // Check if the player's bottom edge is within the top edge of a ground entity
+    	        if (playerRect.y <= groundRect.y + groundRect.height && playerRect.y > groundRect.y) {
+    	            // Check for horizontal overlap
+    	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
+    	            	playerControl.setIsOnGround(true); // Player is on the ground
+    	        		//updateIsOnGround();
+    	                player.setPosY(groundRect.y + groundRect.height); // Adjust position to stand on the ground
+    	                playerControl.setVerticalVelocity(0); // Reset vertical velocity
+    	                break; // Exit the loop after finding ground collision
+    	            }
+    	        }
+    	        if (playerRect.x <= groundRect.x + groundRect.width && playerRect.x > groundRect.x) {
+    	            // Check for vertical overlap
+    	            if (playerRect.y < groundRect.y + groundRect.height && playerRect.y + playerRect.height > groundRect.y) {
+    	                // Collision on the player's left side
+    	                player.setPosX(groundRect.x + groundRect.width); // Adjust player's position to the right of the entity
+    	                // Here, you might want to handle the collision, e.g., stop leftward movement
+    	                break;
+    	            }
+    	        }
+
+    	    }}
     }
 
 	private void restart() {
@@ -207,7 +188,7 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneJSONArr.add("Level1.json");
 		//... add more if needed
 
-		sceneManager = new SceneManager(sceneJSONArr);
+		sceneManager = new SceneManager(sceneJSONArr,"player.png");
 		sceneManager.populateScene(0);
 		sceneManager.initializeCollisionManager();
 		collisionManager = sceneManager.getCollisionManager();
@@ -246,7 +227,7 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
-	    // sceneManager.drawCollider();
+	    sceneManager.drawCollider();
 	    sceneManager.updateScene();
 
 	    inputManager.runnable();
@@ -256,17 +237,9 @@ public class AmpEngine extends ApplicationAdapter{
 	    if (!anyKeyDown) {
 	        sceneManager.outputManager.stopAllSound();
 	    }
+	    applyGravity();
 
-	    // Gradual descent if not on the ground
-	    if (!isOnGround) {
-	        float descentRate = 100 * Gdx.graphics.getDeltaTime(); // Adjust the descent rate as needed
-	        float newY = Math.max(0, player.getPosY() - descentRate);
-	        player.setPosY(newY);
-	        player.updateCollider(player.getPosX(), newY, 32, 32);
 
-	        // Check for ground collision after descent
-	        updateIsOnGround();
-	    }
 	}
 
 	

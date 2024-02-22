@@ -17,6 +17,22 @@
             "isAnimated": false,
             "isCollidable": false
         },
+        {
+            "coords": [
+                32,
+                32
+            ],
+            "texture": [
+                "10.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
         
         {
             "coords": [
@@ -1043,6 +1059,54 @@
             "entityType": "static",
             "isAnimated": false,
             "isCollidable": false
-        }
+        },
+         {
+            "coords": [
+                414,
+                50
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                414,
+                82
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
+        {
+            "coords": [
+                414,
+                114
+            ],
+            "texture": [
+                "12.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "static",
+            "isAnimated": false,
+            "isCollidable": false
+        },
     ]
 }

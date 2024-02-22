@@ -55,7 +55,7 @@ public class AIManager extends Entity {
 
     @Override
     public void update(long lastEntityUpdate) {
-
+    	System.out.print("Used");
     }
     
     public void moveEntityRight() {
