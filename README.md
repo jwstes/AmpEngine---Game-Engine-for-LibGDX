@@ -21,7 +21,7 @@ Integrated Test
 ## Async: 
 REPORT & SLIDES
  
-## Checkpoint 2: 
+## Checkpoint 2: (DONE ✅) 
 - Collision Manager
 - InputManager
 - PlayerMovement
@@ -31,8 +31,8 @@ Integrated Test (~ Thursday)
 - To check if Player can collide with entity and if Player can move at all
  
 ## Checkpoint 3: 
-- Dashboard
-- OutputManager
+- Dashboard ✅
+- OutputManager✅
 - GameMaster (Logic)
 - CREATE VIDEO
   
