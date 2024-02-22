@@ -66,7 +66,7 @@ public class AIManager extends Entity {
         float increment = 1f; 																		// adjusting distance of movable entity travel
         float maxX = Gdx.graphics.getWidth(); 														// Get screen size
         float targetX = getPosX() + increment; 														// entity next position to the right with increment																						// use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
-        float alpha = MathUtils.clamp((targetX - getPosX()) / increment, 0f, 1f);					// Experiment with different interpolation functions for smoother sliding
+        float alpha = MathUtils.clamp((targetX - getPosX()) / increment, 0f, 0f);					// Experiment with different interpolation functions for smoother sliding
         float newX = Interpolation.smooth.apply(getPosX(), targetX, alpha);							// Check if the entity has reached the right edge
         if (newX > maxX) {  																		// Reset the entity to the left with a different starting position
             setPosX(initialPosX - getWidth()); 														// Subtract entity width to avoid overlapping

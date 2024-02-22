@@ -32,7 +32,8 @@ public class AmpEngine extends ApplicationAdapter{
 	private InputManager inputManager;
 	private SimulationLifeCycle simulationLifeCycle;
 	
-	private float playerStartPosition;
+	private float playerStartPositionX;
+	private float playerStartPositionY;
     private boolean isOnGround = false;
     
     private AnimatedEntity weaponSkill;
@@ -81,7 +82,7 @@ public class AmpEngine extends ApplicationAdapter{
 
     
     private void jump() {
-    	float JUMP_VELOCITY = 300;
+    	float JUMP_VELOCITY = 350;
     	
 
     	if (playerControl.getIsOnGround() == true) {
@@ -133,7 +134,7 @@ public class AmpEngine extends ApplicationAdapter{
     private void applyGravity() {
         if (!playerControl.getIsOnGround()) {
             // Apply gravity to vertical velocity
-            playerControl.setVerticalVelocity(playerControl.getVerticalVelocity() + -700.8f * Gdx.graphics.getDeltaTime());
+            playerControl.setVerticalVelocity(playerControl.getVerticalVelocity() + -600.8f * Gdx.graphics.getDeltaTime());
 
             // Update player's Y position based on the new vertical velocity
             float newY = player.getPosY() + playerControl.getVerticalVelocity() * Gdx.graphics.getDeltaTime();
@@ -206,7 +207,9 @@ public class AmpEngine extends ApplicationAdapter{
 			sceneManager.setGameOverStatus(false);
 			sceneManager.clearScreen();
 			sceneManager.resetDashboard();
-			player.setPosX(playerStartPosition);
+			player.setPosX(playerStartPositionX);
+			player.setPosY(playerStartPositionY);
+			
 		}
 		// Doesn't work well if you die near spawn point because Goomba position is not resset, so it'll dmg you immediately.
 	}
@@ -225,7 +228,9 @@ public class AmpEngine extends ApplicationAdapter{
 		collisionManager = sceneManager.getCollisionManager();
 
 		player = sceneManager.entityManager.getAllPEntity().get(0);
-		playerStartPosition = player.getPosX();
+		
+		playerStartPositionX = player.getPosX();
+		playerStartPositionY = player.getPosY();
 
 
 		/* **************************
@@ -265,10 +270,11 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
-	    //sceneManager.drawCollider();
+	    sceneManager.drawCollider();
 	    sceneManager.updateScene();
 	    
 	    simulationLifeCycle.simulationUpdate();
+	    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
 	    
 
 	    inputManager.runnable();
