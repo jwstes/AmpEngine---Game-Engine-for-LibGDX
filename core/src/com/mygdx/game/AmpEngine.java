@@ -30,9 +30,13 @@ public class AmpEngine extends ApplicationAdapter{
 	private PlayerEntity player;
 	private CollisionManager collisionManager;
 	private InputManager inputManager;
-	private float playerStartPosition;
+	private SimulationLifeCycle simulationLifeCycle;
 	
+	private float playerStartPosition;
     private boolean isOnGround = false;
+    
+    private AnimatedEntity weaponSkill;
+    private Texture[] swordTextures;
 
 	
 	private void moveLeft() {
@@ -169,7 +173,39 @@ public class AmpEngine extends ApplicationAdapter{
 
     	    }}
     }
+    
+    
+    private void attack() {
+		int spawnX = (int)player.getPosX();
+		int spawnY = (int)player.getPosY();
+		weaponSkill = new AnimatedEntity("", spawnX, spawnY, swordTextures);
+		
+		
+    	simulationLifeCycle.simulationCycle(weaponSkill, (entity, animationTime, time) -> {    		
+            Texture[] entityTextures = entity.getAnimatedTexture();
+            long rt = animationTime;
+            
+            if(time >= (animationTime + 35)) {
+                
+            	int animationFrame = entity.getTextureID();
+            	
+                if(animationFrame < entityTextures.length - 1) {
+                    animationFrame++;
+                    entity.setTexture(entityTextures[animationFrame]);
+                }
+                else {
+                    animationFrame = 0;
+                }
+                entity.setTextureID(animationFrame);
+                
+                rt = time;
+            }
 
+            return rt;
+        }, 1500);
+    }
+    
+    
 	private void restart() {
 		if (sceneManager.getGameOverStatus()){
 			sceneManager.setGameOverStatus(false);
@@ -197,9 +233,6 @@ public class AmpEngine extends ApplicationAdapter{
 		playerStartPosition = player.getPosX();
 
 
-
-
-
 		/* **************************
 		 	Set KeyBindings in playerControl
 		   ************************* */
@@ -209,9 +242,9 @@ public class AmpEngine extends ApplicationAdapter{
 		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
 		playerControl.bindKey(Keys.SPACE, () -> jump());
 		playerControl.bindKey(Keys.ENTER, () -> restart());
+		playerControl.bindKey(Keys.Z, () -> attack());
+		
 		sceneManager.setPlayerControl(playerControl);
-
-
 
 		inputManager = new InputManager(sceneManager);
 		
@@ -219,6 +252,16 @@ public class AmpEngine extends ApplicationAdapter{
 		soundList.put("walking", inputManager.loadSound("walking.mp3"));
 
 		sceneManager.outputManager.setSoundList(soundList);
+		
+		
+		swordTextures = new Texture[4];
+		swordTextures[0] = new Texture(Gdx.files.internal("sword1.png"));
+		swordTextures[1] = new Texture(Gdx.files.internal("sword2.png"));
+		swordTextures[2] = new Texture(Gdx.files.internal("sword3.png"));
+		swordTextures[3] = new Texture(Gdx.files.internal("sword4.png"));
+		
+		
+		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
 	}
 	
 
@@ -228,7 +271,12 @@ public class AmpEngine extends ApplicationAdapter{
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
 	    sceneManager.drawCollider();
+	    
+	    
 	    sceneManager.updateScene();
+	    
+	    simulationLifeCycle.simulationUpdate();
+	    
 
 	    inputManager.runnable();
 	    inputManager.CCRunnable("onGround");
@@ -238,8 +286,6 @@ public class AmpEngine extends ApplicationAdapter{
 	        sceneManager.outputManager.stopAllSound();
 	    }
 	    applyGravity();
-
-
 	}
 
 	
