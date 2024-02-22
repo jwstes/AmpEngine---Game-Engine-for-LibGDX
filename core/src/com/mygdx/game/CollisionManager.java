@@ -53,14 +53,14 @@ public class CollisionManager {
                 if (other != player && Intersector.overlaps(player.getRec(), other.getRec())) {
                     // Handle collision between player and other entity
                 	if(other.getEntityType() == "static") {
-                		System.out.println("Collision with entity type: static");
+//                		System.out.println("Collision with entity type: static");
                 		
                 		return other;
                 		
                 		//add other logic such as Player.setHealth(-10) or smth
                 		
                 	}else if(other.getEntityType() == "adversarial") {
-                		System.out.println("Collision with entity type: adversarial");
+//                		System.out.println("Collision with entity type: adversarial");
                 		//player.setPosX(0);
                 		
                 		return other;
