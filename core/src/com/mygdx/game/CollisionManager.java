@@ -8,13 +8,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 public class CollisionManager {
-	//private EntityManager entityManager = new EntityManager();
     private QuadTreeNode quadTree;
     private Array<PlayerEntity> pList;
     private Array<StaticEntity> sList;
     private Array<AdversarialEntity> aList;
     private Array<AIManager> aiList; 
     
+    //CONSTRUCTOR
     public CollisionManager(Rectangle worldBounds, int maxObjectsPerNode,Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
         // Initialize the quad tree with the size of your game world and max objects per node
         this.quadTree = new QuadTreeNode(worldBounds, maxObjectsPerNode);
@@ -23,7 +23,10 @@ public class CollisionManager {
         this.aList = aList;
         this.aiList = aiList;
     }
-
+    
+    
+    
+    //CLASS METHODS
     public void rebuildQuadTree() {
         quadTree.clear();
         // Insert all entities into the QuadTree

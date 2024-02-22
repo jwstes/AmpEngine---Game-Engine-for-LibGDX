@@ -14,8 +14,11 @@ public class DesktopLauncher {
 		config.setWindowedMode(cfgDetails.wWidth, cfgDetails.wHeight);
 		config.setTitle(cfgDetails.gameTitle);
 		
-		config.setForegroundFPS(60);
-		config.setTitle("GDXGame");
+		config.setForegroundFPS(120);
+		config.setTitle("AmpEngine - Demo Game");
+		config.setResizable(false);
+		config.useVsync(true);
+		
 		
 		Lwjgl3Application app = new Lwjgl3Application(new AmpEngine(), config);
 		//get pid of app

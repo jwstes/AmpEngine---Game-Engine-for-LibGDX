@@ -24,33 +24,34 @@ import com.badlogic.gdx.utils.Array;
 
 public class SceneManager{
 	// INSTANCES AND VARIABLES
-	public EntityManager entityManager;
-	private Dashboard dashboard;
-	private Texture developerLogo;
+	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
 	private Array<Scene> allScenes;
-	
-	private Scene currentScene;
-	private int currentSceneID;
-	
-	private SpriteBatch batch;
-	
-	//
+	private Texture developerLogo;
+    private boolean gameOver;
     private long lastAIUpdate;
-
-    
 	private long lastEntityUpdate;
 	private int animatedTextureID;
+	private int currentSceneID;
 	
-	Rectangle worldBounds = new Rectangle(1, 1, 1279, 718);
+    
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
     private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
     private CollisionManager collisionManager;
-    private GameOverScene gameOverScene; // New addition
-    private boolean gameOver;
-
-	private PlayerEntity player;
+    private GameOverScene gameOverScene;
+    private PlayerEntity player;
     public PlayerControl playerControl;
     public OutputManager outputManager;
+    private SpriteBatch batch;
+    private Scene currentScene;
+    public EntityManager entityManager;
+	private Dashboard dashboard;
+    
+	
+	
+	
+    
+	
+    
 
 	// Things carried out in SceneManager Constructor
 	// New Entity Manager is made

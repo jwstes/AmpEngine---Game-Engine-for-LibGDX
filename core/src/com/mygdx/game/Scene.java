@@ -23,7 +23,7 @@ public class Scene {
     private Texture backgroundTexture;
     
     
-   
+    //CONSTRUCTOR
     public Scene() {
         entityCoords = new ArrayList<int[]>();
         entityTextures = new ArrayList<Texture[]>();
@@ -32,7 +32,9 @@ public class Scene {
         entityAnimated = new ArrayList<Boolean>();
     }
     
-    // each tile is 32x32
+    
+    
+    //CLASS METHODS
     public void ParseFromJSON(String jsonString) {
         try {
             JsonReader jsonReader = new JsonReader();
@@ -82,7 +84,6 @@ public class Scene {
         
         entitiesSize = entityCoords.size();
     }
-    
     
     
     

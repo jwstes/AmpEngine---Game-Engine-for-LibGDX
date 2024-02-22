@@ -9,11 +9,31 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Dashboard implements DashboardInterface {
     private DashboardManager dashboardManager;
     private SceneManager sceneManager; // New addition
-
+    
+    
+    //CONSTRUCTOR
     public Dashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
         this.dashboardManager = new DashboardManager(maxHealth, font, healthSprite);
     }
-
+    
+    
+    //GETTER & SETTER METHODS
+    public DashboardManager getDashboardManager(){
+        return dashboardManager;
+    }
+    public void setDashboardManager(DashboardManager d) {
+    	dashboardManager = d;
+    }
+    public SceneManager getSceneManager() {
+    	return sceneManager;
+    }
+    public void setSceneManager(SceneManager sceneManager) {
+        this.sceneManager = sceneManager;
+    }
+    
+    
+    
+    //CLASS METHODS
     public void update() {
         // Update any necessary logic related to the dashboard
     }
@@ -22,7 +42,6 @@ public class Dashboard implements DashboardInterface {
         dashboardManager.drawOnScene(batch);
         displayHealthSprites(batch);
     }
-    
     
     public void reduceHealth(int amount) {
         int currentHealth = dashboardManager.getCurrentHealth();
@@ -58,12 +77,6 @@ public class Dashboard implements DashboardInterface {
     }
 
 
-
-
-    public DashboardManager getDashboardManager(){
-        return dashboardManager;
-    }
-    
     public void displayHealthSprites(SpriteBatch batch) {
         float spriteX = 100; // Initial x-coordinate for health sprites
         float spriteY = Gdx.graphics.getHeight() - 20 - dashboardManager.getFont().getLineHeight(); // Align sprites with the bottom of the text
@@ -77,10 +90,7 @@ public class Dashboard implements DashboardInterface {
         }
     }
     
- // Setter method for SceneManager reference
-    public void setSceneManager(SceneManager sceneManager) {
-        this.sceneManager = sceneManager;
-    }
+    
 
 
 }

@@ -11,13 +11,25 @@ import java.util.Map;
 
 public class InputManager{
 	private Map<Integer, Runnable> keyBindings;
-	private Map<Integer, Boolean> keyStatus; //Key, false = Up
-	
+	private Map<Integer, Boolean> keyStatus; //KEY, FALSE ? UP : DOWN
 	private SceneManager sceneManager;
 	private PlayerControl playerControl;
-	
 	private Runnable continuousConditionalAction;
  	
+	//CONSTRUCTOR
+	public InputManager(SceneManager scm) {
+		sceneManager = scm;
+		keyBindings = scm.playerControl.getKeyBindings();
+		playerControl = scm.playerControl;
+		
+		keyStatus = new HashMap<>();
+		
+		keyBindings.forEach((key, action) -> {
+            keyStatus.put(key, false); // Key , Up
+        });
+	}
+	
+	//CLASS METHODS
 	public void runnable() {
 		keyBindings.forEach((key, action) -> {
             if (Gdx.input.isKeyPressed(key)) {
@@ -65,17 +77,7 @@ public class InputManager{
 	}
 	
 	
-	public InputManager(SceneManager scm) {
-		sceneManager = scm;
-		keyBindings = scm.playerControl.getKeyBindings();
-		playerControl = scm.playerControl;
-		
-		keyStatus = new HashMap<>();
-		
-		keyBindings.forEach((key, action) -> {
-            keyStatus.put(key, false); // Key , Up
-        });
-	}
+	
 	
 	
 }
