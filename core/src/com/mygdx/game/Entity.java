@@ -14,6 +14,7 @@ public abstract class Entity {
 	private float speed;
 	private Texture tex; // this is the overlaying texture (sprite image)
 	private Texture[] animatedTexture;
+	private int textureID;
 	private boolean isKillable; // Some "enemies" are meant to just attack like a floating canon
 								// Not necessary for all games, see how you want to implement the logic.
 	private boolean isMovable;
@@ -41,20 +42,26 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.tex = t[0];
+		animatedTexture = t;
+		textureID = 0;
 		this.rec = new Rectangle(x, y, 32, 32);
 	}
-	
 	public Entity(float x, float y, float speed, Texture tex) {
 	    this.x = x;
 	    this.y = y;
 	    this.speed = speed;
 	    this.tex = tex;
 	}
-
 	public Entity(){}
 
 	// Setter & Getter
-
+	
+	public int getTextureID() {
+		return textureID;
+	}
+	public void setTextureID(int tID) {
+		textureID = tID;
+	}
 
     public Rectangle getCollider() {
         return rec;

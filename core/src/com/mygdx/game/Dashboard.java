@@ -5,19 +5,19 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-// Game Logic
+/***********************************************************************
+ * The Dashboard class is used for the Display of Health Points        *
+ * it also manages methods like resetting of Dashbaords and rendering  *
+ * of Sprites                                                          *
+ * ******************************************************************* */
 public class Dashboard implements DashboardInterface {
     private DashboardManager dashboardManager;
-    private SceneManager sceneManager; // New addition
-
+    private SceneManager sceneManager; 
+ 
     public Dashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
         this.dashboardManager = new DashboardManager(maxHealth, font, healthSprite);
     }
-
-    public void update() {
-        // Update any necessary logic related to the dashboard
-    }
-
+    public void update() {}
     public void render(SpriteBatch batch) {
         dashboardManager.drawOnScene(batch);
         displayHealthSprites(batch);
@@ -77,7 +77,7 @@ public class Dashboard implements DashboardInterface {
         }
     }
     
- // Setter method for SceneManager reference
+    //Setter method for SceneManager reference
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
     }

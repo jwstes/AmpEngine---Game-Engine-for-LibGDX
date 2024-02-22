@@ -11,10 +11,11 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		
 		config.setWindowedMode(cfgDetails.wWidth, cfgDetails.wHeight);
-		config.setTitle(cfgDetails.gameTitle);
+		config.setTitle("AmpEngine - Demo Game");
 		
-		config.setForegroundFPS(60);
+		config.setForegroundFPS(120);
 		config.setTitle("GDXGame");
 		new Lwjgl3Application(new AmpEngine(), config);
+		config.setResizable(false);
 	}
 }

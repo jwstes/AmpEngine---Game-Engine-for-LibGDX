@@ -30,9 +30,13 @@ public class AmpEngine extends ApplicationAdapter{
 	private PlayerEntity player;
 	private CollisionManager collisionManager;
 	private InputManager inputManager;
-	private float playerStartPosition;
+	private SimulationLifeCycle simulationLifeCycle;
 	
+	private float playerStartPosition;
     private boolean isOnGround = false;
+    
+    private AnimatedEntity weaponSkill;
+    private Texture[] swordTextures;
 
 	
 	private void moveLeft() {
@@ -108,23 +112,18 @@ public class AmpEngine extends ApplicationAdapter{
 	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
 	            	playerControl.setIsOnGround(true); // Player is on the ground
 	        		//updateIsOnGround();
-	                player.setPosY(groundRect.y + groundRect.height); // Adjust position to stand on the ground
-	                playerControl.setVerticalVelocity(0); // Reset vertical velocity
-	                break; // Exit the loop after finding ground collision
+	                player.setPosY(groundRect.y + groundRect.height); 
+	                playerControl.setVerticalVelocity(0); 
+	                break; 
 	            }
 	        }
-	     // Check if the player's top edge is colliding with the bottom edge of an entity (hitting head)
 	        if (playerRect.y + playerRect.height >= groundRect.y && playerRect.y + playerRect.height < groundRect.y + groundRect.height) {
-	            // Check for horizontal overlap
 	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
-	                // Player has hit the bottom side of an entity
-	                // You might want to handle this differently, e.g., stopping upward movement
-	            	// Ensure vertical velocity is not positive (not moving upwards)
 	            	float minVelocity = Math.min(playerControl.getVerticalVelocity(), 0);
 	            	playerControl.setVerticalVelocity(minVelocity);
 	            	
-	                player.setPosY(groundRect.y - playerRect.height); // Adjust player's position to be just below the entity
-	                // Note: No need to set isOnGround = true here, as the player is not landing on top of the entity
+	                player.setPosY(groundRect.y - playerRect.height); 
+	   
 	            }
 	        }
 
@@ -162,14 +161,46 @@ public class AmpEngine extends ApplicationAdapter{
     	            if (playerRect.y < groundRect.y + groundRect.height && playerRect.y + playerRect.height > groundRect.y) {
     	                // Collision on the player's left side
     	                player.setPosX(groundRect.x + groundRect.width); // Adjust player's position to the right of the entity
-    	                // Here, you might want to handle the collision, e.g., stop leftward movement
+    	                
     	                break;
     	            }
     	        }
 
     	    }}
     }
+    
+    
+    private void attack() {
+		int spawnX = (int)player.getPosX();
+		int spawnY = (int)player.getPosY();
+		weaponSkill = new AnimatedEntity("", spawnX, spawnY, swordTextures);
+		
+		
+    	simulationLifeCycle.simulationCycle(weaponSkill, (entity, animationTime, time) -> {    		
+            Texture[] entityTextures = entity.getAnimatedTexture();
+            long rt = animationTime;
+            
+            if(time >= (animationTime + 35)) {
+                
+            	int animationFrame = entity.getTextureID();
+            	
+                if(animationFrame < entityTextures.length - 1) {
+                    animationFrame++;
+                    entity.setTexture(entityTextures[animationFrame]);
+                }
+                else {
+                    animationFrame = 0;
+                }
+                entity.setTextureID(animationFrame);
+                
+                rt = time;
+            }
 
+            return rt;
+        }, 1500);
+    }
+    
+    
 	private void restart() {
 		if (sceneManager.getGameOverStatus()){
 			sceneManager.setGameOverStatus(false);
@@ -197,9 +228,6 @@ public class AmpEngine extends ApplicationAdapter{
 		playerStartPosition = player.getPosX();
 
 
-
-
-
 		/* **************************
 		 	Set KeyBindings in playerControl
 		   ************************* */
@@ -209,9 +237,9 @@ public class AmpEngine extends ApplicationAdapter{
 		playerControl.bindKey(Keys.RIGHT, () -> moveRight());
 		playerControl.bindKey(Keys.SPACE, () -> jump());
 		playerControl.bindKey(Keys.ENTER, () -> restart());
+		playerControl.bindKey(Keys.Z, () -> attack());
+		
 		sceneManager.setPlayerControl(playerControl);
-
-
 
 		inputManager = new InputManager(sceneManager);
 		
@@ -219,6 +247,16 @@ public class AmpEngine extends ApplicationAdapter{
 		soundList.put("walking", inputManager.loadSound("walking.mp3"));
 
 		sceneManager.outputManager.setSoundList(soundList);
+		
+		
+		swordTextures = new Texture[4];
+		swordTextures[0] = new Texture(Gdx.files.internal("sword1.png"));
+		swordTextures[1] = new Texture(Gdx.files.internal("sword2.png"));
+		swordTextures[2] = new Texture(Gdx.files.internal("sword3.png"));
+		swordTextures[3] = new Texture(Gdx.files.internal("sword4.png"));
+		
+		
+		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
 	}
 	
 
@@ -228,7 +266,12 @@ public class AmpEngine extends ApplicationAdapter{
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
 	    sceneManager.drawCollider();
+	    
+	    
 	    sceneManager.updateScene();
+	    
+	    simulationLifeCycle.simulationUpdate();
+	    
 
 	    inputManager.runnable();
 	    inputManager.CCRunnable("onGround");
@@ -238,8 +281,6 @@ public class AmpEngine extends ApplicationAdapter{
 	        sceneManager.outputManager.stopAllSound();
 	    }
 	    applyGravity();
-
-
 	}
 
 	
@@ -247,12 +288,3 @@ public class AmpEngine extends ApplicationAdapter{
 		
 	}
 }
-
-
-
-
-
-
-
-
-
