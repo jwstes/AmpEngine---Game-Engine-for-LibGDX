@@ -7,10 +7,10 @@ import java.util.List;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
-public class CollisionHelper {
+public class CollisionEntityManager {
 	private Rectangle bounds; 
     private List<Entity> objects; 
-    public CollisionHelper() {
+    public CollisionEntityManager() {
         this.objects = new ArrayList<>();
     }
     
@@ -29,6 +29,7 @@ public class CollisionHelper {
     public void clear() {
         objects.clear();
     }	
+    
 	//debugging
 	public void draw(ShapeRenderer shapeRenderer) {
         shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);

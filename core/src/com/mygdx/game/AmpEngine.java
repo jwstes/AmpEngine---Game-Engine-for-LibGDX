@@ -246,7 +246,7 @@ public class AmpEngine extends ApplicationAdapter{
 		Map<String, Sound> soundList = new HashMap<>();
 		soundList.put("walking", inputManager.loadSound("walking.mp3"));
 
-		sceneManager.outputManager.setSoundList(soundList);
+		sceneManager.outputManager.setSoundsList(soundList);
 		
 		
 		swordTextures = new Texture[4];
@@ -265,9 +265,7 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
-	    sceneManager.drawCollider();
-	    
-	    
+	    //sceneManager.drawCollider();
 	    sceneManager.updateScene();
 	    
 	    simulationLifeCycle.simulationUpdate();
@@ -280,6 +278,8 @@ public class AmpEngine extends ApplicationAdapter{
 	    if (!anyKeyDown) {
 	        sceneManager.outputManager.stopAllSound();
 	    }
+	    
+	    //Game Specfific function for Demo Purpose 
 	    applyGravity();
 	}
 
