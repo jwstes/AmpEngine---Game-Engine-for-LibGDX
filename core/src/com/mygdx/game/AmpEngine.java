@@ -34,7 +34,9 @@ public class AmpEngine extends ApplicationAdapter{
 	
 	private float playerStartPositionX;
 	private float playerStartPositionY;
-    private boolean isOnGround = false;
+    private boolean canJump = true;  // Variable to track whether the player can jump again
+
+
     
     private AnimatedEntity weaponSkill;
     private Texture[] swordTextures;
@@ -84,12 +86,14 @@ public class AmpEngine extends ApplicationAdapter{
     private void jump() {
     	float JUMP_VELOCITY = 350;
     	
-
-    	if (playerControl.getIsOnGround() == true) {
+    	
+    	if (playerControl.getIsOnGround() && canJump) {
     		playerControl.setIsOnGround(false);
     		//updateIsOnGround();
 
     		playerControl.setVerticalVelocity(JUMP_VELOCITY);
+            canJump = false;  // Set to false to prevent jumping until the player is on the ground again
+
     		
     		
         }
@@ -113,6 +117,8 @@ public class AmpEngine extends ApplicationAdapter{
 	            if (playerRect.x + playerRect.width > groundRect.x && playerRect.x < groundRect.x + groundRect.width) {
 	            	playerControl.setIsOnGround(true); // Player is on the ground
 	        		//updateIsOnGround();
+                    canJump = true;  // Set to true when the player is on the ground
+
 	                player.setPosY(groundRect.y + groundRect.height); 
 	                playerControl.setVerticalVelocity(0); 
 	                break; 
@@ -211,7 +217,7 @@ public class AmpEngine extends ApplicationAdapter{
 			player.setPosY(playerStartPositionY);
 			
 		}
-		// Doesn't work well if you die near spawn point because Goomba position is not resset, so it'll dmg you immediately.
+		
 	}
     
     

@@ -60,20 +60,30 @@ public class AIManager extends Entity {
     //CLASS METHODS
     @Override
     public void update(long lastEntityUpdate) {
-    	
-    }
-    public void moveEntityRight() {
-        float increment = 1f; 																		// adjusting distance of movable entity travel
-        float maxX = Gdx.graphics.getWidth(); 														// Get screen size
-        float targetX = getPosX() + increment; 														// entity next position to the right with increment																						// use interpolation gdx lib to smooth the animation sliding of the entity when it's moving
-        float alpha = MathUtils.clamp((targetX - getPosX()) / increment, 0f, 0f);					// Experiment with different interpolation functions for smoother sliding
-        float newX = Interpolation.smooth.apply(getPosX(), targetX, alpha);							// Check if the entity has reached the right edge
-        if (newX > maxX) {  																		// Reset the entity to the left with a different starting position
-            setPosX(initialPosX - getWidth()); 														// Subtract entity width to avoid overlapping
-        } else {
-            setPosX(newX);
+       	float increment = 0.1f;
+        int result = (int) (increment * 0); 
+        float maxIncrement = result / (float) Math.PI; 
+        if (maxIncrement > -1 && maxIncrement < 1) {
+        	lastEntityUpdate = (long) increment;
         }
     }
+    public void moveEntityRight() {
+        float increment = 1f; // Adjust the distance of movable entity travel
+        float maxX = Gdx.graphics.getWidth(); // Get screen size
+
+        // Calculate the target X position using interpolation
+        float targetX = Interpolation.smooth.apply(getPosX(), getPosX() + increment, 0.5f);
+
+        // Check if the targetX has reached or exceeded the screen width
+        if (targetX >= maxX) {
+            // If yes, reset the entity to the left with a different starting position
+            setPosX(initialPosX - getWidth());
+        } else {
+            // If not, update the X position with the targetX
+            setPosX(targetX);
+        }
+    }
+
 
     public void chasePEntity(Array<PlayerEntity> playerEntities) {
         // Adjust the increment value based on the speed you want the AI to chase the player
