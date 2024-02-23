@@ -30,11 +30,11 @@ REPORT & SLIDES
 Integrated Test (~ Thursday)
 - To check if Player can collide with entity and if Player can move at all
  
-## Checkpoint 3: 
-- Dashboard ✅
-- OutputManager✅
+## Checkpoint 3:  (DONE ✅) 
+- Dashboard
+- OutputManager
 - GameMaster (Logic)
 - CREATE VIDEO
   
-Finalize (~ Friday 23:59)
+Finalize (~ Friday 23:59) 
 - To make final adjustments etc..
