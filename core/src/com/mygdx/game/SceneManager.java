@@ -163,8 +163,8 @@ public class SceneManager{
 	public void updateScene() {
 	    long currentTime = System.currentTimeMillis();
 
-		if (System.currentTimeMillis() >= (lastEntityUpdate + 300)) {
-			if(animatedTextureID < 2) {
+		if (System.currentTimeMillis() >= (lastEntityUpdate + 80)) {
+			if(animatedTextureID < 4) {
 				animatedTextureID++;
 			}
 			else {

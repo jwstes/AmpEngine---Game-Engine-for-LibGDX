@@ -54,7 +54,7 @@ public class Scene {
                     
                     //add texture to tex list
                     String[] textures = entity.get("texture").asStringArray();
-                    Texture[] t = new Texture[4];
+                    Texture[] t = new Texture[5];
                     for(int i = 0; i < textures.length; i++) {
                     	t[i] = new Texture(Gdx.files.internal(textures[i]));
                     }
