@@ -68,7 +68,8 @@ public class AIManager extends Entity {
         }
     }
     public void moveEntityRight() {
-        float increment = 1f; // Adjust the distance of movable entity travel
+        // Calculate the target X position using interpolation
+        float increment = 1f; 
         float maxX = Gdx.graphics.getWidth(); // Get screen size
 
         // Calculate the target X position using interpolation
@@ -96,8 +97,14 @@ public class AIManager extends Entity {
 
         if (playerEntities.size > 0) {
             playerPosX = playerEntities.first().getPosX();
-        }																							
-        float direction = Math.signum(playerPosX - getPosX());										
+        }					
+        
+        //determine which direction  the entity should move to the player, 
+
+        float direction = Math.signum(playerPosX - getPosX());	
+        
+        //moving distance of the entity based on chase increment and the direction calculated 
+
         float newPosX = getPosX() + increment * direction;	
         																				
         setPosX(newPosX);                                                                    

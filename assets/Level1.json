@@ -14,7 +14,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -30,7 +30,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -46,7 +46,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -62,7 +62,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -78,7 +78,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -94,7 +94,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -110,7 +110,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -126,7 +126,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -142,7 +142,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -158,7 +158,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -174,7 +174,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -190,7 +190,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -206,7 +206,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -222,7 +222,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -238,7 +238,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -254,7 +254,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -270,7 +270,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -286,7 +286,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -302,7 +302,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -318,7 +318,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -334,7 +334,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -350,7 +350,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -366,7 +366,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -382,7 +382,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -398,7 +398,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -414,7 +414,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -430,7 +430,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -446,7 +446,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -462,7 +462,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -478,7 +478,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -494,7 +494,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -510,7 +510,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -526,7 +526,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -542,7 +542,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -558,7 +558,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -574,7 +574,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -590,7 +590,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -606,7 +606,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -622,7 +622,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -638,7 +638,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -654,7 +654,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -670,7 +670,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -686,7 +686,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -702,7 +702,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -718,7 +718,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -734,7 +734,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -750,7 +750,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -766,7 +766,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -782,7 +782,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -798,7 +798,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -814,7 +814,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -830,7 +830,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -846,7 +846,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -862,7 +862,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -878,7 +878,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -894,7 +894,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -910,7 +910,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -926,7 +926,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -942,7 +942,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -958,7 +958,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -974,7 +974,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -990,7 +990,7 @@
             "isMovable": true,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "player"
         },
         {
@@ -1006,7 +1006,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1022,7 +1022,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1038,7 +1038,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1054,7 +1054,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1070,7 +1070,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1086,7 +1086,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1102,7 +1102,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1118,7 +1118,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1134,7 +1134,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1150,7 +1150,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1166,7 +1166,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1182,7 +1182,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1198,7 +1198,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1214,7 +1214,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1230,7 +1230,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1246,7 +1246,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1262,7 +1262,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1278,7 +1278,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1294,7 +1294,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1310,7 +1310,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1326,7 +1326,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1342,7 +1342,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1358,7 +1358,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1374,7 +1374,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1390,7 +1390,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1406,7 +1406,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1422,7 +1422,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1438,7 +1438,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1454,7 +1454,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1470,7 +1470,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1534,7 +1534,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1550,7 +1550,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1566,7 +1566,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1582,7 +1582,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1598,7 +1598,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1614,7 +1614,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1630,7 +1630,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1646,7 +1646,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1662,7 +1662,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1678,7 +1678,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1694,7 +1694,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1758,7 +1758,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1774,7 +1774,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1790,7 +1790,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1806,7 +1806,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1822,7 +1822,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1838,7 +1838,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1854,7 +1854,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1870,7 +1870,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1886,7 +1886,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1902,7 +1902,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1918,7 +1918,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1934,7 +1934,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1950,7 +1950,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1966,7 +1966,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1982,7 +1982,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -1998,7 +1998,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2014,7 +2014,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2030,7 +2030,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2046,7 +2046,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2062,7 +2062,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2078,7 +2078,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2094,7 +2094,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2110,7 +2110,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2126,7 +2126,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2142,7 +2142,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2158,7 +2158,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2174,7 +2174,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2190,7 +2190,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2206,7 +2206,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2222,7 +2222,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2238,7 +2238,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2254,7 +2254,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2270,7 +2270,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2286,7 +2286,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2302,7 +2302,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2318,7 +2318,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2334,7 +2334,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2350,7 +2350,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2366,7 +2366,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2382,7 +2382,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2398,7 +2398,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2414,7 +2414,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2430,7 +2430,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2446,7 +2446,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2462,7 +2462,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2478,7 +2478,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2494,7 +2494,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2510,7 +2510,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2526,7 +2526,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2542,7 +2542,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2558,7 +2558,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2574,7 +2574,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2590,7 +2590,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2606,7 +2606,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2622,7 +2622,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2638,7 +2638,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2654,7 +2654,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2670,7 +2670,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2686,7 +2686,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2702,7 +2702,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2718,7 +2718,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2734,7 +2734,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2750,7 +2750,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2766,7 +2766,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2782,7 +2782,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2798,7 +2798,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2814,7 +2814,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2830,7 +2830,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2846,7 +2846,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2862,7 +2862,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2878,7 +2878,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2894,7 +2894,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2910,7 +2910,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2926,7 +2926,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2942,7 +2942,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2958,7 +2958,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2974,7 +2974,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -2990,7 +2990,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3006,7 +3006,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3022,7 +3022,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3038,7 +3038,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3054,7 +3054,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3070,7 +3070,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3086,7 +3086,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3102,7 +3102,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3118,7 +3118,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3134,7 +3134,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3150,7 +3150,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3166,7 +3166,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3182,7 +3182,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3198,7 +3198,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3214,7 +3214,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3230,7 +3230,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3246,7 +3246,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3262,7 +3262,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3278,7 +3278,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3294,7 +3294,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3310,7 +3310,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3326,7 +3326,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3342,7 +3342,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3358,7 +3358,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3374,7 +3374,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3390,7 +3390,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3406,7 +3406,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3422,7 +3422,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3438,7 +3438,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3454,7 +3454,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3470,7 +3470,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3486,7 +3486,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3502,7 +3502,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3518,7 +3518,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3534,7 +3534,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3550,7 +3550,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3566,7 +3566,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3582,7 +3582,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3598,7 +3598,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3614,7 +3614,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3630,7 +3630,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3646,7 +3646,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3662,7 +3662,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3678,7 +3678,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3694,7 +3694,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3710,7 +3710,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3726,7 +3726,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3742,7 +3742,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3758,7 +3758,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3774,7 +3774,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3790,7 +3790,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3806,7 +3806,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3822,7 +3822,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3838,7 +3838,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3854,7 +3854,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3870,7 +3870,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3886,7 +3886,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3902,7 +3902,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3918,7 +3918,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3934,7 +3934,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3950,7 +3950,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3966,7 +3966,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3982,7 +3982,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -3998,7 +3998,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -4014,7 +4014,7 @@
             "isMovable": false,
             "isBreakable": false,
             "isAnimated": false,
-            "isCollidable": false,
+            "isCollidable": true,
             "entityType": "static"
         },
         {
@@ -4057,13 +4057,13 @@
             "texture": [
                 "fire1.png",
                 "fire2.png",
-                "fire3.png"
-                "fire4.png",
+                "fire3.png",
+               "fire4.png",
                 "fire5.png"
             ],
             "isAlive": false,
             "isKillable": false,
-            "isMovable": false,
+            "isMovable": true,
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
@@ -4108,6 +4108,6 @@
             "entityType": "adversarial",
             "isAnimated": true,
             "isCollidable": true
-        },
+        }
     ]
 }
