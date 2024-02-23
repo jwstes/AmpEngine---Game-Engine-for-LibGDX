@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /***********************************************************************
  * The Dashboard class is used for the Display of Health Points        *
- * it also manages methods like resetting of Dashbaords and rendering  *
+ * it also manages methods like resetting of Dashboards and rendering  *
  * of Sprites                                                          *
  * ******************************************************************* */
 public class Dashboard implements DashboardInterface {
