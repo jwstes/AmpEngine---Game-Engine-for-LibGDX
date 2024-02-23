@@ -51,14 +51,17 @@ public class CollisionManager {
         for (PlayerEntity player : pList) {
             List<Entity> potentialCollisions = quadTree.query(player.getRec(), new ArrayList<>());
             for (Entity other : potentialCollisions) {
-                if (other != player && Intersector.overlaps(player.getRec(), other.getRec())) {
-                	if(other.getEntityType() == "static") {
-                		return other;	
-                	}else if(other.getEntityType() == "adversarial") {	
-                		return other;
-                	}
-                	
-                }
+            	
+            	if(other.getIsCollidable() == true) {
+            		if (other != player && Intersector.overlaps(player.getRec(), other.getRec())) {
+                    	if(other.getEntityType() == "static") {
+                    		return other;	
+                    	}else if(other.getEntityType() == "adversarial") {	
+                    		return other;
+                    	}
+                    }
+            	}
+                
             }
         }
 		return null;

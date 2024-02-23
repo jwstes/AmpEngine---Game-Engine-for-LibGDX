@@ -4,82 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game Window with Chunks</title>
-<style>
-  .gameWindow {
-    width: 1280px;
-    height: 768px;
-    display: grid;
-    grid-template-columns: repeat(40, 32px);
-    grid-template-rows: repeat(24, 32px);
-    gap: 0px;
-  }
-  .chunk {
-    width: 32px;
-    height: 32px;
-    border: 1px solid #000;
-  }
-  .chunk:hover{
-    background-color: rgba(0,0,0,.25);
-  }
-  .assetSelector{
-    margin-top: 2em;
-  }
-  .asset{
-    margin-right: 1em;
-    margin-left: 1em;
-    border:4px solid black;
-  }
-  #assetSelectedText{
-    margin-top: 2em;
-  }
-  .selectedAsset{
-    border: 4px solid red !important;
-  }
-</style>
+<link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
 
-<div class="gameWindow">
-
-</div>
-
-<h4 id="assetSelectedText"> Kevin Says: Select An Asset </h4>
-<div class="assetSelector">
+<div class="container">
+  <div class="gameWindow">
+  
+  </div>
+  
+  <div class="sidebar">
+    <h1 id="assetSelectedText"> Super Epic Level Editor</h1>
+    <h2>Background</h2>
+    <div class="backgroundSelector">
+        
+    </div>
+    <h2>Assets</h2>
+    <div class="assetSelector">
+        
+    </div>
+  
+    <h2>Animations?</h2>
     
+    </h4>
+  <div class="animationSelection">
+    
+  </div>
+  
+  <br>
+  <button class="saveButton" id="saveAnimations" onclick="SaveAnimations()">Save Animations</button>
+  <br>
+
+    <div class="assetProperties" style="display: flex; flex-wrap: wrap; align-items: center;">
+      <div style="margin-right: 10px; margin: 5px;">
+          <input type="checkbox" id="cb1" style="transform: scale(2);"> <!-- Increase the size by applying a scale transformation -->
+          <label for="cb1">Alive</label>
+      </div>
+  
+      <div style="margin-right: 10px;">
+          <input type="checkbox" id="cb2"style="transform: scale(2);">
+          <label for="cb2">Killable</label>
+      </div>
+  
+      <div style="margin-right: 10px;">
+          <input type="checkbox" id="cb3"style="transform: scale(2);">
+          <label for="cb3">Movable</label>
+      </div>
+  
+      <div style="margin-right: 10px;">
+          <input type="checkbox" id="cb4"style="transform: scale(2);">
+          <label for="cb4">Breakable</label>
+      </div>
+  
+      <div style="margin-right: 10px;">
+          <input type="checkbox" id="cb5"style="transform: scale(2);">
+          <label for="cb5">Animated</label>
+      </div>
+  
+      <div style="margin-right: 10px;">
+          <input type="checkbox" id="cb6"style="transform: scale(2);">
+          <label for="cb6">Collidable</label>
+      </div>
+  </div>
+  <br>
+  <input type="text" id="tb7" value="static" class="entityType" placeholder="AssetType">
+    <button id="export" onclick="exportAll()">EXPORT</button>
+  </div>
 </div>
 
-<h4 id="assetSelectedText"> Kevin Wants Behaviour </h4>
-<div class="assetProperties">
-    <input type="checkbox" id="cb1">
-    <label for="cb1">isAlive</label><br>
-
-    <input type="checkbox" id="cb2">
-    <label for="cb2">isKillable</label><br>
-
-    <input type="checkbox" id="cb3">
-    <label for="cb3">isMovable</label><br>
-
-    <input type="checkbox" id="cb4">
-    <label for="cb4">isBreakable</label><br>
-
-    <input type="checkbox" id="cb5">
-    <label for="cb5">isAnimated</label><br>
-
-    <input type="checkbox" id="cb6">
-    <label for="cb6">isCollidable</label><br>
-
-    <input type="text" id="tb7" value="static" placeholder="assetType">
-
-    <button id="export" onclick="exportAll()">EXPORT</button>
+</div>
+<div id="Warning">
+  <h3>PICK A ASSET FIRST LA SIA!!</h3>
 </div>
 
 <script>
 
-var assets = [
-    "10.png", "11.png", "12.png", "player.png"
+  var assets = [
+      "assets/player.png","assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png",
+      "assets/5.png","assets/6.png", "assets/7.png", "assets/8.png", "assets/9.png",
+      "assets/f1-1.png","assets/f1-2.png", "assets/f1-3.png", "assets/f2-1.png", "assets/f2-2.png", 
+      "assets/f3-1.png","assets/f3-2.png", "assets/f4-1.png", "assets/f4-2.png", "assets/f5-1.png",
+      "assets/f5-2.png","assets/f6-1.png", "assets/f6-2.png", "assets/f7-1.png", "assets/f7-2.png",
+      "assets/f8-1.png","assets/f8-2.png", "assets/f9-1.png", "assets/f9-2.png", "assets/f9-3.png",
+      "assets/f10-1.png","assets/f10-2.png", "assets/f11-1.png", "assets/f11-2.png", "assets/f12.png",
+      "assets/f13.png","assets/f14.png", "assets/f15.png", "assets/f16.png","assets/wall1.png","assets/wall2.png",
+  ]
+
+  var background = [
+    "background/background.png","background/1.png","background/2.png" ,"background/3.png",
+    ,"background/4.png" ,"background/5.png" ,"background/6.png", "background/cave.png",
+
   ]
   
   var selectedAsset;
+  var selectedBackground;
 
   var isAlive = false;
   var isKillable = false;
@@ -106,7 +124,34 @@ var assets = [
 
         e.target.classList.add('selectedAsset');
         selectedAsset = e.target;
+
+        document.querySelector('.animationSelection').style.display = 'grid';
+        document.querySelector('.saveButton').style.display = 'block';
         
+    })
+   
+  }
+
+  background.forEach(b => {
+    var backgroundSelector = document.querySelector('.backgroundSelector');
+    var bg = document.createElement('img');
+    bg.setAttribute('src', b);
+    bg.classList.add('background');
+    backgroundSelector.appendChild(bg);
+  })
+
+  var allBackgrounds = document.querySelectorAll('.background');
+  for (let i = 0; i < allBackgrounds.length; i++) {
+    allBackgrounds[i].addEventListener('click', function(e){
+        var AB = document.querySelectorAll('.background');
+        for (let j = 0; j < AB.length; j++) {
+            AB[j].classList.remove('selectedBackground');
+        }
+
+        e.target.classList.add('selectedBackground');
+        selectedBackground = e.target;
+      
+        gameWindow.style.backgroundImage = `url('${selectedBackground.getAttribute('src')}')`;
     })
   }
 
@@ -114,24 +159,35 @@ var assets = [
   const gameWindow = document.querySelector('.gameWindow');
   const rows = 24;
   const columns = 40;
+
+  const animationSelection = document.querySelector('.animationSelection');
+  const Arows = 1;
+  const Acolumns = 10;
+  let lastPlacedChunk = null;
   
-  function chunkHandler(e){
+  function chunkHandler(e) {
     var tg = e.target;
-    try{
+    if (gameWindow.contains(tg)) {
+        try {
+
+            tg.innerHTML = `<img src="${selectedAsset.getAttribute('src')}" />`;
+            tg.setAttribute('isAlive', isAlive);
+            tg.setAttribute('isKillable', isKillable);
+            tg.setAttribute('isMovable', isMovable);
+            tg.setAttribute('isBreakable', isBreakable);
+            tg.setAttribute('isAnimated', isAnimated);
+            tg.setAttribute('isCollidable', isCollidable);
+            tg.setAttribute('entityType', document.getElementById('tb7').value);
+            lastPlacedChunk = tg;
+            clearAnimationSelection();
+        } catch (Exception) {
+            document.getElementById('Warning').setAttribute('style', "display: block;");
+            setTimeout(function() {
+                document.getElementById('Warning').setAttribute('style', "");
+            }, 1000);
+        }
+    } else if (animationSelection.contains(tg)) {
         tg.innerHTML = `<img src="${selectedAsset.getAttribute('src')}" />`;
-        tg.setAttribute('isAlive', isAlive);
-        tg.setAttribute('isKillable', isKillable);
-        tg.setAttribute('isMovable', isMovable);
-        tg.setAttribute('isBreakable', isBreakable);
-        tg.setAttribute('isAnimated', isAnimated);
-        tg.setAttribute('isCollidable', isCollidable);
-        tg.setAttribute('entityType', document.getElementById('tb7').value);
-    }
-    catch(Exception){
-        document.getElementById('assetSelectedText').setAttribute('style', "color: red; font-size: 4em;");
-        setTimeout(function(){
-            document.getElementById('assetSelectedText').setAttribute('style', "");
-        }, 1000);
     }
   }
 
@@ -147,6 +203,22 @@ var assets = [
       chunk.setAttribute('x', xValue);
 
       gameWindow.appendChild(chunk);
+      chunk.addEventListener('click', chunkHandler);
+    }
+  }
+
+  for (let row = 0; row < Arows; row++) {
+    for (let col = 0; col < Acolumns; col++) {
+      const chunk = document.createElement('div');
+      chunk.classList.add('chunk');
+
+      const yValue = (Arows - row - 1) * 32;
+      chunk.setAttribute('y', yValue);
+
+      const xValue = col * 32;
+      chunk.setAttribute('x', xValue);
+
+      animationSelection.appendChild(chunk);
       chunk.addEventListener('click', chunkHandler);
     }
   }
@@ -170,13 +242,13 @@ var assets = [
     document.getElementById('cb6').addEventListener('change', function(e){
         isCollidable = e.target.checked;
     })
+
     
   
-  function exportAll(){
-    var allChunks = document.querySelectorAll('.chunk>img');
-
+    function exportAll() {
+    var allChunks = document.querySelectorAll('.gameWindow .chunk>img');
     var outputJSON = {
-        "background" : "background.png"
+        "background": selectedBackground.getAttribute('src').replace('background/', ''),
     };
     var entities = [];
 
@@ -184,39 +256,79 @@ var assets = [
         var parent = chunk.parentElement;
 
         var textureFilePathSplit = chunk.src.split('/');
-        
-        var texutreName = textureFilePathSplit[textureFilePathSplit.length - 1];
+        var textureName = textureFilePathSplit[textureFilePathSplit.length - 1];
         var x = parent.getAttribute('x');
         var y = parent.getAttribute('y');
-        var alive = parent.getAttribute('isAlive') == "true" ? true : false;
-        var killable = parent.getAttribute('isKillable') === "true" ? true : false;
-        var movable = parent.getAttribute('isMovable') == "true" ? true : false;
-        var breakable = parent.getAttribute('isBreakable') == "true" ? true : false;
-        var animated = parent.getAttribute('isAnimated') == "true" ? true : false;
-        var collidable = parent.getAttribute('isCollidable') == "true" ? true : false;
-        var etype = parent.getAttribute('entityType');
+        var key = `x${x}y${y}`;
+
+        // Initialize textureNames array with the current textureName
+        var textureNames = [textureName];
+
+        const sessionAssets = JSON.parse(sessionStorage.getItem(key));
+
+        if (sessionAssets && sessionAssets.length > 0) {
+            // If a match is found in session storage, add those assets to the textureNames array
+            sessionAssets.forEach(assetSrc => {
+                textureNames.push(assetSrc); // Add session storage asset names to the array
+            });
+        }
+
+        // Push the entity with possibly extended textureNames array
         entities.push({
-            "coords" : [
-                x, y
-            ],
-            "texture" : [
-                texutreName
-            ],
-            "isAlive": alive,
-            "isKillable": killable,
-            "isMovable": movable,
-            "isBreakable": breakable,
-            "entityType": etype,
-            "isAnimated": animated,
-            "isCollidable": collidable
-        })
-    })
+            "coords": [x, y],
+            "texture": textureNames, // Now an array
+            "isAlive": parent.getAttribute('isAlive') === "true",
+            "isKillable": parent.getAttribute('isKillable') === "true",
+            "isMovable": parent.getAttribute('isMovable') === "true",
+            "isBreakable": parent.getAttribute('isBreakable') === "true",
+            "isAnimated": parent.getAttribute('isAnimated') === "true",
+            "isCollidable": parent.getAttribute('isCollidable') === "true",
+            "entityType": parent.getAttribute('entityType')
+        });
+    });
 
     outputJSON['Entities'] = entities;
     console.log(JSON.stringify(outputJSON));
+
+    //Clear all session storage
+    sessionStorage.clear();
+}
+
+
+  function SaveAnimations() {
+    if (lastPlacedChunk) {
+        const x = lastPlacedChunk.getAttribute('x');
+        const y = lastPlacedChunk.getAttribute('y');
+        const key = `x${x}y${y}`; // Create a key using X and Y coordinates of the last placed chunk
+
+        // Get all placed assets in the animationSelection window...
+        const animationAssets = animationSelection.querySelectorAll('.chunk>img');
+        
+        // Extract the src attributes (asset names)...
+        const assetNames = Array.from(animationAssets).map(asset => asset.getAttribute('src'));
+        assetNames.forEach((asset, index) => {
+            assetNames[index] = asset.replace('assets/', ''); // Remove 'assets/' from the asset name
+        });
+
+        // Save the asset names array to session storage using the key...
+        sessionStorage.setItem(key, JSON.stringify(assetNames));
+
+        console.log(`Animation assets saved to session storage under key: ${key}`);
+    } else {
+        console.log('No asset placed in the game window to use as a key.');
+    }
   }
 
+  function clearAnimationSelection() {
+    // Get all chunks in the animationSelection window
+    const animationChunks = animationSelection.querySelectorAll('.chunk');
 
+    // Clear the content of each chunk
+    animationChunks.forEach(chunk => {
+        chunk.innerHTML = ''; // Remove any inner HTML (removes placed assets)
+    });
+
+  }
 </script>
 
 </body>

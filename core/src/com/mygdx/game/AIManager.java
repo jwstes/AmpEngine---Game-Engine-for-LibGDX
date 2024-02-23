@@ -87,7 +87,7 @@ public class AIManager extends Entity {
 
     public void chasePEntity(Array<PlayerEntity> playerEntities) {
         // Adjust the increment value based on the speed you want the AI to chase the player
-        float increment = 1f;
+        float increment = 0.6f;
 
         // Initialize some default values for the player entity's position
         float playerPosX = 0;
