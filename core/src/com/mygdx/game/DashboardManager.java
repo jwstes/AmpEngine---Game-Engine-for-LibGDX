@@ -3,7 +3,6 @@ package com.mygdx.game;
 import java.util.Arrays;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -61,33 +60,27 @@ public class DashboardManager  {
     
     
     //CLASS METHODS
-    public void displayHealthText(SpriteBatch batch) {
-        // Draw "Health:" text
-        font.setColor(Color.WHITE);
-        font.getData().setScale(1.5f);
-        font.draw(batch, "Health:", 20, Gdx.graphics.getHeight() - 20);
-    }
-
-    public void displayTimer(SpriteBatch batch) {
-        float spriteX = 100; // Assuming this is the initial x-coordinate for health sprites
-        float posX = spriteX + 150; // Align with the end of health sprites
-        float posY = Gdx.graphics.getHeight() - 20; // Align vertically with the "Health:" text
-
-        // Draw time passed text beside the health status
-        long elapsedTimeSeconds = getTimePassedSeconds();
-        String timePassedText = "Time Passed: " + elapsedTimeSeconds + "s";
-        font.draw(batch, timePassedText, posX, posY);
-    }
-
-    public void drawOnScene(SpriteBatch batch) {
-        displayHealthText(batch);
-        displayTimer(batch);
-    }
 
     public void resetStartTime() {
         startTime = TimeUtils.nanoTime();
     }
+    
+    public void displayHealthSprites(SpriteBatch batch) {
+        float spriteX = 100; // Initial x-coordinate for health sprites
+        float spriteY = Gdx.graphics.getHeight() - 20 - getFont().getLineHeight(); // Align sprites with the bottom of the text
 
+        for (int i = 0; i < getMaxHealth(); i++) { // Iterate over maxHealth instead of currentHealth
+            if (i < getCurrentHealth()) { // Check if the current index is within the current health range
+                Texture health = getHealthSprites()[i]; // Assuming each health sprite is different
+                batch.draw(health, spriteX, spriteY);
+                spriteX += health.getWidth() + 10; // Update x-coordinate for next sprite
+            }
+        }
+    }
+
+    public void drawOnScene(SpriteBatch batch) {
+        displayHealthSprites(batch);
+    }
     
 
 }
