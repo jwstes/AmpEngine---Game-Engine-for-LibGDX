@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -31,12 +32,30 @@ public class Dashboard implements DashboardInterface {
     public SceneManager getSceneManager() {
     	return sceneManager;
     }
-
     
+    
+    public void displayHealthText(SpriteBatch batch) {
+        // Draw "Health:" text
+        dashboardManager.getFont().setColor(Color.WHITE);
+        dashboardManager.getFont().getData().setScale(1.5f);
+        dashboardManager.getFont().draw(batch, "Health:", 20, Gdx.graphics.getHeight() - 20);
+    }
+
+    public void displayTimer(SpriteBatch batch) {
+        float spriteX = 100; // Assuming this is the initial x-coordinate for health sprites
+        float posX = spriteX + 150; // Align with the end of health sprites
+        float posY = Gdx.graphics.getHeight() - 20; // Align vertically with the "Health:" text
+
+        // Draw time passed text beside the health status
+        long elapsedTimeSeconds = dashboardManager.getTimePassedSeconds();
+        String timePassedText = "Time Passed: " + elapsedTimeSeconds + "s";
+        dashboardManager.getFont().draw(batch, timePassedText, posX, posY);
+    }
 
     public void render(SpriteBatch batch) {
-        dashboardManager.drawOnScene(batch);
-        displayHealthSprites(batch);
+    	displayTimer(batch);
+    	displayHealthText(batch);
+    	dashboardManager.drawOnScene(batch);
     }
     
     public void reduceHealth(int amount) {
@@ -58,6 +77,8 @@ public class Dashboard implements DashboardInterface {
         }
     }
 
+
+	@Override
     public void resetDashboard() {
         int maxHealth = dashboardManager.getMaxHealth();;
         dashboardManager.setCurrentHealth(maxHealth);
@@ -73,25 +94,9 @@ public class Dashboard implements DashboardInterface {
     }
 
 
-    public void displayHealthSprites(SpriteBatch batch) {
-        float spriteX = 100; // Initial x-coordinate for health sprites
-        float spriteY = Gdx.graphics.getHeight() - 20 - dashboardManager.getFont().getLineHeight(); // Align sprites with the bottom of the text
-
-        for (int i = 0; i < dashboardManager.getMaxHealth(); i++) { // Iterate over maxHealth instead of currentHealth
-            if (i < dashboardManager.getCurrentHealth()) { // Check if the current index is within the current health range
-                Texture health = dashboardManager.getHealthSprites()[i]; // Assuming each health sprite is different
-                batch.draw(health, spriteX, spriteY);
-                spriteX += health.getWidth() + 10; // Update x-coordinate for next sprite
-            }
-        }
-    }
-    
-
+	@Override
     //Setter method for SceneManager reference
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
     }
-
-
 }
-
