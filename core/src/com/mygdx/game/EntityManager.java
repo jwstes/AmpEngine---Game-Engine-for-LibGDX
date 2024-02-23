@@ -129,6 +129,7 @@ public class EntityManager {
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
     		boolean isBreakable = entityProperties.get(i)[3];
+    		boolean isCollidable = entityProperties.get(i)[4];
     		    		
     		if(entityAnimated.get(i) == true) {
     			AIManager aime = new AIManager(x, y, t);
@@ -137,6 +138,7 @@ public class EntityManager {
     			aime.setIsKillable(isKillable);
     			aime.setIsMovable(isMovable);
     			aime.setEntityType(adversarialString);
+    			aime.setIsCollidable(isCollidable);
     			aimEntities.add(aime);
     		}
     		else {
@@ -146,6 +148,7 @@ public class EntityManager {
         			pe.setIsKillable(isKillable);
         			pe.setIsMovable(isMovable);
         			pe.setEntityType(playerString);
+        			pe.setIsCollidable(isCollidable);
         			pEntities.add(pe);
         		}
         		else if (type.equals(staticString)) {
@@ -155,6 +158,7 @@ public class EntityManager {
         			se.setIsMovable(isMovable);
         			se.setIsBreakable(isBreakable);
         			se.setEntityType(staticString);
+        			se.setIsCollidable(isCollidable);
         			sEntities.add(se);
         		}
         		else if (type.equals(adversarialString)) {
@@ -163,6 +167,7 @@ public class EntityManager {
         			ade.setIsKillable(isKillable);
         			ade.setIsMovable(isMovable);
         			ade.setEntityType(adversarialString);
+        			ade.setIsCollidable(isCollidable);
         			adEntities.add(ade);
         		}
     		}

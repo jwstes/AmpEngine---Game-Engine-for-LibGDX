@@ -276,7 +276,7 @@ public class AmpEngine extends ApplicationAdapter{
 	public void render() {
 	    sceneManager.clearScreen();
 	    sceneManager.loadScene(0);
-//	    sceneManager.drawCollider();
+	    //sceneManager.drawCollider();
 	    sceneManager.updateScene();
 	    
 	    simulationLifeCycle.simulationUpdate();
