@@ -31,12 +31,8 @@ public class Dashboard implements DashboardInterface {
     public SceneManager getSceneManager() {
     	return sceneManager;
     }
+
     
- 
-    //CLASS METHODS
-    public void update() {
-        // Update any necessary logic related to the dashboard
-    }
 
     public void render(SpriteBatch batch) {
         dashboardManager.drawOnScene(batch);
