@@ -32,16 +32,20 @@ public class AmpEngine extends ApplicationAdapter{
 	private InputManager inputManager;
 	private SimulationLifeCycle simulationLifeCycle;
 	
+	
+	//game specific code for vid demo only
 	private float playerStartPositionX;
 	private float playerStartPositionY;
     private boolean canJump = true;  // Variable to track whether the player can jump again
 
 
-    
+  
+    //game specific code for vid demo only
     private AnimatedEntity weaponSkill;
     private Texture[] swordTextures;
 
-	
+  
+    //game specific code for vid demo only
 	private void moveLeft() {
 		
         float originalPosX = player.getPosX();
@@ -62,7 +66,7 @@ public class AmpEngine extends ApplicationAdapter{
         
 
     }
-
+	//game specific code for vid demo only
     private void moveRight() {        
 	    float originalPosX = player.getPosX();
 	    float newX = Math.min(Gdx.graphics.getWidth(), originalPosX + 200 * Gdx.graphics.getDeltaTime()); // Assuming the screen width as the limit
@@ -82,7 +86,7 @@ public class AmpEngine extends ApplicationAdapter{
     
 
 
-    
+  //game specific code for vid demo only
     private void jump() {
     	float JUMP_VELOCITY = 350;
     	
@@ -136,7 +140,7 @@ public class AmpEngine extends ApplicationAdapter{
 
 	    }
     }
-    
+  //game specific code for vid demo only
     private void applyGravity() {
         if (!playerControl.getIsOnGround()) {
             // Apply gravity to vertical velocity
@@ -176,7 +180,7 @@ public class AmpEngine extends ApplicationAdapter{
     	    }}
     }
     
-    
+  //game specific code for vid demo only
     private void attack() {
 		int spawnX = (int)player.getPosX();
 		int spawnY = (int)player.getPosY();
@@ -291,7 +295,7 @@ public class AmpEngine extends ApplicationAdapter{
 	        sceneManager.outputManager.stopAllSound();
 	    }
 	    
-	    //Game Specfific function for Demo Purpose 
+	    //Game Specific function for Demo Purpose 
 	    applyGravity();
 	}
 
