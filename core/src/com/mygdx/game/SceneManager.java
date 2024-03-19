@@ -35,7 +35,6 @@ public class SceneManager{
 	
     
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
-    //private QuadTreeNode quadTree = new QuadTreeNode(worldBounds, 4);
     private CollisionManager collisionManager;
     private GameOverScene gameOverScene;
     private PlayerEntity player;
@@ -46,8 +45,6 @@ public class SceneManager{
     public EntityManager entityManager;
 	private Dashboard dashboard;
     
-	
-	
 	
     
 	
@@ -153,7 +150,6 @@ public class SceneManager{
 	public void endBatch() {
 		batch.end();
 	}
-	
 	public SpriteBatch getBatch() {
 		return this.batch;
 	}
@@ -209,6 +205,10 @@ public class SceneManager{
 	public void populateScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
 		entityManager.createEntities(selectedScene);
+	}
+	public void unloadScene() {
+		entityManager.deleteEntities();
+		clearScreen();
 	}
 	public void loadScene(int sceneID) {
 		if (gameOver) {
@@ -363,14 +363,10 @@ public class SceneManager{
 	    return selectedMenuItemIndex;
 	}
 
-
-
-	
 	public void initializeCollisionManager() {
 		collisionManager = new CollisionManager(entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
     }
 
-	
 	public void loadGameOverScene() {
         if (!gameOver) {
             gameOver = true;

@@ -1,0 +1,101 @@
+{
+    "background": "6.png",
+    "Entities": [
+        {
+            "coords": [
+                "672",
+                "352"
+            ],
+            "texture": [
+                "player.png"
+            ],
+            "isAlive": true,
+            "isKillable": true,
+            "isMovable": true,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": true,
+            "entityType": "player"
+        },
+        {
+            "coords": [
+                "608",
+                "320"
+            ],
+            "texture": [
+                "2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static"
+        },
+        {
+            "coords": [
+                "640",
+                "320"
+            ],
+            "texture": [
+                "2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static"
+        },
+        {
+            "coords": [
+                "672",
+                "320"
+            ],
+            "texture": [
+                "2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static"
+        },
+        {
+            "coords": [
+                "704",
+                "320"
+            ],
+            "texture": [
+                "2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static"
+        },
+        {
+            "coords": [
+                "736",
+                "320"
+            ],
+            "texture": [
+                "2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static"
+        }
+    ]
+}

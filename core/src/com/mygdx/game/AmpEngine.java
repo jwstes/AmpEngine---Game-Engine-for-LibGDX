@@ -32,6 +32,8 @@ public class AmpEngine extends ApplicationAdapter{
 	private InputManager inputManager;
 	private SimulationLifeCycle simulationLifeCycle;
 	
+	private int currentSceneID;
+	
 	
 	//game specific code for vid demo only
 	private float playerStartPositionX;
@@ -219,21 +221,42 @@ public class AmpEngine extends ApplicationAdapter{
 			sceneManager.resetDashboard();
 			player.setPosX(playerStartPositionX);
 			player.setPosY(playerStartPositionY);
-			
 		}
-		
 	}
     
+	public void createScene(int sceneID) {
+		currentSceneID = sceneID;
+		sceneManager.populateScene(currentSceneID);
+		sceneManager.initializeCollisionManager();
+		collisionManager = sceneManager.getCollisionManager();
+
+		player = sceneManager.entityManager.getAllPEntity().get(0);
+		
+		playerStartPositionX = player.getPosX();
+		playerStartPositionY = player.getPosY();
+	}
+	
+	//Don't use in any Key Press functions, 
+	//It will cause nextSceneID to go crazy and throw an error. 
+	public void nextScene() {
+		sceneManager.unloadScene();
+		int nextSceneID = currentSceneID + 1;
+		createScene(nextSceneID);
+	}
     
     
 	@Override
 	public void create() {
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
+		sceneJSONArr.add("Level2.json");
 		//... add more if needed
-
+		
+		currentSceneID = 0;
+		
 		sceneManager = new SceneManager(sceneJSONArr,"player.png");
-		sceneManager.populateScene(0);
+		sceneManager.populateScene(currentSceneID);
+		
 		sceneManager.initializeCollisionManager();
 		collisionManager = sceneManager.getCollisionManager();
 
@@ -279,7 +302,7 @@ public class AmpEngine extends ApplicationAdapter{
 	@Override
 	public void render() {
 	    sceneManager.clearScreen();
-	    sceneManager.loadScene(0);
+	    sceneManager.loadScene(currentSceneID);
 	    //sceneManager.drawCollider();
 	    sceneManager.updateScene();
 	    
