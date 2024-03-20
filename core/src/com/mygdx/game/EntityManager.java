@@ -91,7 +91,15 @@ public class EntityManager {
 		}
 	}
 
-
+	
+	public void deleteEntities() {
+		entityList.clear();
+		allAdversarialEntity.clear();
+		allStaticEntity.clear();
+		allPlayerEntity.clear();
+		allAIMEntity.clear();
+	}
+	
 	// Initializes every single entity (dictated by JSON file) into ArrayList Properties in Scene object.
 	// The entities are initialized and appended to matching ArrayList base on their type - player, adversarial, static
     public void createEntities(Scene s) {

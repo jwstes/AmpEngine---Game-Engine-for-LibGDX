@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.Array;
  **********************************************************************************************/
 
 public class CollisionManager {
-    private CollisionEntityManager quadTree;
+    private CollisionEntityManager cem;
     private Array<PlayerEntity> pList;
     private Array<StaticEntity> sList;
     private Array<AdversarialEntity> aList;
@@ -20,7 +20,7 @@ public class CollisionManager {
     
 
     public CollisionManager(Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
-        this.quadTree = new CollisionEntityManager();                 										//Initialise Quad Tree with the size of your world and number of Entities per node
+        this.cem = new CollisionEntityManager();                 										
         this.pList = pList; 
         this.sList = sList;
         this.aList = aList;
@@ -28,35 +28,37 @@ public class CollisionManager {
     }
 
     //CLASS METHODS
-    public void rebuildQuadTree() {
+    public void addEntity() {
 
-        quadTree.clear();
+        cem.clear();
         for (PlayerEntity player : pList) {
-            quadTree.insert(player);
+            cem.insert(player);
         }
         for (StaticEntity staticEntity : sList) {
-            quadTree.insert(staticEntity);
+            cem.insert(staticEntity);
         }
         for (AdversarialEntity ad : aList) {
-            quadTree.insert(ad);
+            cem.insert(ad);
         }
         for (AIManager ai : aiList) {
-        	quadTree.insert(ai);
+        	cem.insert(ai);
         }
     }
 
     public Entity checkPlayerCollisions() {
-        rebuildQuadTree();
+    	addEntity();
         																							//Check Player coolision and returns the Entity 
         for (PlayerEntity player : pList) {
-            List<Entity> potentialCollisions = quadTree.query(player.getRec(), new ArrayList<>());
+            List<Entity> potentialCollisions = cem.query(player.getRec(), new ArrayList<>());
             for (Entity other : potentialCollisions) {
             	
             	if(other.getIsCollidable() == true) {
             		if (other != player && Intersector.overlaps(player.getRec(), other.getRec())) {
                     	if(other.getEntityType() == "static") {
+                    		System.out.print("Static");
                     		return other;	
                     	}else if(other.getEntityType() == "adversarial") {	
+                    		System.out.print("Adversarial");
                     		return other;
                     	}
                     }
@@ -68,7 +70,7 @@ public class CollisionManager {
     }
     																								
     /************************************************************
-    * Methods to check Left and right Collison of Player Entity *
+    * Methods to check Left and right Collision of Player Entity *
     * and returns the X value just before that entity           *
     *************************************************************/																								
     public float LeftRightCollision(PlayerEntity player) 
@@ -94,7 +96,7 @@ public class CollisionManager {
         return newXPosition;		
     }
     /************************************************************
-    * Methods to check Up and Down Collison of Player Entity    *
+    * Methods to check Up and Down Collision of Player Entity    *
     * and returns the Y value just before that entity           *
     *************************************************************/	
     public float UpDownCollision(PlayerEntity player) 
