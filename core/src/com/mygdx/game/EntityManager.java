@@ -14,6 +14,9 @@ public class EntityManager {
     private Array<StaticEntity> allStaticEntity;
     private Array<PlayerEntity> allPlayerEntity;
     private Array<AIManager> allAIMEntity;
+    
+    //testing
+    private Array<NPCEntity> allNPCEntity;
 
 
     //Constructor
@@ -23,6 +26,8 @@ public class EntityManager {
         allStaticEntity = new Array<StaticEntity>();
         allPlayerEntity = new Array<PlayerEntity>();
         allAIMEntity = new Array<AIManager>();
+        
+        allNPCEntity = new Array<NPCEntity>();
     }
 
 
@@ -41,6 +46,11 @@ public class EntityManager {
     }
     public Array<AIManager> getAllAIMEntity(){
     	return allAIMEntity;
+    }
+    
+    //
+    public Array<NPCEntity> getAllNPCEntity(){
+    	return allNPCEntity;
     }
 
 
@@ -98,6 +108,9 @@ public class EntityManager {
 		allStaticEntity.clear();
 		allPlayerEntity.clear();
 		allAIMEntity.clear();
+		
+		//
+		allNPCEntity.clear();
 	}
 	
 	// Initializes every single entity (dictated by JSON file) into ArrayList Properties in Scene object.
@@ -120,9 +133,13 @@ public class EntityManager {
     	Array<StaticEntity> sEntities = new Array<StaticEntity>();
     	Array<AIManager> aimEntities = new Array<AIManager>();
     	
+    	//
+    	Array<NPCEntity> npcEntity = new Array<NPCEntity>();
+    	
     	String staticString = "static";
     	String playerString = "player";
     	String adversarialString = "adversarial";
+    	String npcString = "npc";
     	
     	for (int i = 0; i < entitiesSize; i++) {
     		
@@ -177,6 +194,14 @@ public class EntityManager {
         			ade.setEntityType(adversarialString);
         			ade.setIsCollidable(isCollidable);
         			adEntities.add(ade);
+        		}else if(type.equals(npcString)) {
+        			NPCEntity npc = new NPCEntity("n", x, y, t[0]);
+					npc.setIsAlive(isAlive);
+					npc.setIsKillable(isKillable);
+					npc.setIsMovable(isMovable);
+					npc.setEntityType(npcString);
+					npc.setIsCollidable(isCollidable);
+					npcEntity.add(npc);
         		}
     		}
     		
@@ -184,6 +209,7 @@ public class EntityManager {
     		allStaticEntity = sEntities;
     		allPlayerEntity = pEntities;
     		allAIMEntity = aimEntities;
+			allNPCEntity = npcEntity;
     	}
     }
 

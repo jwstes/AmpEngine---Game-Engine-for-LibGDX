@@ -1,7 +1,9 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,6 +24,14 @@ public class Scene {
     private int entitiesSize;
     private Texture backgroundTexture;
     
+    //questions
+    private List<String> facts;
+    private List<String> questions;
+    private List<String[]> possibleAns;
+    private List<String> actualAns;
+    
+    List<Map<String, Object>> questionsList = new ArrayList<>();
+    
     
     //CONSTRUCTOR
     public Scene() {
@@ -30,6 +40,10 @@ public class Scene {
         entityProperties = new ArrayList<boolean[]>();
         entityTypes = new ArrayList<String>();
         entityAnimated = new ArrayList<Boolean>();
+        
+        //For Questions
+        facts = new ArrayList<String>(); 
+        
     }
     
     
@@ -44,6 +58,8 @@ public class Scene {
             
             
             JsonValue entities = base.get("entities");
+            JsonValue allfacts = base.get("facts");
+            JsonValue allquestions = base.get("questions");
             // Check that the "entities" array is present
             if (entities != null) { 
                 for (JsonValue entity : entities) {
@@ -78,12 +94,44 @@ public class Scene {
             } else {
                 System.out.println("NO GO UR JSON IS EMPTY");
             }
+            
+            
+            //Facts
+            if(facts != null) {
+            	for (JsonValue fact : allfacts) {
+            		String idk = fact.getString("fact");
+            		facts.add(idk);
+            	}
+            }
+
+            //Questions
+            if(allquestions != null) {
+                for (JsonValue question : allquestions) {
+                    Map<String, Object> questionMap = new HashMap<>();
+                    questionMap.put("question", question.getString("question"));
+                  
+                    List<String> answers = new ArrayList<>();
+                    for(JsonValue ans : question.get("answers")) {
+                        answers.add(ans.asString());
+                    }
+                    questionMap.put("answers", answers);
+                    
+                    questionMap.put("real", question.getString("real"));
+                    
+                    questionsList.add(questionMap);
+                }
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         
         entitiesSize = entityCoords.size();
     }
+    
+    
+    
     
     
     
@@ -108,6 +156,15 @@ public class Scene {
     }
     public List<Boolean> GetIsAnimated() {
     	return entityAnimated;
+    }
+    
+    //facts
+    public List<String> GetAllFacts(){
+    	return facts;
+    }
+
+    public List<Map<String, Object>> GetAllQuestions(){
+        return questionsList;
     }
 
 }

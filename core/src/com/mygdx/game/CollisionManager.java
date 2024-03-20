@@ -17,14 +17,18 @@ public class CollisionManager {
     private Array<StaticEntity> sList;
     private Array<AdversarialEntity> aList;
     private Array<AIManager> aiList; 
+
+    private Array<NPCEntity> nList;
     
 
-    public CollisionManager(Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList) {
+    public CollisionManager(Array<PlayerEntity> pList, Array<StaticEntity> sList, Array<AdversarialEntity> aList, Array<AIManager>aiList, Array<NPCEntity> nList) {
         this.cem = new CollisionEntityManager();                 										
         this.pList = pList; 
         this.sList = sList;
         this.aList = aList;
         this.aiList = aiList;
+
+        this.nList = nList;
     }
 
     //CLASS METHODS
@@ -43,6 +47,11 @@ public class CollisionManager {
         for (AIManager ai : aiList) {
         	cem.insert(ai);
         }
+
+        for (NPCEntity npc : nList) {
+        	cem.insert(npc);
+        	
+        }
     }
 
     public Entity checkPlayerCollisions() {
@@ -59,6 +68,9 @@ public class CollisionManager {
                     		return other;	
                     	}else if(other.getEntityType() == "adversarial") {	
                     		System.out.print("Adversarial");
+                    		return other;
+                    	}else if(other.getEntityType() == "npc") {
+                    		System.out.print("NPC");
                     		return other;
                     	}
                     }

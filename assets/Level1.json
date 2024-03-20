@@ -4087,7 +4087,27 @@
             "isBreakable": false,
             "entityType": "adversarial",
             "isAnimated": true,
-            "isCollidable": false
+            "isCollidable": true
+        },
+        {
+            "coords": [
+                315,
+                416
+            ],
+            "texture": [
+                "bluefire1.png",
+                "bluefire2.png",
+                "bluefire3.png",
+                "bluefire4.png",
+                "bluefire5.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "entityType": "npc",
+            "isAnimated": false,
+            "isCollidable": true
         },
         {
             "coords": [
@@ -4109,5 +4129,33 @@
             "isAnimated": true,
             "isCollidable": true
         }
+    ],
+
+    "Facts":
+    [
+        {
+            "fact": "The earth is blue."
+        },
+        {
+            "fact": "The earth is red."
+        },
+        {
+            "fact": "The earth is round."
+        }
+
+    ],
+
+    "Questions":
+    [
+        {
+            "question": "What is the color of the earth?",
+            "answers": [
+                "red",
+                "blue",
+                "purple"
+            ],
+            "real": "blue"
+        }
     ]
+
 }

@@ -97,5 +97,20 @@
             "isCollidable": false,
             "entityType": "static"
         }
+    ],
+
+    "Facts":
+    [
+        {
+            "fact": "The earth is blue."
+        },
+        {
+            "fact": "The earth is red."
+        },
+        {
+            "fact": "The earth is round."
+        }
+
     ]
+
 }

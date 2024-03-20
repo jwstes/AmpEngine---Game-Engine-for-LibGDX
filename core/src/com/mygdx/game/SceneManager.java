@@ -1,5 +1,9 @@
 package com.mygdx.game;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -32,6 +36,11 @@ public class SceneManager{
 	private long lastEntityUpdate;
 	private int animatedTextureID;
 	private int currentSceneID;
+	
+	private List<String> ranFac;
+	long lastHealthReductionTime = 0;
+	private boolean textDisplayed = false;
+	private GameOverScene displayFact;
 	
     
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
@@ -226,6 +235,9 @@ public class SceneManager{
 		Array<StaticEntity> allStaticEntity  = entityManager.getAllSEntity();
 		Array<PlayerEntity> allPlayerEntity = entityManager.getAllPEntity();
 		Array<AIManager> allAIMEntity = entityManager.getAllAIMEntity();
+
+		//
+		Array<NPCEntity> allNPCEntity = entityManager.getAllNPCEntity();
 		
 		
 		beginBatch();
@@ -243,6 +255,10 @@ public class SceneManager{
 			e.setTexture(e.getTextures()[animatedTextureID]);
 			e.draw(batch);
 		}
+
+		for(NPCEntity e : allNPCEntity) {
+			e.draw(batch);
+		}
 		
 		// Dashboard Render
 		dashboard.render(batch);
@@ -258,11 +274,23 @@ public class SceneManager{
 		batch.end();
 	}
     public void checkCollision() {
+    	long currentTime = System.currentTimeMillis();
         collisionManager.checkPlayerCollisions();
         Entity collidedEntity = collisionManager.checkPlayerCollisions();
         if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial")) {
 			// If collision occurs with an adversarial entity, reduce player's health
-			dashboard.reduceHealth(1);
+        	
+        	if (currentTime - lastHealthReductionTime > 1000) {
+                dashboard.reduceHealth(1); // Reduce player's health
+                
+                lastHealthReductionTime = currentTime; // Update the last reduction time to now
+            }
+		}
+        if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
+			// If collision occurs with an adversarial entity, reduce player's health
+        
+        		dashboard.test();        		 
+        	
 		}
     }
     public void drawCollider() {
@@ -282,6 +310,10 @@ public class SceneManager{
         	for (AIManager ai : entityManager.getAllAIMEntity()) {
         	 	shapeRenderer.rect(ai.getRec().x, ai.getRec().y, ai.getRec().width, ai.getRec().height);
         	}
+
+			for (NPCEntity npc : entityManager.getAllNPCEntity()) {
+				shapeRenderer.rect(npc.getRec().x, npc.getRec().y, npc.getRec().width, npc.getRec().height);
+			}
 
 
         	//quadTree.draw(shapeRenderer); // Draw the entire QuadTree
@@ -364,7 +396,7 @@ public class SceneManager{
 	}
 
 	public void initializeCollisionManager() {
-		collisionManager = new CollisionManager(entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity());
+		collisionManager = new CollisionManager(entityManager.getAllPEntity(), entityManager.getAllSEntity(), entityManager.getAllAdEntity(),entityManager.getAllAIMEntity(),entityManager.getAllNPCEntity());
     }
 
 	public void loadGameOverScene() {
@@ -381,6 +413,19 @@ public class SceneManager{
         clearScreen();
         gameOverScene.render(batch);
     }
+	
+	public void DisplayText() {
+		ranFac = currentScene.GetAllFacts();
+		String[] factsArray = ranFac.toArray(new String[0]);
+		Random rand = new Random();
+		int i = rand.nextInt(3);
+		displayFact = new GameOverScene(factsArray[i]);
+		displayFact.render(batch);
+		
+		//Test for questions
+		//List<Map<String, Object>> que = currentScene.GetAllQuestions();
+		//System.out.print(que.get(0).get("real"));
+	}
 
 }
 

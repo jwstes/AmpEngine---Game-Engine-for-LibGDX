@@ -56,6 +56,8 @@ public class Dashboard implements DashboardInterface {
     	displayTimer(batch);
     	displayHealthText(batch);
     	dashboardManager.drawOnScene(batch);
+    	
+    	
     }
     
     public void reduceHealth(int amount) {
@@ -76,6 +78,11 @@ public class Dashboard implements DashboardInterface {
             dashboardManager.setHealthSprites(healthSprites);
         }
     }
+    
+    public void test() {
+    	sceneManager.DisplayText();
+    }
+    
 
 
 	@Override
