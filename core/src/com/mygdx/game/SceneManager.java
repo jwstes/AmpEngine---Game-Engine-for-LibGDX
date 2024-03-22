@@ -205,7 +205,9 @@ public class SceneManager{
                   }
               }
         }
-        
+        if (textDisplayed) {
+            DisplayText();
+        }
         
         
         
@@ -275,6 +277,7 @@ public class SceneManager{
 	}
     public void checkCollision() {
     	long currentTime = System.currentTimeMillis();
+    	boolean previousTextDisplayed = textDisplayed;
         collisionManager.checkPlayerCollisions();
         Entity collidedEntity = collisionManager.checkPlayerCollisions();
         if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial")) {
@@ -287,11 +290,14 @@ public class SceneManager{
             }
 		}
         if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
-			// If collision occurs with an adversarial entity, reduce player's health
-        
-        		dashboard.test();        		 
-        	
-		}
+            // If collision occurs with an NPC entity
+        	if (!textDisplayed) {
+                DisplayText();
+            }
+        }
+        else {
+        	textDisplayed = false;
+        }
     }
     public void drawCollider() {
     	if (!gameOver) {
@@ -317,9 +323,10 @@ public class SceneManager{
 
 
         	//quadTree.draw(shapeRenderer); // Draw the entire QuadTree
+			
+			
+			shapeRenderer.end(); // End shape drawing
 
-
-        	shapeRenderer.end(); // End shape drawing
     	}
     }
 	
@@ -415,18 +422,19 @@ public class SceneManager{
     }
 	
 	public void DisplayText() {
+		if (displayFact == null) {
 		ranFac = currentScene.GetAllFacts();
 		String[] factsArray = ranFac.toArray(new String[0]);
 		Random rand = new Random();
-		int i = rand.nextInt(3);
+		int i = rand.nextInt(factsArray.length);
 		displayFact = new GameOverScene(factsArray[i]);
+		}
 		displayFact.render(batch);
+		textDisplayed = true;
 		
 		//Test for questions
 		//List<Map<String, Object>> que = currentScene.GetAllQuestions();
 		//System.out.print(que.get(0).get("real"));
 	}
-
 }
-
 
