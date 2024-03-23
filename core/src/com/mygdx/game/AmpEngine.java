@@ -312,33 +312,41 @@ public class AmpEngine extends ApplicationAdapter{
 	@Override
 	public void render() {
 	    sceneManager.clearScreen();
-	    if(sceneManager.getDrawQuiz() == 0) {
-	    	sceneManager.loadScene(currentSceneID);
-		    sceneManager.drawCollider();
-		    sceneManager.updateScene();
-		    
-		    simulationLifeCycle.simulationUpdate();
-		    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
-		    
+	    if(sceneManager.getDrawMenu() == 0) {
+	    	if(sceneManager.getDrawQuiz() == 0) {
+		    	sceneManager.loadScene(currentSceneID);
+			    sceneManager.drawCollider();
+			    sceneManager.updateScene();
+			    
+			    simulationLifeCycle.simulationUpdate();
+			    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
+			    
 
-		    inputManager.runnable();
-		    inputManager.CCRunnable("onGround");
-		    boolean anyKeyDown = inputManager.isAnyKeyDown();
+			    inputManager.runnable();
+			    inputManager.CCRunnable("onGround");
+			    boolean anyKeyDown = inputManager.isAnyKeyDown();
 
-		    if (!anyKeyDown) {
-		        sceneManager.outputManager.stopAllSound();
+			    if (!anyKeyDown) {
+			        sceneManager.outputManager.stopAllSound();
+			    }
+			    
+			    applyGravity();
 		    }
-		    
-		    applyGravity();
+		    else {
+		    	sceneManager.drawPopQuiz(currentSceneID, false);
+		    	int correctAnswerSelected = sceneManager.handleInput(false);
+		    	if(correctAnswerSelected == 1) {
+		    		nextScene();
+		    	}
+		    }
 	    }
 	    else {
-	    	sceneManager.drawPopQuiz(currentSceneID);
-	    	int correctAnswerSelected = sceneManager.handleInput();
-	    	if(correctAnswerSelected == 1) {
-	    		nextScene();
+	    	sceneManager.drawPopQuiz(currentSceneID, true);
+	    	int startGameSelected = sceneManager.handleInput(true);
+	    	if(startGameSelected == 1) {
+	    		sceneManager.setDrawMenu(0);
 	    	}
 	    }
-	    
 	}
 
 	

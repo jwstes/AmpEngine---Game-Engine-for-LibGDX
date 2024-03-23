@@ -54,6 +54,7 @@ public class SceneManager{
     public EntityManager entityManager;
 	private Dashboard dashboard;
     
+	private int drawMenu;
 	private int drawQuiz;
     private BitmapFont font;
     private Rectangle choiceA, choiceB, choiceC, choiceD;
@@ -102,6 +103,7 @@ public class SceneManager{
 		
 		
 		drawQuiz = 0;
+		drawMenu = 1;
 		this.font = new BitmapFont();
 		batch = new SpriteBatch();
 		choiceA = new Rectangle(100, 230, 200, 30);
@@ -142,6 +144,13 @@ public class SceneManager{
 	public void setDrawQuiz(int v) {
 		drawQuiz = v;
 	}
+	public int getDrawMenu() {
+		return drawMenu;
+	}
+	public void setDrawMenu(int v) {
+		drawMenu = v;
+	}
+	
 	
 
 	// METHODS
@@ -463,7 +472,7 @@ public class SceneManager{
 	
 	
 	
-	public void drawPopQuiz(int currentSceneID) {		
+	public void drawPopQuiz(int currentSceneID, boolean menuMode) {
 		List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
 	    Map<String, Object> currentQuestion = questionsList.get(0);
 
@@ -477,21 +486,35 @@ public class SceneManager{
 	    float mouseX = Gdx.input.getX();
 	    float mouseY = Gdx.graphics.getHeight() - Gdx.input.getY();
 
+	    
 	    batch.begin();
-	    font.setColor(1, 1, 1, 1);
-	    font.draw(batch, "Question: " + questionText, 100, 300);
 	    
-	    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
-	    font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
+	    if(menuMode == true) {
+	    	font.setColor(1, 1, 1, 1);
+		    font.draw(batch, "Menu:", 100, 300);
+		    
+		    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
+		    font.draw(batch, "Start Game", choiceA.x, choiceA.y + choiceA.height);
+	    }
+	    else {
+	    	font.setColor(1, 1, 1, 1);
+		    font.draw(batch, "Question: " + questionText, 100, 300);
+		    
+		    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
+		    font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
+		    
+		    font.setColor(getColorForChoice(choiceB, mouseX, mouseY));
+		    font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
+		    
+		    font.setColor(getColorForChoice(choiceC, mouseX, mouseY));
+		    font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
+		    
+		    font.setColor(getColorForChoice(choiceD, mouseX, mouseY));
+		    font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
+	    }
 	    
-	    font.setColor(getColorForChoice(choiceB, mouseX, mouseY));
-	    font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
 	    
-	    font.setColor(getColorForChoice(choiceC, mouseX, mouseY));
-	    font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
 	    
-	    font.setColor(getColorForChoice(choiceD, mouseX, mouseY));
-	    font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
 	    
 	    if (showWrongAnswerMessage) {
             wrongAnswerMessageTimer -= Gdx.graphics.getDeltaTime();
@@ -511,23 +534,35 @@ public class SceneManager{
 	}
 
 
-	public int handleInput() {
+	public int handleInput(boolean menuMode) {
 	    if (Gdx.input.justTouched()) {
 	        float x = Gdx.input.getX();
 	        float y = Gdx.graphics.getHeight() - Gdx.input.getY();
-
-	        if (choiceA.contains(x, y)) {
-	            return checkAnswer("A");
-	        } else if (choiceB.contains(x, y)) {
-	            return checkAnswer("B");
-	        } else if (choiceC.contains(x, y)) {
-	        	return checkAnswer("C");
-	        } else if (choiceD.contains(x, y)) {
-	        	return checkAnswer("D");
+	        
+	        if(menuMode == true) {
+	        	if (choiceA.contains(x, y)) {
+		            return checkAnswer("A");
+		        }
+		        else {
+		        	return -1;
+		        }
 	        }
 	        else {
-	        	return -1;
+	        	if (choiceA.contains(x, y)) {
+		            return checkAnswer("A");
+		        } else if (choiceB.contains(x, y)) {
+		            return checkAnswer("B");
+		        } else if (choiceC.contains(x, y)) {
+		        	return checkAnswer("C");
+		        } else if (choiceD.contains(x, y)) {
+		        	return checkAnswer("D");
+		        }
+		        else {
+		        	return -1;
+		        }
 	        }
+	        
+	        
 	    }
 	    return -1;
 	}
