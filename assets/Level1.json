@@ -4134,15 +4134,8 @@
     "Facts":
     [
         {
-            "fact": "The earth is blue."
-        },
-        {
-            "fact": "The earth is red."
-        },
-        {
-            "fact": "The earth is round."
+            "fact": "The earth is blue and round."
         }
-
     ],
 
     "Questions":
@@ -4150,11 +4143,12 @@
         {
             "question": "What is the color of the earth?",
             "answers": [
-                "red",
-                "blue",
-                "purple"
+                "(A): Blue",
+                "(B): Red",
+                "(C): Purple",
+                "(D): Rainbow"
             ],
-            "real": "blue"
+            "real": "A"
         }
     ]
 

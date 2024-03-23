@@ -20,6 +20,9 @@ import com.mygdx.game.SceneManager;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+
+
 public class AmpEngine extends ApplicationAdapter{
 	private SceneManager sceneManager;
 	public EntityManager entityManager;
@@ -45,6 +48,9 @@ public class AmpEngine extends ApplicationAdapter{
     //game specific code for vid demo only
     private AnimatedEntity weaponSkill;
     private Texture[] swordTextures;
+    
+    
+   
 
   
     //game specific code for vid demo only
@@ -215,6 +221,7 @@ public class AmpEngine extends ApplicationAdapter{
     
     
 	private void restart() {
+		sceneManager.setDrawQuiz(1);
 		if (sceneManager.getGameOverStatus()){
 			sceneManager.setGameOverStatus(false);
 			sceneManager.clearScreen();
@@ -295,31 +302,40 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		
 		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
+		
 	}
 	
+	
+	
 
-
+	
 	@Override
 	public void render() {
 	    sceneManager.clearScreen();
-	    sceneManager.loadScene(currentSceneID);
-	    sceneManager.drawCollider();
-	    sceneManager.updateScene();
-	    
-	    simulationLifeCycle.simulationUpdate();
-	    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
-	    
+	    if(sceneManager.getDrawQuiz() == 0) {
+	    	sceneManager.loadScene(currentSceneID);
+		    sceneManager.drawCollider();
+		    sceneManager.updateScene();
+		    
+		    simulationLifeCycle.simulationUpdate();
+		    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
+		    
 
-	    inputManager.runnable();
-	    inputManager.CCRunnable("onGround");
-	    boolean anyKeyDown = inputManager.isAnyKeyDown();
+		    inputManager.runnable();
+		    inputManager.CCRunnable("onGround");
+		    boolean anyKeyDown = inputManager.isAnyKeyDown();
 
-	    if (!anyKeyDown) {
-	        sceneManager.outputManager.stopAllSound();
+		    if (!anyKeyDown) {
+		        sceneManager.outputManager.stopAllSound();
+		    }
+		    
+		    applyGravity();
+	    }
+	    else {
+	    	sceneManager.drawPopQuiz(currentSceneID);
+	    	sceneManager.handleInput();
 	    }
 	    
-	    //Game Specific function for Demo Purpose 
-	    applyGravity();
 	}
 
 	

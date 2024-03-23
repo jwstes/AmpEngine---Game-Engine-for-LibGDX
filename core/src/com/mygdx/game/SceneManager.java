@@ -54,6 +54,14 @@ public class SceneManager{
     public EntityManager entityManager;
 	private Dashboard dashboard;
     
+	private int drawQuiz;
+    private BitmapFont font;
+    private Rectangle choiceA, choiceB, choiceC, choiceD;
+    private String correctAnswer = "A";
+    private boolean showWrongAnswerMessage = false;
+    private float wrongAnswerMessageTimer = 0;
+    private final float MESSAGE_DISPLAY_TIME = 3;
+
 	
     
 	
@@ -91,6 +99,15 @@ public class SceneManager{
 		lastEntityUpdate = System.currentTimeMillis();
 		animatedTextureID = 0;
 		outputManager = new OutputManager();
+		
+		
+		drawQuiz = 0;
+		this.font = new BitmapFont();
+		batch = new SpriteBatch();
+		choiceA = new Rectangle(100, 230, 200, 30);
+		choiceB = new Rectangle(100, 180, 200, 30);
+		choiceC = new Rectangle(100, 130, 200, 30);
+		choiceD = new Rectangle(100, 80, 200, 30);
 	}
 
 	// Property Getter Setters
@@ -118,7 +135,14 @@ public class SceneManager{
 
 	public long getLastEntityUpdate(){return lastEntityUpdate;}
 
-
+	
+	public int getDrawQuiz() {
+		return drawQuiz;
+	}
+	public void setDrawQuiz(int v) {
+		drawQuiz = v;
+	}
+	
 
 	// METHODS
 	public void clearScreen() {
@@ -435,6 +459,85 @@ public class SceneManager{
 		//Test for questions
 		//List<Map<String, Object>> que = currentScene.GetAllQuestions();
 		//System.out.print(que.get(0).get("real"));
+	}
+	
+	
+	
+	public void drawPopQuiz(int currentSceneID) {		
+		List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
+	    Map<String, Object> currentQuestion = questionsList.get(0);
+
+	    String questionText = (String) currentQuestion.get("question");
+	    List<String> answers = (List<String>) currentQuestion.get("answers");
+	    correctAnswer = (String) currentQuestion.get("real");
+		
+	    Gdx.gl.glClearColor(0, 0, 0, 1);
+	    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+	    
+	    float mouseX = Gdx.input.getX();
+	    float mouseY = Gdx.graphics.getHeight() - Gdx.input.getY();
+
+	    batch.begin();
+	    font.setColor(1, 1, 1, 1);
+	    font.draw(batch, "Question: " + questionText, 100, 300);
+	    
+	    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
+	    font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
+	    
+	    font.setColor(getColorForChoice(choiceB, mouseX, mouseY));
+	    font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
+	    
+	    font.setColor(getColorForChoice(choiceC, mouseX, mouseY));
+	    font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
+	    
+	    font.setColor(getColorForChoice(choiceD, mouseX, mouseY));
+	    font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
+	    
+	    if (showWrongAnswerMessage) {
+            wrongAnswerMessageTimer -= Gdx.graphics.getDeltaTime();
+            if (wrongAnswerMessageTimer <= 0) {
+                showWrongAnswerMessage = false;
+            } else {
+                font.setColor(com.badlogic.gdx.graphics.Color.RED);
+                font.draw(batch, "Wrong Answer!", 100, 50);
+            }
+        }
+	    
+	    batch.end();
+	}
+
+	private com.badlogic.gdx.graphics.Color getColorForChoice(Rectangle choice, float mouseX, float mouseY) {
+	    return choice.contains(mouseX, mouseY) ? com.badlogic.gdx.graphics.Color.RED : com.badlogic.gdx.graphics.Color.WHITE;
+	}
+
+
+	public void handleInput() {
+	    if (Gdx.input.justTouched()) {
+	        float x = Gdx.input.getX();
+	        float y = Gdx.graphics.getHeight() - Gdx.input.getY();
+
+	        if (choiceA.contains(x, y)) {
+	            checkAnswer("A");
+	        } else if (choiceB.contains(x, y)) {
+	            checkAnswer("B");
+	        } else if (choiceC.contains(x, y)) {
+	            checkAnswer("C");
+	        } else if (choiceD.contains(x, y)) {
+	            checkAnswer("D");
+	        }
+	    }
+	}
+
+	private void checkAnswer(String selectedAnswer) {
+	    if (selectedAnswer.equals(correctAnswer)) {
+	        drawQuiz = 0;
+	        showWrongAnswerMessage = false;
+	        wrongAnswerMessageTimer = 0;
+	    } else {
+	        System.out.println("Wrong Answer!");
+	        showWrongAnswerMessage = true;
+	        wrongAnswerMessageTimer = MESSAGE_DISPLAY_TIME;
+	    }
 	}
 }
 
