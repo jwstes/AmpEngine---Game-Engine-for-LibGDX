@@ -333,7 +333,10 @@ public class AmpEngine extends ApplicationAdapter{
 	    }
 	    else {
 	    	sceneManager.drawPopQuiz(currentSceneID);
-	    	sceneManager.handleInput();
+	    	int correctAnswerSelected = sceneManager.handleInput();
+	    	if(correctAnswerSelected == 1) {
+	    		nextScene();
+	    	}
 	    }
 	    
 	}

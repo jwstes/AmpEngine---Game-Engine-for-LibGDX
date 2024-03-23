@@ -511,32 +511,38 @@ public class SceneManager{
 	}
 
 
-	public void handleInput() {
+	public int handleInput() {
 	    if (Gdx.input.justTouched()) {
 	        float x = Gdx.input.getX();
 	        float y = Gdx.graphics.getHeight() - Gdx.input.getY();
 
 	        if (choiceA.contains(x, y)) {
-	            checkAnswer("A");
+	            return checkAnswer("A");
 	        } else if (choiceB.contains(x, y)) {
-	            checkAnswer("B");
+	            return checkAnswer("B");
 	        } else if (choiceC.contains(x, y)) {
-	            checkAnswer("C");
+	        	return checkAnswer("C");
 	        } else if (choiceD.contains(x, y)) {
-	            checkAnswer("D");
+	        	return checkAnswer("D");
+	        }
+	        else {
+	        	return -1;
 	        }
 	    }
+	    return -1;
 	}
 
-	private void checkAnswer(String selectedAnswer) {
+	private int checkAnswer(String selectedAnswer) {
 	    if (selectedAnswer.equals(correctAnswer)) {
 	        drawQuiz = 0;
 	        showWrongAnswerMessage = false;
 	        wrongAnswerMessageTimer = 0;
+	        return 1;
 	    } else {
 	        System.out.println("Wrong Answer!");
 	        showWrongAnswerMessage = true;
 	        wrongAnswerMessageTimer = MESSAGE_DISPLAY_TIME;
+	        return 0;
 	    }
 	}
 }
