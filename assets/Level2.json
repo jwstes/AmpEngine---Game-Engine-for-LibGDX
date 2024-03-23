@@ -15,7 +15,9 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": true,
-            "entityType": "player"
+            "entityType": "player",
+            "entityName": "player",
+            "isHostile": false
         },
         {
             "coords": [
@@ -31,7 +33,9 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": false,
-            "entityType": "static"
+            "entityType": "static",
+            "entityName": "static1",
+            "isHostile": false
         },
         {
             "coords": [
@@ -47,7 +51,9 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": false,
-            "entityType": "static"
+            "entityType": "static",
+            "entityName": "static2",
+            "isHostile": false
         },
         {
             "coords": [
@@ -63,7 +69,9 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": false,
-            "entityType": "static"
+            "entityType": "static",
+            "entityName": "static3",
+            "isHostile": false
         },
         {
             "coords": [
@@ -79,7 +87,9 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": false,
-            "entityType": "static"
+            "entityType": "static",
+            "entityName": "static4",
+            "isHostile": false
         },
         {
             "coords": [
@@ -95,12 +105,12 @@
             "isBreakable": false,
             "isAnimated": false,
             "isCollidable": false,
-            "entityType": "static"
+            "entityType": "static",
+            "entityName": "static5",
+            "isHostile": false
         }
     ],
-
-    "Facts":
-    [
+    "Facts": [
         {
             "fact": "The earth is blue."
         },
@@ -110,7 +120,5 @@
         {
             "fact": "The earth is round."
         }
-
     ]
-
 }

@@ -23,6 +23,8 @@ public abstract class Entity {
 	private String entityType;
 	private Rectangle rec;
 	private boolean isCollidable;
+	private boolean isHostile;
+	private String entityName;
 
 	// Constructors
 	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
@@ -74,6 +76,13 @@ public abstract class Entity {
     public boolean getIsCollidable() {
 	    return isCollidable;
 	}
+    
+    public void setIsHostile(boolean b) {
+	    isHostile = b;
+	}
+    public boolean getIsHostile() {
+	    return isHostile;
+	}
     public String getEntityType() {
 		return entityType;
 	}
@@ -86,6 +95,15 @@ public abstract class Entity {
 	public String getName(){
 		return this.name;
 	}
+	
+	public void setEntityName(String n) {
+		entityName = n;
+	}
+
+	public String getEntityName() {
+		return entityName;
+	}
+	
 	public void setIsAlive(boolean b) {
 		isAlive = b;
 	}
@@ -146,6 +164,8 @@ public abstract class Entity {
 	public void setRec(Rectangle r) {
 		rec = r;
 	}
+	
+	
 	
 	
 	

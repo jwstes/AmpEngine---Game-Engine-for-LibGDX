@@ -219,24 +219,39 @@ public class SceneManager{
             Array<PlayerEntity> playerEntities = entityManager.getAllPEntity();
 
               for (AIManager ai : entityManager.getAllAIMEntity()) {
-                  if (ai.getIsMovable() && !ai.getIsKillable()) {
-                  	
-                  	// movable entity moves to the right
-                      ai.moveEntityRight();
+            	  if (isEntityName("meteor")) {
+            	        if (ai.getIsMovable() && !ai.getIsKillable() && !ai.getIsAlive() && !ai.getIsCollidable()) {
+            	            ai.moveEntityDiagonallyRight();
+            	            ai.updateCollider(ai.getPosX(), ai.getPosY(), 100, 100);
+            	        }
+            	    }
                       
-                      if (animatedTextureID == 2) 
-                      {   	
-                      ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 48);
-                      }
-                      else {
-	                        ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 12);
-                      }
+//                      if (animatedTextureID == 2) 
+//                      {   	
+//                      ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 48);
+//                      }
+//                      else {
+//	                        ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 12);
+//                      }
                    
+                  
+            	  
+                 if (ai.getIsMovable() && ai.getIsKillable() && ai.getIsHostile() && isEntityName("enemy")) {
+                	  
+                     ai.chasePEntity(playerEntities);
                   }
-                  else if (ai.getIsMovable() && ai.getIsKillable()) {
-                     ai.chasePEntity(playerEntities);;
-                  }
+                  else if (ai.getIsAlive() && ai.getIsMovable() && ai.getIsHostile() == false && isEntityName("facts_npc")) 
+                  {
+                	  
+                      ai.moveEntityRandomly();
+                      ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 32);
+                   }
+                
+            
+                  
               }
+
+
         }
         if (textDisplayed) {
             DisplayText();
@@ -246,6 +261,19 @@ public class SceneManager{
         
         
 	}
+	
+	
+	private boolean isEntityName(String desiredEntityName) {
+	    List<String> entityNames = currentScene.GetEntityName(); 
+	    for (String name : entityNames) {
+	        if (desiredEntityName.equals(name)) {
+	            return true; // Found the desired entity name
+	        }
+	    }
+	    return false; // Desired entity name not found
+	}
+	
+	
 	public void populateScene(int sceneID) {
 		Scene selectedScene = allScenes.get(sceneID);
 		entityManager.createEntities(selectedScene);
@@ -308,30 +336,54 @@ public class SceneManager{
 		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch.end();
 	}
-    public void checkCollision() {
-    	long currentTime = System.currentTimeMillis();
-    	boolean previousTextDisplayed = textDisplayed;
-        collisionManager.checkPlayerCollisions();
-        Entity collidedEntity = collisionManager.checkPlayerCollisions();
-        if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial")) {
-			// If collision occurs with an adversarial entity, reduce player's health
-        	
-        	if (currentTime - lastHealthReductionTime > 1000) {
-                dashboard.reduceHealth(1); // Reduce player's health
-                
-                lastHealthReductionTime = currentTime; // Update the last reduction time to now
-            }
-		}
-        if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
-            // If collision occurs with an NPC entity
-        	if (!textDisplayed) {
-                DisplayText();
-            }
-        }
-        else {
-        	textDisplayed = false;
-        }
-    }
+	public void checkCollision() {
+	    long currentTime = System.currentTimeMillis();
+	    boolean previousTextDisplayed = textDisplayed;
+	    collisionManager.checkPlayerCollisions();
+	    
+	    Entity collidedEntity = collisionManager.checkPlayerCollisions();
+	    
+	    
+	    
+	    
+	    if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial") && collidedEntity.getIsHostile()) {
+	        // If collision occurs with an adversarial entity, reduce player's health
+	        if (currentTime - lastHealthReductionTime > 1000) {
+	            dashboard.reduceHealth(1); // Reduce player's health
+	            lastHealthReductionTime = currentTime; // Update the last reduction time to now
+	        }
+	    }
+	    if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
+	        // If collision occurs with an NPC entity
+	        if (!textDisplayed) {
+	            DisplayText(); // Display text if it's not already displayed
+	        }
+	    } else {
+	        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
+	    }
+	    
+	    
+		    
+	    	if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial") && !collidedEntity.getIsHostile()) 
+	    	{
+	    		
+	    		   // If collision occurs with an NPC entity
+		        if (!textDisplayed) {
+		        	List<String> facts = currentScene.GetAllFacts(); // Retrieve all facts
+			        String fact = getRandomFact(facts); // Get a random fact
+			        DisplayText2(fact); // Display the random fact
+//		            DisplayText(); // Display text if it's not already displayed
+		        }
+		        else 
+		        {
+//		        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
+		        }
+		        
+		    }
+	  
+	}
+    
+    
     public void drawCollider() {
     	if (!gameOver) {
     		shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
@@ -470,6 +522,20 @@ public class SceneManager{
 		//System.out.print(que.get(0).get("real"));
 	}
 	
+	public void DisplayText2(String fact) {
+	    if (displayFact == null) {
+	        displayFact = new GameOverScene(fact); // Create a GameOverScene with the provided fact
+	    }
+	    displayFact.render(batch);
+	    textDisplayed = true;
+	}
+	
+	// Method to get a random fact from the list of facts
+	private String getRandomFact(List<String> facts) {
+	    Random rand = new Random();
+	    int randomIndex = rand.nextInt(facts.size());
+	    return facts.get(randomIndex);
+	}
 	
 	
 	public void drawPopQuiz(int currentSceneID, boolean menuMode) {

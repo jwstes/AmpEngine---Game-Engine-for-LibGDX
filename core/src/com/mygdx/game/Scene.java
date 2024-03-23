@@ -23,6 +23,8 @@ public class Scene {
     private List<Boolean> entityAnimated;
     private int entitiesSize;
     private Texture backgroundTexture;
+    private List<Boolean> entityHostile;
+    private List<String> entityName;
     
     //questions
     private List<String> facts;
@@ -40,6 +42,8 @@ public class Scene {
         entityProperties = new ArrayList<boolean[]>();
         entityTypes = new ArrayList<String>();
         entityAnimated = new ArrayList<Boolean>();
+        entityHostile = new ArrayList<Boolean>();
+        entityName = new ArrayList<String>();
         
         //For Questions
         facts = new ArrayList<String>(); 
@@ -79,13 +83,17 @@ public class Scene {
                     String type = entity.getString("entityType");
                     entityTypes.add(type);
                     
+                    String name = entity.getString("entityName");
+                    entityName.add(name);
+                    
                     //store the properties into 1 list in this order
-                    boolean[] properties = new boolean[5];
+                    boolean[] properties = new boolean[6];
                     properties[0] = entity.getBoolean("isAlive");
                     properties[1] = entity.getBoolean("isKillable");
                     properties[2] = entity.getBoolean("isMovable");
                     properties[3] = entity.getBoolean("isBreakable");
                     properties[4] = entity.getBoolean("isCollidable");
+                    properties[5] = entity.getBoolean("isHostile");
                     entityProperties.add(properties); 
                     
                     Boolean isAnimated = entity.getBoolean("isAnimated");
@@ -157,7 +165,16 @@ public class Scene {
     public List<Boolean> GetIsAnimated() {
     	return entityAnimated;
     }
+
+	public List<Boolean> GetIsHostile() {
+		return entityHostile;
+	}
+	
+	public List<String> GetEntityName() {
+		return entityName;
+	}
     
+	
     //facts
     public List<String> GetAllFacts(){
     	return facts;
@@ -166,5 +183,6 @@ public class Scene {
     public List<Map<String, Object>> GetAllQuestions(){
         return questionsList;
     }
+    
 
 }

@@ -119,6 +119,8 @@ public class EntityManager {
     	List<int[]> entityCoords = s.GetEntityCoords();
     	List<Texture[]> entityTextures = s.GetEntityTextures();
     	List<Boolean> entityAnimated = s.GetIsAnimated();
+    	List<Boolean> entityHostile = s.GetIsHostile();
+  
     	
     	
     	//alive, killable, movable, breakable
@@ -126,6 +128,7 @@ public class EntityManager {
     	int entitiesSize = s.GetEntityArrSize();
     	
     	List<String> entityTypes = s.GetEntityTypes();
+      	List<String> entityName = s.GetEntityName();
     	
     	
     	Array<AdversarialEntity> adEntities = new Array<AdversarialEntity>();
@@ -149,12 +152,14 @@ public class EntityManager {
     		Texture[] t;
     		t = entityTextures.get(i);
     		String type = entityTypes.get(i);
+    		String name = entityName.get(i);
     		
     		boolean isAlive = entityProperties.get(i)[0];
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
     		boolean isBreakable = entityProperties.get(i)[3];
     		boolean isCollidable = entityProperties.get(i)[4];
+    		boolean isHostile = entityProperties.get(i)[5];
     		    		
     		if(entityAnimated.get(i) == true) {
     			AIManager aime = new AIManager(x, y, t);
@@ -164,6 +169,7 @@ public class EntityManager {
     			aime.setIsMovable(isMovable);
     			aime.setEntityType(adversarialString);
     			aime.setIsCollidable(isCollidable);
+    			aime.setIsHostile(isHostile);
     			aimEntities.add(aime);
     		}
     		else {
