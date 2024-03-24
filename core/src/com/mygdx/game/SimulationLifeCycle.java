@@ -5,6 +5,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.Animated.AnimatedEntity;
+import com.mygdx.Animated.AnimatedEntityAction;
+import com.mygdx.game.Scene.SceneManager;
+
 import java.util.Random;
 
 

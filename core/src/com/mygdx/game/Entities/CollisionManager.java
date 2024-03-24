@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.Entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.AiControlled.AIManager;
+import com.mygdx.AiControlled.NPCEntity;
 /**********************************************************************************************
  * Collision Manager class used to Manage Entity Collisions Optimised with Quad Tree and with *
  * methods like LeftRightCollision and CheckPlayerCollision                                   *

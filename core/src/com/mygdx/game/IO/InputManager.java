@@ -1,9 +1,10 @@
-package com.mygdx.game;
+package com.mygdx.game.IO;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.Scene.SceneManager;
 import com.badlogic.gdx.audio.*;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.Animated;
 
 @FunctionalInterface
 public interface AnimatedEntityAction {

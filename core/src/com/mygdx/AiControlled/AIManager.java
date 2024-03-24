@@ -1,10 +1,13 @@
-package com.mygdx.game;
+package com.mygdx.AiControlled;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.Entities.Entity;
+import com.mygdx.game.Entities.EntityManager;
+import com.mygdx.game.Entities.PlayerEntity;
 
 
 

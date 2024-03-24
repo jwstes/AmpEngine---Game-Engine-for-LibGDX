@@ -1,4 +1,11 @@
-package com.mygdx.game;
+package com.mygdx.game.Scene;
+
+import com.mygdx.AiControlled.AIManager;
+import com.mygdx.AiControlled.NPCEntity;
+import com.mygdx.game.*;
+import com.mygdx.game.Entities.*;
+import com.mygdx.game.IO.OutputManager;
+import com.mygdx.game.IO.PlayerControl;
 
 import java.util.List;
 import java.util.Map;

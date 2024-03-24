@@ -1,6 +1,7 @@
-package com.mygdx.game;
+package com.mygdx.AiControlled;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.Entities.Entity;
 
 public class NPCEntity extends Entity {
 	

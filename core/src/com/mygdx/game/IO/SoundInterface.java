@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.IO;
 import com.badlogic.gdx.audio.*;
 
 import java.util.Map;

@@ -15,8 +15,16 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.audio.*;
+import com.mygdx.Animated.AnimatedEntity;
+import com.mygdx.game.Entities.CollisionManager;
+import com.mygdx.game.Entities.Entity;
+import com.mygdx.game.Entities.EntityManager;
+import com.mygdx.game.Entities.PlayerEntity;
+import com.mygdx.game.IO.InputManager;
+import com.mygdx.game.IO.PlayerControl;
+import com.mygdx.game.Scene.Scene;
+import com.mygdx.game.Scene.SceneManager;
 
-import com.mygdx.game.SceneManager;
 import java.util.HashMap;
 import java.util.Map;
 
