@@ -69,6 +69,10 @@ public class SceneManager{
     private boolean showWrongAnswerMessage = false;
     private float wrongAnswerMessageTimer = 0;
     private final float MESSAGE_DISPLAY_TIME = 3;
+    private boolean displayingCutscene = false;
+    private String cutsceneMessage;
+    
+    private int globalBossHP = 100;
 
 	
     
@@ -159,7 +163,23 @@ public class SceneManager{
 	}
 	
 	
-
+	public void setDisplayingCutscene(boolean b) {
+		displayingCutscene = b;
+	}
+	public boolean getDisplayingCutscene() {
+		return displayingCutscene;
+	}
+	
+	public void setCutsceneMessage(String s) {
+		cutsceneMessage = s;
+	}
+	
+	public int getGlobalBossHP() {
+		return globalBossHP;
+	}
+	
+	
+	
 	// METHODS
 	public void clearScreen() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -215,7 +235,7 @@ public class SceneManager{
 			else {
 				animatedTextureID = 0;
 			}
-			checkCollision(); //instead of calling here, shift to AmpEngine so other details can be modified
+			//checkCollision(); //instead of calling here, shift to AmpEngine so other details can be modified
 	        
 			lastEntityUpdate = System.currentTimeMillis();
 		}
@@ -261,7 +281,7 @@ public class SceneManager{
 
         }
         if (textDisplayed) {
-            DisplayText();
+            //DisplayText();
         }
         
         
@@ -289,7 +309,14 @@ public class SceneManager{
 		entityManager.deleteEntities();
 		clearScreen();
 	}
-	public void loadScene(int sceneID) {
+	public void loadScene(int sceneID, boolean dashboardOnly) {
+		if(dashboardOnly == true) {
+			beginBatch();
+			renderDashboard();
+			endBatch();
+			return;
+		}
+
 		if (gameOver) {
 	        loadGameOverScene();
 	        return; // Exit the method to ensure only the GameOver scene is rendered
@@ -330,9 +357,8 @@ public class SceneManager{
 			e.draw(batch);
 		}
 		
-		// Dashboard Render
-		dashboard.render(batch);
 		
+		renderDashboard();
 		
 		currentScene = selectedScene;
 		currentSceneID = sceneID;
@@ -343,7 +369,7 @@ public class SceneManager{
 		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch.end();
 	}
-	public void checkCollision() {
+	public void checkCollision(int sceneID) {
 	    long currentTime = System.currentTimeMillis();
 	    boolean previousTextDisplayed = textDisplayed;
 	    collisionManager.checkPlayerCollisions();
@@ -363,7 +389,8 @@ public class SceneManager{
 	    if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
 	        // If collision occurs with an NPC entity
 	        if (!textDisplayed) {
-	            DisplayText(); // Display text if it's not already displayed
+	        	setDrawQuiz(1);
+	            //DisplayText(); // Display text if it's not already displayed
 	        }
 	    } else {
 	        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
@@ -376,14 +403,12 @@ public class SceneManager{
 	    		
 	    		   // If collision occurs with an NPC entity
 		        if (!textDisplayed) {
-		        	List<String> facts = currentScene.GetAllFacts(); // Retrieve all facts
+		        	List<String> facts = allScenes.get(sceneID).GetAllFacts(); // Retrieve all facts	
 			        String fact = getRandomFact(facts); // Get a random fact
 			        DisplayText2(fact); // Display the random fact
-//		            DisplayText(); // Display text if it's not already displayed
 		        }
 		        else 
 		        {
-//		        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
 		        }
 		        
 		    }
@@ -510,7 +535,7 @@ public class SceneManager{
         }
 
         clearScreen();
-        gameOverScene.render(batch);
+        gameOverScene.render(batch, "");
     }
 	
 	public void DisplayText() {
@@ -521,7 +546,7 @@ public class SceneManager{
 		int i = rand.nextInt(factsArray.length);
 		displayFact = new GameOverScene(factsArray[i]);
 		}
-		displayFact.render(batch);
+		displayFact.render(batch, "");
 		textDisplayed = true;
 		
 		//Test for questions
@@ -533,7 +558,7 @@ public class SceneManager{
 	    if (displayFact == null) {
 	        displayFact = new GameOverScene(fact); // Create a GameOverScene with the provided fact
 	    }
-	    displayFact.render(batch);
+	    displayFact.render(batch, fact);
 	    textDisplayed = true;
 	}
 	
@@ -653,5 +678,46 @@ public class SceneManager{
 	        return 0;
 	    }
 	}
+	
+	
+	public void renderDashboard() {
+		dashboard.render(batch);
+	}
+	
+	public void displayCutscene() {
+	    batch.begin();
+	    BitmapFont font = new BitmapFont();
+	    font.getData().setScale(1.2f);
+	    
+	    String loremIpsum = cutsceneMessage;
+	    String pressEnter = "Press SPACE to continue";
+	    
+	    GlyphLayout loremLayout = new GlyphLayout(font, loremIpsum);
+	    GlyphLayout enterLayout = new GlyphLayout(font, pressEnter);
+	    
+	    float loremX = (Gdx.graphics.getWidth() - loremLayout.width) / 2;
+	    float loremY = (Gdx.graphics.getHeight() + loremLayout.height) / 2;
+	    float enterX = (Gdx.graphics.getWidth() - enterLayout.width) / 2;
+	    float enterY = (Gdx.graphics.getHeight() / 4f) + enterLayout.height / 2;
+	    
+	    font.draw(batch, loremLayout, loremX, loremY);
+	    font.draw(batch, enterLayout, enterX, enterY);
+	    batch.end();
+	}
+	
+	
+	public void decreaseBossHP(int baseDecrement, int basePenalty, int wrongAttempts) {
+		int penalty = basePenalty * wrongAttempts;
+		globalBossHP = globalBossHP - (baseDecrement - penalty);
+		
+	}
+	public void increaseBossHP(int baseIncrement) {
+		globalBossHP = globalBossHP + (baseIncrement);
+	}
+	
+	
+	
+	
+	
 }
 

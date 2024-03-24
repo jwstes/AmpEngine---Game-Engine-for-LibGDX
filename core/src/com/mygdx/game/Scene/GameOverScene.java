@@ -33,7 +33,7 @@ public class GameOverScene {
     }
 
 
-    public void render(SpriteBatch batch) {
+    public void render(SpriteBatch batch, String fact) {
         float screenWidth = Gdx.graphics.getWidth();
         float screenHeight = Gdx.graphics.getHeight();
 
@@ -46,12 +46,12 @@ public class GameOverScene {
         }
 
         // Draw text if it's not empty
-        if (!Text.isEmpty()) {
+        if (!fact.isEmpty()) {
             font.getData().setScale(2); // Adjust scale as needed
             // Calculate the width of the text to center it on the screen
             float textX = (screenWidth) / 2f;
             float textY = screenHeight / 2f; // Adjust Y as needed, depending on where you want the text relative to the texture
-            font.draw(batch, Text, textX, textY);
+            font.draw(batch, fact, textX, textY);
         }
         
         batch.end();

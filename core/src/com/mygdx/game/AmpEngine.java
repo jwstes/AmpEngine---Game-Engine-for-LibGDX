@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 
 public class AmpEngine extends ApplicationAdapter{
@@ -56,6 +57,9 @@ public class AmpEngine extends ApplicationAdapter{
     //game specific code for vid demo only
     private AnimatedEntity weaponSkill;
     private Texture[] swordTextures;
+    
+    private boolean gameLost;
+
     
     
    
@@ -155,6 +159,9 @@ public class AmpEngine extends ApplicationAdapter{
 	        }
 
 	    }
+	    
+	    
+	    
     }
   //game specific code for vid demo only
     private void applyGravity() {
@@ -229,7 +236,6 @@ public class AmpEngine extends ApplicationAdapter{
     
     
 	private void restart() {
-		sceneManager.setDrawQuiz(1);
 		if (sceneManager.getGameOverStatus()){
 			sceneManager.setGameOverStatus(false);
 			sceneManager.clearScreen();
@@ -254,9 +260,26 @@ public class AmpEngine extends ApplicationAdapter{
 	//Don't use in any Key Press functions, 
 	//It will cause nextSceneID to go crazy and throw an error. 
 	public void nextScene() {
+		
+		
+		
+		sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
 		sceneManager.unloadScene();
 		int nextSceneID = currentSceneID + 1;
-		createScene(nextSceneID);
+		
+		if((nextSceneID + 1) > sceneManager.getAllScenes().size) {
+			if(sceneManager.getGlobalBossHP() < 0){
+				gameLost = true;
+				sceneManager.setCutsceneMessage("You Won OMG!!!!! So Cool wtf?");
+			}
+			else {
+				gameLost = true;
+				sceneManager.setCutsceneMessage("Lol how low is your IQ bruh?");
+			}
+		}
+		else {
+			createScene(nextSceneID);
+		}
 	}
     
     
@@ -265,6 +288,7 @@ public class AmpEngine extends ApplicationAdapter{
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
 		sceneJSONArr.add("Level2.json");
+		sceneJSONArr.add("Level3.json");
 		//... add more if needed
 		
 		currentSceneID = 0;
@@ -310,43 +334,82 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		
 		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
-		
+		sceneManager.setDisplayingCutscene(true);
+		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by successfully completing quizzes on three different planets it's affecting.");
 	}
 	
 	
 	
 
 	
+
+
+	
 	@Override
 	public void render() {
+		
+		
+
+		
 	    sceneManager.clearScreen();
 	    if(sceneManager.getDrawMenu() == 0) {
-	    	if(sceneManager.getDrawQuiz() == 0) {
-		    	sceneManager.loadScene(currentSceneID);
-			    sceneManager.drawCollider();
-			    sceneManager.updateScene();
-			    
-			    simulationLifeCycle.simulationUpdate();
-			    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
-			    
+	    	if(gameLost == false) {
+	    		if(sceneManager.getDrawQuiz() == 0) {
+		    		
+		    		
+		    		if(sceneManager.getDisplayingCutscene()) {
+		    		    sceneManager.displayCutscene();
+		    		    
+		    		    if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
+		    		        sceneManager.setDisplayingCutscene(false);
+		    		    }
+		    		} 
+		    		else {
+		    			sceneManager.loadScene(currentSceneID, false);
+		    			
+//					    sceneManager.drawCollider();
+					    sceneManager.updateScene();
+					    sceneManager.checkCollision(currentSceneID);
+					    
+					    simulationLifeCycle.simulationUpdate();
+					    player.updateCollider(player.getPosX(), player.getPosY(), 32, 32);
+					    
 
-			    inputManager.runnable();
-			    inputManager.CCRunnable("onGround");
-			    boolean anyKeyDown = inputManager.isAnyKeyDown();
+					    inputManager.runnable();
+					    inputManager.CCRunnable("onGround");
+					    boolean anyKeyDown = inputManager.isAnyKeyDown();
 
-			    if (!anyKeyDown) {
-			        sceneManager.outputManager.stopAllSound();
+					    if (!anyKeyDown) {
+					        sceneManager.outputManager.stopAllSound();
+					    }
+					    
+					    applyGravity();
+		    			
+		    		}
+		    		
+			    	
 			    }
-			    
-			    applyGravity();
-		    }
-		    else {
-		    	sceneManager.drawPopQuiz(currentSceneID, false);
-		    	int correctAnswerSelected = sceneManager.handleInput(false);
-		    	if(correctAnswerSelected == 1) {
-		    		nextScene();
-		    	}
-		    }
+			    else {
+			    	sceneManager.drawPopQuiz(currentSceneID, false);
+			    	sceneManager.loadScene(currentSceneID, true);
+			    	
+			    	int correctAnswerSelected = sceneManager.handleInput(false);
+			    	if(correctAnswerSelected == 1) {
+			    		sceneManager.decreaseBossHP(35, 5, 0);
+			    		nextScene();
+			    	}
+			    	else if (correctAnswerSelected == 0)
+			    	{
+			    		sceneManager.increaseBossHP(15);
+			    	}
+			    }
+	    	}
+	    	else {
+	    		sceneManager.displayCutscene();
+	    		if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
+    		        sceneManager.setCutsceneMessage("There's no restarting for you bro.");
+    		    }
+	    	}
 	    }
 	    else {
 	    	sceneManager.drawPopQuiz(currentSceneID, true);
@@ -355,6 +418,8 @@ public class AmpEngine extends ApplicationAdapter{
 	    		sceneManager.setDrawMenu(0);
 	    	}
 	    }
+	    
+	    
 	}
 
 	

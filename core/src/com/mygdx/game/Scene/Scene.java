@@ -179,6 +179,10 @@ public class Scene {
     public List<String> GetAllFacts(){
     	return facts;
     }
+    public void EmptyAllFacts() {
+    	facts.clear();
+    	facts = new ArrayList<String>();
+    }
 
     public List<Map<String, Object>> GetAllQuestions(){
         return questionsList;

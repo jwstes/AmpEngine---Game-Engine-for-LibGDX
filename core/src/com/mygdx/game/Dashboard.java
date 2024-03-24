@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Scene.SceneManager;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 /***********************************************************************
  * The Dashboard class is used for the Display of Health Points        *
@@ -15,11 +17,13 @@ import com.mygdx.game.Scene.SceneManager;
 public class Dashboard implements DashboardInterface {
     private DashboardManager dashboardManager;
     private SceneManager sceneManager; // New addition
+    private ShapeRenderer shapeRenderer;
     
     
     //CONSTRUCTOR
     public Dashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
         this.dashboardManager = new DashboardManager(maxHealth, font, healthSprite);
+        this.shapeRenderer = new ShapeRenderer();
     }
     
     
@@ -52,13 +56,39 @@ public class Dashboard implements DashboardInterface {
         String timePassedText = "Time Passed: " + elapsedTimeSeconds + "s";
         dashboardManager.getFont().draw(batch, timePassedText, posX, posY);
     }
+    
+    public void displayBossHP(SpriteBatch batch, int health) {
+        dashboardManager.getFont().setColor(Color.WHITE);
+        dashboardManager.getFont().getData().setScale(1.5f);
+        float textPosX = 20;
+        float textPosY = Gdx.graphics.getHeight() - 60;
+        dashboardManager.getFont().draw(batch, "BlackHole HP:", textPosX, textPosY);
+
+        // Draw red progress bar
+        float barWidth = 200;
+        float barHeight = 10;
+        float barPosX = textPosX + 180;
+        float barPosY = textPosY - barHeight - 5;
+
+        float redBarWidth = (health / 100f) * barWidth;
+
+        batch.end();
+
+        shapeRenderer.begin(ShapeType.Filled);
+        shapeRenderer.setColor(Color.DARK_GRAY);
+        shapeRenderer.rect(barPosX, barPosY, barWidth, barHeight);
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.rect(barPosX, barPosY, redBarWidth, barHeight);
+        shapeRenderer.end();
+
+        batch.begin();
+    }
 
     public void render(SpriteBatch batch) {
     	displayTimer(batch);
     	displayHealthText(batch);
+    	displayBossHP(batch, sceneManager.getGlobalBossHP());
     	dashboardManager.drawOnScene(batch);
-    	
-    	
     }
     
     public void reduceHealth(int amount) {
