@@ -1105,7 +1105,7 @@
                 "416"
             ],
             "texture": [
-                "player.png"
+            	"player.png"
             ],
             "isAlive": true,
             "isKillable": true,
@@ -1115,7 +1115,7 @@
             "isCollidable": true,
             "entityType": "player",
             "isHostile": false,
-            "entityName": "player.png"
+            "entityName": "player"
         },
         {
             "coords": [
@@ -4803,11 +4803,11 @@
                 96
             ],
             "texture": [
-                "npc_L.png",
-                "npc_L.png",
-                "npc_R.png",
-                "npc_R.png",
-                "npc_L.png"
+                "npc1_L.png",
+                "npc1_L.png",
+                "npc1_R.png",
+                "npc1_R.png",
+                "npc1_L.png"
             ],
             "isAlive": true,
             "isKillable": false,

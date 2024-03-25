@@ -2319,11 +2319,11 @@
                 96
             ],
             "texture": [
-                "npc_L.png",
-                "npc_L.png",
-                "npc_R.png",
-                "npc_R.png",
-                "npc_L.png"
+                "npc2_L.png",
+                "npc2_L.png",
+                "npc2_R.png",
+                "npc2_R.png",
+                "npc2_L.png"
             ],
             "isAlive": true,
             "isKillable": false,

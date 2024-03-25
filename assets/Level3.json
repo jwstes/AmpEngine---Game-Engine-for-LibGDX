@@ -2282,11 +2282,11 @@
                 96
             ],
             "texture": [
-                "npc_L.png",
-                "npc_L.png",
-                "npc_R.png",
-                "npc_R.png",
-                "npc_L.png"
+                "npc3_L.png",
+                "npc3_L.png",
+                "npc3_R.png",
+                "npc3_R.png",
+                "npc3_L.png"
             ],
             "isAlive": true,
             "isKillable": false,
