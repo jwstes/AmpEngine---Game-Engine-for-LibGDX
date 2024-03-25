@@ -818,16 +818,13 @@ public class SceneManager{
 	public void increaseBossHP(int baseIncrement) {
 		globalBossHP = globalBossHP + (baseIncrement);
 	}
-<<<<<<< Updated upstream
 	
 	public void resetBossHP() {
 		globalBossHP = 100; //reset bossHP
 	}
 	
 	
-=======
 
->>>>>>> Stashed changes
 	
 	
 	

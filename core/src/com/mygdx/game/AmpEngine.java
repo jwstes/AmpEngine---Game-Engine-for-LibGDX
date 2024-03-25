@@ -263,7 +263,6 @@ public class AmpEngine extends ApplicationAdapter{
 	//Don't use in any Key Press functions, 
 	//It will cause nextSceneID to go crazy and throw an error. 
 	public void nextScene() {
-<<<<<<< Updated upstream
 		
 		
 		
@@ -286,10 +285,8 @@ public class AmpEngine extends ApplicationAdapter{
 		else {
 			createScene(nextSceneID);
 		}
-=======
 	    sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
 	    sceneManager.unloadScene();
-	    int nextSceneID = currentSceneID + 1;
 
 	    if (nextSceneID >= sceneManager.getAllScenes().size) {
 	        if (sceneManager.getGlobalBossHP() < 0) {
@@ -302,7 +299,6 @@ public class AmpEngine extends ApplicationAdapter{
 	    } else {
 	        createScene(nextSceneID);
 	    }
->>>>>>> Stashed changes
 	}
 	public void restartToScene1() {
         gameLost = false; // Reset game lost status 
@@ -375,9 +371,7 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager.setDisplayingCutscene(true);
 		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by successfully completing quizzes on three different planets it's affecting.");
 	}
-<<<<<<< Updated upstream
-=======
-	
+
 	
 	
 
@@ -387,7 +381,6 @@ public class AmpEngine extends ApplicationAdapter{
 	    nextScene(); // Go to the next scene
 	    // You can add any additional logic needed when no more questions are available
 	}
->>>>>>> Stashed changes
 
 
 	
