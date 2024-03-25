@@ -211,7 +211,7 @@
                 "64"
             ],
             "texture": [
-                "Lvl2block2.png"
+                "Lvl2block1.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -220,7 +220,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "Lvl2block2.png",
+            "entityName": "Lvl2block1.png",
             "isHostile": false
         },
         {
@@ -281,2004 +281,6 @@
             "coords": [
                 "224",
                 "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "256",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "288",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "320",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "352",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "384",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "416",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "448",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "480",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "512",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "544",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "576",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "608",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "640",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "672",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "704",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "736",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "768",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "800",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "832",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "864",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "896",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "928",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "960",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "992",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1024",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1056",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1088",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1120",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1152",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1184",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1216",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1248",
-                "64"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "0",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "32",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "64",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "96",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "128",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "160",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "192",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "224",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "256",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "288",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "320",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "352",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "384",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "416",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "448",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "480",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "512",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "544",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "576",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "608",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "640",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "672",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "704",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "736",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "768",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "800",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "832",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "864",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "896",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "928",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "960",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "992",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1024",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1056",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1088",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1120",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1152",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1184",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1216",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1248",
-                "32"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "0",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "32",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "64",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "96",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "128",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "160",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "192",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "224",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "256",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "288",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "320",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "352",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "384",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "416",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "448",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "480",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "512",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "544",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "576",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "608",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "640",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "672",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "704",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "736",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "768",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "800",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "832",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "864",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "896",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "928",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "960",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "992",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1024",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1056",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1088",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1120",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1152",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1184",
-                "0"
-            ],
-            "texture": [
-                "Lvl2block2.png"
-            ],
-            "isAlive": false,
-            "isKillable": false,
-            "isMovable": false,
-            "isBreakable": false,
-            "isAnimated": false,
-            "isCollidable": false,
-            "entityType": "static",
-            "entityName": "Lvl2block2.png",
-            "isHostile": false
-        },
-        {
-            "coords": [
-                "1216",
-                "0"
             ],
             "texture": [
                 "Lvl2block1.png"
@@ -2290,7 +292,1934 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
+            "entityName": "Lvl2block1.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "256",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
             "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "288",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "320",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block1.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block1.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "416",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "448",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        
+        {
+            "coords": [
+                "544",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "576",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "608",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "640",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "672",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "704",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "736",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "768",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "800",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "832",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "864",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "896",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "928",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "960",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "992",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1024",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1056",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1088",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1120",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1152",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1184",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1216",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1248",
+                "64"
+            ],
+            "texture": [
+                "Lvl2block2.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block2.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "0",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "32",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "64",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "96",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "128",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "160",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "192",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "224",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "256",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "288",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "320",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "352",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "384",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "416",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "448",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "480",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "512",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "544",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "576",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "608",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "640",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "672",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "704",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "736",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "768",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "800",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "832",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "864",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "896",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "928",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "960",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "992",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1024",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1056",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1088",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1120",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1152",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1184",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1216",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1248",
+                "32"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "0",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "32",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "64",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "96",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "128",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "160",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "192",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "224",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "256",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "288",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "320",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "352",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "384",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "416",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "448",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "480",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "512",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "544",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "576",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "608",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "640",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "672",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "704",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "736",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "768",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "800",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "832",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "864",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "896",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "928",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "960",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "992",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1024",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1056",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1088",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1120",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1152",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1184",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1216",
+                "0"
+            ],
+            "texture": [
+                "Lvl2BaseFloor.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2BaseFloor.png",
             "isHostile": false
         },
         {
