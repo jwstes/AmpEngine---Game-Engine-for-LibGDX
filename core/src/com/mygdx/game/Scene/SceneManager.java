@@ -664,7 +664,7 @@ public class SceneManager{
 	    }
 	    return -1;
 	}
-
+	
 	private int checkAnswer(String selectedAnswer) {
 	    if (selectedAnswer.equals(correctAnswer)) {
 	        drawQuiz = 0;
@@ -713,6 +713,10 @@ public class SceneManager{
 	}
 	public void increaseBossHP(int baseIncrement) {
 		globalBossHP = globalBossHP + (baseIncrement);
+	}
+	
+	public void resetBossHP() {
+		globalBossHP = 100; //reset bossHP
 	}
 	
 	

@@ -275,13 +275,20 @@ public class AmpEngine extends ApplicationAdapter{
 			else {
 				gameLost = true;
 				sceneManager.setCutsceneMessage("Lol how low is your IQ bruh?");
+				
 			}
+			
 		}
 		else {
 			createScene(nextSceneID);
 		}
 	}
-    
+	public void restartToScene1() {
+        gameLost = false; // Reset game lost status 
+        
+        createScene(0); // Restart scene to level 1
+        
+    }
     
 	@Override
 	public void create() {
@@ -337,11 +344,6 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager.setDisplayingCutscene(true);
 		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by successfully completing quizzes on three different planets it's affecting.");
 	}
-	
-	
-	
-
-	
 
 
 	
@@ -408,6 +410,10 @@ public class AmpEngine extends ApplicationAdapter{
 	    		sceneManager.displayCutscene();
 	    		if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
     		        sceneManager.setCutsceneMessage("There's no restarting for you bro.");
+    				restartToScene1();
+    				sceneManager.resetBossHP();
+    		        
+    		        
     		    }
 	    	}
 	    }
