@@ -2361,6 +2361,15 @@
     "Facts": [
         {
             "fact": "Mars is red and baron."
+        },
+         {
+            "fact": "Mars is the fourth planet from the Sun in our Solar System"
+        },
+         {
+            "fact": "Mars is about half the size of Earth."
+        },
+         {
+            "fact": "Mars is much colder than Earth"
         }
     ],
     "Questions": [
@@ -2369,10 +2378,40 @@
             "answers": [
                 "(A): There's loads of factories there",
                 "(B): It's an baron wasteland",
-                "(C): Kids love mars",
+                "(C): Humans can live in mars",
                 "(D): You could buy a RTX 4090 in Mars for $10"
             ],
             "real": "B"
+        },
+        {
+            "question": "What color is Mars?",
+            "answers": [
+                "(A): Blue",
+                "(B): Green",
+                "(C): Yellow",
+                "(D): Red"
+            ],
+            "real": "D"
+        },
+        {
+            "question": "What do scientist use to explore mars??",
+            "answers": [
+                "(A): Cars",
+                "(B): Robots",
+                "(C): Rockets",
+                "(D): Airplanes"
+            ],
+            "real": "C"
+        },
+        {
+            "question": "Why does Mars appear red?",
+            "answers": [
+                "(A): Because it's covered in red paint",
+                "(B): Because it's made of strawberries",
+                "(C): Because of rust-like dust on its surface",
+                "(D): Because its made of lava"
+            ],
+            "real": "C"
         }
     ]
 }

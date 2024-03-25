@@ -59,8 +59,11 @@ public class AmpEngine extends ApplicationAdapter{
     private Texture[] swordTextures;
     
     private boolean gameLost;
+    private BitmapFont font;
 
-    
+  
+    private Music backgroundMusic;
+
     
    
 
@@ -260,6 +263,7 @@ public class AmpEngine extends ApplicationAdapter{
 	//Don't use in any Key Press functions, 
 	//It will cause nextSceneID to go crazy and throw an error. 
 	public void nextScene() {
+<<<<<<< Updated upstream
 		
 		
 		
@@ -282,6 +286,23 @@ public class AmpEngine extends ApplicationAdapter{
 		else {
 			createScene(nextSceneID);
 		}
+=======
+	    sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
+	    sceneManager.unloadScene();
+	    int nextSceneID = currentSceneID + 1;
+
+	    if (nextSceneID >= sceneManager.getAllScenes().size) {
+	        if (sceneManager.getGlobalBossHP() < 0) {
+	            gameLost = true;
+	            sceneManager.setCutsceneMessage("You Won OMG!!!!! So Cool wtf?");
+	        } else {
+	            gameLost = true;
+	            sceneManager.setCutsceneMessage("Lol how low is your IQ bruh?");
+	        }
+	    } else {
+	        createScene(nextSceneID);
+	    }
+>>>>>>> Stashed changes
 	}
 	public void restartToScene1() {
         gameLost = false; // Reset game lost status 
@@ -292,6 +313,13 @@ public class AmpEngine extends ApplicationAdapter{
     
 	@Override
 	public void create() {
+		  // Load the background music
+	    backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
+
+	    // Set the music to loop and start playing
+	    backgroundMusic.setLooping(true);
+	    backgroundMusic.play();
+
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
 		sceneJSONArr.add("Level2.json");
@@ -310,7 +338,9 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		playerStartPositionX = player.getPosX();
 		playerStartPositionY = player.getPosY();
-
+		
+		font = new BitmapFont();
+		font.getData().setScale(1); // Scale up the font size
 
 		/* **************************
 		 	Set KeyBindings in playerControl
@@ -322,6 +352,7 @@ public class AmpEngine extends ApplicationAdapter{
 		playerControl.bindKey(Keys.SPACE, () -> jump());
 		playerControl.bindKey(Keys.ENTER, () -> restart());
 		playerControl.bindKey(Keys.Z, () -> attack());
+		playerControl.bindKey(Keys.ESCAPE,() -> Gdx.app.exit());
 		
 		sceneManager.setPlayerControl(playerControl);
 
@@ -344,15 +375,24 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager.setDisplayingCutscene(true);
 		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by successfully completing quizzes on three different planets it's affecting.");
 	}
+<<<<<<< Updated upstream
+=======
+	
+	
+	
+
+	private void handleNoMoreQuestions() {
+	    // Handle the scenario when there are no more questions
+	    System.out.println("No more questions in this scene.");
+	    nextScene(); // Go to the next scene
+	    // You can add any additional logic needed when no more questions are available
+	}
+>>>>>>> Stashed changes
 
 
 	
 	@Override
 	public void render() {
-		
-		
-
-		
 	    sceneManager.clearScreen();
 	    if(sceneManager.getDrawMenu() == 0) {
 	    	if(gameLost == false) {
@@ -392,18 +432,24 @@ public class AmpEngine extends ApplicationAdapter{
 			    	
 			    }
 			    else {
+			    	boolean noMoreQuestions = false;
+			 
 			    	sceneManager.drawPopQuiz(currentSceneID, false);
+			    	
+			    	
 			    	sceneManager.loadScene(currentSceneID, true);
 			    	
+			    	// Existing code in render method for handling quiz questions
 			    	int correctAnswerSelected = sceneManager.handleInput(false);
 			    	if(correctAnswerSelected == 1) {
-			    		sceneManager.decreaseBossHP(35, 5, 0);
-			    		nextScene();
-			    	}
-			    	else if (correctAnswerSelected == 0)
-			    	{
-			    		sceneManager.increaseBossHP(15);
-			    	}
+			    	    handleNoMoreQuestions();
+			    	    sceneManager.decreaseBossHP(35, 5, 0);
+			    	    noMoreQuestions=false;
+			    	    System.out.println("here1");
+			    	} else if (correctAnswerSelected == 0) {
+			    	    sceneManager.increaseBossHP(15);
+			    	    System.out.println("here2!");
+			    	} 
 			    }
 	    	}
 	    	else {
@@ -423,6 +469,9 @@ public class AmpEngine extends ApplicationAdapter{
 	    	if(startGameSelected == 1) {
 	    		sceneManager.setDrawMenu(0);
 	    	}
+			else if (startGameSelected == 2) {
+				Gdx.app.exit();
+			}
 	    }
 	    
 	    

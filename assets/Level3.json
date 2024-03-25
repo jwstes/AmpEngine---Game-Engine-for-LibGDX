@@ -2324,7 +2324,20 @@
     "Facts": [
         {
             "fact": "The moon is responsible for our tides."
+        },
+         {
+            "fact": "The Moon has about one-sixth the gravity of Earth"
+        },
+         {
+            "fact": "Even though the Moon looks small, it's actually very big!"
+        },
+         {
+            "fact": "The Moon can look white, yellow, or even orange"
+        },
+         {
+            "fact": "The Moon light gets its light from the reflection of the sun!"
         }
+   
     ],
     "Questions": [
         {
@@ -2336,6 +2349,46 @@
                 "(D): It's a fancy disco ball"
             ],
             "real": "C"
+        },
+         {
+            "question": "What is the Moon's shape?",
+            "answers": [
+                "(A): Square",
+                "(B): Triangle",
+                "(C): Circle",
+                "(D): Rectangle"
+            ],
+            "real": "C"
+        },
+         {
+            "question": "What does the Moon do at night?",
+            "answers": [
+                "(A): Sleep",
+                "(B): Shines",
+                "(C): Hides",
+                "(D): Eats"
+            ],
+            "real": "B"
+        },
+         {
+            "question": "What changes shape does the Moon go through?",
+            "answers": [
+                "(A): Square and rectanglE",
+                "(B): Circle and triangle",
+                "(C): Crescent and full",
+                "(D): Star and moon"
+            ],
+            "real": "C"
+        },
+         {
+            "question": "Where does the Moon get its light from?",
+            "answers": [
+                "(A): Stars",
+                "(B): Sun",
+                "(C): Earth",
+                "(D): Flashlight"
+            ],
+            "real": "B"
         }
     ]
 }

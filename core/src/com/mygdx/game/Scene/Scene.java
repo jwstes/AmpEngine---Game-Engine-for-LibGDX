@@ -174,8 +174,8 @@ public class Scene {
 		return entityName;
 	}
     
-	
-    //facts
+	 // Method to get all questions and their answers
+
     public List<String> GetAllFacts(){
     	return facts;
     }
@@ -187,6 +187,49 @@ public class Scene {
     public List<Map<String, Object>> GetAllQuestions(){
         return questionsList;
     }
+    
+
+
+    // Method to get a specific question by index
+    public Map<String, Object> GetQuestion(int index) {
+        if (index >= 0 && index < questionsList.size()) {
+            return questionsList.get(index);
+        } else {
+            return null;
+        }
+    }
+
+    // Method to get the question text by index
+    public String GetQuestionText(int index) {
+        Map<String, Object> question = GetQuestion(index);
+        if (question != null) {
+            return (String) question.get("question");
+        } else {
+            return null;
+        }
+    }
+
+    // Method to get the answers for a specific question by index
+    public List<String> GetAnswers(int index) {
+        Map<String, Object> question = GetQuestion(index);
+        if (question != null) {
+            return (List<String>) question.get("answers");
+        } else {
+            return null;
+        }
+    }
+
+    // Method to get the correct answer for a specific question by index
+    public String GetCorrectAnswer(int index) {
+        Map<String, Object> question = GetQuestion(index);
+        if (question != null) {
+            return (String) question.get("real");
+        } else {
+            return null;
+        }
+    }
+    
+    
     
 
 }

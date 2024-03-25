@@ -15,6 +15,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.Input;
@@ -47,6 +48,7 @@ public class SceneManager{
 	private List<String> ranFac;
 	long lastHealthReductionTime = 0;
 	private boolean textDisplayed = false;
+	private boolean factsDisplayed = false;
 	private GameOverScene displayFact;
 	
     
@@ -65,7 +67,8 @@ public class SceneManager{
 	private int drawQuiz;
     private BitmapFont font;
     private Rectangle choiceA, choiceB, choiceC, choiceD;
-    private String correctAnswer = "A";
+    private Rectangle menuChoiceA, menuChoiceB, menuChoiceC, menuChoiceD;
+    private String correctAnswer;
     private boolean showWrongAnswerMessage = false;
     private float wrongAnswerMessageTimer = 0;
     private final float MESSAGE_DISPLAY_TIME = 3;
@@ -73,10 +76,8 @@ public class SceneManager{
     private String cutsceneMessage;
     
     private int globalBossHP = 100;
+    private long factDisplayStartTime = 0; // Tracks when the fact started being displayed
 
-	
-    
-	
     
 
 	// Things carried out in SceneManager Constructor
@@ -89,6 +90,10 @@ public class SceneManager{
 	// initialize an output manager (controls sound)
 	// Constructor
 	public SceneManager(Array<String> sceneJSONArr, String healthbarTex) {
+		
+	    lastFactDisplayTime = System.currentTimeMillis(); // Initialize lastFactDisplayTime
+
+	    
 		gameOver = false;
 		entityManager = new EntityManager();
 		allScenes = new Array<Scene>();
@@ -121,6 +126,14 @@ public class SceneManager{
 		choiceB = new Rectangle(100, 180, 200, 30);
 		choiceC = new Rectangle(100, 130, 200, 30);
 		choiceD = new Rectangle(100, 80, 200, 30);
+		
+		menuChoiceA = new Rectangle(100, 180, 200, 30);
+		menuChoiceB = new Rectangle(100, 180, 200, 30);
+		menuChoiceC = new Rectangle(100, 130, 200, 30);
+		menuChoiceD = new Rectangle(100, 80, 200, 30);
+		
+		choiceB = new Rectangle(100, 180, 200, 30);
+
 	}
 
 	// Property Getter Setters
@@ -192,7 +205,9 @@ public class SceneManager{
 		};
 	    return size;
 	}
-
+	
+	
+	
 
 	public Dashboard getDashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
 		if (dashboard == null) {
@@ -280,9 +295,7 @@ public class SceneManager{
 
 
         }
-        if (textDisplayed) {
-            //DisplayText();
-        }
+       
         
         
         
@@ -369,6 +382,57 @@ public class SceneManager{
 		batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch.end();
 	}
+	
+	
+	// Add instance variables to keep track of the current fact index and the time when the last fact was displayed
+	private int currentFactIndex = 0;
+	private long lastFactDisplayTime = 0;
+	
+	public void displayNextFact(int sceneID) {
+	    List<String> facts = allScenes.get(sceneID).GetAllFacts(); // Retrieve all facts
+	    if (!facts.isEmpty()) {
+	        String fact = facts.get(currentFactIndex); // Get the current fact based on currentFactIndex
+	        DisplayText2(fact); // Display the current fact
+	        currentFactIndex = (currentFactIndex + 1) % facts.size(); // Update currentFactIndex to the next fact
+	        lastFactDisplayTime = System.currentTimeMillis(); // Update lastFactDisplayTime to the current time
+	    }
+	}
+
+	// Method to get a random fact from the list of facts
+		private String getRandomFact(List<String> facts) {
+			Random rand = new Random();
+		    int randomIndex = rand.nextInt(facts.size());
+		    return facts.get(randomIndex);
+		  
+		}
+		
+		private long lastFactTime = 0; // Time when the last fact was shown
+		private final long FACT_DELAY = 5000; // Delay in milliseconds (5 seconds)
+		
+		public void updateOrRender() {
+		    long currentTime = System.currentTimeMillis();
+
+		    // Check if it's time to display a new fact
+		    if (!textDisplayed && currentTime - lastFactTime >= FACT_DELAY) {
+		        List<String> facts = allScenes.get(currentSceneID).GetAllFacts(); // Adjust accordingly to get your facts
+		        String newFact = getRandomFact(facts);
+		        if (newFact != null) {
+		            DisplayText2(newFact); // Your method to display the fact
+		            textDisplayed = true; // Set to prevent new facts from being fetched immediately
+		            lastFactTime = currentTime; // Reset the timer
+		        }
+		    }
+
+		    // Your existing logic to hide the fact or update the game state
+		    // For example, to auto-hide the fact after some time:
+		    if (textDisplayed && currentTime - lastFactTime >= FACT_DELAY) {
+		        // Hide the fact
+		        textDisplayed = false;
+		        // Optionally, reset lastFactTime if you want a delay before the next fact can be shown
+		        lastFactTime = currentTime; // Uncomment to add delay before next fact can be shown again
+		    }
+		}
+		
 	public void checkCollision(int sceneID) {
 	    long currentTime = System.currentTimeMillis();
 	    boolean previousTextDisplayed = textDisplayed;
@@ -400,18 +464,18 @@ public class SceneManager{
 		    
 	    	if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial") && !collidedEntity.getIsHostile()) 
 	    	{
-	    		
-	    		   // If collision occurs with an NPC entity
-		        if (!textDisplayed) {
+	            if (currentTime - lastFactDisplayTime >= 1000) { // 5 seconds have passed since the last fact was displayed
 		        	List<String> facts = allScenes.get(sceneID).GetAllFacts(); // Retrieve all facts	
+
 			        String fact = getRandomFact(facts); // Get a random fact
-			        DisplayText2(fact); // Display the random fact
-		        }
-		        else 
-		        {
-		        }
-		        
-		    }
+
+	    	        DisplayText2(fact); // Display the current fact
+	            }
+	            
+	            
+	            
+	    	
+	    	}
 	  
 	}
     
@@ -562,70 +626,115 @@ public class SceneManager{
 	    textDisplayed = true;
 	}
 	
-	// Method to get a random fact from the list of facts
-	private String getRandomFact(List<String> facts) {
-	    Random rand = new Random();
-	    int randomIndex = rand.nextInt(facts.size());
-	    return facts.get(randomIndex);
-	}
-	
 	
 	public void drawPopQuiz(int currentSceneID, boolean menuMode) {
-		List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
+	    List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
 	    Map<String, Object> currentQuestion = questionsList.get(0);
 
 	    String questionText = (String) currentQuestion.get("question");
 	    List<String> answers = (List<String>) currentQuestion.get("answers");
 	    correctAnswer = (String) currentQuestion.get("real");
-		
+
 	    Gdx.gl.glClearColor(0, 0, 0, 1);
 	    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	    
+
 	    float mouseX = Gdx.input.getX();
 	    float mouseY = Gdx.graphics.getHeight() - Gdx.input.getY();
 
-	    
 	    batch.begin();
 	    
-	    if(menuMode == true) {
-	    	font.setColor(1, 1, 1, 1);
-		    font.draw(batch, "Menu:", 100, 300);
+	    
+	    if (menuMode) {
+	        // Draw menu text
+	        // Centering and scaling for menu text
+	        // Draw background image
+	        Texture backgroundImage = new Texture(Gdx.files.internal("menu_BG.png"));
+	        batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	        
+	        // Draw header image
+	        Texture headerImage = new Texture(Gdx.files.internal("menu_header.png"));
+	        batch.draw(headerImage, 150, Gdx.graphics.getHeight() - headerImage.getHeight() - 200);
+
+//	        font.setColor(1, 1, 1, 1);
+//	        font.getData().setScale(4.0f); // Adjust the scale as needed
+//	        GlyphLayout layout = new GlyphLayout(font, "Menu:");
+//	        
+//	        // Reset scale for other text
+//	        font.getData().setScale(10.0f);
+	      
+	        float startGameX = 400; // Adjust this value as needed
+	        float startGameY = 300; // Adjust this value as needed
+	  
+	        float endGameX = 400; 
+	        float endGameY = 150;
+	        
+	        // Load the "Start Game" image
+	        Texture startGameImage = new Texture(Gdx.files.internal("menu_start.png"));
+	    	
+	        
+	        batch.draw(startGameImage, startGameX, startGameY);
+	        
+
+		    menuChoiceA = new Rectangle(startGameX, startGameY, startGameImage.getWidth(), startGameImage.getHeight());
 		    
-		    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
-		    font.draw(batch, "Start Game", choiceA.x, choiceA.y + choiceA.height);
+	        // Update menuChoiceA coordinates to match "Start Game" image
+	        menuChoiceA.setPosition(startGameX, startGameY);
+		     // Assuming startGameImage is not null
+		    menuChoiceA.setSize(startGameImage.getWidth(), startGameImage.getHeight());
+	        
+		    
+		    // Draw header image
+	        Texture exitGameImage = new Texture(Gdx.files.internal("menu_exit.png"));
+	        
+	     
+	        
+	        batch.draw(exitGameImage, endGameX, endGameY);
+	        
+		    menuChoiceB = new Rectangle(endGameX, endGameY, exitGameImage.getWidth(), exitGameImage.getHeight());
+
+	        menuChoiceB.setPosition(endGameX, endGameY);
+		    menuChoiceB.setSize(exitGameImage.getWidth(), exitGameImage.getHeight());
+	        
+		    
 	    }
-	    else {
-	    	font.setColor(1, 1, 1, 1);
-		    font.draw(batch, "Question: " + questionText, 100, 300);
-		    
-		    font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
-		    font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
-		    
-		    font.setColor(getColorForChoice(choiceB, mouseX, mouseY));
-		    font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
-		    
-		    font.setColor(getColorForChoice(choiceC, mouseX, mouseY));
-		    font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
-		    
-		    font.setColor(getColorForChoice(choiceD, mouseX, mouseY));
-		    font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
+	    
+	    
+	    else 
+	    {
+	        font.setColor(1, 1, 1, 1);
+	        // Centering text for question and choices
+	        GlyphLayout layout = new GlyphLayout(font, "Question: " + questionText);
+	        float xPosition = (Gdx.graphics.getWidth() - layout.width) / 2;
+	        font.draw(batch, "Question: " + questionText, xPosition, Gdx.graphics.getHeight() / 2);
+	        
+	        font.setColor(getColorForChoice(choiceA, mouseX, mouseY));
+	        font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
+	        
+	        font.setColor(getColorForChoice(choiceB, mouseX, mouseY));
+	        font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
+	        
+	        font.setColor(getColorForChoice(choiceC, mouseX, mouseY));
+	        font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
+	        
+	        font.setColor(getColorForChoice(choiceD, mouseX, mouseY));
+	        font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
+	        
+	    	
 	    }
-	    
-	    
-	    
-	    
+
 	    if (showWrongAnswerMessage) {
-            wrongAnswerMessageTimer -= Gdx.graphics.getDeltaTime();
-            if (wrongAnswerMessageTimer <= 0) {
-                showWrongAnswerMessage = false;
-            } else {
-                font.setColor(com.badlogic.gdx.graphics.Color.RED);
-                font.draw(batch, "Wrong Answer!", 100, 50);
-            }
-        }
-	    
+	        wrongAnswerMessageTimer -= Gdx.graphics.getDeltaTime();
+	        if (wrongAnswerMessageTimer <= 0) {
+	            showWrongAnswerMessage = false;
+	        } else {
+	            font.setColor(com.badlogic.gdx.graphics.Color.RED);
+	            font.draw(batch, "Wrong Answer!", 100, 50);
+	        }
+	    }
+
 	    batch.end();
 	}
+
 
 	private com.badlogic.gdx.graphics.Color getColorForChoice(Rectangle choice, float mouseX, float mouseY) {
 	    return choice.contains(mouseX, mouseY) ? com.badlogic.gdx.graphics.Color.RED : com.badlogic.gdx.graphics.Color.WHITE;
@@ -637,32 +746,27 @@ public class SceneManager{
 	        float x = Gdx.input.getX();
 	        float y = Gdx.graphics.getHeight() - Gdx.input.getY();
 	        
-	        if(menuMode == true) {
-	        	if (choiceA.contains(x, y)) {
-		            return checkAnswer("A");
-		        }
-		        else {
-		        	return -1;
-		        }
+	        // Check if the game is in menu mode
+	        if (menuMode) {
+	            if (menuChoiceA.contains(x, y)) {
+	                return 1; // Start Game
+	            } else if (menuChoiceB.contains(x, y)) {
+	                return 2; // Exit Game
+	            }
+	        } else {
+	            // Handle input for game mode (questions)
+	            if (choiceA.contains(x, y)) {
+	                return checkAnswer("A");
+	            } else if (choiceB.contains(x, y)) {
+	                return checkAnswer("B");
+	            } else if (choiceC.contains(x, y)) {
+	                return checkAnswer("C");
+	            } else if (choiceD.contains(x, y)) {
+	                return checkAnswer("D");
+	            }
 	        }
-	        else {
-	        	if (choiceA.contains(x, y)) {
-		            return checkAnswer("A");
-		        } else if (choiceB.contains(x, y)) {
-		            return checkAnswer("B");
-		        } else if (choiceC.contains(x, y)) {
-		        	return checkAnswer("C");
-		        } else if (choiceD.contains(x, y)) {
-		        	return checkAnswer("D");
-		        }
-		        else {
-		        	return -1;
-		        }
-	        }
-	        
-	        
 	    }
-	    return -1;
+	    return -1; // Default return if no action is triggered
 	}
 	
 	private int checkAnswer(String selectedAnswer) {
@@ -714,12 +818,16 @@ public class SceneManager{
 	public void increaseBossHP(int baseIncrement) {
 		globalBossHP = globalBossHP + (baseIncrement);
 	}
+<<<<<<< Updated upstream
 	
 	public void resetBossHP() {
 		globalBossHP = 100; //reset bossHP
 	}
 	
 	
+=======
+
+>>>>>>> Stashed changes
 	
 	
 	

@@ -4845,6 +4845,12 @@
     "Facts": [
         {
             "fact": "The earth is blue and round."
+        },
+        {
+            "fact": " Earth is the only known planet to support life. Its atmosphere"
+        },
+        {
+            "fact": "Earths gravity is what keeps everything anchored to its surface"
         }
     ],
     "Questions": [
@@ -4857,6 +4863,26 @@
                 "(D): Rainbow"
             ],
             "real": "A"
+        }, {
+            "question": "What is the shape of the earth?",
+            "answers": [
+                "(A): Round",
+                "(B): Square",
+                "(C): Triangle",
+                "(D): Rectangle"
+            ],
+            "real": "C"
+        }, {
+            "question": "What is the name of the planet we live on?",
+            "answers": [
+                "(A): Mars",
+                "(B): Earth",
+                "(C): Jupiter",
+                "(D): Uranus"
+            ],
+            "real": "B"
         }
-    ]
+        
+       
+  ]
 }
