@@ -1,5 +1,5 @@
 {
-    "background": "6.png",
+    "background": "Lvl2Background.png",
     "Entities": [
         {
             "coords": [
@@ -25,7 +25,7 @@
                 "320"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block1.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -43,7 +43,7 @@
                 "320"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block1.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -61,7 +61,7 @@
                 "320"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -75,11 +75,47 @@
         },
         {
             "coords": [
+                "256",
+                "384"
+            ],
+            "texture": [
+                "Lvl2block1.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": true,
+            "entityType": "static",
+            "isHostile": false,
+            "entityName": "Lvl2block1.png"
+        },
+        {
+            "coords": [
+                "608",
+                "480"
+            ],
+            "texture": [
+                "Lvl2block3.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": true,
+            "entityType": "static",
+            "isHostile": false,
+            "entityName": "Lvl2block3.png"
+        },
+        {
+            "coords": [
                 "704",
                 "320"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -97,7 +133,7 @@
                 "320"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -121,7 +157,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -130,7 +166,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -139,7 +175,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -148,7 +184,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -157,7 +193,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -166,7 +202,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -175,7 +211,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -184,7 +220,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -193,7 +229,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -202,7 +238,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -211,7 +247,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -220,7 +256,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -229,7 +265,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -238,7 +274,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -247,7 +283,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -256,7 +292,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -265,7 +301,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -274,7 +310,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -283,7 +319,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -292,7 +328,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -301,7 +337,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -310,7 +346,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -319,7 +355,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -328,7 +364,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -337,7 +373,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -346,7 +382,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -355,7 +391,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -364,7 +400,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -373,7 +409,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -382,7 +418,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -391,7 +427,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -400,7 +436,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -409,7 +445,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -418,7 +454,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -427,7 +463,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -436,7 +472,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -445,7 +481,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -454,7 +490,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -463,7 +499,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -472,7 +508,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -481,7 +517,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -490,7 +526,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -499,7 +535,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -508,7 +544,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -517,7 +553,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -526,7 +562,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -535,7 +571,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -544,7 +580,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -553,7 +589,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -562,7 +598,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -571,7 +607,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -580,7 +616,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -589,7 +625,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -598,7 +634,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -607,7 +643,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -616,7 +652,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -625,7 +661,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -634,7 +670,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -643,7 +679,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -652,7 +688,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -661,7 +697,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -670,7 +706,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -679,7 +715,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -688,7 +724,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -697,7 +733,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -706,7 +742,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -715,7 +751,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -724,7 +760,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -733,7 +769,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -742,7 +778,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -751,7 +787,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -760,7 +796,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -769,7 +805,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -778,7 +814,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -787,7 +823,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -796,7 +832,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -805,7 +841,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -814,7 +850,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -823,7 +859,7 @@
                 "64"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -832,7 +868,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -841,7 +877,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -850,7 +886,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -859,7 +895,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -868,7 +904,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -877,7 +913,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -886,7 +922,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -895,7 +931,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -904,7 +940,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -913,7 +949,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -922,7 +958,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -931,7 +967,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -940,7 +976,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -949,7 +985,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -958,7 +994,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -967,7 +1003,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -976,7 +1012,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -985,7 +1021,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -994,7 +1030,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1003,7 +1039,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1012,7 +1048,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1021,7 +1057,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1030,7 +1066,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1039,7 +1075,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1048,7 +1084,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1057,7 +1093,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1066,7 +1102,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1075,7 +1111,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1084,7 +1120,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1093,7 +1129,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1102,7 +1138,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1111,7 +1147,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1120,7 +1156,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1129,7 +1165,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1138,7 +1174,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1147,7 +1183,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1156,7 +1192,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1165,7 +1201,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1174,7 +1210,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1183,7 +1219,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1192,7 +1228,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1201,7 +1237,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1210,7 +1246,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1219,7 +1255,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1228,7 +1264,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1237,7 +1273,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1246,7 +1282,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1255,7 +1291,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1264,7 +1300,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1273,7 +1309,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1282,7 +1318,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1291,7 +1327,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1300,7 +1336,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1309,7 +1345,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1318,7 +1354,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1327,7 +1363,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1336,7 +1372,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1345,7 +1381,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1354,7 +1390,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1363,7 +1399,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1372,7 +1408,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1381,7 +1417,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1390,7 +1426,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1399,7 +1435,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1408,7 +1444,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1417,7 +1453,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1426,7 +1462,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1435,7 +1471,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1444,7 +1480,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1453,7 +1489,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1462,7 +1498,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1471,7 +1507,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1480,7 +1516,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1489,7 +1525,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1498,7 +1534,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1507,7 +1543,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1516,7 +1552,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1525,7 +1561,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1534,7 +1570,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1543,7 +1579,7 @@
                 "32"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1552,7 +1588,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1561,7 +1597,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1570,7 +1606,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1579,7 +1615,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1588,7 +1624,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1597,7 +1633,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1606,7 +1642,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1615,7 +1651,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1624,7 +1660,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1633,7 +1669,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1642,7 +1678,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1651,7 +1687,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1660,7 +1696,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1669,7 +1705,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1678,7 +1714,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1687,7 +1723,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1696,7 +1732,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1705,7 +1741,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1714,7 +1750,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1723,7 +1759,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1732,7 +1768,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1741,7 +1777,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1750,7 +1786,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1759,7 +1795,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1768,7 +1804,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1777,7 +1813,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1786,7 +1822,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1795,7 +1831,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1804,7 +1840,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1813,7 +1849,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1822,7 +1858,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1831,7 +1867,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1840,7 +1876,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1849,7 +1885,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1858,7 +1894,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1867,7 +1903,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1876,7 +1912,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1885,7 +1921,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1894,7 +1930,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1903,7 +1939,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1912,7 +1948,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1921,7 +1957,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1930,7 +1966,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1939,7 +1975,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1948,7 +1984,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1957,7 +1993,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1966,7 +2002,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1975,7 +2011,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -1984,7 +2020,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -1993,7 +2029,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2002,7 +2038,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2011,7 +2047,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2020,7 +2056,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2029,7 +2065,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2038,7 +2074,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2047,7 +2083,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2056,7 +2092,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2065,7 +2101,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2074,7 +2110,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2083,7 +2119,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2092,7 +2128,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2101,7 +2137,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2110,7 +2146,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2119,7 +2155,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2128,7 +2164,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2137,7 +2173,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2146,7 +2182,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2155,7 +2191,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2164,7 +2200,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2173,7 +2209,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2182,7 +2218,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2191,7 +2227,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2200,7 +2236,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2209,7 +2245,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2218,7 +2254,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2227,7 +2263,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block2.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2236,7 +2272,7 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
@@ -2245,7 +2281,7 @@
                 "0"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block1.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2254,16 +2290,16 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block2.png",
             "isHostile": false
         },
         {
             "coords": [
-                "1248",
-                "0"
+                "590",
+                "318"
             ],
             "texture": [
-                "2.png"
+                "Lvl2block5.png"
             ],
             "isAlive": false,
             "isKillable": false,
@@ -2272,8 +2308,80 @@
             "isAnimated": false,
             "isCollidable": false,
             "entityType": "static",
-            "entityName": "2.png",
+            "entityName": "Lvl2block5.png",
             "isHostile": false
+        },
+        {
+            "coords": [
+                "870",
+                "318"
+            ],
+            "texture": [
+                "Lvl2block6.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block6.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "1000",
+                "200"
+            ],
+            "texture": [
+                "Lvl2block4.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": false,
+            "entityType": "static",
+            "entityName": "Lvl2block4.png",
+            "isHostile": false
+        },
+        {
+            "coords": [
+                "332",
+                "250"
+            ],
+            "texture": [
+                "Lvl2block1.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": true,
+            "entityType": "static",
+            "isHostile": false,
+            "entityName": "Lvl2block1.png"
+        },
+        {
+            "coords": [
+                "300",
+                "250"
+            ],
+            "texture": [
+                "Lvl2block1.png"
+            ],
+            "isAlive": false,
+            "isKillable": false,
+            "isMovable": false,
+            "isBreakable": false,
+            "isAnimated": false,
+            "isCollidable": true,
+            "entityType": "static",
+            "isHostile": false,
+            "entityName": "Lvl2block1.png"
         },
 
         {
