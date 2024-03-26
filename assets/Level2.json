@@ -2385,10 +2385,10 @@
             "fact": "Mars is red and baron."
         },
          {
-            "fact": "Mars is the fourth planet from the Sun in our Solar System"
+            "fact": "Mars is the fourth planet\nfrom the Sun in our Solar System"
         },
          {
-            "fact": "Mars is about half the size of Earth."
+            "fact": "Mars is about half the\nsize of Earth."
         },
          {
             "fact": "Mars is much colder than Earth"

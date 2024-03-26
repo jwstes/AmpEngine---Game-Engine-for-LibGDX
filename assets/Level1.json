@@ -2246,13 +2246,13 @@
    ],
    "Facts": [
       {
-         "fact": "Did you know the moon is drifting away from earth at a rate of approximately 4cm a year."
+         "fact": "Did you know the moon\nis drifting away from earth\nat a rate of approximately\n4cm a year."
       },
       {
-         "fact": "To date, Earth is the only known planet to support life."
+         "fact": "To date, Earth is the only known\nplanet to support life."
       },
       {
-         "fact": "Earths gravity is what keeps everything anchored to its surface, the gravitational pull of earth is 9.807 m/s^2"
+         "fact": "Earths gravity is what keeps\neverything anchored to its\nsurface, the gravitational pull\nof earth is 9.807 m/s^2"
       }
    ],
    "Questions": [
