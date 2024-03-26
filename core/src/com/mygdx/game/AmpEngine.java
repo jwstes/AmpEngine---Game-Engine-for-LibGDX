@@ -330,15 +330,6 @@ public class AmpEngine extends ApplicationAdapter{
 		currentSceneID = 0;
 		
 		sceneManager = new SceneManager(sceneJSONArr,"player.png");
-//		sceneManager.populateScene(currentSceneID);
-//		
-//		sceneManager.initializeCollisionManager();
-//		collisionManager = sceneManager.getCollisionManager();
-//
-//		player = sceneManager.entityManager.getAllPEntity().get(0);
-//		
-//		playerStartPositionX = player.getPosX();
-//		playerStartPositionY = player.getPosY();
 		createScene(currentSceneID);
 		
 		font = new BitmapFont();
@@ -408,7 +399,7 @@ public class AmpEngine extends ApplicationAdapter{
 		    		else {
 		    			sceneManager.loadScene(currentSceneID, false);
 		    			
-//					    sceneManager.drawCollider();
+					    //sceneManager.drawCollider();
 					    sceneManager.updateScene();
 					    sceneManager.checkCollision(currentSceneID);
 					    
