@@ -3,7 +3,7 @@
    "Entities": [
       {
          "coords": [
-            "736",
+            "676",
             "384"
          ],
          "texture": [
@@ -11,7 +11,7 @@
             "LadyHuman_L.png",
             "LadyHuman.png",
             "LadyHuman.png",
-            "LadyHuman_L.png"
+            "LadyHuman.png"
          ],
          "isAlive": true,
          "isKillable": false,
@@ -2139,11 +2139,11 @@
             600
          ],
          "texture": [
-            "meteor1.png",
-            "meteor2.png",
-            "meteor3.png",
-            "meteor4.png",
-            "meteor1.png"
+            "Asteroid1.png",
+            "Asteroid2.png",
+            "Asteroid3.png",
+            "Asteroid2.png",
+            "Asteroid2.png"
          ],
          "isAlive": false,
          "isKillable": false,
@@ -2161,11 +2161,11 @@
             1000
          ],
          "texture": [
-            "meteor1.png",
-            "meteor2.png",
-            "meteor3.png",
-            "meteor4.png",
-            "meteor1.png"
+            "Asteroid1.png",
+            "Asteroid2.png",
+            "Asteroid3.png",
+            "Asteroid2.png",
+            "Asteroid2.png"
          ],
          "isAlive": false,
          "isKillable": false,
@@ -2183,11 +2183,11 @@
             500
          ],
          "texture": [
-            "meteor1.png",
-            "meteor2.png",
-            "meteor3.png",
-            "meteor4.png",
-            "meteor1.png"
+            "Asteroid1.png",
+            "Asteroid2.png",
+            "Asteroid3.png",
+            "Asteroid2.png",
+            "Asteroid2.png"
          ],
          "isAlive": false,
          "isKillable": false,
@@ -2205,11 +2205,11 @@
             200
          ],
          "texture": [
-            "meteor1.png",
-            "meteor2.png",
-            "meteor3.png",
-            "meteor4.png",
-            "meteor1.png"
+            "Asteroid1.png",
+            "Asteroid2.png",
+            "Asteroid3.png",
+            "Asteroid2.png",
+            "Asteroid2.png"
          ],
          "isAlive": false,
          "isKillable": false,
@@ -2227,11 +2227,11 @@
             200
          ],
          "texture": [
-            "meteor1.png",
-            "meteor2.png",
-            "meteor3.png",
-            "meteor4.png",
-            "meteor1.png"
+            "Asteroid1.png",
+            "Asteroid2.png",
+            "Asteroid3.png",
+            "Asteroid2.png",
+            "Asteroid2.png"
          ],
          "isAlive": false,
          "isKillable": false,
