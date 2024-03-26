@@ -25,15 +25,15 @@
       },
       {
          "coords": [
-            "1152",
+            "1148",
             "384"
          ],
          "texture": [
-            "crown1.png",
-            "crown1.png",
-            "crown1.png",
-            "crown1.png",
-            "crown1.png"
+            "green_portal1.png",
+            "green_portal1.png",
+            "green_portal1.png",
+            "green_portal1.png",
+            "green_portal1.png"
          ],
          "isAlive": false,
          "isKillable": false,
