@@ -77,6 +77,7 @@ public class SceneManager{
     
     private int globalBossHP = 100;
     private long factDisplayStartTime = 0; // Tracks when the fact started being displayed
+    private int randomFactIndex;
 
     
 
@@ -133,7 +134,6 @@ public class SceneManager{
 		menuChoiceD = new Rectangle(100, 80, 200, 30);
 		
 		choiceB = new Rectangle(100, 180, 200, 30);
-
 	}
 
 	// Property Getter Setters
@@ -454,7 +454,6 @@ public class SceneManager{
 	        // If collision occurs with an NPC entity
 	        if (!textDisplayed) {
 	        	setDrawQuiz(1);
-	 
 	        }
 	    } else {
 	        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
@@ -467,7 +466,8 @@ public class SceneManager{
 	            if (currentTime - lastFactDisplayTime >= 5000) { // 5 seconds have passed since the last fact was displayed
 		        	List<String> facts = allScenes.get(sceneID).GetAllFacts(); // Retrieve all facts	
 
-			        String fact = getRandomFact(facts); // Get a random fact
+//			        String fact = getRandomFact(facts);
+		        	String fact = facts.get(randomFactIndex);
 
 	    	        DisplayText2(fact); // Display the current fact
 	            }
@@ -613,7 +613,8 @@ public class SceneManager{
 	
 	public void drawPopQuiz(int currentSceneID, boolean menuMode) {
 	    List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
-	    Map<String, Object> currentQuestion = questionsList.get(0);
+//	    Map<String, Object> currentQuestion = questionsList.get(0);
+	    Map<String, Object> currentQuestion = questionsList.get(randomFactIndex);
 
 	    String questionText = (String) currentQuestion.get("question");
 	    List<String> answers = (List<String>) currentQuestion.get("answers");
@@ -811,7 +812,12 @@ public class SceneManager{
 	}
 	
 	
-
+	public void autoSetRandomFactIndex(int currentSceneID) {
+		Random r = new Random();
+		List<String> facts = allScenes.get(currentSceneID).GetAllFacts();
+		int max = facts.size();
+		randomFactIndex = (r.nextInt((max-1) - 0 + 1) + 0);
+	}
 	
 	
 	

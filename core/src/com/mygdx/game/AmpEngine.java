@@ -63,6 +63,9 @@ public class AmpEngine extends ApplicationAdapter{
 
   
     private Music backgroundMusic;
+    
+    
+    
 
     
    
@@ -258,6 +261,8 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		playerStartPositionX = player.getPosX();
 		playerStartPositionY = player.getPosY();
+		
+		sceneManager.autoSetRandomFactIndex(sceneID);
 	}
 	
 	//Don't use in any Key Press functions, 
@@ -325,15 +330,16 @@ public class AmpEngine extends ApplicationAdapter{
 		currentSceneID = 0;
 		
 		sceneManager = new SceneManager(sceneJSONArr,"player.png");
-		sceneManager.populateScene(currentSceneID);
-		
-		sceneManager.initializeCollisionManager();
-		collisionManager = sceneManager.getCollisionManager();
-
-		player = sceneManager.entityManager.getAllPEntity().get(0);
-		
-		playerStartPositionX = player.getPosX();
-		playerStartPositionY = player.getPosY();
+//		sceneManager.populateScene(currentSceneID);
+//		
+//		sceneManager.initializeCollisionManager();
+//		collisionManager = sceneManager.getCollisionManager();
+//
+//		player = sceneManager.entityManager.getAllPEntity().get(0);
+//		
+//		playerStartPositionX = player.getPosX();
+//		playerStartPositionY = player.getPosY();
+		createScene(currentSceneID);
 		
 		font = new BitmapFont();
 		font.getData().setScale(1); // Scale up the font size
@@ -428,8 +434,6 @@ public class AmpEngine extends ApplicationAdapter{
 			    	boolean noMoreQuestions = false;
 			 
 			    	sceneManager.drawPopQuiz(currentSceneID, false);
-			    	
-			    	
 			    	sceneManager.loadScene(currentSceneID, true);
 			    	
 			    	// Existing code in render method for handling quiz questions
