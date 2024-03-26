@@ -701,6 +701,9 @@ public class SceneManager{
 	    
 	    else 
 	    {
+	    	Texture backgroundImage = new Texture(Gdx.files.internal("questionBG.png"));
+	        batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	        
 	        font.setColor(1, 1, 1, 1);
 	        // Centering text for question and choices
 	        GlyphLayout layout = new GlyphLayout(font, "Question: " + questionText);
