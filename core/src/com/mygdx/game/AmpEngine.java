@@ -366,7 +366,7 @@ public class AmpEngine extends ApplicationAdapter{
 		
 		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
 		sceneManager.setDisplayingCutscene(true);
-		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by successfully completing quizzes on three different planets it's affecting.");
+		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by\nsuccessfully completing quizzes on three different planets it's affecting.");
 	}
 
 	

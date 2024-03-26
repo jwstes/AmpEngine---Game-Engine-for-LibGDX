@@ -778,8 +778,8 @@ public class SceneManager{
 	
 	public void displayCutscene() {
 	    batch.begin();
-	    BitmapFont font = new BitmapFont();
-	    font.getData().setScale(1.2f);
+	    BitmapFont font = new BitmapFont(Gdx.files.internal("font.fnt"));
+	    font.getData().setScale(0.7f);
 	    
 	    String loremIpsum = cutsceneMessage;
 	    String pressEnter = "Press SPACE to continue";
