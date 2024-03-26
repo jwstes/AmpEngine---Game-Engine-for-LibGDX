@@ -47,10 +47,14 @@ public class GameOverScene {
 
         // Draw text if it's not empty
         if (!fact.isEmpty()) {
-            font.getData().setScale(2); // Adjust scale as needed
+        	font = new BitmapFont(Gdx.files.internal("font.fnt"));
+            font.getData().setScale(1f); // Adjust scale as needed
             // Calculate the width of the text to center it on the screen
-            float textX = (screenWidth) / 2f;
-            float textY = screenHeight / 2f; // Adjust Y as needed, depending on where you want the text relative to the texture
+	        Texture backgroundImage = new Texture(Gdx.files.internal("factsBG.png"));
+	        
+            float textX = (screenWidth) / 2f - 300;
+            float textY = screenHeight / 2f + 250; // Adjust Y as needed, depending on where you want the text relative to the texture
+            batch.draw(backgroundImage, textX-50, textY-100, backgroundImage.getWidth()+200, backgroundImage.getHeight());
             font.draw(batch, fact, textX, textY);
         }
         

@@ -285,7 +285,7 @@ public class AmpEngine extends ApplicationAdapter{
 		else {
 			createScene(nextSceneID);
 		}
-	    sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
+	    //sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
 	    sceneManager.unloadScene();
 
 	    if (nextSceneID >= sceneManager.getAllScenes().size) {

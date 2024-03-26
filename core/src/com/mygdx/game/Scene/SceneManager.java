@@ -454,7 +454,7 @@ public class SceneManager{
 	        // If collision occurs with an NPC entity
 	        if (!textDisplayed) {
 	        	setDrawQuiz(1);
-	            //DisplayText(); // Display text if it's not already displayed
+	 
 	        }
 	    } else {
 	        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC
@@ -464,7 +464,7 @@ public class SceneManager{
 		    
 	    	if (collidedEntity != null && collidedEntity.getEntityType().equals("adversarial") && !collidedEntity.getIsHostile()) 
 	    	{
-	            if (currentTime - lastFactDisplayTime >= 1000) { // 5 seconds have passed since the last fact was displayed
+	            if (currentTime - lastFactDisplayTime >= 5000) { // 5 seconds have passed since the last fact was displayed
 		        	List<String> facts = allScenes.get(sceneID).GetAllFacts(); // Retrieve all facts	
 
 			        String fact = getRandomFact(facts); // Get a random fact
@@ -601,22 +601,6 @@ public class SceneManager{
         clearScreen();
         gameOverScene.render(batch, "");
     }
-	
-	public void DisplayText() {
-		if (displayFact == null) {
-		ranFac = currentScene.GetAllFacts();
-		String[] factsArray = ranFac.toArray(new String[0]);
-		Random rand = new Random();
-		int i = rand.nextInt(factsArray.length);
-		displayFact = new GameOverScene(factsArray[i]);
-		}
-		displayFact.render(batch, "");
-		textDisplayed = true;
-		
-		//Test for questions
-		//List<Map<String, Object>> que = currentScene.GetAllQuestions();
-		//System.out.print(que.get(0).get("real"));
-	}
 	
 	public void DisplayText2(String fact) {
 	    if (displayFact == null) {
