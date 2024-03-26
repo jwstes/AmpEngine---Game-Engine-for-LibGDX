@@ -109,11 +109,6 @@ public class Dashboard implements DashboardInterface {
             dashboardManager.setHealthSprites(healthSprites);
         }
     }
-    
-    public void test() {
-    	sceneManager.DisplayText();
-    }
-    
 
 
 	@Override
