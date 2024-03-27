@@ -2247,6 +2247,7 @@
    "Facts": [
       {
          "fact": "Did you know the moon\nis drifting away from earth\nat a rate of approximately\n4cm a year."
+
       },
       {
          "fact": "To date, Earth is the only known\nplanet to support life."
@@ -2257,7 +2258,7 @@
    ],
    "Questions": [
       {
-         "question": "What is the annual rate of the moon drifting away from earth?",
+         "question": "What is the annual rate of the moon \n drifting away from earth?",
          "answers": [
             "(A): 4 centimeters",
             "(B): 4 metres",
@@ -2266,7 +2267,7 @@
          ],
          "real": "A"
       }, {
-         "question": "The ______ layer of Earth's stratosphere help absorb most of the Sun's ultraviolet radiation",
+         "question": "The ______ layer of Earth's stratosphere help absorb \n most of the Sun's ultraviolet radiation",
          "answers": [
             "(A): Dermis",
             "(B): Firnament",

@@ -48,7 +48,7 @@ public class Dashboard implements DashboardInterface {
 
     public void displayTimer(SpriteBatch batch) {
         float spriteX = 100; // Assuming this is the initial x-coordinate for health sprites
-        float posX = spriteX + 150; // Align with the end of health sprites
+        float posX = spriteX + 700; // Align with the end of health sprites
         float posY = Gdx.graphics.getHeight() - 20; // Align vertically with the "Health:" text
 
         // Draw time passed text beside the health status
@@ -65,9 +65,9 @@ public class Dashboard implements DashboardInterface {
         dashboardManager.getFont().draw(batch, "BlackHole HP:", textPosX, textPosY);
 
         // Draw red progress bar
-        float barWidth = 200;
-        float barHeight = 10;
-        float barPosX = textPosX + 180;
+        float barWidth = 500;
+        float barHeight = 20;
+        float barPosX = textPosX + 370;
         float barPosY = textPosY - barHeight - 5;
 
         float redBarWidth = (health / 100f) * barWidth;

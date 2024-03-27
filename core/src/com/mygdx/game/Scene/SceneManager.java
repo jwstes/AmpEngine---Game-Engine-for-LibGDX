@@ -101,7 +101,7 @@ public class SceneManager{
 
 		// Load dashboard assets
 		Texture healthSprite = new Texture(healthbarTex);
-		BitmapFont font = new BitmapFont();
+		BitmapFont font = new BitmapFont(Gdx.files.internal("font.fnt"));
 		int maxHealth = 3;
 
 		// Create or get the dashboard
@@ -121,7 +121,7 @@ public class SceneManager{
 		
 		drawQuiz = 0;
 		drawMenu = 1;
-		this.font = new BitmapFont();
+		this.font = new BitmapFont(Gdx.files.internal("font.fnt"));
 		batch = new SpriteBatch();
 		choiceA = new Rectangle(100, 230, 200, 30);
 		choiceB = new Rectangle(100, 180, 200, 30);
@@ -519,7 +519,7 @@ public class SceneManager{
 
 	    SpriteBatch spriteBatch = new SpriteBatch();
 	    ShapeRenderer shapeRenderer = new ShapeRenderer();
-	    BitmapFont font = new BitmapFont();
+	    BitmapFont font = new BitmapFont(Gdx.files.internal("font.fnt"));
 	    OrthographicCamera camera = new OrthographicCamera();
 	    camera.setToOrtho(false);
 
@@ -690,6 +690,7 @@ public class SceneManager{
 	        batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	        
 	        font.setColor(1, 1, 1, 1);
+	        
 	        // Centering text for question and choices
 	        GlyphLayout layout = new GlyphLayout(font, "Question: " + questionText);
 	        float xPosition = (Gdx.graphics.getWidth() - layout.width) / 2;

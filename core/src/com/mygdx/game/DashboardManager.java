@@ -66,8 +66,8 @@ public class DashboardManager  {
     }
     
     public void displayHealthSprites(SpriteBatch batch) {
-        float spriteX = 100; // Initial x-coordinate for health sprites
-        float spriteY = Gdx.graphics.getHeight() - 20 - getFont().getLineHeight(); // Align sprites with the bottom of the text
+        float spriteX = 230; // Initial x-coordinate for health sprites
+        float spriteY = Gdx.graphics.getHeight() - getFont().getLineHeight(); // Align sprites with the bottom of the text
 
         for (int i = 0; i < getMaxHealth(); i++) { // Iterate over maxHealth instead of currentHealth
             if (i < getCurrentHealth()) { // Check if the current index is within the current health range

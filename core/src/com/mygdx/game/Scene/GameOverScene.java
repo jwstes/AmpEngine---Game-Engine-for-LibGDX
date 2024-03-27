@@ -48,7 +48,7 @@ public class GameOverScene {
         // Draw text if it's not empty
         if (!fact.isEmpty()) {
         	font = new BitmapFont(Gdx.files.internal("font.fnt"));
-            font.getData().setScale(1f); // Adjust scale as needed
+            font.getData().setScale(0.7f); // Adjust scale as needed
             // Calculate the width of the text to center it on the screen
 	        Texture backgroundImage = new Texture(Gdx.files.internal("factsBG.png"));
 	        

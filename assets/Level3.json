@@ -5854,12 +5854,9 @@
         },
         
         {
-            "fact": "Mars is about half the size of Earth."
+            "fact": "Small World. Mars is 53% smaller than Earth."
         },
         
-        {
-            "fact": "Mars is much colder than Earth"
-        }
     ],
     "Questions": [
         {
@@ -5883,24 +5880,15 @@
             "real": "D"
         },
         {
-            "question": "What do scientist use to explore mars??",
+            "question": "Small World. Mars is __ smaller than Earth?",
             "answers": [
-                "(A): Cars",
-                "(B): Robots",
-                "(C): Rockets",
-                "(D): Airplanes"
+                "(A): 69%",
+                "(B): 2%",
+                "(C): 53%",
+                "(D): 21%"
             ],
             "real": "C"
         },
-        {
-            "question": "Why does Mars appear red?",
-            "answers": [
-                "(A): Because it's covered in red paint",
-                "(B): Because it's made of strawberries",
-                "(C): Because of rust-like dust on its surface",
-                "(D): Because its made of lava"
-            ],
-            "real": "C"
-        }
+
     ]
 }
