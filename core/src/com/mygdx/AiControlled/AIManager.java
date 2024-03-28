@@ -2,8 +2,11 @@ package com.mygdx.AiControlled;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.Entities.Entity;
 import com.mygdx.game.Entities.EntityManager;
@@ -11,7 +14,7 @@ import com.mygdx.game.Entities.PlayerEntity;
 
 
 
-public class AIManager extends Entity {
+public class AIManager extends Entity{
 	private float initialPosX;
 	private float initialPosY;
 	public EntityManager entityManager;
@@ -68,14 +71,16 @@ public class AIManager extends Entity {
 
 
 	//CLASS METHODS
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+		
+	}
 	@Override
-	public void update(long lastEntityUpdate) {
-		float increment = 0.1f;
-		int result = (int) (increment * 0); 
-		float maxIncrement = result / (float) Math.PI; 
-		if (maxIncrement > -1 && maxIncrement < 1) {
-			lastEntityUpdate = (long) increment;
-		}
+	public void draw(SpriteBatch b) {
+		if (getTexture() != null) {
+            b.draw(getTexture(), getPosX(), getPosY());
+        }
 	}
 	
 	

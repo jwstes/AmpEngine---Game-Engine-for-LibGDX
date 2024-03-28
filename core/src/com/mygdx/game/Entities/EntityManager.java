@@ -93,12 +93,6 @@ public class EntityManager {
 	}
 
 
-	public void updateEntities() {
-		for (Entity entity : entityList) {
-			entity.update(0);
-		}
-	}
-
 	public void drawEntities(SpriteBatch batch) {
 		for (Entity entity : entityList) {
 			entity.draw(batch);

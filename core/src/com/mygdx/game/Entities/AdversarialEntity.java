@@ -1,6 +1,9 @@
 package com.mygdx.game.Entities;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.AiControlled.AIManager;
 
 
@@ -31,10 +34,17 @@ public class AdversarialEntity extends Entity implements EntityFactoryInterface{
     }
     
     @Override
-    public void update(long lastEntityUpdate) {
-
-        System.currentTimeMillis();
-    }
+    public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+		
+	}
+	@Override
+	public void draw(SpriteBatch b) {
+		if (getTexture() != null) {
+            b.draw(getTexture(), getPosX(), getPosY());
+        }
+	}
 
 	@Override
 	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {

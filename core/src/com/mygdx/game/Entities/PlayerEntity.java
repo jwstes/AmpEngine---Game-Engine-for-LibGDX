@@ -4,6 +4,9 @@ package com.mygdx.game.Entities;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 
 /* This Class handles the Player Entity (Player's Character/Sprite) only.*/
 /* This record character's name, health, x, y, speed, Texture tex, Texture[] animatedTexture, entityType, rec
@@ -22,7 +25,7 @@ public class PlayerEntity extends Entity implements EntityFactoryInterface {
     }
     
     public PlayerEntity() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void setIsMovable(boolean b) {
@@ -34,11 +37,6 @@ public class PlayerEntity extends Entity implements EntityFactoryInterface {
 
 
 	@Override
-	public void update(long lastEntityUpdate) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
 	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {
 		PlayerEntity entity = new PlayerEntity("n", x, y, textures[0]);
 		entity.setIsAlive(properties[0]);
@@ -48,6 +46,18 @@ public class PlayerEntity extends Entity implements EntityFactoryInterface {
         entity.setIsCollidable(properties[4]);
         
 		return entity;
+	}
+	@Override
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+		
+	}
+	@Override
+	public void draw(SpriteBatch b) {
+		if (getTexture() != null) {
+            b.draw(getTexture(), getPosX(), getPosY());
+        }
 	}
 	
 }

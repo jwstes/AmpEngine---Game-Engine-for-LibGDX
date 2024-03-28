@@ -25,7 +25,9 @@ public abstract class Entity {
 	private boolean isCollidable;
 	private boolean isHostile;
 	private String entityName;
-
+	
+	public abstract void drawBounds(ShapeRenderer shapeRenderer);
+    public abstract void draw(SpriteBatch b);
 	// Constructors
 	public Entity(String name, float x, float y, Texture t){   //focus on making it appear, then add speed & health later
 		this.name = name;
@@ -185,17 +187,7 @@ public abstract class Entity {
         }
     }
 
-	public void drawBounds(ShapeRenderer shapeRenderer) {
-		Rectangle bounds = getRec();
-		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
-	}
-	public void draw(SpriteBatch b) {
-		if (tex != null) {
-            b.draw(tex, x, y);
-        }
-	}
-	public abstract void update(long lastEntityUpdate);
-	public void render(SpriteBatch b) {}
+
 	
 	
 }

@@ -1,6 +1,9 @@
 package com.mygdx.AiControlled;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.Entities.AdversarialEntity;
 import com.mygdx.game.Entities.Entity;
 import com.mygdx.game.Entities.EntityFactoryInterface;
@@ -12,11 +15,7 @@ public class NPCEntity extends Entity implements EntityFactoryInterface{
     }
     public NPCEntity() {}
 
-	@Override
-	public void update(long lastEntityUpdate) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {
@@ -29,6 +28,18 @@ public class NPCEntity extends Entity implements EntityFactoryInterface{
         entity.setIsHostile(false);
         
 		return entity;
+	}
+	@Override
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+		
+	}
+	@Override
+	public void draw(SpriteBatch b) {
+		if (getTexture() != null) {
+            b.draw(getTexture(), getPosX(), getPosY());
+        }
 	}
 
 }

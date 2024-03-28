@@ -1,6 +1,11 @@
 package com.mygdx.game.Entities;
+import com.badlogic.gdx.math.Rectangle;
+
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.AiControlled.AIManager;
+
 
 
 
@@ -13,15 +18,14 @@ import com.mygdx.AiControlled.AIManager;
 
 public class StaticEntity extends Entity implements EntityFactoryInterface{
     private boolean isBreakable; //walls you can destroy i.e.
-
     private AIManager ai;    // If you have a moving platform, it'll need an ai to time the movement.
-    
     private boolean isMovable; // If you have AIManager, isMovable is set to True by default.
-
+    public StaticEntity() {}
+    
     public StaticEntity(String n, float x, float y, Texture t){
         super(n,x,y,t);
     }
-    public StaticEntity() {}
+    
 
     public void setIsMovable(boolean b) {
     	isMovable = b;
@@ -36,11 +40,8 @@ public class StaticEntity extends Entity implements EntityFactoryInterface{
     public boolean getIsBreakable() {
     	return isBreakable;
     }
-
-	@Override
-	public void update(long lastEntityUpdate) {
-		// TODO Auto-generated method stub
-    }
+  
+	
 
 	@Override
 	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {
@@ -52,5 +53,17 @@ public class StaticEntity extends Entity implements EntityFactoryInterface{
         entity.setIsCollidable(properties[4]);
         
 		return entity;
+	}
+	@Override
+	public void drawBounds(ShapeRenderer shapeRenderer) {
+		Rectangle bounds = getRec();
+		shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+		
+	}
+	@Override
+	public void draw(SpriteBatch b) {
+		if (getTexture() != null) {
+            b.draw(getTexture(), getPosX(), getPosY());
+        }
 	}
 }
