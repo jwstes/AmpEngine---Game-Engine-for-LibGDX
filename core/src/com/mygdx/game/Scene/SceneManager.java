@@ -116,7 +116,9 @@ public class SceneManager{
 		}
 		lastEntityUpdate = System.currentTimeMillis();
 		animatedTextureID = 0;
-		outputManager = new OutputManager();
+		//outputManager = new OutputManager();
+		//Instead of creating a new instance, retrieve the Singleton instance
+        outputManager = OutputManager.getInstance();
 		
 		
 		drawQuiz = 0;

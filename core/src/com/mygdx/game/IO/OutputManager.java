@@ -1,50 +1,57 @@
 package com.mygdx.game.IO;
-import com.badlogic.gdx.audio.*;
+
+import com.badlogic.gdx.audio.Sound;
 
 import java.util.Map;
 
+public class OutputManager implements SoundInterface {
 
-// OutputManager manages outputs (other than display) - as of now largely used for outputting audio. Implements
-// Interface for sound methods.
-public class OutputManager implements SoundInterface{
+    // Singleton instance
+    private static OutputManager instance;
 
-	// SoundInterface-relevant Properties
-	private Map<String, Sound> sounds;
-	private boolean soundPlaying;
-	private long currentSoundID;
-	private Sound currentSound;
+    // SoundInterface-relevant Properties
+    private Map<String, Sound> sounds;
+    private boolean soundPlaying;
+    private long currentSoundID;
+    private Sound currentSound;
 
+    // Private constructor to prevent instantiation from outside
+    private OutputManager() {
+        soundPlaying = false;
+    }
 
-	// OutputManager Constructor
-	public OutputManager() {
-		soundPlaying = false;
-	}
+    // Static method to retrieve the Singleton instance
+    public static OutputManager getInstance() {
+        if (instance == null) {
+            instance = new OutputManager();
+        }
+        return instance;
+    }
 
-	// Sound related Methods
-	public void setSoundsList(Map<String, Sound> s) {
-		sounds = s;
-	}
-	
-	public void playSound(String soundKey) {
-		if (!soundPlaying) {
-			Sound s = sounds.get(soundKey);
-			long id = s.play(1.0f);
+    // Set sounds list
+    public void setSoundsList(Map<String, Sound> s) {
+        sounds = s;
+    }
 
-			this.currentSoundID = id;
-			this.currentSound = s;
+    // Play sound
+    public void playSound(String soundKey) {
+        if (!soundPlaying) {
+            Sound s = sounds.get(soundKey);
+            long id = s.play(1.0f);
 
-			s.setLooping(id, true);
-			soundPlaying = true;
-		}
-	}
-	
-	public void stopAllSound(){
-		if(soundPlaying) {
-			this.currentSound.stop(this.currentSoundID);
-			this.soundPlaying = false;
-		}
-	}
-	
+            this.currentSoundID = id;
+            this.currentSound = s;
 
-	
+            s.setLooping(id, true);
+            soundPlaying = true;
+        }
+    }
+
+    // Stop all sounds
+    public void stopAllSound() {
+        if (soundPlaying) {
+            this.currentSound.stop(this.currentSoundID);
+            this.soundPlaying = false;
+        }
+    }
 }
