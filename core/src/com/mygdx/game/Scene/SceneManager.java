@@ -116,7 +116,9 @@ public class SceneManager{
 		}
 		lastEntityUpdate = System.currentTimeMillis();
 		animatedTextureID = 0;
-		outputManager = new OutputManager();
+		//outputManager = new OutputManager();
+		//Instead of creating a new instance, retrieve the Singleton instance
+		outputManager = OutputManager.getInstance();
 		
 		
 		drawQuiz = 0;
@@ -223,7 +225,7 @@ public class SceneManager{
 
 	public void resetDashboard(){
 		dashboard.resetDashboard(); // resets the currentHealth, sprite display and Time in dashboard class using Dashboard Manager
-		System.out.println("In SceneManager a function to reset Dashboard Health has been called");
+		//System.out.println("In SceneManager a function to reset Dashboard Health has been called");
 	}
 
 
@@ -267,16 +269,7 @@ public class SceneManager{
             	            ai.updateCollider(ai.getPosX(), ai.getPosY(), 100, 100);
             	        }
             	    }
-                      
-//                      if (animatedTextureID == 2) 
-//                      {   	
-//                      ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 48);
-//                      }
-//                      else {
-//	                        ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 12);
-//                      }
-                   
-                  
+                               
             	  
                  if (ai.getIsMovable() && ai.getIsKillable() && ai.getIsHostile() && isEntityName("enemy")) {
                 	  
@@ -407,7 +400,7 @@ public class SceneManager{
 		}
 		
 		private long lastFactTime = 0; // Time when the last fact was shown
-		private final long FACT_DELAY = 5000; // Delay in milliseconds (5 seconds)
+		private final long FACT_DELAY = 3000; // Delay in milliseconds (5 seconds)
 		
 		public void updateOrRender() {
 		    long currentTime = System.currentTimeMillis();
@@ -439,6 +432,7 @@ public class SceneManager{
 	    collisionManager.checkPlayerCollisions();
 	    
 	    Entity collidedEntity = collisionManager.checkPlayerCollisions();
+	    //System.out.print(collidedEntity);
 	    
 	    
 	    
@@ -451,9 +445,11 @@ public class SceneManager{
 	        }
 	    }
 	    if (collidedEntity != null && collidedEntity.getEntityType().equals("npc")) {
+	    	//System.out.print("TOUCHED");
 	        // If collision occurs with an NPC entity
 	        if (!textDisplayed) {
 	        	setDrawQuiz(1);
+	        	
 	        }
 	    } else {
 	        textDisplayed = false; // Reset textDisplayed flag if no collision with NPC

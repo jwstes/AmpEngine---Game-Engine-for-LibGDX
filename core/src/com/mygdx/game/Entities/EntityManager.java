@@ -159,6 +159,8 @@ public class EntityManager {
     		String type = entityTypes.get(i);
     		String name = entityName.get(i);
     		
+    		boolean[] properties = {entityProperties.get(i)[0], entityProperties.get(i)[1], entityProperties.get(i)[2], entityProperties.get(i)[3], entityProperties.get(i)[4], entityProperties.get(i)[5]};
+    		
     		boolean isAlive = entityProperties.get(i)[0];
     		boolean isKillable = entityProperties.get(i)[1];
     		boolean isMovable = entityProperties.get(i)[2];
@@ -178,42 +180,20 @@ public class EntityManager {
     			aimEntities.add(aime);
     		}
     		else {
-    			if(type.equals(playerString)) {
-        			PlayerEntity pe = new PlayerEntity("n", x, y, t[0]);
-        			pe.setIsAlive(isAlive);
-        			pe.setIsKillable(isKillable);
-        			pe.setIsMovable(isMovable);
-        			pe.setEntityType(playerString);
-        			pe.setIsCollidable(isCollidable);
-        			pEntities.add(pe);
-        		}
-        		else if (type.equals(staticString)) {
-        			StaticEntity se = new StaticEntity("n", x, y, t[0]);
-        			se.setIsAlive(isAlive);
-        			se.setIsKillable(isKillable);
-        			se.setIsMovable(isMovable);
-        			se.setIsBreakable(isBreakable);
-        			se.setEntityType(staticString);
-        			se.setIsCollidable(isCollidable);
-        			sEntities.add(se);
-        		}
-        		else if (type.equals(adversarialString)) {
-        			AdversarialEntity ade = new AdversarialEntity("n", x, y, t[0]);
-        			ade.setIsAlive(isAlive);
-        			ade.setIsKillable(isKillable);
-        			ade.setIsMovable(isMovable);
-        			ade.setEntityType(adversarialString);
-        			ade.setIsCollidable(isCollidable);
-        			adEntities.add(ade);
-        		}else if(type.equals(npcString)) {
-        			NPCEntity npc = new NPCEntity("n", x, y, t[0]);
-					npc.setIsAlive(isAlive);
-					npc.setIsKillable(isKillable);
-					npc.setIsMovable(isMovable);
-					npc.setEntityType(npcString);
-					npc.setIsCollidable(isCollidable);
-					npcEntity.add(npc);
-        		}
+    			EntityFactoryInterface factory = getFactoryForType(type);
+    			System.out.print(type);
+    	        Entity entity = factory.createEntity(x, y, t, properties, type);
+    	        
+    	        if (entity instanceof PlayerEntity) {
+    	            pEntities.add((PlayerEntity) entity);
+    	        } else if (entity instanceof StaticEntity) {
+    	            sEntities.add((StaticEntity) entity);
+    	        } else if (entity instanceof AdversarialEntity) {
+    	            adEntities.add((AdversarialEntity) entity);
+    	        } else if (entity instanceof NPCEntity) {
+    	            npcEntity.add((NPCEntity) entity);
+    	        }
+    	         
     		}
     		
     		allAdversarialEntity = adEntities;
@@ -222,6 +202,21 @@ public class EntityManager {
     		allAIMEntity = aimEntities;
 			allNPCEntity = npcEntity;
     	}
+    }
+    
+    private EntityFactoryInterface getFactoryForType(String type) {
+        switch (type) {
+            case "player":
+                return new PlayerEntity();
+            case "static":
+                return new StaticEntity();
+            case "adversarial":
+                return new AdversarialEntity();
+            case "npc":
+                return new NPCEntity();
+            default:
+                throw new IllegalArgumentException("Unknown entity type: " + type);
+        }
     }
 
 }

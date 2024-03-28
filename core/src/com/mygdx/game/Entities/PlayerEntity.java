@@ -1,6 +1,8 @@
 package com.mygdx.game.Entities;
 
 
+import java.util.List;
+
 import com.badlogic.gdx.graphics.Texture;
 
 /* This Class handles the Player Entity (Player's Character/Sprite) only.*/
@@ -9,7 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 // Inherits from Entity Class
 /* Possible implementations to split into smaller classes possible. Possible addition such as guns, etc to be decided)*/
 
-public class PlayerEntity extends Entity {
+public class PlayerEntity extends Entity implements EntityFactoryInterface {
 	
 	private boolean isMovable;
 	
@@ -34,6 +36,18 @@ public class PlayerEntity extends Entity {
 	@Override
 	public void update(long lastEntityUpdate) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {
+		PlayerEntity entity = new PlayerEntity("n", x, y, textures[0]);
+		entity.setIsAlive(properties[0]);
+        entity.setIsKillable(properties[1]);
+        entity.setIsMovable(properties[2]);
+        entity.setEntityType(name);
+        entity.setIsCollidable(properties[4]);
+        
+		return entity;
 	}
 	
 }

@@ -282,7 +282,7 @@ public class AmpEngine extends ApplicationAdapter{
 			}
 			else {
 				gameLost = true;
-				sceneManager.setCutsceneMessage("Lol how low is your IQ bruh?");
+				sceneManager.setCutsceneMessage("upper?");
 				
 			}
 			
@@ -295,11 +295,12 @@ public class AmpEngine extends ApplicationAdapter{
 
 	    if (nextSceneID >= sceneManager.getAllScenes().size) {
 	        if (sceneManager.getGlobalBossHP() < 0) {
-	            gameLost = true;
+	            gameLost = false;
 	            sceneManager.setCutsceneMessage("You Won OMG!!!!! So Cool wtf?");
 	        } else {
 	            gameLost = true;
-	            sceneManager.setCutsceneMessage("Lol how low is your IQ bruh?");
+	            sceneManager.setCutsceneMessage("OMG YOU WON WOOOOO!!!");
+	            
 	        }
 	    } else {
 	        createScene(nextSceneID);
@@ -394,6 +395,8 @@ public class AmpEngine extends ApplicationAdapter{
 		    		    
 		    		    if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
 		    		        sceneManager.setDisplayingCutscene(false);
+		    		        //Display how to play space bar enter
+		    		        
 		    		    }
 		    		} 
 		    		else {
@@ -431,7 +434,7 @@ public class AmpEngine extends ApplicationAdapter{
 			    	int correctAnswerSelected = sceneManager.handleInput(false);
 			    	if(correctAnswerSelected == 1) {
 			    	    handleNoMoreQuestions();
-			    	    sceneManager.decreaseBossHP(35, 5, 0);
+			    	    sceneManager.decreaseBossHP(40, 5, 0);
 			    	    noMoreQuestions=false;
 			    	    System.out.println("here1");
 			    	} else if (correctAnswerSelected == 0) {

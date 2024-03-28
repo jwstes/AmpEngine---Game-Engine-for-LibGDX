@@ -12,13 +12,14 @@ import com.mygdx.AiControlled.AIManager;
 
 // Tells the entity to walk back and forth, stand still or it go up down. Or shoot at intervals
 
-public class AdversarialEntity extends Entity {
+public class AdversarialEntity extends Entity implements EntityFactoryInterface{
     private AIManager ai;
     
     //CONSTRUCTOR
     public AdversarialEntity(String n,float x, float y, Texture t){
         super(n,x,y,t); 
     }
+    public AdversarialEntity() {}
 
     //GETTER & SETTER METHODS
     public void setAIManager(AIManager ai){
@@ -34,6 +35,18 @@ public class AdversarialEntity extends Entity {
 
         System.currentTimeMillis();
     }
+
+	@Override
+	public Entity createEntity(int x, int y, Texture[] textures, boolean[] properties, String name) {
+		AdversarialEntity entity = new AdversarialEntity("n", x, y, textures[0]);
+		entity.setIsAlive(properties[0]);
+        entity.setIsKillable(properties[1]);
+        entity.setIsMovable(properties[2]);
+        entity.setEntityType(name);
+        entity.setIsCollidable(properties[4]);
+        
+		return entity;
+	}
 
 
 }

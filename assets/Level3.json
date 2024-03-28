@@ -5602,7 +5602,7 @@
         {
             "coords": [
                 1150,
-                575
+                175
             ],
             "texture": [
                 "rocket.png",
@@ -5686,7 +5686,7 @@
             "isAnimated": true,
             "isCollidable": true,
             "isHostile": false,
-            "entityName": "facts_npc"
+            "entityName": "idk"
         },
         {
             "coords": [
