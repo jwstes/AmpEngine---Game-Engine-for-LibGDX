@@ -811,11 +811,18 @@ public class SceneManager{
 	
 	
 	public void autoSetRandomFactIndex(int currentSceneID) {
-		Random r = new Random();
-		List<String> facts = allScenes.get(currentSceneID).GetAllFacts();
-		int max = facts.size();
-		randomFactIndex = (r.nextInt((max-1) - 0 + 1) + 0);
+	    Random r = new Random();
+	    List<String> facts = allScenes.get(currentSceneID).GetAllFacts();
+	    if (facts.isEmpty()) {
+	    	
+	        // Print log statement if the facts list is empty
+	        Gdx.app.log("SceneManager", "The facts list is empty for scene ID: " + currentSceneID);
+	    } else {
+	    	int max = facts.size();
+			randomFactIndex = (r.nextInt((max-1) - 0 + 1) + 0);
+	    }
 	}
+
 	
 	
 	
