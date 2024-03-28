@@ -1,11 +1,9 @@
 package com.mygdx.game.IO;
-import com.badlogic.gdx.audio.*;
+
+import com.badlogic.gdx.audio.Sound;
 
 import java.util.Map;
 
-
-// OutputManager manages outputs (other than display) - as of now largely used for outputting audio. Implements
-// Interface for sound methods.
 public class OutputManager implements SoundInterface {
 
     // Singleton instance
@@ -43,6 +41,7 @@ public class OutputManager implements SoundInterface {
 
             this.currentSoundID = id;
             this.currentSound = s;
+
 
             s.setLooping(id, true);
             soundPlaying = true;
