@@ -63,11 +63,13 @@ public class SceneManager{
     public EntityManager entityManager;
 	private Dashboard dashboard;
     
+	
 	private int drawMenu;
 	private int drawQuiz;
     private BitmapFont font;
     private Rectangle choiceA, choiceB, choiceC, choiceD;
     private Rectangle menuChoiceA, menuChoiceB, menuChoiceC, menuChoiceD;
+    private Rectangle settingCloseChoice, musicChoice;
     private String correctAnswer;
     private boolean showWrongAnswerMessage = false;
     private float wrongAnswerMessageTimer = 0;
@@ -78,6 +80,11 @@ public class SceneManager{
     private int globalBossHP = 100;
     private long factDisplayStartTime = 0; // Tracks when the fact started being displayed
     private int randomFactIndex;
+    
+	private int drawSettings;
+    private boolean showingSettings = false;
+    private boolean isMuted = false; // Add this flag
+   
 
     
 
@@ -124,6 +131,8 @@ public class SceneManager{
 		
 		drawQuiz = 0;
 		drawMenu = 1;
+		drawSettings = 2;
+		
 		this.font = new BitmapFont(Gdx.files.internal("font.fnt"));
 		batch = new SpriteBatch();
 		choiceA = new Rectangle(100, 230, 200, 30);
@@ -137,6 +146,8 @@ public class SceneManager{
 		menuChoiceD = new Rectangle(100, 80, 200, 30);
 		
 		choiceB = new Rectangle(100, 180, 200, 30);
+		
+		musicChoice = new Rectangle(100, 180, 200, 30);
 	}
 
 	// Property Getter Setters
@@ -177,6 +188,26 @@ public class SceneManager{
 	public void setDrawMenu(int v) {
 		drawMenu = v;
 	}
+	
+	public int getDrawSettings() {
+		return drawSettings;
+	}
+	public void setDrawSettings(int s) {
+	    // Reset other states as necessary
+	    drawQuiz = 0;
+	    drawMenu = 0;
+	    drawSettings = s;
+	}
+	
+	  // Getter for showingSettings
+    public boolean isShowingSettings() {
+        return showingSettings;
+    }
+    
+    // Setter for showingSettings
+    public void setShowingSettings(boolean showingSettings) {
+        this.showingSettings = showingSettings;
+    }
 	
 	
 	public void setDisplayingCutscene(boolean b) {
@@ -646,40 +677,45 @@ public class SceneManager{
 	      
 	        float startGameX = 400; // Adjust this value as needed
 	        float startGameY = 300; // Adjust this value as needed
-	  
+	        
+	        float settingGameX = 1050; 
+	        float settingGameY = 0;
+	        
 	        float endGameX = 400; 
 	        float endGameY = 150;
 	        
 	        // Load the "Start Game" image
 	        Texture startGameImage = new Texture(Gdx.files.internal("menu_start.png"));
-	    	
-	        
 	        batch.draw(startGameImage, startGameX, startGameY);
-	        
-
 		    menuChoiceA = new Rectangle(startGameX, startGameY, startGameImage.getWidth(), startGameImage.getHeight());
-		    
 	        // Update menuChoiceA coordinates to match "Start Game" image
 	        menuChoiceA.setPosition(startGameX, startGameY);
 		     // Assuming startGameImage is not null
 		    menuChoiceA.setSize(startGameImage.getWidth(), startGameImage.getHeight());
+		    
+		    
+		    
+		    // Draw setting image
+	        Texture settingImage = new Texture(Gdx.files.internal("menu_setting.png"));  
+	        batch.draw(settingImage, settingGameX, settingGameY);    
+		    menuChoiceB = new Rectangle(settingGameX, settingGameY, settingImage.getWidth(), settingImage.getHeight());
+		    menuChoiceB.setPosition(settingGameX, settingGameY);
+		    menuChoiceB.setSize(settingImage.getWidth(), settingImage.getHeight());
 	        
 		    
 		    // Draw header image
 	        Texture exitGameImage = new Texture(Gdx.files.internal("menu_exit.png"));
-	        
-	     
-	        
 	        batch.draw(exitGameImage, endGameX, endGameY);
-	        
-		    menuChoiceB = new Rectangle(endGameX, endGameY, exitGameImage.getWidth(), exitGameImage.getHeight());
-
-	        menuChoiceB.setPosition(endGameX, endGameY);
-		    menuChoiceB.setSize(exitGameImage.getWidth(), exitGameImage.getHeight());
+		    menuChoiceC = new Rectangle(endGameX, endGameY, exitGameImage.getWidth(), exitGameImage.getHeight());
+	        menuChoiceC.setPosition(endGameX, endGameY);
+		    menuChoiceC.setSize(exitGameImage.getWidth(), exitGameImage.getHeight());
 	        
 		    
 	    }
 	    
+		else if (isShowingSettings()) {
+			drawSettingsPage();
+		}
 	    
 	    else 
 	    {
@@ -727,19 +763,142 @@ public class SceneManager{
 	}
 
 
+	
+
+//	
+	public void drawSettingsPage() {
+	    if (showingSettings) {
+	        // Draw semi-transparent overlay using ShapeRenderer
+	        ShapeRenderer shapeRenderer = new ShapeRenderer();
+	        Gdx.gl.glEnable(GL20.GL_BLEND);
+	        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA); // Ensure blending is set up for transparency
+	        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+	        shapeRenderer.setColor(new Color(0, 0, 0, 0.5f)); // Semi-transparent black
+	        shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	        shapeRenderer.end(); // End ShapeRenderer session
+	        Gdx.gl.glDisable(GL20.GL_BLEND);
+
+	        // Now start SpriteBatch session
+	        batch.begin();
+
+	        // Load the settings background image
+	        Texture settingsBackgroundImage = new Texture(Gdx.files.internal("setting_BG.png"));
+	        
+	        // Specify the scale dimensions
+	        float scaleWidth = Gdx.graphics.getWidth(); // Scale to full screen width
+	        float scaleHeight = Gdx.graphics.getHeight(); // Scale to full screen height
+
+	        // Calculate the position to center the image
+	        float x = (Gdx.graphics.getWidth() - scaleWidth) / 2;
+	        float y = (Gdx.graphics.getHeight() - scaleHeight) / 2;
+
+	        // Draw the scaled settings background image
+	        batch.draw(settingsBackgroundImage, x, y, scaleWidth, scaleHeight);
+
+	        
+	        // Load the settings background image
+	        Texture settingHeader = new Texture(Gdx.files.internal("setting_header.png"));
+	        
+	        // Specify the scale dimensions
+	        float settingHeaderX = 400; // Scale to full screen width
+	        float settingHeaderY = 600; // Scale to full screen height
+	        // Draw the scaled settings background image
+	        batch.draw(settingHeader, settingHeaderX, settingHeaderY);
+	        settingCloseChoice = new Rectangle(settingHeaderX, settingHeaderY, settingHeader.getWidth(), settingHeader.getHeight());
+	        settingCloseChoice.setPosition(settingHeaderX, settingHeaderY);
+	        settingCloseChoice.setSize(settingHeader.getWidth(), settingHeader.getHeight());
+
+	        
+	        float settingCloseX = 500; 
+	        float settingCloseY = 50;
+	        
+	        // Draw setting image
+	        Texture settingClose = new Texture(Gdx.files.internal("setting_close.png"));
+	        batch.draw(settingClose, settingCloseX, settingCloseY);
+	        settingCloseChoice = new Rectangle(settingCloseX, settingCloseY, settingClose.getWidth(), settingClose.getHeight());
+	        settingCloseChoice.setPosition(settingCloseX, settingCloseY);
+	        settingCloseChoice.setSize(settingClose.getWidth(), settingClose.getHeight());
+		    
+	        batch.end();
+	        
+	        batch.begin();
+
+	        float musicChoiceX = 500; 
+	        float musicChoiceY = 300;
+	        
+	     
+	        
+	        // Load the "Mute Music" image
+	        
+	        Texture musicImage = new Texture(Gdx.files.internal("Music_BTN.png"));
+	        
+	        // Check if the music is muted and set the opacity accordingly
+	        if (outputManager.isMuted()) {
+	            // If muted, set the image to be more transparent
+	        	    Texture musicOff = new Texture(Gdx.files.internal("MusicOff_BTN.png"));
+	   	        	batch.draw(musicOff, musicChoiceX, musicChoiceY);
+
+
+	        } else {
+		        	Texture musicOn = new Texture(Gdx.files.internal("Music_BTN.png"));
+		   	        batch.draw(musicOn, musicChoiceX, musicChoiceY);
+
+	        }
+		    musicChoice = new Rectangle(musicChoiceX, musicChoiceY, musicImage.getWidth(), musicImage.getHeight());
+	        // Update menuChoiceA coordinates to match "Start Game" image
+		    musicChoice.setPosition(musicChoiceX, musicChoiceY);
+		     // Assuming startGameImage is not null
+		    musicChoice.setSize(musicImage.getWidth(), musicImage.getHeight());
+		    batch.end();
+		   
+			// Update menuChoiceA coordinates to match "Start Game" image			
+//		    
+//		    
+//		    
+//		    // Draw setting image
+//	        Texture settingImage = new Texture(Gdx.files.internal("menu_setting.png"));  
+//	        batch.draw(settingImage, settingGameX, settingGameY);    
+//		    menuChoiceB = new Rectangle(settingGameX, settingGameY, settingImage.getWidth(), settingImage.getHeight());
+//		    menuChoiceB.setPosition(settingGameX, settingGameY);
+//		    menuChoiceB.setSize(settingImage.getWidth(), settingImage.getHeight());
+//	        
+		    
+		    
+
+	    }
+	}
+	
+	public void toggleSettingsPage() {
+	    showingSettings = !showingSettings; // This will toggle the state
+	}
+	
 	public int handleInput(boolean menuMode) {
 	    if (Gdx.input.justTouched()) {
 	        float x = Gdx.input.getX();
 	        float y = Gdx.graphics.getHeight() - Gdx.input.getY();
 	        
 	        // Check if the game is in menu mode
-	        if (menuMode) {
+	        if (menuMode && !isShowingSettings()) {
 	            if (menuChoiceA.contains(x, y)) {
 	                return 1; // Start Game
 	            } else if (menuChoiceB.contains(x, y)) {
-	                return 2; // Exit Game
-	            }
-	        } else {
+	            	 toggleSettingsPage(); // Toggle the settings page visibility
+	            	 return -1; // Do not change the menu state as we are displaying an overlay
+	            } else if (menuChoiceC.contains(x, y)) {
+                    return 3; // Exit Game
+                }
+	            
+	        }
+			else if (isShowingSettings()) {
+				if (settingCloseChoice.contains(x, y)) {
+					showingSettings = false;
+					return 2; // Start Game
+				} else if (musicChoice.contains(x, y)) {
+				    OutputManager.getInstance().toggleMute();
+					return -1; // Do not change the menu state as we are displaying an overlay
+				} 
+			}
+	        else {
 	            // Handle input for game mode (questions)
 	            if (choiceA.contains(x, y)) {
 	                return checkAnswer("A");
