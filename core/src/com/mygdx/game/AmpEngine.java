@@ -316,11 +316,7 @@ public class AmpEngine extends ApplicationAdapter{
 	@Override
 	public void create() {
 		  // Load the background music
-	    backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
-
-	    // Set the music to loop and start playing
-	    backgroundMusic.setLooping(true);
-	    backgroundMusic.play();
+	  
 
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
@@ -460,10 +456,17 @@ public class AmpEngine extends ApplicationAdapter{
 	    	if(startGameSelected == 1) {
 	    		sceneManager.setDrawMenu(0);
 	    	}
-			else if (startGameSelected == 2) {
+	    	else if (startGameSelected == -1) {
+	            // Then draw the settings page if needed, as an overlay
+	            sceneManager.drawSettingsPage();
+			}
+	    	
+			else if (startGameSelected == 3) {
 				Gdx.app.exit();
 			}
 	    }
+	    
+	    
 	    
 	    
 	}
