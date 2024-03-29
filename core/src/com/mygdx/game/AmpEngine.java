@@ -1,13 +1,14 @@
 package com.mygdx.game;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,21 +16,21 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.audio.*;
+import com.mygdx.AiControlled.AIManager;
 import com.mygdx.Animated.AnimatedEntity;
 import com.mygdx.game.Entities.CollisionManager;
 import com.mygdx.game.Entities.Entity;
 import com.mygdx.game.Entities.EntityManager;
 import com.mygdx.game.Entities.PlayerEntity;
 import com.mygdx.game.IO.InputManager;
+import com.mygdx.game.IO.OutputManager;
 import com.mygdx.game.IO.PlayerControl;
 import com.mygdx.game.Scene.Scene;
 import com.mygdx.game.Scene.SceneManager;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import org.w3c.dom.css.Rect;
 
 
 public class AmpEngine extends ApplicationAdapter{
@@ -262,15 +263,13 @@ public class AmpEngine extends ApplicationAdapter{
 		playerStartPositionX = player.getPosX();
 		playerStartPositionY = player.getPosY();
 		
-		sceneManager.autoSetRandomFactIndex(sceneID);
+		autoSetRandomFactIndex(sceneID);
 	}
 	
 	//Don't use in any Key Press functions, 
 	//It will cause nextSceneID to go crazy and throw an error. 
 	public void nextScene() {
-		
-		
-		
+
 //		sceneManager.getAllScenes().get(currentSceneID).EmptyAllFacts();
 		sceneManager.unloadScene();
 		int nextSceneID = currentSceneID + 1;
@@ -283,7 +282,6 @@ public class AmpEngine extends ApplicationAdapter{
 			else {
 				gameLost = true;
 				sceneManager.setCutsceneMessage("upper?");
-				
 			}
 			
 		}
@@ -316,8 +314,6 @@ public class AmpEngine extends ApplicationAdapter{
 	@Override
 	public void create() {
 		  // Load the background music
-	  
-
 		Array<String> sceneJSONArr = new Array<String>();
 		sceneJSONArr.add("Level1.json");
 		sceneJSONArr.add("Level2.json");
@@ -387,7 +383,7 @@ public class AmpEngine extends ApplicationAdapter{
 		    		
 		    		
 		    		if(sceneManager.getDisplayingCutscene()) {
-		    		    sceneManager.displayCutscene();
+		    		    displayCutscene();
 		    		    
 		    		    if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
 		    		        sceneManager.setDisplayingCutscene(false);
@@ -399,7 +395,7 @@ public class AmpEngine extends ApplicationAdapter{
 		    			sceneManager.loadScene(currentSceneID, false);
 		    			
 					    //sceneManager.drawCollider();
-					    sceneManager.updateScene();
+					    updateScene();
 					    sceneManager.checkCollision(currentSceneID);
 					    
 					    simulationLifeCycle.simulationUpdate();
@@ -423,53 +419,465 @@ public class AmpEngine extends ApplicationAdapter{
 			    else {
 			    	boolean noMoreQuestions = false;
 			 
-			    	sceneManager.drawPopQuiz(currentSceneID, false);
+			    	drawPopQuiz(currentSceneID, false);
 			    	sceneManager.loadScene(currentSceneID, true);
 			    	
 			    	// Existing code in render method for handling quiz questions
-			    	int correctAnswerSelected = sceneManager.handleInput(false);
+			    	int correctAnswerSelected = handleInput(false);
 			    	if(correctAnswerSelected == 1) {
 			    	    handleNoMoreQuestions();
-			    	    sceneManager.decreaseBossHP(40, 5, 0);
+			    	    decreaseBossHP(40, 5, 0);
 			    	    noMoreQuestions=false;
 			    	    System.out.println("here1");
 			    	} else if (correctAnswerSelected == 0) {
-			    	    sceneManager.increaseBossHP(15);
+			    	    increaseBossHP(15);
 			    	    System.out.println("here2!");
 			    	} 
 			    }
 	    	}
 	    	else {
-	    		sceneManager.displayCutscene();
+	    		displayCutscene();
 	    		if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
     		        sceneManager.setCutsceneMessage("There's no restarting for you bro.");
     				restartToScene1();
-    				sceneManager.resetBossHP();
+    				resetBossHP();
     		        
     		        
     		    }
 	    	}
 	    }
 	    else {
-	    	sceneManager.drawPopQuiz(currentSceneID, true);
-	    	int startGameSelected = sceneManager.handleInput(true);
+	    	drawPopQuiz(currentSceneID, true);
+	    	int startGameSelected = handleInput(true);
 	    	if(startGameSelected == 1) {
 	    		sceneManager.setDrawMenu(0);
 	    	}
 	    	else if (startGameSelected == -1) {
 	            // Then draw the settings page if needed, as an overlay
-	            sceneManager.drawSettingsPage();
+	            drawSettingsPage();
 			}
 	    	
 			else if (startGameSelected == 3) {
 				Gdx.app.exit();
 			}
 	    }
-	    
-	    
-	    
-	    
 	}
+
+	public long getCurrentTime(){
+		return System.currentTimeMillis();
+	}
+	private boolean isEntityName(String desiredEntityName) {
+		System.out.println("runned at isEntity AmpEngine");
+		Scene currentScene = sceneManager.exposeScene();
+		List<String> entityNames = currentScene.GetEntityName();
+		for (String name : entityNames) {
+			if (desiredEntityName.equals(name)) {
+				return true; // Found the desired entity name
+			}
+		}
+		return false; // Desired entity name not found
+	}
+
+
+	// updateScene handles animation texture changes, checks for collision, move AI,
+	public void updateScene() {
+
+		// Loop Animations
+		int animatedTextureID = sceneManager.getAnimatedTextureID();
+		if (getCurrentTime() >= (sceneManager.getLastEntityUpdate() + 80)) {
+			if(animatedTextureID < 4) {
+				sceneManager.setAnimatedTextureID(animatedTextureID + 1);
+			}
+			else {
+				sceneManager.setAnimatedTextureID(0);
+			}
+			//checkCollision(); //instead of calling here, shift to AmpEngine so other details can be modified
+			sceneManager.setLastEntityUpdate(System.currentTimeMillis());
+		}
+
+		// Time taken before movable entity moves
+		if (getCurrentTime() >= (sceneManager.getLastAIUpdate() + 800))
+		{
+			Array<PlayerEntity> playerEntities = sceneManager.entityManager.getAllPEntity();
+
+			for (AIManager ai : sceneManager.entityManager.getAllAIMEntity()) {
+				if (isEntityName("meteor")) {
+					if (ai.getIsMovable() && !ai.getIsKillable() && !ai.getIsAlive() && !ai.getIsCollidable()) {
+						ai.moveEntityDiagonallyRight();
+						ai.updateCollider(ai.getPosX(), ai.getPosY(), 100, 100);
+					}
+				}
+
+
+				if (ai.getIsMovable() && ai.getIsKillable() && ai.getIsHostile() && isEntityName("enemy")) {
+
+					ai.chasePEntity(playerEntities);
+				}
+				else if (ai.getIsAlive() && ai.getIsMovable() && ai.getIsHostile() == false && isEntityName("facts_npc"))
+				{
+
+					ai.moveEntityRandomly();
+					ai.updateCollider(ai.getPosX(), ai.getPosY(), 32, 32);
+				}
+			}
+		}
+	}
+
+	public void drawPopQuiz(int currentSceneID, boolean menuMode) {
+		batch = sceneManager.getBatch();
+		Array<Scene> allScenes = sceneManager.getAllScenes();
+		List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
+//	    Map<String, Object> currentQuestion = questionsList.get(0);
+		Map<String, Object> currentQuestion = questionsList.get(sceneManager.getRandomFactIndex());
+
+		String questionText = (String) currentQuestion.get("question");
+		List<String> answers = (List<String>) currentQuestion.get("answers");
+		String correctAnswer = sceneManager.getCorrectAnswer();
+		correctAnswer = (String) currentQuestion.get("real");
+
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		float mouseX = Gdx.input.getX();
+		float mouseY = Gdx.graphics.getHeight() - Gdx.input.getY();
+
+		batch.begin();
+
+
+		if (menuMode) {
+			// Draw menu text
+			// Centering and scaling for menu text
+			// Draw background image
+			Texture backgroundImage = new Texture(Gdx.files.internal("menu_BG.png"));
+			batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+			// Draw header image
+			Texture headerImage = new Texture(Gdx.files.internal("menu_header.png"));
+			batch.draw(headerImage, 150, Gdx.graphics.getHeight() - headerImage.getHeight() - 200);
+
+//	        font.setColor(1, 1, 1, 1);
+//	        font.getData().setScale(4.0f); // Adjust the scale as needed
+//	        GlyphLayout layout = new GlyphLayout(font, "Menu:");
+//
+//	        // Reset scale for other text
+//	        font.getData().setScale(10.0f);
+
+			float startGameX = 400; // Adjust this value as needed
+			float startGameY = 300; // Adjust this value as needed
+
+			float settingGameX = 1050;
+			float settingGameY = 0;
+
+			float endGameX = 400;
+			float endGameY = 150;
+
+			// Load the "Start Game" image
+			Texture startGameImage = new Texture(Gdx.files.internal("menu_start.png"));
+			batch.draw(startGameImage, startGameX, startGameY);
+
+			Rectangle menuChoiceA = new Rectangle(startGameX, startGameY, startGameImage.getWidth(), startGameImage.getHeight());
+			// Update menuChoiceA coordinates to match "Start Game" image
+			menuChoiceA.setPosition(startGameX, startGameY);
+			// Assuming startGameImage is not null
+			menuChoiceA.setSize(startGameImage.getWidth(), startGameImage.getHeight());
+			sceneManager.setMenuChoiceA(menuChoiceA);
+
+
+
+			// Draw setting image
+			Texture settingImage = new Texture(Gdx.files.internal("menu_setting.png"));
+			batch.draw(settingImage, settingGameX, settingGameY);
+			Rectangle menuChoiceB = new Rectangle(settingGameX, settingGameY, settingImage.getWidth(), settingImage.getHeight());
+			menuChoiceB.setPosition(settingGameX, settingGameY);
+			menuChoiceB.setSize(settingImage.getWidth(), settingImage.getHeight());
+			sceneManager.setMenuChoiceB(menuChoiceB);
+
+
+			// Draw header image
+			Texture exitGameImage = new Texture(Gdx.files.internal("menu_exit.png"));
+			batch.draw(exitGameImage, endGameX, endGameY);
+			Rectangle menuChoiceC = new Rectangle(endGameX, endGameY, exitGameImage.getWidth(), exitGameImage.getHeight());
+			menuChoiceC.setPosition(endGameX, endGameY);
+			menuChoiceC.setSize(exitGameImage.getWidth(), exitGameImage.getHeight());
+			sceneManager.setMenuChoiceC(menuChoiceC);
+
+		}
+
+		else if (sceneManager.isShowingSettings()) {
+			drawSettingsPage();
+		}
+
+		else
+		{
+			Texture backgroundImage = new Texture(Gdx.files.internal("questionBG.png"));
+			batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+			font.setColor(1, 1, 1, 1);
+
+			// Centering text for question and choices
+			GlyphLayout layout = new GlyphLayout(font, "Question: " + questionText);
+			float xPosition = (Gdx.graphics.getWidth() - layout.width) / 2;
+			font.draw(batch, "Question: " + questionText, xPosition, Gdx.graphics.getHeight() / 2);
+
+			Rectangle choiceA = sceneManager.getChoiceA();
+			font.setColor(sceneManager.getColorForChoice(choiceA, mouseX, mouseY));
+			font.draw(batch, answers.get(0), choiceA.x, choiceA.y + choiceA.height);
+
+			Rectangle choiceB = sceneManager.getChoiceB();
+			font.setColor(sceneManager.getColorForChoice(choiceB, mouseX, mouseY));
+			font.draw(batch, answers.get(1), choiceB.x, choiceB.y + choiceB.height);
+
+			Rectangle choiceC = sceneManager.getChoiceC();
+			font.setColor(sceneManager.getColorForChoice(choiceC, mouseX, mouseY));
+			font.draw(batch, answers.get(2), choiceC.x, choiceC.y + choiceC.height);
+
+			Rectangle choiceD = sceneManager.getChoiceD();
+			font.setColor(sceneManager.getColorForChoice(choiceD, mouseX, mouseY));
+			font.draw(batch, answers.get(3), choiceD.x, choiceD.y + choiceD.height);
+
+		}
+
+		if (sceneManager.getShowWrongAnswerMessage()) {
+			float wrongAnswerMessageTimer = sceneManager.getWrongAnswerMessageTimer();
+			wrongAnswerMessageTimer -= Gdx.graphics.getDeltaTime();
+			if (wrongAnswerMessageTimer <= 0) {
+				sceneManager.setShowWrongAnswerMessage(false);
+			} else {
+				font.setColor(com.badlogic.gdx.graphics.Color.RED);
+				font.draw(batch, "Wrong Answer!", 100, 50);
+			}
+		}
+
+		batch.end();
+	}
+
+	public void drawSettingsPage() {
+		if (sceneManager.getShowingSettings()) {
+			batch = sceneManager.getBatch(); // added reference
+			// Draw semi-transparent overlay using ShapeRenderer
+			ShapeRenderer shapeRenderer = new ShapeRenderer();
+			Gdx.gl.glEnable(GL20.GL_BLEND);
+			Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA); // Ensure blending is set up for transparency
+			shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+			shapeRenderer.setColor(new Color(0, 0, 0, 0.5f)); // Semi-transparent black
+			shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+			shapeRenderer.end(); // End ShapeRenderer session
+			Gdx.gl.glDisable(GL20.GL_BLEND);
+
+			// Now start SpriteBatch session
+			batch.begin();
+
+			// Load the settings background image
+			Texture settingsBackgroundImage = new Texture(Gdx.files.internal("setting_BG.png"));
+
+			// Specify the scale dimensions
+			float scaleWidth = Gdx.graphics.getWidth(); // Scale to full screen width
+			float scaleHeight = Gdx.graphics.getHeight(); // Scale to full screen height
+
+			// Calculate the position to center the image
+			float x = (Gdx.graphics.getWidth() - scaleWidth) / 2;
+			float y = (Gdx.graphics.getHeight() - scaleHeight) / 2;
+
+			// Draw the scaled settings background image
+			batch.draw(settingsBackgroundImage, x, y, scaleWidth, scaleHeight);
+
+
+			// Load the settings background image
+			Texture settingHeader = new Texture(Gdx.files.internal("setting_header.png"));
+
+			// Specify the scale dimensions
+			float settingHeaderX = 400; // Scale to full screen width
+			float settingHeaderY = 600; // Scale to full screen height
+			// Draw the scaled settings background image
+			batch.draw(settingHeader, settingHeaderX, settingHeaderY);
+			Rectangle settingCloseChoice = new Rectangle(settingHeaderX, settingHeaderY, settingHeader.getWidth(), settingHeader.getHeight());
+			settingCloseChoice.setPosition(settingHeaderX, settingHeaderY);
+			settingCloseChoice.setSize(settingHeader.getWidth(), settingHeader.getHeight());
+			sceneManager.setSettingCloseChoice(settingCloseChoice);
+
+			float settingCloseX = 500;
+			float settingCloseY = 50;
+
+			// Draw setting image
+			Texture settingClose = new Texture(Gdx.files.internal("setting_close.png"));
+			batch.draw(settingClose, settingCloseX, settingCloseY);
+			settingCloseChoice = new Rectangle(settingCloseX, settingCloseY, settingClose.getWidth(), settingClose.getHeight());
+			settingCloseChoice.setPosition(settingCloseX, settingCloseY);
+			settingCloseChoice.setSize(settingClose.getWidth(), settingClose.getHeight());
+
+			batch.end();
+
+			batch.begin();
+
+			float musicChoiceX = 500;
+			float musicChoiceY = 300;
+
+
+
+			// Load the "Mute Music" image
+
+			Texture musicImage = new Texture(Gdx.files.internal("Music_BTN.png"));
+
+			// Check if the music is muted and set the opacity accordingly
+			OutputManager outputManager = sceneManager.getOutputManager();
+			if (outputManager.isMuted()) {
+				// If muted, set the image to be more transparent
+				Texture musicOff = new Texture(Gdx.files.internal("MusicOff_BTN.png"));
+				batch.draw(musicOff, musicChoiceX, musicChoiceY);
+
+
+			} else {
+				Texture musicOn = new Texture(Gdx.files.internal("Music_BTN.png"));
+				batch.draw(musicOn, musicChoiceX, musicChoiceY);
+			}
+			Rectangle musicChoice = new Rectangle(musicChoiceX, musicChoiceY, musicImage.getWidth(), musicImage.getHeight());
+			// Update menuChoiceA coordinates to match "Start Game" image
+			musicChoice.setPosition(musicChoiceX, musicChoiceY);
+			// Assuming startGameImage is not null
+			musicChoice.setSize(musicImage.getWidth(), musicImage.getHeight());
+			sceneManager.setMusicChoice(musicChoice);
+			batch.end();
+
+			// Update menuChoiceA coordinates to match "Start Game" image
+//
+//
+//
+//		    // Draw setting image
+//	        Texture settingImage = new Texture(Gdx.files.internal("menu_setting.png"));
+//	        batch.draw(settingImage, settingGameX, settingGameY);
+//		    menuChoiceB = new Rectangle(settingGameX, settingGameY, settingImage.getWidth(), settingImage.getHeight());
+//		    menuChoiceB.setPosition(settingGameX, settingGameY);
+//		    menuChoiceB.setSize(settingImage.getWidth(), settingImage.getHeight());
+		}
+	}
+	public void toggleSettingsPage() {
+		boolean showingSettings = sceneManager.isShowingSettings();
+		showingSettings = !showingSettings; // This will toggle the state
+		sceneManager.setShowingSettings(showingSettings);
+	}
+
+	public int handleInput(boolean menuMode) {
+		boolean showingSettings = sceneManager.getShowingSettings();
+		if (Gdx.input.justTouched()) {
+			float x = Gdx.input.getX();
+			float y = Gdx.graphics.getHeight() - Gdx.input.getY();
+			Rectangle menuChoiceA = sceneManager.getMenuChoiceA();
+			Rectangle menuChoiceB = sceneManager.getMenuChoiceB();
+			Rectangle menuChoiceC = sceneManager.getMenuChoiceC();
+			Rectangle settingCloseChoice = sceneManager.getSettingCloseChoice();
+			Rectangle musicChoice = sceneManager.getMusicChoice();
+			Rectangle choiceA = sceneManager.getChoiceA();
+			Rectangle choiceB = sceneManager.getChoiceB();
+			Rectangle choiceC = sceneManager.getChoiceC();
+			Rectangle choiceD = sceneManager.getChoiceD();
+
+
+
+			// Check if the game is in menu mode
+			if (menuMode && !showingSettings) {
+				if (menuChoiceA.contains(x, y)) {
+					return 1; // Start Game
+				} else if (menuChoiceB.contains(x, y)) {
+					toggleSettingsPage(); // Toggle the settings page visibility
+					return -1; // Do not change the menu state as we are displaying an overlay
+				} else if (menuChoiceC.contains(x, y)) {
+					return 3; // Exit Game
+				}
+
+			}
+			else if (showingSettings) {
+				if (settingCloseChoice.contains(x, y)) {
+					sceneManager.setShowingSettings(false);
+					return 2; // Start Game
+				} else if (musicChoice.contains(x, y)) {
+					OutputManager.getInstance().toggleMute();
+					return -1; // Do not change the menu state as we are displaying an overlay
+				}
+			}
+			else {
+				// Handle input for game mode (questions)
+				if (choiceA.contains(x, y)) {
+					return checkAnswer("A");
+				} else if (choiceB.contains(x, y)) {
+					return checkAnswer("B");
+				} else if (choiceC.contains(x, y)) {
+					return checkAnswer("C");
+				} else if (choiceD.contains(x, y)) {
+					return checkAnswer("D");
+				}
+			}
+		}
+		return -1; // Default return if no action is triggered
+	}
+
+	public int checkAnswer(String selectedAnswer) {
+		String correctAnswer = sceneManager.getCorrectAnswer();
+		if (selectedAnswer.equals(correctAnswer)) {
+			sceneManager.setDrawQuiz(0);
+			sceneManager.setShowWrongAnswerMessage(false);
+			sceneManager.setWrongAnswerMessageTimer(0);
+			return 1;
+		} else {
+			System.out.println("Wrong Answer!");
+			sceneManager.setShowWrongAnswerMessage(true);
+			sceneManager.setWrongAnswerMessageTimer(sceneManager.getMESSAGE_DISPLAY_TIME()); //3
+			return 0;
+		}
+	}
+
+	public void displayCutscene() {
+		batch = sceneManager.getBatch();
+		batch.begin();
+		BitmapFont font = new BitmapFont(Gdx.files.internal("font.fnt"));
+		font.getData().setScale(0.7f);
+
+		String loremIpsum = sceneManager.getCutsceneMessage();
+		String pressEnter = "Press SPACE to continue";
+
+		GlyphLayout loremLayout = new GlyphLayout(font, loremIpsum);
+		GlyphLayout enterLayout = new GlyphLayout(font, pressEnter);
+
+		float loremX = (Gdx.graphics.getWidth() - loremLayout.width) / 2;
+		float loremY = (Gdx.graphics.getHeight() + loremLayout.height) / 2;
+		float enterX = (Gdx.graphics.getWidth() - enterLayout.width) / 2;
+		float enterY = (Gdx.graphics.getHeight() / 4f) + enterLayout.height / 2;
+
+		font.draw(batch, loremLayout, loremX, loremY);
+		font.draw(batch, enterLayout, enterX, enterY);
+		batch.end();
+	}
+
+	public void decreaseBossHP(int baseDecrement, int basePenalty, int wrongAttempts) {
+		int penalty = basePenalty * wrongAttempts;
+		int globalBossHP = sceneManager.getGlobalBossHP() - (baseDecrement - penalty);
+		sceneManager.setGlobalBossHP(globalBossHP);
+	}
+	public void increaseBossHP(int baseIncrement) {
+		int globalBossHP = sceneManager.getGlobalBossHP() + (baseIncrement);
+		sceneManager.setGlobalBossHP(globalBossHP);
+	}
+
+	public void resetBossHP() {
+		sceneManager.setGlobalBossHP(100);
+	}
+
+	public void autoSetRandomFactIndex(int currentSceneID) {
+		Random r = new Random();
+		Array<Scene> allScenes = sceneManager.getAllScenes();
+
+		List<String> facts = allScenes.get(currentSceneID).GetAllFacts();
+		if (facts.isEmpty()) {
+
+			// Print log statement if the facts list is empty
+			Gdx.app.log("SceneManager", "The facts list is empty for scene ID: " + currentSceneID);
+		} else {
+			int max = facts.size();
+			int randomFactIndex = (r.nextInt((max-1) - 0 + 1) + 0);
+			sceneManager.setRandomFactIndex(randomFactIndex);
+		}
+	}
+
+
 
 	
 	public AmpEngine() {
