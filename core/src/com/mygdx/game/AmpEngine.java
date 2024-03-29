@@ -44,6 +44,7 @@ public class AmpEngine extends ApplicationAdapter{
 	private CollisionManager collisionManager;
 	private InputManager inputManager;
 	private SimulationLifeCycle simulationLifeCycle;
+	private Dashboard dashboard;
 	
 	private int currentSceneID;
 	
@@ -64,6 +65,8 @@ public class AmpEngine extends ApplicationAdapter{
 
   
     private Music backgroundMusic;
+
+    private Boss boss;
     
     
     
@@ -275,7 +278,7 @@ public class AmpEngine extends ApplicationAdapter{
 		int nextSceneID = currentSceneID + 1;
 		
 		if((nextSceneID + 1) > sceneManager.getAllScenes().size) {
-			if(sceneManager.getGlobalBossHP() < 0){
+			if(boss.getGlobalBossHP() < 0){
 				gameLost = true;
 				sceneManager.setCutsceneMessage("You Won OMG!!!!! So Cool wtf?");
 			}
@@ -292,7 +295,7 @@ public class AmpEngine extends ApplicationAdapter{
 	    sceneManager.unloadScene();
 
 	    if (nextSceneID >= sceneManager.getAllScenes().size) {
-	        if (sceneManager.getGlobalBossHP() < 0) {
+	        if (boss.getGlobalBossHP() < 0) {
 	            gameLost = false;
 	            sceneManager.setCutsceneMessage("You Won OMG!!!!! So Cool wtf?");
 	        } else {
@@ -321,6 +324,8 @@ public class AmpEngine extends ApplicationAdapter{
 		//... add more if needed
 		
 		currentSceneID = 0;
+		
+		boss = new Boss();
 		
 		sceneManager = new SceneManager(sceneJSONArr,"player.png");
 		createScene(currentSceneID);
@@ -360,6 +365,9 @@ public class AmpEngine extends ApplicationAdapter{
 		simulationLifeCycle = new SimulationLifeCycle(System.currentTimeMillis(), sceneManager);
 		sceneManager.setDisplayingCutscene(true);
 		sceneManager.setCutsceneMessage("The goal of the game is to overcome a black hole's gravitational pull by\nsuccessfully completing quizzes on three different planets it's affecting.");
+	
+		dashboard = sceneManager.getDashboard();
+		resetBossHP();
 	}
 
 	
@@ -419,11 +427,11 @@ public class AmpEngine extends ApplicationAdapter{
 			    else {
 			    	boolean noMoreQuestions = false;
 			 
-			    	drawPopQuiz(currentSceneID, false);
+			    	String correctAnswer = drawPopQuiz(currentSceneID, false);
 			    	sceneManager.loadScene(currentSceneID, true);
 			    	
 			    	// Existing code in render method for handling quiz questions
-			    	int correctAnswerSelected = handleInput(false);
+			    	int correctAnswerSelected = handleInput(false, correctAnswer);
 			    	if(correctAnswerSelected == 1) {
 			    	    handleNoMoreQuestions();
 			    	    decreaseBossHP(40, 5, 0);
@@ -448,7 +456,7 @@ public class AmpEngine extends ApplicationAdapter{
 	    }
 	    else {
 	    	drawPopQuiz(currentSceneID, true);
-	    	int startGameSelected = handleInput(true);
+	    	int startGameSelected = handleInput(true, "");
 	    	if(startGameSelected == 1) {
 	    		sceneManager.setDrawMenu(0);
 	    	}
@@ -523,7 +531,7 @@ public class AmpEngine extends ApplicationAdapter{
 		}
 	}
 
-	public void drawPopQuiz(int currentSceneID, boolean menuMode) {
+	public String drawPopQuiz(int currentSceneID, boolean menuMode) {
 		batch = sceneManager.getBatch();
 		Array<Scene> allScenes = sceneManager.getAllScenes();
 		List<Map<String, Object>> questionsList = allScenes.get(currentSceneID).GetAllQuestions();
@@ -649,6 +657,8 @@ public class AmpEngine extends ApplicationAdapter{
 		}
 
 		batch.end();
+		
+		return correctAnswer;
 	}
 
 	public void drawSettingsPage() {
@@ -690,10 +700,6 @@ public class AmpEngine extends ApplicationAdapter{
 			float settingHeaderY = 600; // Scale to full screen height
 			// Draw the scaled settings background image
 			batch.draw(settingHeader, settingHeaderX, settingHeaderY);
-			Rectangle settingCloseChoice = new Rectangle(settingHeaderX, settingHeaderY, settingHeader.getWidth(), settingHeader.getHeight());
-			settingCloseChoice.setPosition(settingHeaderX, settingHeaderY);
-			settingCloseChoice.setSize(settingHeader.getWidth(), settingHeader.getHeight());
-			sceneManager.setSettingCloseChoice(settingCloseChoice);
 
 			float settingCloseX = 500;
 			float settingCloseY = 50;
@@ -701,10 +707,10 @@ public class AmpEngine extends ApplicationAdapter{
 			// Draw setting image
 			Texture settingClose = new Texture(Gdx.files.internal("setting_close.png"));
 			batch.draw(settingClose, settingCloseX, settingCloseY);
-			settingCloseChoice = new Rectangle(settingCloseX, settingCloseY, settingClose.getWidth(), settingClose.getHeight());
+			Rectangle settingCloseChoice = new Rectangle(settingCloseX, settingCloseY, settingClose.getWidth(), settingClose.getHeight());
 			settingCloseChoice.setPosition(settingCloseX, settingCloseY);
 			settingCloseChoice.setSize(settingClose.getWidth(), settingClose.getHeight());
-
+			sceneManager.setSettingCloseChoice(settingCloseChoice);
 			batch.end();
 
 			batch.begin();
@@ -756,7 +762,7 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager.setShowingSettings(showingSettings);
 	}
 
-	public int handleInput(boolean menuMode) {
+	public int handleInput(boolean menuMode, String correctAnswer) {
 		boolean showingSettings = sceneManager.getShowingSettings();
 		if (Gdx.input.justTouched()) {
 			float x = Gdx.input.getX();
@@ -787,6 +793,7 @@ public class AmpEngine extends ApplicationAdapter{
 			}
 			else if (showingSettings) {
 				if (settingCloseChoice.contains(x, y)) {
+					
 					sceneManager.setShowingSettings(false);
 					return 2; // Start Game
 				} else if (musicChoice.contains(x, y)) {
@@ -797,21 +804,25 @@ public class AmpEngine extends ApplicationAdapter{
 			else {
 				// Handle input for game mode (questions)
 				if (choiceA.contains(x, y)) {
-					return checkAnswer("A");
+					return checkAnswer("A", correctAnswer);
 				} else if (choiceB.contains(x, y)) {
-					return checkAnswer("B");
+					return checkAnswer("B", correctAnswer);
 				} else if (choiceC.contains(x, y)) {
-					return checkAnswer("C");
+					return checkAnswer("C", correctAnswer);
 				} else if (choiceD.contains(x, y)) {
-					return checkAnswer("D");
+					return checkAnswer("D", correctAnswer);
 				}
 			}
 		}
 		return -1; // Default return if no action is triggered
 	}
 
-	public int checkAnswer(String selectedAnswer) {
-		String correctAnswer = sceneManager.getCorrectAnswer();
+	public int checkAnswer(String selectedAnswer, String correctAnswer) {
+//		String correctAnswer = sceneManager.getCorrectAnswer();
+		
+		System.out.println(correctAnswer);
+		System.out.println(selectedAnswer);
+		
 		if (selectedAnswer.equals(correctAnswer)) {
 			sceneManager.setDrawQuiz(0);
 			sceneManager.setShowWrongAnswerMessage(false);
@@ -849,16 +860,19 @@ public class AmpEngine extends ApplicationAdapter{
 
 	public void decreaseBossHP(int baseDecrement, int basePenalty, int wrongAttempts) {
 		int penalty = basePenalty * wrongAttempts;
-		int globalBossHP = sceneManager.getGlobalBossHP() - (baseDecrement - penalty);
-		sceneManager.setGlobalBossHP(globalBossHP);
+		int globalBossHP = boss.getGlobalBossHP() - (baseDecrement - penalty);
+		boss.setGlobalBossHP(globalBossHP);
+		sceneManager.getDashboard().setBossHP(globalBossHP);
 	}
 	public void increaseBossHP(int baseIncrement) {
-		int globalBossHP = sceneManager.getGlobalBossHP() + (baseIncrement);
-		sceneManager.setGlobalBossHP(globalBossHP);
+		int globalBossHP = boss.getGlobalBossHP() + (baseIncrement);
+		boss.setGlobalBossHP(globalBossHP);
+		sceneManager.getDashboard().setBossHP(globalBossHP);
 	}
 
 	public void resetBossHP() {
-		sceneManager.setGlobalBossHP(100);
+		boss.setGlobalBossHP(100);
+		sceneManager.getDashboard().setBossHP(100);
 	}
 
 	public void autoSetRandomFactIndex(int currentSceneID) {

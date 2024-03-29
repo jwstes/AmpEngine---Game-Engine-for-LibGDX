@@ -20,6 +20,8 @@ public class Dashboard implements DashboardInterface {
     private SceneManager sceneManager; // New addition
     private ShapeRenderer shapeRenderer;
     
+    private int bossHP;
+    
     
     //CONSTRUCTOR
     public Dashboard(int maxHealth, BitmapFont font, Texture healthSprite) {
@@ -27,6 +29,12 @@ public class Dashboard implements DashboardInterface {
         this.shapeRenderer = new ShapeRenderer();
     }
     
+    public int getBossHP() {
+    	return bossHP;
+    }
+    public void setBossHP(int v) {
+    	bossHP = v;
+    }
     
     //GETTER & SETTER METHODS
     public DashboardManager getDashboardManager(){
@@ -88,7 +96,8 @@ public class Dashboard implements DashboardInterface {
     public void render(SpriteBatch batch) {
     	displayTimer(batch);
     	displayHealthText(batch);
-    	displayBossHP(batch, sceneManager.getGlobalBossHP());
+//    	displayBossHP(batch, sceneManager.getGlobalBossHP());
+    	displayBossHP(batch, bossHP);
     	dashboardManager.drawOnScene(batch);
     }
     
