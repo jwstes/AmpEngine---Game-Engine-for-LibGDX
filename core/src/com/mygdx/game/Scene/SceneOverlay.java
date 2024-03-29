@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class GameOverScene {
+public class SceneOverlay {
     private Texture gameOverTexture;
     private BitmapFont font;
     private String Text;
 
     //CONSTRUCTOR
   
-    public GameOverScene(Texture texture) {
+    public SceneOverlay(Texture texture) {
         this.gameOverTexture = texture;
         this.font = new BitmapFont(); // It's a good idea to initialize font in all constructors to avoid null checks
         this.Text = "";
@@ -20,13 +20,13 @@ public class GameOverScene {
     }
 
 
-    public GameOverScene(Texture texture, String text) {
+    public SceneOverlay(Texture texture, String text) {
         this.gameOverTexture = texture;
         this.font = new BitmapFont();
         this.Text = text;
     }
     
-    public GameOverScene(String text) {
+    public SceneOverlay(String text) {
         this.font = new BitmapFont(); 
         this.Text = text; 
         this.gameOverTexture = null;

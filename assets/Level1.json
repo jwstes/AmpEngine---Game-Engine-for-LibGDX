@@ -2276,7 +2276,7 @@
          ],
          "real": "C"
       }, {
-         "question": "What is the gravitational pull (approx.) of the planet we live on (Earth)?",
+         "question": "What is the gravitational pull (approx.) \n of the planet we live on (Earth)?",
          "answers": [
             "(A): 12.12 m/s^2",
             "(B): 9.807 m/s^2",

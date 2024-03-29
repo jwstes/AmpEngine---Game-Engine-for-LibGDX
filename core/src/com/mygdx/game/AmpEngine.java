@@ -330,7 +330,7 @@ public class AmpEngine extends ApplicationAdapter{
 		sceneManager = new SceneManager(sceneJSONArr,"player.png");
 		createScene(currentSceneID);
 		
-		font = new BitmapFont();
+		font = new BitmapFont(Gdx.files.internal("font.fnt"));
 		font.getData().setScale(1); // Scale up the font size
 
 		/* **************************
@@ -384,6 +384,10 @@ public class AmpEngine extends ApplicationAdapter{
 	
 	@Override
 	public void render() {
+		if(player.getPosY()<0) {
+			player.setPosX(42);
+			player.setPosY(132);
+		}
 	    sceneManager.clearScreen();
 	    if(sceneManager.getDrawMenu() == 0) {
 	    	if(gameLost == false) {

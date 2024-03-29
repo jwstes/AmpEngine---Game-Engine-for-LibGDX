@@ -50,12 +50,12 @@ public class SceneManager{
 	long lastHealthReductionTime = 0;
 	private boolean textDisplayed = false;
 	private boolean factsDisplayed = false;
-	private GameOverScene displayFact;
+	private SceneOverlay displayFact;
 	
     
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
     private CollisionManager collisionManager;
-    private GameOverScene gameOverScene;
+    private SceneOverlay gameOverScene;
     private PlayerEntity player;
     public PlayerControl playerControl;
     public OutputManager outputManager;
@@ -535,7 +535,7 @@ public class SceneManager{
         // Load the game over scene
         if (gameOverScene == null) {
             Texture gameOverTexture = new Texture("gameover.png");
-            gameOverScene = new GameOverScene(gameOverTexture);
+            gameOverScene = new SceneOverlay(gameOverTexture);
         }
 
         clearScreen();
@@ -544,7 +544,7 @@ public class SceneManager{
 	
 	public void DisplayText2(String fact) {
 	    if (displayFact == null) {
-	        displayFact = new GameOverScene(fact); // Create a GameOverScene with the provided fact
+	        displayFact = new SceneOverlay(fact); // Create a GameOverScene with the provided fact
 	    }
 	    displayFact.render(batch, fact);
 	    textDisplayed = true;
